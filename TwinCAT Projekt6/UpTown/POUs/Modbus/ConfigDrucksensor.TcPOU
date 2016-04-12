@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
+  <POU Name="ConfigDrucksensor" Id="{b87e714b-b276-4678-8f8f-370ada363745}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM ConfigDrucksensor
+VAR
+	state : INT;
+	
+	bConfigPT_setadresse: 	BOOL;
+	bConfigPT_setUART: 		BOOL;
+	
+	(*Daten für die Konfiguration vom Keller-Drucksensor*)	
+	UART_akt: 				WORD;
+	UARTsettings_akt:		ARRAY[0..1]OF BYTE;
+	UARTsettings_neu: 		ARRAY[0..1]OF BYTE  := [48,0];
+	wUARTsettings_neu:		WORD:= 112;
+	sUARTsettings_neu: 		STRING;
+	ModbusAddress_alt: 		WORD {1..250}:= 11;			//alte Modbusadresse des Slaves. Anfangs gleich der Auslieferungsadresse
+	ModbusAddress_neu: 		WORD {3..12} := 9;			//neue Modbusadresse des Slaves. 
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[(*Keller-Slaves Konfiguration*)
+
+IF bConfigPT_setadresse THEN
+	state :=1;
+END_IF
+
+IF bConfigPT_setUART THEN
+	state := 3;
+END_IF
+
+CASE state OF
+1:   (* Write Register, write new address to Slave *)	
+	 	MODBUS.myModbus.WriteRegs (* writes data to a connected slave. *)
+ 		(
+ 		 UnitID:= WORD_TO_BYTE(ModbusAddress_alt),
+ 		 Quantity:= 1,
+ 		 MBAddr:= 525,							//Keller: DEV_ADDR 0x020D= DECx525
+ 		 cbLength:= SIZEOF(ModbusAddress_neu),
+ 		 pMemoryAddr:= ADR(ModbusAddress_neu),
+  		Execute:= TRUE,
+  		Timeout:= modbusTimeout,
+  		Busy => isModbusBusy,
+  		Error => isModbusError,
+  		ErrorId => modbusErrorId
+  		(* cbRead parameter *));
+		
+  		IF NOT isModbusBusy THEN
+				MODBUS.myModbus.WriteRegs(Execute:= FALSE);
+			IF MODBUS.myModbus.Error THEN
+				state := 1;
+			ELSE
+				state := 32;	
+			END_IF
+		END_IF
+
+	
+2: 	(* TEST-READ Regs from connected Slave *)
+
+		 myModbus.ReadRegs 
+ 		(
+ 		 UnitID:= WORD_TO_BYTE(ModbusAddress_neu),
+ 		 Quantity:= 2,						//2 Regs für den Druck P1 oder Temperatur TOB1
+ 		 MBAddr:= 2,						//DECx02 Reg-Adresse für P1, DECx08 Reg-Adresse für TOB1
+ 		 cbLength:= SIZEOF(ModbusAddress_neu),
+ 		 pMemoryAddr:= ADR(ModbusAddress_neu),
+  		Execute:= TRUE,
+  		Timeout:= modbusTimeout,
+  		Busy => isModbusBusy,
+  		Error => isModbusError,
+  		ErrorId => modbusErrorId
+  		(* cbRead parameter *));
+		
+  		IF NOT isModbusBusy THEN
+				MODBUS.myModbus.ReadRegs(Execute:= FALSE);
+			IF myModbus.Error THEN
+				state := 1;
+			ELSE
+				state := 2;	
+			END_IF
+		END_IF
+		
+3: (* Write Register, write new UART-settings to Slave *)
+
+	IF bConfigPT_setUART THEN
+	 	MODBUS.myModbus.WriteSingleRegister (* writes data to a connected slave. *)
+ 		(
+ 		 UnitID:= WORD_TO_BYTE(ModbusAddress_neu),
+ 		 Quantity:= 1,
+ 		 MBAddr:= 512,							//Keller: DEV_ADDR 0x020D= DECx525
+ 		 cbLength:= SIZEOF(wUARTsettings_neu),
+ 		 pMemoryAddr:= ADR(wUARTsettings_neu),
+  		Execute:= TRUE,
+  		Timeout:= modbusTimeout,
+  		Busy => isModbusBusy,
+  		Error => isModbusError,
+  		ErrorId => modbusErrorId
+  		(* cbRead parameter *));
+		
+		sUARTsettings_neu:= CONCAT(BYTE_TO_STRING(UARTsettings_neu[1]), BYTE_TO_STRING(UARTsettings_neu[0]));
+  		IF NOT isModbusBusy THEN
+				MODBUS.myModbus.WriteSingleRegister(Execute:= FALSE);
+			IF MODBUS.myModbus.Error THEN
+				state := 1;
+			ELSE
+				state := 4;	
+			END_IF
+		END_IF
+	ELSE
+		state:= 4;
+  	END_IF
+
+4: (* Read UART-Register from Slave *)
+
+	 	MODBUS.myModbus.ReadRegs
+ 		(
+ 		 UnitID:= WORD_TO_BYTE(ModbusAddress_neu),
+ 		 Quantity:= 1,
+ 		 MBAddr:= 512,							//Keller: DEV_ADDR 0x020D= DECx525
+ 		 cbLength:= SIZEOF(UARTsettings_akt),
+ 		 pMemoryAddr:= ADR(UARTsettings_akt),
+  		Execute:= TRUE,
+  		Timeout:= modbusTimeout,
+  		Busy => isModbusBusy,
+  		Error => isModbusError,
+  		ErrorId => modbusErrorId
+  		(* cbRead parameter *));
+		
+		//Ändert die Byte-Reihenfolge und konvertiert sie in ein WORT
+		UART_akt:= WORD_OF_BYTE(UARTsettings_akt[1], UARTsettings_akt[0]);
+		
+		
+  		IF NOT isModbusBusy THEN
+				MODBUS.myModbus.ReadRegs(Execute:= FALSE);
+			IF MODBUS.myModbus.Error THEN
+				state := 1;
+			ELSE
+				state := 4;	
+			END_IF
+		END_IF
+		
+END_CASE]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

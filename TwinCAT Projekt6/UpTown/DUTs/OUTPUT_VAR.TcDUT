@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
+  <DUT Name="OUTPUT_VAR" Id="{f3369846-c2c6-4bc7-a0c5-f550e9f350e4}">
+    <Declaration><![CDATA[TYPE OUTPUT_VAR :
+STRUCT
+(*	
+REAL_VAR=INT_VAR_Output*REAL_PARA_M+REAL_PARA_C
+REAL_PARA_minWert>=REAL_VAR>=REAL_PARA_maxWert
+*)
+
+	INT_VAR_Output AT %Q*	:INT ; //Output an Klemme (z.B. 2100)
+	REAL_VAR 				:REAL; //Wert als REAL/Float/Single (z.B. 21.00)
+	REAL_PARA_M 			:REAL; //Parameter M
+	REAL_PARA_C 			:REAL; //Parameter C
+	REAL_PARA_maxWert 		:REAL; //Maximaler Wert des nativen Wertes (z.B. 10V, 20mA)
+	REAL_PARA_minWert 		:REAL; //Minimaler Wert des nativen Wertes (z.B. 0V, 4mA)
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

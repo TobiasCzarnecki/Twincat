@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
+  <DUT Name="Stoffwerte" Id="{a9d357f2-ecb0-4c75-9d71-911c2b7f6b34}">
+    <Declaration><![CDATA[TYPE Stoffwerte :
+STRUCT
+	Temperatur 	: REAL; //°C
+	Dichte		: REAL; //kg/m³
+	Cp			: REAL;	//kJ/kg K
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

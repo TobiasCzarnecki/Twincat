@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
+  <POU Name="ConfigMassenstromsensor" Id="{52b384ce-caf4-4982-bf28-42a525628c31}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM ConfigMassenstromsensor
+VAR
+	state : INT;
+	
+	
+	ModbusAdresse: 		BYTE := 1;
+	baudrate_neu:	 	LINT;
+	baudrate_alt:	 	LINT;
+	
+	
+	
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[CASE MODBUS.Status_Modbus OF
+	ConfigMSS:
+	
+	CASE state OF
+		
+		1:
+		
+		MODBUS.myModbus.ReadRegs( 		 
+			UnitID:= ModbusAdresse,
+ 			 Quantity:= 2,
+ 			 MBAddr:= 50000,						
+ 			 cbLength:= SIZEOF(baudrate_alt),
+ 			 pMemoryAddr:= ADR(baudrate_alt),
+  			Execute:= TRUE,
+  			Timeout:= modbusTimeout,
+  			Busy => isModbusBusy,
+  			Error => isModbusError,
+  			ErrorId => modbusErrorId
+  			(* cbRead parameter *));
+			
+		
+		IF NOT isModbusBusy THEN
+				MODBUS.myModbus.ReadRegs(Execute:= FALSE);
+				IF MODBUS.myModbus.Error THEN
+				state := 1;
+				ELSE
+				state := 32;	
+			END_IF
+		END_IF
+		
+		2:
+		MODBUS.myModbus.ReadRegs( 		 
+			UnitID:= ModbusAdresse,
+ 			Quantity:= 2,
+ 			MBAddr:= 50000,						
+ 			cbLength:= SIZEOF(baudrate_alt),
+ 			pMemoryAddr:= ADR(baudrate_alt),
+  			Execute:= TRUE,
+  			Timeout:= modbusTimeout,
+  			Busy => isModbusBusy,
+  			Error => isModbusError,
+  			ErrorId => modbusErrorId
+  			(* cbRead parameter *));
+			
+		
+		IF NOT isModbusBusy THEN
+				MODBUS.myModbus.ReadRegs(Execute:= FALSE);
+				IF MODBUS.myModbus.Error THEN
+				state := 1;
+				ELSE
+				state := 32;	
+			END_IF
+		END_IF
+		
+		
+		3:
+		
+	END_CASE
+	
+END_CASE]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

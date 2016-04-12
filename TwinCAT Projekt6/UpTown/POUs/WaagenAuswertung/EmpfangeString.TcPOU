@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
+  <POU Name="EmpfangeString" Id="{b09c2cc0-aebf-4746-a822-3047028cb3c1}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM EmpfangeString
+VAR
+	MyReal: 			REAL;
+	bStabilerWert: 		BOOL;
+	ReceiveString_Buffer : ReceiveString;
+	
+	eError				: ComError_t;
+	stReceivedString	: STRING;
+	stLastStringReceived: STRING;
+	
+	bbusy: 				BOOL;
+	bRxTimeout: 		BOOL;
+	bReset:				BOOL;
+	bStringReceived	:	BOOL;
+
+	tTimeout: TIME;
+	
+	Var1: 		INT;
+	Var2:		INT;
+	Var3: 		INT;
+	Position_g: INT;
+	MyString: 			STRING(80);
+	LastStringReceived: STRING;
+
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[//Empfange Datenstring aus dem Datenpuffer RxBuffer der jeweiligen Waage
+ReceiveString_Buffer(
+	Prefix:= '', 
+	Suffix:= '$R$N', 
+	Timeout:=tTimeout , 
+	Reset:=bReset , 
+	StringReceived=>bStringReceived , 
+	Busy=>bbusy , 
+	Error=>eError, 
+	RxTimeout=> bRxTimeout ,
+	ReceivedString:= stReceivedString, 
+	RXbuffer:= RxBuffer1);
+	
+
+//Übergabe des empfangenen Strings an MyString und Längenabfrage
+MyString:= stReceivedString;
+Var1:= LEN (MyString);
+
+
+//Löschen von $R$N aus MyString und Längenabfrage
+MyString := DELETE (MyString,4,16); 
+Var2:= LEN (MyString);
+
+
+//Löschen der Leerzeichen aus MyString und Längenabfrage
+WHILE FIND(MyString,' ') <> 0 DO
+	MyString:=DELETE (MyString,1,FIND(MyString,' '));
+END_WHILE
+Var3:= LEN (MyString);
+
+
+(*Überprüfen ob ein stabiler Messwert an der Waage anliegt
+	Falls 'g' in MySting vorhanden 		-> Boolvariable bStabilerWert TRUE
+	Falls kein 'g' in MyString vorhanden-> Boolvariable bStabilerWert FALSE	*)
+	
+Position_g := FIND(MyString,'g');
+CASE Position_g OF
+	0: bStabilerWert := FALSE;
+	ELSE
+	bStabilerWert := TRUE;
+END_CASE
+
+// Übergabe von MyString in Realvariable MyReal
+MyReal:=STRING_TO_REAL(MyString);
+
+//
+
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

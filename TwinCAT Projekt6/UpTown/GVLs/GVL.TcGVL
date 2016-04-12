@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
+  <GVL Name="GVL" Id="{c411875a-406b-4962-9769-e54fbe539288}">
+    <Declaration><![CDATA[VAR_GLOBAL
+
+(*Hier sind alle Drucksensoren deklariert, die im Kältekreislauf installiert sind.
+	Die Positionen (Pos) beziehen sich auf das RI-Fließbild von der Kälteanlage*)
+
+		PT_test : 			DRUCKSENSOR;		//nur zu Testprogrammierung
+	
+		PT_KP_in: 			DRUCKSENSOR;		//Pos 1: PT-Sensor vor Kompressor
+		PT_KP_out:			DRUCKSENSOR;		//Pos 2: PT-Sensor nach Kompressor
+
+		PT_VF_in:			DRUCKSENSOR;		//Pos 2': PT-Sensor vor Verflüssiger bzw. nach Abtau-Verdampfer 
+		PT_VF_out:			DRUCKSENSOR;		//Pos 3': PT-Sensor nach Verflüssiger bzw. vor Abtau-Verdampfer 
+
+		//PT_VD_defrost_in:= PT_VF_out;			//Pos 3': PT-Sensor vor Verdampfer außerhalb der Klimakammer
+		//PT_VD_defrost_out:= PT_VF_in;			//Pos 2': PT-Sensor nach Verdampfer außerhalb der Klimakammer
+
+		PT_vor_EV 	: 		DRUCKSENSOR;		//Pos 3: PT-Sensor vor dem Expansionsventil IV3
+		PT_vor_EV_rev : 	DRUCKSENSOR;		//Pos 3: PT-Sensor vor dem Expansionsventil IV4,bei Strömungsumkehrung (reverse)
+
+		PT_VD_in	:		DRUCKSENSOR;		//Pos 4 : PT-Sensor vor Verdampfer in der Klimakammer 
+		PT_VD_out	:		DRUCKSENSOR;		//Pos 1': PT-Sensor nach Verdampfer in der Klimakammer 
+
+		//PT_VD_in_rev:= PT_VD_out;				//Pos 1': PT-Sensor vor Verdampfer bei Strömungsumkehrung(reverse) 	
+		//PT_VD_out_rev:= PT_VD_in;				//Pos 4: PT-Sensor nach Verdampfer bei Strömungsumkehrung(reverse) 
+
+
+
+(*Hier sind alle Temperatursensoren deklariert, die im Kältekreislauf installiert sind.
+	Die Positionen (Pos) beziehen sich auf das RI-Fließbild von der Kälteanlage*)
+	
+		Temp_VD_in:					INPUT_VAR; //Pos 4: T-Sensor vor Verdampfer in der Klimakammer 
+		Temp_VD_out:				INPUT_VAR; //Pos 1': T-Sensor nach Verdampfer in der Klimakammer
+	
+		Temp_VD_in_rev:	 			INPUT_VAR; //Pos 1A': T-Sensor vor Verdampfer bei Strömungsumkehrung(reverse) 	
+		Temp_VD_out_rev:			INPUT_VAR; //Pos 4A: T-Sensor nach Verdampfer bei Strömungsumkehrung(reverse)
+
+		Temp_VD_surface: 			INPUT_VAR; //T-Sensor auf Wärmeübertrager im Verdampfer in der Klimakammer	
+
+		Temp_VF_in:					INPUT_VAR ; // Pos 2': T-Sensor vor Verflüssiger    
+		Temp_VF_out: 				INPUT_VAR ; // Pos 3': T-Sensor nach Verflüssiger
+		
+		Temp_VD_defrost_in:			INPUT_VAR; // Pos 3A': T-Sensor vor Verdampfer außerhalb der Klimakammer
+		Temp_VD_defrost_out:		INPUT_VAR; // Pos 2A': T-Sensor nach Verdampfer außerhalb der Klimakammer
+
+		Temp_KP_in:					INPUT_VAR; // Pos 1: T-Sensor vor Kompressor, im RI-Schema Position 1
+		Temp_KP_out:				INPUT_VAR; // Pos 2: T-Sensor nach Kompressor,im RI-Schema Position 2
+		
+		Temp_vor_EV:				INPUT_VAR; // Pos 3: T-Sensor vor dem Expansionsventil IV3
+		Temp_vor_EV_rev:			INPUT_VAR; // Pos 3: T-Sensor vor dem Expansionsventil IV4,bei Strömungsumkehrung (reverse)
+	
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

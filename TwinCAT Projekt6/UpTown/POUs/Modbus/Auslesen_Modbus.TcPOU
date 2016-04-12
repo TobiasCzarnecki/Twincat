@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
+  <POU Name="Auslesen_Modbus" Id="{1e48c3d5-c6d7-4791-a739-e77e41e0e28f}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Auslesen_Modbus
+VAR
+	Auslesen0, Auslesen1, Auslesen2, Auslesen3, Auslesen4, Auslesen5, Auslesen6, Auslesen7, Auslesen8 : FB_fpconverter;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[//Test...
+Auslesen0(myPT:=PT_test, PT=> PT_test);
+PT_test.Startfeld_ModbusData:= 2;
+
+//Auslesen der Druckdaten der 8 Drucksensoren im Kältekreis
+Auslesen1(myPT:= PT_KP_in, 	PT=> PT_KP_in);
+Auslesen2(myPT:= PT_KP_out, PT=> PT_KP_out);
+Auslesen3(myPT:= PT_VF_in,	PT=> PT_VF_in);
+Auslesen4(myPT:= PT_VF_out, PT=>PT_VF_out );
+Auslesen5(myPT:= PT_vor_EV, PT=>PT_vor_EV );
+Auslesen6(myPT:= PT_vor_EV_rev, PT=>PT_vor_EV_rev );
+Auslesen7(myPT:= PT_VD_in,  PT=> PT_VD_in);
+Auslesen8(myPT:= PT_VD_out, PT=> PT_VD_out);
+
+(*Deklarierung der ModbusData_Startfelder der Slaves Modbus. Hier schreibt der ModbusRTU die empfangenden Daten hinein
+	Startfeld entspricht zur Übersicht der Modbus-Adresse. *)
+PT_KP_in.Startfeld_ModbusData		:= 4;
+PT_KP_out.Startfeld_ModbusData		:= 5;
+PT_VF_in.Startfeld_ModbusData		:= 6;
+PT_VF_out.Startfeld_ModbusData		:= 7;
+PT_vor_EV.Startfeld_ModbusData		:= 8;
+PT_vor_EV_rev.Startfeld_ModbusData 	:= 9;
+PT_VD_in.Startfeld_ModbusData		:= 10;
+PT_VD_out.Startfeld_ModbusData		:= 11;
+
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

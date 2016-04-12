@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
+  <POU Name="FB_fpconverter" Id="{33502db5-a678-4ed2-b3b9-2ef877151637}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_fpconverter 
+(* Dieser FB dient zur Umrechnung der DATABYTEs in einen REAL-Wert.
+	Je nach ausgeführtem Modbus-Befehl(nur Druck oder Temperatur, oder beides) werden
+	unterschiedlich viele DATABYTEs von dem Drucksensor geschickt. 
+	Die Boolvariablen zur Druck- und Temperaturabfrage müssen durch den User gesetzt werden.
+	Der FB gibt den Druck und die Temperatur in REAL an die STRUCT Drucksensor zurück.*)
+
+VAR_INPUT
+	myPT : Drucksensor;
+END_VAR
+VAR
+	myString_druck: STRING(32);
+	myString_temp: STRING(32);
+END_VAR
+
+VAR_OUTPUT
+		PT: Drucksensor;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[//Umrechnung der BYTEs in Binär-STRINGs und zusammensetzen der 4 DATA-BYTEs zu einem 32 bit STRING
+myPT.Data[0]:= ModbusRTU.modbusData_PT[myPT.Startfeld_ModbusData];
+
+	IF myPT.bDruckabfrage THEN
+		myString_druck:=DWORD_TO_BINSTRING(ModbusRTU.modbusData_PT[myPT.Startfeld_ModbusData]);
+		myPT.rDruck:=BINSTRING_TO_REAL(myString_druck); 		// tatsächlicher Druck in Bar
+	ELSE
+		myPT.rDruck:=0;	
+	END_IF
+	
+	
+(*Umrechnung für Temperatur, falls bTemperaturabfrage gleich TRUE *)	
+	IF myPT.bTemperaturabfrage  THEN
+		myString_druck:=DWORD_TO_BINSTRING(ModbusRTU.modbusData_PT[myPT.Startfeld_ModbusData]);
+		myPT.rTemp:= BINSTRING_TO_REAL(myBinString:= myString_temp); 		//Umrechnung nach IEEE 754 von 32 bit floating point zur REAL-Variable 
+	ELSE
+		myPT.rTemp:= 0;
+	END_IF
+
+PT := myPT;  ]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

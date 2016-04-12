@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
+  <DUT Name="WAAGE_VAR" Id="{02166590-eac0-43fe-9e94-88f3d5299a78}">
+    <Declaration><![CDATA[TYPE WAAGE_VAR :
+STRUCT
+	(*für Verknüpfung mit der Klemme EL6002*)
+
+//in Daten
+    EL6002_in AT %I*: EL6inData22B;				// wird mit COM TxPDO Status verknüpft und mit COM TxPDO Data Inxx multiverknüpft
+  					
+//out Daten
+	EL6002_out AT %Q*: EL6outData22B;			// wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft
+
+	rGewicht			: REAL;					// angegeben in [gr]		
+	bStabilerWert      	: BOOL;					// wird TRUE falls der ausgegebene Wert stabil ist
+	
+	xPosition			: REAL;					// [mm]; relativ zum 2D-Mittelpunkt des Wärmeübertragers im VD
+	yPosition			: REAL;					// [mm]; relativ zum 2D-Mittelpunkt des Wärmeübertragers im VD
+END_STRUCT
+END_TYPE
+
+
+	
+
+
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

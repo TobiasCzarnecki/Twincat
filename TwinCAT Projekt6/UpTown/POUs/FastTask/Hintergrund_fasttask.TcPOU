@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
+  <POU Name="Hintergrund_fasttask" Id="{5b8e7963-7d73-4e8e-a2f7-5af83536eca0}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Hintergrund_fasttask
+VAR
+	Waage1: WaageBufferKomunikation;
+	Waage2: WaageBufferKomunikation;
+	Waage3: WaageBufferKomunikation;
+	Waage4: WaageBufferKomunikation;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+Waage1(myWaage:= Waage_1, myTxBuffer:= TxBuffer1, myRxBuffer:= RxBuffer1, Waage => Waage_1);
+
+Waage2(myWaage:= Waage_2, myTxBuffer:= TxBuffer2 , myRxBuffer:= RxBuffer2, Waage => Waage_2);
+
+Waage3(myWaage:= Waage_3, myTxBuffer:= TxBuffer3 , myRxBuffer:= RxBuffer3, Waage => Waage_3);
+
+Waage4(myWaage:= Waage_4, myTxBuffer:= TxBuffer4 , myRxBuffer:= RxBuffer4, Waage => Waage_4);]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

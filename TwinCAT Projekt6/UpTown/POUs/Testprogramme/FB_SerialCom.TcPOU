@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
+  <POU Name="FB_SerialCom" Id="{18673ba0-3eb9-4685-880f-e5b42f1d42d1}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_SerialCom
+VAR_IN_OUT
+	TxBuffer: ComBuffer;
+END_VAR
+
+VAR
+	Timer: TP;
+	fbSend : SendString;
+	fbReceive: ReceiveString;
+	bSendBusy: BOOL := FALSE;
+	eSendErrorID: ComError_t;
+	sReceivedString: STRING;
+	bStringReceived: BOOL;
+	bReceiveBusy: BOOL;
+	eReceiveErrorID: ComError_t;
+	bReceiveTimeout: BOOL;
+	nReceiveCounter: INT;
+	sLastReceiveString: STRING;
+	ClearComBuffer : ClearComBuffer;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[Timer(IN:=TRUE,PT:= T#10000MS);
+
+IF Timer.Q OR fbSend.Busy THEN
+	Timer(IN:=FALSE);
+	fbSend(SendString:= '$02Hello World ! $03',
+			TXbuffer := TxBuffer, 
+			Busy=> bSendBusy, 
+			Error=> eSendErrorID);
+END_IF
+
+ fbReceive(	Prefix:= '$02',
+			Suffix:= '$03',
+			Timeout:= T#1S,
+			ReceivedString:=sReceivedString,
+			RXbuffer:= TxBuffer,
+			StringReceived=> bStringReceived,
+			Busy=> bReceiveBusy,
+			Error=> eReceiveErrorID,
+			RxTimeout=> bReceiveTimeout);
+IF bStringReceived THEN
+	nReceiveCounter := nReceiveCounter + 1 ;
+	sLastReceiveString := sReceivedString;
+END_IF
+
+ClearComBuffer(Buffer:= TxBuffer);
+ ]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

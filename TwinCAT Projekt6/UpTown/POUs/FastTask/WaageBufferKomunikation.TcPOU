@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
+  <POU Name="WaageBufferKomunikation" Id="{5a0f0483-0a8c-480a-9ce3-77c725e7cd32}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK WaageBufferKomunikation
+VAR_INPUT
+	myWaage: 	WAAGE_VAR;
+END_VAR
+VAR_IN_OUT
+	myTxBuffer:	ComBuffer;
+	myRxBuffer: ComBuffer;
+END_VAR
+VAR_OUTPUT
+	Waage: 		WAAGE_VAR;
+END_VAR
+VAR
+	fb_SerialLineControl: SerialLineControl;
+	bEL6002CtrlError: BOOL;
+	eEL6002CtrlErrorID: ComError_t;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+fb_SerialLineControl(
+   Mode:= 		SERIALLINEMODE_EL6_22B, 
+   pComIn:= 	ADR(myWaage.EL6002_in), 
+   pComOut:= 	ADR(myWaage.EL6002_out), 
+   SizeComIn:=	SIZEOF(myWaage.EL6002_in), 
+   Error=> 		bEL6002CtrlError, 
+   ErrorID=> 	eEL6002CtrlErrorID, 
+   TxBuffer:= 	myTxBuffer, 
+   RxBuffer:= 	myRxBuffer );
+   
+   Waage:= myWaage;
+   ]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

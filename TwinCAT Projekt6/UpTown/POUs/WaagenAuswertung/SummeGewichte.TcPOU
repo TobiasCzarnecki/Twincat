@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
+  <POU Name="SummeGewichte" Id="{ff6fce1c-ae1c-4f56-8146-d5e0b11ba922}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM SummeGewichte
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

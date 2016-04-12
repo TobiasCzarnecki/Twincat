@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
+  <POU Name="MAIN" Id="{7650379b-af73-431c-a084-bfa6692fa016}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+strText:STRING;
+
+END_VAR
+
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[strText:= 'Hallo Welt';
+
+
+WaagenAuslesen();
+Auslesen_Modbus();
+ModbusRTU();
+Modbus_EL();
+AlleRealWerte();
+
+(*
+IF SM.NeuInitialisieren THEN //Prüfen ob neu initialisiert werden muss
+	SM.Status:= Initialisieren;
+	sm.Leerlauf:=TRUE;
+END_IF
+*)
+
+CASE SM.Status OF
+	
+
+Initialisieren: 
+
+Lesen: //Input von Klemmen Lesen und in native Werte umrechen
+
+	Temperatur();
+
+//======nächster Modus====			
+SM.Status:=Vollautomatik; //Regelbetrieb
+	
+
+		IF SM.bAbtauen_elektrisch THEN			
+			SM.Status:=Abtauen_elektrisch;			// Status wird auf Abtauen_elektrisch gesetzt
+			
+				SM.bAbtauen_Heissgas_oben 		:= FALSE;
+				SM.bAbtauen_Heissgas_unten 		:= FALSE;
+				SM.ManuellerModus				:= FALSE;
+			
+			AnlagenschutzModus:=TRUE;		
+		END_IF
+		
+		IF SM.bAbtauen_Heissgas_oben THEN
+			SM.Status:=Abtauen_Heissgas_oben;
+			
+				SM.bAbtauen_elektrisch			:=FALSE;
+				SM.bAbtauen_Heissgas_unten 		:=FALSE;
+				SM.ManuellerModus				:=FALSE;
+	
+			AnlagenschutzModus:=TRUE;
+		END_IF
+		
+		IF SM.bAbtauen_Heissgas_unten THEN
+			SM.Status:=Abtauen_Heissgas_unten;
+			
+				SM.bAbtauen_elektrisch			:=FALSE;
+				SM.bAbtauen_Heissgas_oben 		:=FALSE;
+				SM.ManuellerModus				:=FALSE;
+			
+			AnlagenschutzModus:=TRUE;
+		END_IF
+		
+		IF SM.ManuellerModus THEN
+			SM.Status:=Manuell;
+			
+				SM.bAbtauen_elektrisch			:=FALSE;
+				SM.bAbtauen_Heissgas_oben 		:=FALSE;
+				SM.bAbtauen_Heissgas_unten 	:=FALSE;
+			
+			SM.AbtauModus:=FALSE;
+		END_IF
+	
+//======nächster Modus====			
+Abtauen_elektrisch:
+
+//======nächster Modus====			
+Abtauen_Heissgas_oben:
+
+//======nächster Modus====			
+Abtauen_Heissgas_unten: 
+
+//======nächster Modus====			
+Vollautomatik:
+
+//======nächster Modus====			
+Manuell: 
+
+//======nächster Modus====			
+Anlagenschutz: 
+
+//======nächster Modus====			
+Schreiben:
+
+	Temperatur();
+	
+
+END_CASE
+
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

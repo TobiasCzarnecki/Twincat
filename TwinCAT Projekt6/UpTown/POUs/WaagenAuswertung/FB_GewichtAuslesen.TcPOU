@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
+  <POU Name="FB_GewichtAuslesen" Id="{9ecbff2b-ff30-4d42-b1dd-f996e45749eb}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_GewichtAuslesen
+
+VAR_INPUT
+	myWaage: WAAGE_VAR;		// Eine Inputvariable myWaage wird als WAAGE_VAR deklariert.
+END_VAR
+
+VAR_IN_OUT
+	myBuffer:ComBuffer;		// Ein Zwischenspeicher wird deklariert. Buffer immer als VAR_IN_OUT deklarieren
+END_VAR
+
+VAR
+
+(*Es folgen Variabeln die der FB ReceiveString benötigt*)
+	ReceiveString_Buffer:	ReceiveString;
+	tTimeout: 				TIME;
+	bReset: 				BOOL;
+	bStringReceived:		BOOL;
+	bbusy:					BOOL;
+	bRxTimeout: 			BOOL;
+	eError: 				ComError_t;
+	stLastStringReceived: 	STRING;
+	stReceivedString: 		STRING;
+
+
+	Var1: INT;				//1.Stringlänge
+	Var2: INT;				//2.Stringlänge
+	Var3: INT;				//3.Stringlänge
+	MyString: STRING(80);	//
+	Position_g: INT;		// Position des Grammzeichens 'g'. Ausgabe von Waage nur bei stabilen Werten
+END_VAR
+VAR_OUTPUT
+	Waage: WAAGE_VAR (*:= myWaage*) ;  
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[//Empfange Datenstring aus dem Datenpuffer RxBuffer der jeweiligen Waage
+ReceiveString_Buffer(
+	Prefix:= '', 
+	Suffix:= '$R$N', 
+	Timeout:=tTimeout , 
+	Reset:=bReset , 
+	StringReceived=>bStringReceived , 
+	Busy=>bbusy , 
+	Error=>eError, 
+	RxTimeout=> bRxTimeout ,
+	ReceivedString:= stReceivedString, 
+	RXbuffer:= myBuffer);
+
+//Übergabe des empfangenen Strings an MyString und Längenabfrage
+MyString:= stReceivedString;
+Var1:= LEN (MyString);
+
+
+//Löschen von $R$N aus MyString und Längenabfrage
+MyString := DELETE (MyString,4,16); 
+Var2:= LEN (MyString);
+
+
+//Löschen der Leerzeichen aus MyString und Längenabfrage
+WHILE FIND(MyString,' ') <> 0 DO
+	MyString:=DELETE (MyString,1,FIND(MyString,' '));
+END_WHILE
+Var3:= LEN (MyString);
+
+
+(*Überprüfen ob ein stabiler Messwert an der Waage anliegt
+	Falls 'g' in MySting vorhanden 		-> Boolvariable bStabilerWert TRUE
+	Falls kein 'g' in MyString vorhanden-> Boolvariable bStabilerWert FALSE	*)
+Position_g := FIND(MyString,'g');
+CASE Position_g OF
+		0: myWaage.bStabilerWert := FALSE;
+	ELSE
+		myWaage.bStabilerWert := TRUE;
+END_CASE
+
+
+// Übergabe von MyString in Realvariable MyReal
+
+myWaage.rGewicht:=STRING_TO_REAL(MyString);
+
+Waage:= myWaage;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

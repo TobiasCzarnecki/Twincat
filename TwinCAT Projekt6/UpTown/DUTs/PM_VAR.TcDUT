@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
+  <DUT Name="PM_VAR" Id="{35461691-8c31-411d-9505-39e445d250a4}">
+    <Declaration><![CDATA[TYPE PM_VAR :
+STRUCT
+	
+(*	
+REAL_VAR=INT_VAR_Input*REAL_PARA_M+REAL_PARA_C
+REAL_PARA_minWert>=REAL_VAR>=REAL_PARA_maxWert
+*)	
+
+	INT_VAR_Input AT %I*					: INT ; //Input von Klemme (z.B. 2100)
+	REAL_VAR 								:REAL; //Wert als REAL/Float/Single (z.B. 21.00)
+	REAL_PARA_M_Strom 						:REAL; //Parameter M
+	REAL_PARA_C_Strom 						:REAL; //Parameter C
+	REAL_PARA_M_Spannung 					:REAL; //Parameter M
+	REAL_PARA_C_Spannung 					:REAL; //Parameter C
+	REAL_PARA_M_Wirkleistung 				:REAL; //Parameter M
+	REAL_PARA_C_Wirkleistung 				:REAL; //Parameter C
+	REAL_PARA_M_Leistungsfaktor 			:REAL; //Parameter M
+	REAL_PARA_C_Leistungsfaktor 			:REAL; //Parameter C
+	ControlByte AT %Q*						:USINT;	
+
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

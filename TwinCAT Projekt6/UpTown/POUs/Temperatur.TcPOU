@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
+  <POU Name="Temperatur" Id="{4d77f1ad-8412-447f-bda7-dbbf6e6d3ab0}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Temperatur
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[CASE SM.Status OF
+	Lesen:
+
+		Temp_VD_in.REAL_VAR			:= FB_SPS_zu_Nativ_lin 		(Input := Temp_VD_in);
+		Temp_VD_out.REAL_VAR		:= FB_SPS_zu_Nativ_lin 		(Input := Temp_VD_out);
+		
+		Temp_VD_in_rev.REAL_VAR		:= FB_SPS_zu_Nativ_lin 		(Input := Temp_VD_in_rev);
+		Temp_VD_out_rev.REAL_VAR	:= FB_SPS_zu_Nativ_lin 		(Input := Temp_VD_out_rev);
+		
+		Temp_VD_surface.REAL_VAR	:= FB_SPS_zu_Nativ_lin 		(Input := Temp_VD_surface);
+		
+		Temp_VF_in.REAL_VAR			:= FB_SPS_zu_Nativ_lin 		(Input := Temp_VF_in);
+		Temp_VF_out.REAL_VAR		:= FB_SPS_zu_Nativ_lin 		(Input := Temp_VF_out);
+		
+		Temp_VD_defrost_in.REAL_VAR	:= FB_SPS_zu_Nativ_lin	 	(Input := Temp_VD_defrost_in);
+		Temp_VD_defrost_out.REAL_VAR:= FB_SPS_zu_Nativ_lin 		(Input := Temp_VD_defrost_out);
+
+		Temp_KP_in.REAL_VAR			:= FB_SPS_zu_Nativ_lin 		(Input := Temp_KP_in);
+		Temp_KP_out.REAL_VAR		:= FB_SPS_zu_Nativ_lin 		(Input := Temp_KP_out);
+		
+		Temp_vor_EV.REAL_VAR		:= FB_SPS_zu_Nativ_lin 		(Input := Temp_vor_EV);
+		Temp_vor_EV_rev.REAL_VAR	:= FB_SPS_zu_Nativ_lin 		(Input := Temp_vor_EV_rev);
+		
+	Schreiben:
+		//kein Schreiben notwendig
+
+END_CASE]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

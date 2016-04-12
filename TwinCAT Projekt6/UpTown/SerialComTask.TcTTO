@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
+  <Task Name="SerialComTask" Id="{bb8dbb9c-4bb6-4f91-8ccd-dbd7b94ff6be}">
+    <!--CycleTime in micro seconds.-->
+    <CycleTime>40000</CycleTime>
+    <Priority>19</Priority>
+    <PouCall>
+      <Name>Hintergrund</Name>
+    </PouCall>
+    <PouCall>
+      <Name>ModbusRTU</Name>
+    </PouCall>
+    <PouCall>
+      <Name>MODBUS_EL</Name>
+    </PouCall>
+    <TaskFBGuid>{81b88b29-5b30-4cd2-8db1-61813bdad29a}</TaskFBGuid>
+    <Fb_init>{ecd713ab-0b58-4199-aac5-432615872dca}</Fb_init>
+    <Fb_exit>{59310768-3821-4295-8224-f7697d81b6b2}</Fb_exit>
+    <CycleUpdate>{93716dce-526a-4749-9496-ac37da840d00}</CycleUpdate>
+    <PostCycleUpdate>{a478c21c-89d0-4807-a291-3f43d25155b5}</PostCycleUpdate>
+  </Task>
+</TcPlcObject>

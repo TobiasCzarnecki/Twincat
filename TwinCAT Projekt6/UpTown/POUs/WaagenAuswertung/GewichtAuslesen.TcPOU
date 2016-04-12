@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
+  <POU Name="GewichtAuslesen" Id="{95a8e8ca-774f-46a7-ab29-51429ba5093e}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM GewichtAuslesen
+VAR
+	counter:INT;
+	MyREAL:	REAL;
+	a:		INT;
+	DataINString:  ARRAY[0..21]OF STRING;
+	DataIN  : ARRAY[0..21]OF BYTE;
+	MyString:STRING(22);
+	Timer: TON;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF Timer.Q THEN
+DataIN := WAAGEN.Waage_1.EL6002_in.D;
+
+
+counter:=0;
+SC.MyString:='';
+FOR counter:=0 TO 21 DO
+	DataINString[counter]:= F_ToCHR(DataIN[counter]);
+	MyString:=CONCAT(MyString,DataINString[counter]);	
+END_FOR
+a:=0;
+a:=Find(MyString,'$R$N')-1;
+MyString:=LEFT(MyString,a);
+
+WHILE FIND(MyString,' ') <> 0 DO
+	MyString:=DELETE (MyString,1,FIND(MyString,' '));
+END_WHILE
+END_IF
+
+MyREAL:=STRING_TO_REAL(MyString);
+
+//orginal
+(*
+counter:=0;
+SC.MyString:='';
+FOR counter:=0 TO 21 DO
+	SC.DataINString[counter]:= F_ToCHR(SC.DataIN[counter]);
+	SC.MyString:=CONCAT(SC.MyString,SC.DataINString[counter]);	
+END_FOR
+a:=0;
+a:=Find(SC.MyString,'g')-1;
+SC.MyString:=LEFT(SC.MyString,a);
+
+WHILE FIND(sc.MyString,' ') <> 0 DO
+	SC.MyString:=DELETE (SC.MyString,1,FIND(sc.MyString,' '));
+END_WHILE
+
+
+MyREAL:=STRING_TO_REAL(SC.MyString);*)]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

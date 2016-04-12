@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
+  <POU Name="Druckumrechnung" Id="{b336df0e-d242-4373-b94e-a5261161e21e}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Druckumrechnung
+VAR
+	
+	fbton1: TON;
+	flag: BOOL := TRUE;
+	stDruck		:DWORD:= 10000001001010010000001011011110;
+	stDruck2: T_MaxString;
+	stByte_reg1: STRING;
+	stByte_reg2: STRING;
+	stReg: T_MaxString;
+	stReg1: STRING;
+	stReg2: STRING;
+	DruckBaby: LREAL;
+	Reg: T_FIX16;
+	
+	stSign		:STRING(255);
+	iSign		:INT;
+	stExponent	:STRING(255);
+	iExponent	:INT;	
+	stMantis	:STRING(255);
+	iMantis		:INT;
+	rMantis		:REAL;// := 2687710;
+	fDruck		:LREAL;
+	rSign: REAL ;//:= 0;
+	rExponent: REAL ;// := 130;
+	Test: REAL2;
+	rTest: REAL;
+	DWSign: DWORD;
+	DWExponent: DWORD;
+	DWMantis: DWORD;
+	Var1: WORD;
+
+	
+	
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[//		fbton1(IN:= NOT fbton1.Q, PT:= T#1S, Q=> , ET=> );
+
+(*
+Byte_reg1 := BE32_TO_HOST(in:= modbusData[20]);
+Reg:=WORD_TO_FIX16(in:=modbusData[20],n:= 15 );
+DruckBaby:=FIX32_TO_LREAL(in:=Reg)*100;
+*)
+
+(*
+Byte_reg1 := BE16_TO_HOST(in:= modbusData[20]);
+Byte_reg2 := BE16_TO_HOST(in:= modbusData[21]);
+
+stByte_reg1 := WORD_TO_BINSTR (in:=Byte_reg1, iPrecision :=16);
+stByte_reg2 := WORD_TO_BINSTR (in:=Byte_reg2, iPrecision :=16);
+
+stDruck:= CONCAT(STR1:= stByte_reg1, STR2:= stByte_reg2);
+
+*)
+
+//stDruck:=DWORD_TO_BINSTR(in:= BE32_TO_HOST(in:= modbusData[20]), iPrecision:=32);
+
+
+
+
+stSign:= LEFT(stDruck,1);
+iSign:=LEN(stSign);
+DWSign:=BIN_TO_DWORD(BIN:= stSign);
+rSign:= DWORD_TO_REAL(DWSign);
+		
+		
+stExponent	:=RIGHT(LEFT(stDruck,9),8);
+iExponent	:=LEN(stExponent);
+DWExponent	:=BIN_TO_DWORD(BIN:=stExponent);
+rExponent	:= DWORD_TO_REAL(DWExponent);
+
+stMantis	:= RIGHT(stDruck,23);
+iMantis		:= LEN(stMantis);
+DWMantis	:= BIN_TO_DWORD(BIN:=stMantis);
+rMantis		:= DWORD_TO_REAL (DWMantis);
+
+fDruck := F_POWER(a:= 1, x:= (-1), n:= rSign)*(1+ rMantis/8388608)* F_POWER(a:=1, x:= 2, n:=(rExponent-127));
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

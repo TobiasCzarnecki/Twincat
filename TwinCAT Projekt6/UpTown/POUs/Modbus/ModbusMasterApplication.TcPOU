@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
+  <POU Name="ModbusMasterApplication" Id="{6b2e8fc3-13f0-4935-9da9-b81526e25985}" SpecialFunc="None">
+    <Declaration><![CDATA[(* 	Modbus-RTU Master
+ * 	sample application
+ *
+ * 	Modbus master accessing up to 8 modbus slaves
+ *)
+PROGRAM ModbusMasterApplication
+VAR
+	MBKeyboard : ARRAY[1..16] OF WORD;	(* Keyboard area for a SAE-Stahl terminal e. g. MT-45 or MT-50 *)
+	MBdata : ARRAY[0..99] OF WORD;		(* The size of this array can be adapted to the modbus slaves register area *)
+	ModbusAddress : ARRAY[1..8] OF BYTE := [1,2,3,4,5,6,7,8]; (* list of Modbus slave addresses *)
+	MB: ModbusRtuMaster_PcCOM;
+	FtrigBusy: F_TRIG;
+	timeoutvalue: TIME := T#300ms;		(* timeout while waiting for an answer of the modbus slave *)
+	Unit: BYTE;
+	state: INT;
+	busy: BOOL;
+	LastErrorstate: INT;
+	LastModbusError: ST_ModbusErrorDiagnostics;
+	CounterError: DINT;
+	CounterSuccess: DINT;
+	i: INT;
+	x: INT;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+CASE state OF
+	0:
+		MB.ReadRegs(Execute:= FALSE); (* initialize *)
+
+		(* select one out of eight Modbus slaves *)
+		Unit := Unit + 1;
+		IF Unit > 8 THEN
+			Unit := 1;
+		END_IF
+
+		state := state + 1;
+
+	(*=================*)
+	(* test data only!!! *)
+		IF Unit = 1 THEN
+	 		x := x + 1;
+			IF x >= 100 THEN x := 0;
+		END_IF
+			FOR i := 0 TO 9 DO
+				MBdata[i] := i*100 + x;
+			END_FOR
+		END_IF
+	(*=================*)
+
+	1:	(* Read Keyboard *)
+		MB.ReadRegs(
+			UnitID:= ModbusAddress[Unit], (* station address *)
+			Quantity:= SIZEOF(MBKeyboard) / 2,	(* WORDs *)
+			MBAddr:= 0,
+			cbLength:= SIZEOF(MBKeyboard),
+			pMemoryAddr:= ADR(MBKeyboard),
+			Execute:= TRUE,
+			Timeout:= timeoutvalue,
+			Busy => busy	);
+		IF NOT busy THEN
+			MB.ReadRegs(Execute:= FALSE);
+			IF MB.Error THEN
+				state := 0;
+			ELSE
+				state := state + 1;
+			END_IF
+		END_IF
+
+	2:	(* Read MBdata[20..40] from terminal address 100 *)
+		MB.ReadRegs(
+			UnitID:= ModbusAddress[Unit], (* station address *)
+			Quantity:= 20,	(* WORDs *)
+			MBAddr:= 100,
+			cbLength:= 40,	(* 20 words *)
+			pMemoryAddr:= ADR(MBdata[20]),
+			Execute:= TRUE,
+			Timeout:= timeoutvalue,
+			Busy => busy	);
+		IF NOT busy THEN
+			MB.ReadRegs(Execute:= FALSE);
+			state := state + 1;
+		END_IF
+
+	3:	(* Write value MBdata[0..9] to terminal registers 60-70 *)
+		MB.WriteRegs(
+			UnitID:= ModbusAddress[Unit], (* station address *)
+			Quantity:= 10, (* WORDs *)
+			MBAddr:= 60,
+			cbLength:= SIZEOF(MBdata),	(* maximum buffer size *)
+			pMemoryAddr:= ADR(MBdata[0]),
+			Execute:= TRUE,
+			Timeout:= timeoutvalue,
+			Busy => busy	);
+		IF NOT busy THEN
+			MB.WriteRegs(Execute:= FALSE);
+			state := 0;
+		END_IF
+END_CASE
+
+FtrigBusy(CLK:=mb.BUSY );
+IF FtrigBusy.Q THEN
+	IF mb.Error THEN
+		LastModbusError := mb.ErrorDiagnostics;
+		LastErrorstate := state;
+		CounterError := CounterError + 1;
+	ELSE
+		CounterSuccess := CounterSuccess + 1;
+	END_IF
+END_IF
+
+
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

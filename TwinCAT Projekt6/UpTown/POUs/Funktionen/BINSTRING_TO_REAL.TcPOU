@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
+  <POU Name="BINSTRING_TO_REAL" Id="{0c0fda2a-0b58-4c3a-b9dd-ada1839df84a}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION BINSTRING_TO_REAL : REAL
+VAR_INPUT
+	myBinString : STRING(32);
+END_VAR
+VAR
+	stSign: STRING(1);
+	rSign: 	REAL;
+	Sign: 	BOOL;
+	
+	stExponent: STRING(8);
+	Exponent: 	UINT;
+	
+	stMantis: 	STRING(23);
+	Mantis: 	DWORD;
+
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[	
+	stSign		:= LEFT(myBinString,1);
+	Sign		:= STRING_TO_BOOL(stSign);
+	rSign		:= STRING_TO_REAL(stSign);
+
+	stExponent	:= RIGHT(LEFT(myBinString,9),8);	
+	Exponent	:= BYTE_TO_UINT(BIN_TO_BYTE(stExponent));
+
+	stMantis	:= RIGHT(myBinString,23);
+	Mantis		:= BIN_TO_DWORD(stMantis);
+
+	BINSTRING_TO_REAL:= FPU.ComposeRealRaw(bS:=Sign , uiE:= Exponent, udiM:= Mantis ); // Ergebnis in REAL
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

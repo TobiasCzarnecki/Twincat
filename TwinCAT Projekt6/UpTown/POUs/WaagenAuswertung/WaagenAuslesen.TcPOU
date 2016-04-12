@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
+  <POU Name="WaagenAuslesen" Id="{58121edd-f273-4acb-92a5-8b8bc8fa1c60}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM WaagenAuslesen
+(* Dieses Program wird dazu verwendet den aktuellen Waagenwert(String) aus dem Zwischenspeicher (RxBuffer) 
+	zu entnehmen. Nach der Verarbeitung im Funktionsbaustein werden alle Werte der Waage_X wieder sich
+	zugewiesen und gespeichert. *)  
+
+VAR
+	fb_Waage1 : FB_GewichtAuslesen;  	 
+	fb_Waage2 : FB_GewichtAuslesen;		
+	fb_Waage3 : FB_GewichtAuslesen;		
+	fb_Waage4 : FB_GewichtAuslesen;		
+	
+		
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+fb_Waage1(myWaage:= Waage_1 , myBuffer:= RxBuffer1 , Waage=> Waage_1 ); // Waage_1 wird ausgelesen
+fb_Waage2(myWaage:= Waage_2 , myBuffer:= RxBuffer2 , Waage=> Waage_2 ); // Waage_2 wird ausgelesen
+fb_Waage3(myWaage:= Waage_3 , myBuffer:= RxBuffer3 , Waage=> Waage_3 ); // Waage_3 wird ausgelesen
+fb_Waage4(myWaage:= Waage_4 , myBuffer:= RxBuffer4 , Waage=> Waage_4 ); // Waage_4 wird ausgelesen
+
+
+
+
+
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

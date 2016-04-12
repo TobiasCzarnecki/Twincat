@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
+  <GVL Name="REGLER" Id="{7b35d618-5e5e-4991-ac01-e7c1902fedd9}">
+    <Declaration><![CDATA[VAR_GLOBAL
+//Liste der zu regelnden Komponentem im Kältekreislauf
+	PID_Expansionsventil:PID;
+	PID_Expansionsventil_rev:PID;
+	PID_Kompressordrehzahl:PID;
+	PID_VD_Ventilatordrehzahl:PID;
+	PID_VF_Ventilatordrehzahl:PID;
+	PID_VD_defrost_Ventilatordrehzahl:PID;
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

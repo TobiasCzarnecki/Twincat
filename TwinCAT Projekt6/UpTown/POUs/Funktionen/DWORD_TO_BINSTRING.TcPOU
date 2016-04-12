@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
+  <POU Name="DWORD_TO_BINSTRING" Id="{a0662c63-f6b9-47f1-a7e7-38701cceaf1b}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION DWORD_TO_BINSTRING : STRING(32)
+VAR_INPUT
+	myDWORD:DWORD;		//DWORD aus der Klemme/Modbusarray
+END_VAR
+VAR
+		b3: BYTE; 
+		b2: BYTE;
+		b1: BYTE;
+		b0: BYTE;
+		s3: STRING(8);
+		s2: STRING(8);
+		s1: STRING(8);
+		s0: STRING(8);
+END_VAR
+
+
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[(*da Twincat mit LIL-Endian arbeitet und die Kellersensoren mit BIG-Endian,
+ müssen die Bytes paarweise vertauscht werden*)
+
+//Zerteilen des DWORDs in die 4 Bytes
+b3:= BYTE_OF_DWORD(myDWORD, 1);
+b2:= BYTE_OF_DWORD(myDWORD, 0);
+b1:= BYTE_OF_DWORD(myDWORD, 3);
+b0:= BYTE_OF_DWORD(myDWORD, 2);
+
+//Umrechnung der BYTES in Binärestrings mit der Länge 8 bits
+s3:= BYTE_TO_BINSTR(b3,8);
+s2:= BYTE_TO_BINSTR(b2,8);
+s1:= BYTE_TO_BINSTR(b1,8);
+s0:= BYTE_TO_BINSTR(b0,8);
+
+//Zusammenfügen der vier Binärstrings zu einem 32 bit String
+DWORD_TO_BINSTRING := CONCAT(CONCAT(s3,s2), CONCAT(s1,s0));
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
