@@ -2,8 +2,8 @@
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
   <Task Name="SerialComTask" Id="{bb8dbb9c-4bb6-4f91-8ccd-dbd7b94ff6be}">
     <!--CycleTime in micro seconds.-->
-    <CycleTime>40000</CycleTime>
-    <Priority>19</Priority>
+    <CycleTime>70000</CycleTime>
+    <Priority>8</Priority>
     <PouCall>
       <Name>Hintergrund</Name>
     </PouCall>
@@ -12,6 +12,9 @@
     </PouCall>
     <PouCall>
       <Name>ConfigDrucksensor</Name>
+    </PouCall>
+    <PouCall>
+      <Name>ConfigMassenstromsensor</Name>
     </PouCall>
     <TaskFBGuid>{81b88b29-5b30-4cd2-8db1-61813bdad29a}</TaskFBGuid>
     <Fb_init>{ecd713ab-0b58-4199-aac5-432615872dca}</Fb_init>

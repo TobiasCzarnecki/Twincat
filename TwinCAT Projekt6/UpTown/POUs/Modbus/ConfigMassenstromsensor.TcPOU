@@ -3,27 +3,37 @@
   <POU Name="ConfigMassenstromsensor" Id="{52b384ce-caf4-4982-bf28-42a525628c31}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM ConfigMassenstromsensor
 VAR
-	state : INT;
+	state : INT := 1;
 	
-	
-	ModbusAdresse: 		BYTE := 1;
 	baudrate_neu:	 	LINT;
 	baudrate_alt:	 	LINT;
+	baudrate_lilendian: LINT;
+	
+	ModbusAdresse_alt: 	 BYTE := 12;	//Massenstromsensor hat die default-Adresse 1
+	ModbusAddress_neu: 	 BYTE := 12; //Massenstromsensor hat die Adresse 12 im ModbusRTU
+	
+	Parity_alt: 			ARRAY[0..1]OF BYTE ;
+	Parity_neu:				ARRAY[0..1]OF BYTE := [3,0];
+	
+	RegisterFormat_alt:			ARRAY[0..1]OF BYTE :=[1, 0]; // in Big Endian
+	RegisterFormat_neu:			ARRAY[0..1]OF BYTE :=[0, 0]; // in Big Endian
 	
 	
 	
+
 END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[CASE MODBUS.Status_Modbus OF
-	ConfigMSS:
+
+ConfigMSS:
 	
 	CASE state OF
 		
 		1:
 		
 		MODBUS.myModbus.ReadRegs( 		 
-			UnitID:= ModbusAdresse,
+			UnitID:= ModbusAdresse_alt,
  			 Quantity:= 2,
  			 MBAddr:= 50000,						
  			 cbLength:= SIZEOF(baudrate_alt),
@@ -41,15 +51,18 @@ END_VAR
 				IF MODBUS.myModbus.Error THEN
 				state := 1;
 				ELSE
-				state := 32;	
+				state := 1;	
 			END_IF
 		END_IF
 		
-		2:
-		MODBUS.myModbus.ReadRegs( 		 
+		baudrate_lilendian:= BE32_TO_HOST(LINT_TO_DWORD( baudrate_alt));
+		
+(*
+	2:
+		MODBUS.myModbus.WriteRegs( 		 
 			UnitID:= ModbusAdresse,
  			Quantity:= 2,
- 			MBAddr:= 50000,						
+ 			MBAddr:= 50004,						
  			cbLength:= SIZEOF(baudrate_alt),
  			pMemoryAddr:= ADR(baudrate_alt),
   			Execute:= TRUE,
@@ -61,16 +74,14 @@ END_VAR
 			
 		
 		IF NOT isModbusBusy THEN
-				MODBUS.myModbus.ReadRegs(Execute:= FALSE);
+				MODBUS.myModbus.WriteRegs(Execute:= FALSE);
 				IF MODBUS.myModbus.Error THEN
 				state := 1;
 				ELSE
 				state := 32;	
 			END_IF
 		END_IF
-		
-		
-		3:
+*)
 		
 	END_CASE
 	

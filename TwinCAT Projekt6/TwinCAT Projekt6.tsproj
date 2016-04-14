@@ -119,7 +119,7 @@
 	<Project ProjectGUID="{101B1EEB-66FE-4A62-86EF-B049CAA5028A}" TargetNetId="5.33.15.132.1.1">
 		<System>
 			<Settings>
-				<IoIdleTask Priority="4" CycleTime="100000"/>
+				<IoIdleTask Priority="6" CycleTime="100000"/>
 			</Settings>
 			<Licenses>
 				<Target>
@@ -127,10 +127,10 @@
 				</Target>
 			</Licenses>
 			<Tasks>
-				<Task Id="3" Priority="18" CycleTime="100000" AmsPort="350">
+				<Task Id="3" Priority="4" CycleTime="100000" AmsPort="350">
 					<Name>PlcTask</Name>
 				</Task>
-				<Task Id="4" Priority="19" CycleTime="400000" AmsPort="351">
+				<Task Id="4" Priority="8" CycleTime="700000" AmsPort="351">
 					<Name>SerialComTask</Name>
 				</Task>
 			</Tasks>
@@ -353,14 +353,11 @@
 							<Type GUID="{6E02E5B1-1F6D-45E6-8AB8-880F0C8E7838}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
 						</Var>
 						<Var>
-							<Name>WAAGEN.Waage_1.EL6002_out</Name>
-							<Comment>
-								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
-							</Comment>
-							<Type GUID="{6E02E5B1-1F6D-45E6-8AB8-880F0C8E7838}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
+							<Name>MODBUS.myModbus.OutData</Name>
+							<Type GUID="{BBC91BF7-AF5E-43C0-AFCB-2ABBF22B19C6}" Namespace="Tc2_ModbusRTU">MB_PcComOutData</Type>
 						</Var>
 						<Var>
-							<Name>WAAGEN.Waage_4.EL6002_out</Name>
+							<Name>WAAGEN.Waage_1.EL6002_out</Name>
 							<Comment>
 								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
 							</Comment>
@@ -381,8 +378,11 @@
 							<Type GUID="{6E02E5B1-1F6D-45E6-8AB8-880F0C8E7838}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
 						</Var>
 						<Var>
-							<Name>MODBUS.myModbus.OutData</Name>
-							<Type GUID="{BBC91BF7-AF5E-43C0-AFCB-2ABBF22B19C6}" Namespace="Tc2_ModbusRTU">MB_PcComOutData</Type>
+							<Name>WAAGEN.Waage_4.EL6002_out</Name>
+							<Comment>
+								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
+							</Comment>
+							<Type GUID="{6E02E5B1-1F6D-45E6-8AB8-880F0C8E7838}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
 						</Var>
 					</Vars>
 					<Vars VarGrpType="1">
@@ -670,8 +670,8 @@
 						</OwnerA>
 					</UnrestoredVarLinks>
 					<TaskPouOids>
-						<TaskPouOid Prio="19" OTCID="#x01010012"/>
-						<TaskPouOid Prio="18" OTCID="#x01010011"/>
+						<TaskPouOid Prio="8" OTCID="#x01010012"/>
+						<TaskPouOid Prio="4" OTCID="#x01010011"/>
 					</TaskPouOids>
 				</Instance>
 			</Project>

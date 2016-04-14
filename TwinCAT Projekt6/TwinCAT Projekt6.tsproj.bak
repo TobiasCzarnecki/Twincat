@@ -119,7 +119,7 @@
 	<Project ProjectGUID="{101B1EEB-66FE-4A62-86EF-B049CAA5028A}" TargetNetId="5.33.15.132.1.1">
 		<System>
 			<Settings>
-				<IoIdleTask Priority="4" CycleTime="100000"/>
+				<IoIdleTask Priority="6" CycleTime="100000"/>
 			</Settings>
 			<Licenses>
 				<Target>
@@ -127,10 +127,10 @@
 				</Target>
 			</Licenses>
 			<Tasks>
-				<Task Id="3" Priority="18" CycleTime="100000" AmsPort="350">
+				<Task Id="3" Priority="4" CycleTime="100000" AmsPort="350">
 					<Name>PlcTask</Name>
 				</Task>
-				<Task Id="4" Priority="19" CycleTime="400000" AmsPort="351">
+				<Task Id="4" Priority="8" CycleTime="700000" AmsPort="351">
 					<Name>SerialComTask</Name>
 				</Task>
 			</Tasks>
@@ -151,20 +151,6 @@
 						</Var>
 						<Var>
 							<Name>WaagenAuslesen.fb_Waage1.Waage.EL6002_in</Name>
-							<Comment>
-								<![CDATA[ wird mit COM TxPDO Status verknüpft und mit COM TxPDO Data Inxx multiverknüpft]]>
-							</Comment>
-							<Type GUID="{A523B4A3-BE2B-482E-9E9C-9C13BCEF5A38}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
-						</Var>
-						<Var>
-							<Name>WaagenAuslesen.fb_Waage2.myWaage.EL6002_in</Name>
-							<Comment>
-								<![CDATA[ wird mit COM TxPDO Status verknüpft und mit COM TxPDO Data Inxx multiverknüpft]]>
-							</Comment>
-							<Type GUID="{A523B4A3-BE2B-482E-9E9C-9C13BCEF5A38}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
-						</Var>
-						<Var>
-							<Name>WaagenAuslesen.fb_Waage2.Waage.EL6002_in</Name>
 							<Comment>
 								<![CDATA[ wird mit COM TxPDO Status verknüpft und mit COM TxPDO Data Inxx multiverknüpft]]>
 							</Comment>
@@ -193,6 +179,20 @@
 						</Var>
 						<Var>
 							<Name>WaagenAuslesen.fb_Waage4.Waage.EL6002_in</Name>
+							<Comment>
+								<![CDATA[ wird mit COM TxPDO Status verknüpft und mit COM TxPDO Data Inxx multiverknüpft]]>
+							</Comment>
+							<Type GUID="{A523B4A3-BE2B-482E-9E9C-9C13BCEF5A38}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
+						</Var>
+						<Var>
+							<Name>WaagenAuslesen.fb_Waage2.myWaage.EL6002_in</Name>
+							<Comment>
+								<![CDATA[ wird mit COM TxPDO Status verknüpft und mit COM TxPDO Data Inxx multiverknüpft]]>
+							</Comment>
+							<Type GUID="{A523B4A3-BE2B-482E-9E9C-9C13BCEF5A38}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
+						</Var>
+						<Var>
+							<Name>WaagenAuslesen.fb_Waage2.Waage.EL6002_in</Name>
 							<Comment>
 								<![CDATA[ wird mit COM TxPDO Status verknüpft und mit COM TxPDO Data Inxx multiverknüpft]]>
 							</Comment>
@@ -670,8 +670,8 @@
 						</OwnerA>
 					</UnrestoredVarLinks>
 					<TaskPouOids>
-						<TaskPouOid Prio="19" OTCID="#x01010012"/>
-						<TaskPouOid Prio="18" OTCID="#x01010011"/>
+						<TaskPouOid Prio="8" OTCID="#x01010012"/>
+						<TaskPouOid Prio="4" OTCID="#x01010011"/>
 					</TaskPouOids>
 				</Instance>
 			</Project>

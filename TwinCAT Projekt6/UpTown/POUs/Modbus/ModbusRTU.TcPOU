@@ -24,7 +24,7 @@ PT_KP_in		|	1				|	4
 PT_KP_out		|	2				|	5
 PT_VF_in		|	2‘ 				|	6
 PT_VF_out		|	3‘ 				|	7
-PT_vor_EV 		|	3 (innerhalb KK)|	8
+PT_vor_EV 		|	3 (innerhalb KK)|	8 xx NO RESPONSE
 PT_vor_EV_rev 	|	3 (außerhalb KK)|	9
 PT_VD_in		|	4				|	10
 PT_VD_out		|	1‘ 				|	11
@@ -39,10 +39,10 @@ MSS 1			|	3				|	12
 	state: INT;
 
 (*Variablen für die Modbus-Befehle*)
-	 ModbusAdresse: BYTE := 1;
+	 ModbusAdresse: BYTE := 12;//1;
 	// modbusTimeout: TIME := T#50MS;
 	 modbusData_PT: ARRAY[0..100] OF DWORD;		//hier werden die Daten von den Drucksensoren gespeichert
-	 modbusData_MSS: ARRAY[0..100] OF BYTE;		//hier werden die Daten von dem Massenstromsensor MSS1 gespeichert
+	 modbusData_MSS: ARRAY[0..100] OF DWORD;		//hier werden die Daten von dem Massenstromsensor MSS1 gespeichert
 	// modbusData_EV:	 ARRAY[0..100] OF BYTE;  
 
  	
@@ -83,12 +83,12 @@ CASE state OF
 		MODBUS.myModbus.ReadRegs(Execute:= FALSE);
 		MODBUS.myModbus.WriteRegs(Execute:= FALSE);
 
-		 
+		(* 
 		ModbusAdresse := ModbusAdresse + 1;		//Laufvariable für die ModbusAdressen der Slaves. Zunächst nur Drucksensoren.
-		IF ModbusAdresse > 12 THEN		//alle Drucksensoren werden ausgelesen
+		IF ModbusAdresse > 13 THEN		//alle Drucksensoren werden ausgelesen
 			ModbusAdresse := 2;
 		END_IF
-	
+		*)
 		
 		state := state + 1;
 
@@ -140,7 +140,7 @@ CASE state OF
 		*)
 	MODBUS.myModbus.ReadInputRegs(
 		UnitID:= ModbusAdresse,
- 		Quantity:= 10,								//zehn Register werden ausgelesen
+ 		Quantity:= 2,								//zehn Register werden ausgelesen
  		MBAddr:= 30000,								
  		cbLength:= SIZEOF(modbusData_MSS[0]),		
  		pMemoryAddr:= ADR(modbusData_MSS[0]),		//Daten werden in für MSS DATA-ARRAY geschrieben
@@ -196,14 +196,14 @@ END_CASE
 
 ConfigPT:
 	
-	ConfigDrucksensor(); 		//Program für Konfigurierung von Keller-Drucksensoren
+	ConfigDrucksensor(); 		//Programm für Konfigurierung von Keller-Drucksensoren
 
 ConfigEV: 
 
 	
 ConfigMSS:
 	
-	ConfigMassenstromsensor();	//Program für Konfigurierung von MFC400-Drucksensoren
+	ConfigMassenstromsensor();	//Programm für Konfigurierung von MFC400-Drucksensoren
 
 
 END_CASE 

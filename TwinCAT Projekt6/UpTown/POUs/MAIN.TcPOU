@@ -73,7 +73,7 @@ SM.Status:=Vollautomatik; //Regelbetrieb
 			
 				SM.bAbtauen_elektrisch			:=FALSE;
 				SM.bAbtauen_Heissgas_oben 		:=FALSE;
-				SM.bAbtauen_Heissgas_unten 	:=FALSE;
+				SM.bAbtauen_Heissgas_unten 		:=FALSE;
 			
 			SM.AbtauModus:=FALSE;
 		END_IF
