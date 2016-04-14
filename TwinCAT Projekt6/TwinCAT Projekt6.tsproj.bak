@@ -2,31 +2,6 @@
 <TcSmProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4018.26">
 	<DataTypes>
 		<DataType>
-			<Name GUID="{87E4BE55-CB42-4032-8F5B-067BDB6E0344}" Namespace="Tc2_ModbusRTU" AutoDeleteType="true">MB_PcComInData</Name>
-			<BitSize>528</BitSize>
-			<SubItem>
-				<Name>SerStatus</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000004}">WORD</Type>
-				<BitSize>16</BitSize>
-				<BitOffs>0</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>D</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000001}">BYTE</Type>
-				<ArrayInfo>
-					<LBound>0</LBound>
-					<Elements>64</Elements>
-				</ArrayInfo>
-				<BitSize>512</BitSize>
-				<BitOffs>16</BitOffs>
-			</SubItem>
-			<Properties>
-				<Property>
-					<Name>hide</Name>
-				</Property>
-			</Properties>
-		</DataType>
-		<DataType>
 			<Name GUID="{A523B4A3-BE2B-482E-9E9C-9C13BCEF5A38}" Namespace="Tc2_SerialCom" AutoDeleteType="true">EL6inData22B</Name>
 			<Comment>
 				<![CDATA[ This data type is corresponding to the
@@ -55,10 +30,10 @@
 			</SubItem>
 		</DataType>
 		<DataType>
-			<Name GUID="{BBC91BF7-AF5E-43C0-AFCB-2ABBF22B19C6}" Namespace="Tc2_ModbusRTU" AutoDeleteType="true">MB_PcComOutData</Name>
+			<Name GUID="{87E4BE55-CB42-4032-8F5B-067BDB6E0344}" Namespace="Tc2_ModbusRTU" AutoDeleteType="true">MB_PcComInData</Name>
 			<BitSize>528</BitSize>
 			<SubItem>
-				<Name>SerCtrl</Name>
+				<Name>SerStatus</Name>
 				<Type GUID="{18071995-0000-0000-0000-000000000004}">WORD</Type>
 				<BitSize>16</BitSize>
 				<BitOffs>0</BitOffs>
@@ -107,6 +82,31 @@
 				<BitOffs>16</BitOffs>
 			</SubItem>
 		</DataType>
+		<DataType>
+			<Name GUID="{BBC91BF7-AF5E-43C0-AFCB-2ABBF22B19C6}" Namespace="Tc2_ModbusRTU" AutoDeleteType="true">MB_PcComOutData</Name>
+			<BitSize>528</BitSize>
+			<SubItem>
+				<Name>SerCtrl</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000004}">WORD</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>D</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000001}">BYTE</Type>
+				<ArrayInfo>
+					<LBound>0</LBound>
+					<Elements>64</Elements>
+				</ArrayInfo>
+				<BitSize>512</BitSize>
+				<BitOffs>16</BitOffs>
+			</SubItem>
+			<Properties>
+				<Property>
+					<Name>hide</Name>
+				</Property>
+			</Properties>
+		</DataType>
 	</DataTypes>
 	<ImageDatas>
 		<ImageData Id="1000">424dd6020000000000003600000028000000100000000e0000000100180000000000a0020000c40e0000c40e00000000000000000000ff00ffff00ffff00ff808080808080808080808080808080808080808080808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff0000c00000c0ffffffc0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff0000c00000c0ffffffc0c0c000ffffc0c0c000ffff808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff0000c00000c0ffffffc0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff0000c00000c0ffffffc0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff0000c00000c0ffffffc0c0c0ff0000c0c0c0ff0000808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff0000c00000c0ffffffc0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff0000c00000c0ffffffc0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff0000c00000c0ffffffc0c0c00000ffc0c0c00000ff808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff0000c00000c0ffffffc0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff0000c00000c0ffffffc0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff0000c00000c0ffffffc0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff0000c00000c0ffffffc0c0c0008000c0c0c0008000808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff0000c00000c0ffffffc0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ff</ImageData>
@@ -116,7 +116,7 @@
 		<ImageData Id="1004">424dd6020000000000003600000028000000100000000e0000000100180000000000a0020000c40e0000c40e00000000000000000000ff00ff000000000000ff00ffff00ffff00ff808080808080808080808080808080ff00ffff00ffff00ffff00ffff00ff000000ff00ffff00ff000000ff00ffff00ffc0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ff000000ff00ffff00ffff00ffff00ffff00ffc0c0c000ffffc0c0c000ffff808080ff00ffff00ffff00ffff00ffff00ff000000ff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ff000000ff00ffff00ff000000ff00ffff00ffc0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ffff00ff000000000000ff00ffff00ffff00ffc0c0c0ff0000c0c0c0ff0000808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c00000ffc0c0c00000ff808080ff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0008000c0c0c0008000808080ff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ff</ImageData>
 		<ImageData Id="1005">424dd6020000000000003600000028000000100000000e0000000100180000000000a0020000c40e0000c40e00000000000000000000ff00ffff00ffff00ffff00ffff00ffff00ff808080808080808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ff</ImageData>
 	</ImageDatas>
-	<Project ProjectGUID="{39B0CF61-D2E2-4FBA-B391-11F56308DE1E}" TargetNetId="5.33.15.132.1.1">
+	<Project ProjectGUID="{101B1EEB-66FE-4A62-86EF-B049CAA5028A}" TargetNetId="5.33.15.132.1.1">
 		<System>
 			<Settings>
 				<IoIdleTask Priority="4" CycleTime="100000"/>
@@ -142,10 +142,6 @@
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Vars VarGrpType="1">
 						<Name>PlcTask Inputs</Name>
-						<Var>
-							<Name>MODBUS_EL.ModbusEL6021.InData</Name>
-							<Type GUID="{87E4BE55-CB42-4032-8F5B-067BDB6E0344}" Namespace="Tc2_ModbusRTU">MB_PcComInData</Type>
-						</Var>
 						<Var>
 							<Name>WaagenAuslesen.fb_Waage1.myWaage.EL6002_in</Name>
 							<Comment>
@@ -300,10 +296,6 @@
 					</Vars>
 					<Vars VarGrpType="2">
 						<Name>PlcTask Outputs</Name>
-						<Var>
-							<Name>MODBUS_EL.ModbusEL6021.OutData</Name>
-							<Type GUID="{BBC91BF7-AF5E-43C0-AFCB-2ABBF22B19C6}" Namespace="Tc2_ModbusRTU">MB_PcComOutData</Type>
-						</Var>
 						<Var>
 							<Name>WaagenAuslesen.fb_Waage1.myWaage.EL6002_out</Name>
 							<Comment>
@@ -662,6 +654,18 @@
 								<Link VarA="MODBUS_EL.ModbusEL6021.InData^D" TypeA="ARRAY [0..21] OF BYTE" InOutA="0" ParentTypeA="MB_KL6inData22B" GuidA="{57BF80CC-49DE-3A45-148A-756A2BA4B92C}" VarB="COM TxPDO-Map Inputs^Data In 7" Size="8" OffsA="56" RestoreInfo="TypeMismatch" OldTypeA="ARRAY [0..21] OF BYTE" OldGuidA="{57BF80CC-49DE-3A45-148A-756A2BA4B92C}" NewTypeA="ARRAY [0..63] OF BYTE" NewGuidA="{7B502F62-7120-36B6-6DB7-BF4F062C5B7D}"/>
 								<Link VarA="MODBUS_EL.ModbusEL6021.InData^D" TypeA="ARRAY [0..21] OF BYTE" InOutA="0" ParentTypeA="MB_KL6inData22B" GuidA="{57BF80CC-49DE-3A45-148A-756A2BA4B92C}" VarB="COM TxPDO-Map Inputs^Data In 8" Size="8" OffsA="64" RestoreInfo="TypeMismatch" OldTypeA="ARRAY [0..21] OF BYTE" OldGuidA="{57BF80CC-49DE-3A45-148A-756A2BA4B92C}" NewTypeA="ARRAY [0..63] OF BYTE" NewGuidA="{7B502F62-7120-36B6-6DB7-BF4F062C5B7D}"/>
 								<Link VarA="MODBUS_EL.ModbusEL6021.InData^D" TypeA="ARRAY [0..21] OF BYTE" InOutA="0" ParentTypeA="MB_KL6inData22B" GuidA="{57BF80CC-49DE-3A45-148A-756A2BA4B92C}" VarB="COM TxPDO-Map Inputs^Data In 9" Size="8" OffsA="72" RestoreInfo="TypeMismatch" OldTypeA="ARRAY [0..21] OF BYTE" OldGuidA="{57BF80CC-49DE-3A45-148A-756A2BA4B92C}" NewTypeA="ARRAY [0..63] OF BYTE" NewGuidA="{7B502F62-7120-36B6-6DB7-BF4F062C5B7D}"/>
+							</OwnerB>
+						</OwnerA>
+					</UnrestoredVarLinks>
+					<UnrestoredVarLinks ImportTime="2016-04-13T09:01:03">
+						<OwnerA Name="OutputSrc" Prefix="TIPC^UpTown^UpTown Instance" Type="2">
+							<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 15 (EL6021)">
+								<Link VarA="MODBUS_EL.ModbusEL6021.OutData^SerCtrl" TypeA="WORD" InOutA="1" ParentTypeA="MB_PcComOutData" GuidA="{18071995-0000-0000-0000-000000000004}" VarB="COM RxPDO-Map Outputs^Ctrl"/>
+							</OwnerB>
+						</OwnerA>
+						<OwnerA Name="InputDst" Prefix="TIPC^UpTown^UpTown Instance" Type="1">
+							<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 15 (EL6021)">
+								<Link VarA="MODBUS_EL.ModbusEL6021.InData^SerStatus" TypeA="WORD" InOutA="0" ParentTypeA="MB_PcComInData" GuidA="{18071995-0000-0000-0000-000000000004}" VarB="COM TxPDO-Map Inputs^Status"/>
 							</OwnerB>
 						</OwnerA>
 					</UnrestoredVarLinks>
@@ -4353,7 +4357,7 @@ Bit1: Value bigger/equal Limit2]]>
 				<Image Id="3" AddrType="1" ImageType="3">
 					<Name>Prozessabbild</Name>
 				</Image>
-				<Serial Baud="9600" Port="1016" Parity="1" StopBit="1" RsType="2" UPSDisableSysShutdown="true" WaitTimeToShutdown="60" DataSize="64" BufSize="4096" DataBit="8" SyncMode="true" FifoSize="32" ComPortNo="1" Timeout="300"/>
+				<Serial Baud="9600" Port="1016" StopBit="1" RsType="2" UPSDisableSysShutdown="true" WaitTimeToShutdown="60" DataSize="64" BufSize="4096" DataBit="8" SyncMode="true" FifoSize="32" ComPortNo="1" Timeout="300"/>
 			</Device>
 		</Io>
 	</Project>
@@ -4549,10 +4553,6 @@ Bit1: Value bigger/equal Limit2]]>
 				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_4.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 2^Data In 8" Size="8" OffsA="64"/>
 				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_4.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 2^Data In 9" Size="8" OffsA="72"/>
 				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_4.EL6002_in^Status" VarB="COM TxPDO-Map Inputs Channel 2^Status"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 15 (EL6021)">
-				<Link VarA="PlcTask Inputs^MODBUS_EL.ModbusEL6021.InData^SerStatus" VarB="COM TxPDO-Map Inputs^Status"/>
-				<Link VarA="PlcTask Outputs^MODBUS_EL.ModbusEL6021.OutData^SerCtrl" VarB="COM RxPDO-Map Outputs^Ctrl"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 3 (EL3202-0020)">
 				<Link VarA="PlcTask Inputs^GVL.Temp_VD_in.INT_VAR_Input" VarB="RTD Inputs Channel 1^GVL.Temp_VD_in.INT_VAR_Input"/>

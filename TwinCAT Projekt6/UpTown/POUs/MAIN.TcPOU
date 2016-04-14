@@ -15,7 +15,7 @@ END_VAR
 WaagenAuslesen();
 Auslesen_Modbus();
 ModbusRTU();
-Modbus_EL();
+//Modbus_EL();
 AlleRealWerte();
 
 (*

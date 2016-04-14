@@ -7,14 +7,16 @@
 	isModbusBusy:	BOOL;						//wird TRUE wenn der Modbus empfängt oder sendet
 	isModbusError:	BOOL;					//wird TRUE bei einem Fehler bei der Komunikation
 	modbusErrorId: 	MODBUS_ERRORS;			//Fehlertyp des Komunikationsfehlers	
-	modbusTimeout: 	TIME := T#50MS;
+	modbusTimeout: 	TIME := T#100MS;
 (*Status-Maschine wird *)
 	Status_Modbus : Status_ModbusRTU := Normalbetrieb; //Status-Maschine von STRUC Status_ModbusRTU für ModbusRTU Betrieb
 	
 (*bei Konfigurierung der Slaves(Adressierung, Baurate usw. ) muss Variable 
   auf TRUE gesetzen werden.*) 
 	
-	bConfigPT:				BOOL; 
+	bConfigPT:				BOOL; 		
+		bConfigPT_setadresse: 	BOOL;
+		bConfigPT_setUART: 		BOOL;
 	bConfigEV: 				BOOL;
 	bConfigMSS: 			BOOL;
 
