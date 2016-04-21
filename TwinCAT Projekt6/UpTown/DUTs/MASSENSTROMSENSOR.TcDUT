@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
+  <DUT Name="MASSENSTROMSENSOR" Id="{a5e4a91b-adb7-4e42-b950-51204c2ef267}">
+    <Declaration><![CDATA[TYPE MASSENSTROMSENSOR :
+STRUCT
+	ModbusAdresse:			BYTE := 12;
+	Data: 					ARRAY[0..1] OF DWORD;	(*hier werden die abgefragen Register hineingeschrieben*)
+	Startfeld_ModbusData: 	INT ; 
+	
+//------hier sind die Messwerte deklariert, die vom Massenstromsensor per Modbus erfragt werden	
+	rMassenstrom: 					REAL; 					(*angegeben in kg/h*)
+	rDruck: 						REAL;					(*in Bar*)
+	rDichte: 						REAL;					(*kg/m³*)
+	rTemp:							REAL;					(*angegeben in °C*)
+	
+	bFliessrichtung:				BOOL;					(*TRUE bei normaler Fließrichtung, FALSE bei Strömungsumkehrung*)
+
+	
+	
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

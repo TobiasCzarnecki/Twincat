@@ -7,8 +7,9 @@ END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[CASE SM.Status OF
+	
 	Lesen:
-
+	
 		Temp_VD_in.REAL_VAR			:= FB_SPS_zu_Nativ_lin 		(Input := Temp_VD_in);
 		Temp_VD_out.REAL_VAR		:= FB_SPS_zu_Nativ_lin 		(Input := Temp_VD_out);
 		

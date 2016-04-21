@@ -16,6 +16,9 @@
     <PouCall>
       <Name>ConfigMassenstromsensor</Name>
     </PouCall>
+    <PouCall>
+      <Name>MODBUS_EL</Name>
+    </PouCall>
     <TaskFBGuid>{81b88b29-5b30-4cd2-8db1-61813bdad29a}</TaskFBGuid>
     <Fb_init>{ecd713ab-0b58-4199-aac5-432615872dca}</Fb_init>
     <Fb_exit>{59310768-3821-4295-8224-f7697d81b6b2}</Fb_exit>

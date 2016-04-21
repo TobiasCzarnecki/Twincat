@@ -15,15 +15,15 @@ END_VAR
 WaagenAuslesen();
 Auslesen_Modbus();
 ModbusRTU();
-//Modbus_EL();
+Modbus_EL();
 AlleRealWerte();
+Temperatur();
 
-(*
-IF SM.NeuInitialisieren THEN //Prüfen ob neu initialisiert werden muss
+IF SM.NeuInitialisieren THEN 		//Prüfen ob neu initialisiert werden muss
 	SM.Status:= Initialisieren;
 	sm.Leerlauf:=TRUE;
 END_IF
-*)
+
 
 CASE SM.Status OF
 	

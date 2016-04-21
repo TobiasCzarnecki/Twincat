@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
+  <POU Name="FB_PT1" Id="{9d362ee0-1303-42c9-b5a8-3da47dd81c70}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION FB_PT1 : Input_Var
+VAR_INPUT
+	mInput_Var:INPUT_VAR;
+	
+	
+END_VAR
+VAR
+pt1:FT_PT1;
+END_VAR
+
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[pt1(in:=mInput_Var.REAL_VAR,T:=mInput_Var.REAL_PARA_PT1_T,K:=mInput_Var.REAL_PARA_PT1_K,out=>mInput_Var.REAL_VAR_PT1);
+FB_PT1:=mInput_Var;
+
+
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

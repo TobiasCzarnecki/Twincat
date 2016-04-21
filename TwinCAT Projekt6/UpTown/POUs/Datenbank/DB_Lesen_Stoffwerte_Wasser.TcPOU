@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
+  <POU Name="DB_Lesen_Stoffwerte_Wasser" Id="{f698a5c1-61c2-4d03-9419-7d08a0cbfb21}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM DB_Lesen_Stoffwerte_Wasser
+VAR
+
+	  
+   //FB_DB_Schliesse_PID:FB_DBConnectionClose;
+
+	DB_Stoffwerte_Wasser: ARRAY[0..100] OF ST_DB_STOFFWERTE;	
+
+	FB_DB_Lese_Dampftafel: FB_DBRecordArraySelect;
+	sSelectString: STRING(800):= 'SELECT 	`id`,	`temp`,	`dichte` , `cp` FROM	`stoffwerte_wasser`';
+	nRecIndex: UDINT;
+	bStartStopSelect: BOOL;
+	bBusySelect: BOOL;
+	bErrorSelect: BOOL;
+	stSQLStateSelect: TC2_DATABASE.ST_DBSQLError;
+	nRecordCount: UDINT;
+	Busy_Lesen:BOOL;
+	start_Lesen:BOOL:=TRUE;
+	start_Schliessen:BOOL:=FALSE;
+	Counter: UDINT:=0;
+	
+	pCmdAddr: UDINT;
+	
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF 	SM.Leerlauf THEN
+	
+start_Lesen:=TRUE;
+SM.Leerlauf:=FALSE;
+	
+END_IF
+
+//=========================================================================================	
+//Dampftafel auslesen		
+	FB_DB_Lese_Dampftafel(
+				sNetID:=, 
+				hDBID:= 7, 
+				pCmdAddr:= ADR(sSelectString), 
+				cbCmdSize:= SIZEOF(sSelectString), 
+				nStartIndex:= nRecIndex, 
+				nRecordCount:=nRecordCount-1, 
+				pDestAddr:= ADR(DB_Stoffwerte_Wasser), 
+				cbRecordArraySize:= SIZEOF(DB_Stoffwerte_Wasser), 
+				bExecute:= start_Lesen, 
+				tTimeout:= T#5S, 
+				bBusy=> Busy_Lesen, 
+				bError=> SM.Fehler, 
+				nErrID=> , 
+				sSQLState=> stSQLStateSelect, 
+				nRecords=> nRecordCount); 
+				
+
+				
+	IF Busy_Lesen=FALSE THEN
+			start_Lesen:=FALSE;
+		start_Schliessen:=TRUE;
+	END_IF
+	
+	(*FB_DB_Schliesse_PID(
+				sNetID:= , 
+				hDBID:=3, 
+				bExecute:= start_Schliessen_PID, 
+				tTimeout:= T#1S, 
+				bBusy=> , 
+				bError=> SM.Fehler, 
+				nErrID=> );
+	
+	*)
+	
+	IF nRecordCount>0 THEN
+		
+		FOR counter:=0 TO nRecordCount-1 BY 1 DO
+	   
+	HYD.Stoffwerte_Wasser[counter].Temperatur :=STRING_TO_REAL(DB_Stoffwerte_Wasser[counter].temp);
+	HYD.Stoffwerte_Wasser[counter].Dichte :=STRING_TO_REAL(DB_Stoffwerte_Wasser[counter].dichte);
+	HYD.Stoffwerte_Wasser[counter].cp :=STRING_TO_REAL(DB_Stoffwerte_Wasser[counter].cp);		
+		
+		END_FOR
+	END_IF
+	
+	
+	IF Busy_Lesen=FALSE AND nRecordCount>0 THEN
+		SM.Leerlauf:=TRUE;
+		ELSE  sm.Leerlauf:=FALSE;
+	END_IF
+	]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

@@ -39,7 +39,7 @@ MSS 1			|	3				|	12
 	state: INT;
 
 (*Variablen für die Modbus-Befehle*)
-	 ModbusAdresse: BYTE := 12;//1;
+	 ModbusAdresse: BYTE := 3;
 	// modbusTimeout: TIME := T#50MS;
 	 modbusData_PT: ARRAY[0..100] OF DWORD;		//hier werden die Daten von den Drucksensoren gespeichert
 	 modbusData_MSS: ARRAY[0..100] OF DWORD;		//hier werden die Daten von dem Massenstromsensor MSS1 gespeichert
@@ -83,12 +83,12 @@ CASE state OF
 		MODBUS.myModbus.ReadRegs(Execute:= FALSE);
 		MODBUS.myModbus.WriteRegs(Execute:= FALSE);
 
-		(* 
+		
 		ModbusAdresse := ModbusAdresse + 1;		//Laufvariable für die ModbusAdressen der Slaves. Zunächst nur Drucksensoren.
 		IF ModbusAdresse > 13 THEN		//alle Drucksensoren werden ausgelesen
-			ModbusAdresse := 2;
+			ModbusAdresse := 4;
 		END_IF
-		*)
+		
 		
 		state := state + 1;
 

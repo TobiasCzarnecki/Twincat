@@ -3,12 +3,19 @@
   <POU Name="MODBUS_EL" Id="{98159f27-7da7-4f3a-9d45-35bf24bd6264}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM MODBUS_EL
 VAR
-	 ModbusEL6021: ModbusRtuMaster_PcCOM;
-	 modbusData_MSS: ARRAY[0..100] OF BYTE;		//hier werden die Daten von dem Massenstromsensor MSS1 gespeichert
-	ModbusAdresse : INT := 1;
-	state: INT;
+(*Modbus wird deklariert*)
+	ModbusEL6021:		ModbusRtuMaster_KL6x22B;	
+	modbusTimeout_EL:	TIME := T#300MS;
+	isModbusBusy_EL:	BOOL;
+	isModbusError_EL:	BOOL;
+	modbusErrorId_EL:	MODBUS_ERRORS;
 	
-	(*Variablen für Error- und Successzähler der Modbus-Komunikation *)
+(*Hilfsvariablen für Modbus*)	
+	modbusData_EV: 	ARRAY[0..100] OF WORD;		//hier werden die Daten vom EV gespeichert
+	ModbusAdresse : INT := 2;
+	state: 			INT;
+	
+(*Variablen für Error- und Successzähler der Modbus-Komunikation *)
 	FtrigBusy:			F_TRIG;
 	LastErrorstate: 	INT;
 	LastModbusError: 	ST_ModbusErrorDiagnostics;
@@ -16,38 +23,40 @@ VAR
 	CounterSuccess: 	DINT;
 	
 END_VAR
+
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[ModbusEL6021.ReadRegs(Execute:= FALSE);
+      <ST><![CDATA[ModbusEL6021.ReadInputRegs(Execute:= FALSE);
 
 		ModbusEL6021.ReadInputRegs(
-		UnitID:= 1,
- 		Quantity:= 10,								//zehn Register werden ausgelesen
- 		MBAddr:= 30000,								
- 		cbLength:= SIZEOF(modbusData_MSS[0]),		
- 		pMemoryAddr:= ADR(modbusData_MSS[0]),		//Daten werden in für MSS DATA-ARRAY geschrieben
+		UnitID:= 2,
+ 		Quantity:= 1,								
+ 		MBAddr:= 0,								
+ 		cbLength:= SIZEOF(modbusData_EV[0]),		
+ 		pMemoryAddr:= ADR(modbusData_EV[0]),		//Daten werden in für EV DATA-ARRAY geschrieben
   		Execute:= TRUE,
-  		Timeout:= modbusTimeout,
-  		Busy => isModbusBusy,
-  		Error => isModbusError,
-  		ErrorId => modbusErrorId
+  		Timeout:= modbusTimeout_EL,
+  		Busy => isModbusBusy_EL,
+  		Error => isModbusError_EL,
+  		ErrorId => modbusErrorId_EL
   		(*cbRead parameter)*));
+		
 	
 		
 		IF NOT isModbusBusy THEN
-				MODBUS.myModbus.ReadRegs(Execute:= FALSE);
-			IF MODBUS.myModbus.Error THEN
+				ModbusEL6021.ReadInputRegs(Execute:= FALSE);
+		(*	IF MODBUS.myModbus.Error THEN
 				state := 0;
 			ELSE
 				state :=state + 1 ;	
-			END_IF
+			END_IF*)
 		END_IF
 		
 		
 		
-FtrigBusy(CLK:=myModbus.BUSY );
+FtrigBusy(CLK:=ModbusEL6021.BUSY );
 IF FtrigBusy.Q THEN
-	IF MODBUS.myModbus.Error THEN
+	IF ModbusEL6021.Error THEN
 		LastModbusError := ModbusEL6021.ErrorDiagnostics;
 		LastErrorstate := state;
 		CounterError := CounterError + 1;

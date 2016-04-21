@@ -3,6 +3,13 @@
   <GVL Name="GVL" Id="{c411875a-406b-4962-9769-e54fbe539288}">
     <Declaration><![CDATA[VAR_GLOBAL
 
+(*Hier sind alle Heizelemente deklariert*)
+		ElektHeizstaebe1 : OUTPUT_VAR;		// regelt ein Packet aus 10 Heizstaebe im Verdampfer
+		ElektHeizstaebe2 : OUTPUT_VAR;	 	// regelt ein Packet aus 10 Heizstaebe im Verdampfer
+		ElektHeizstaebe_Boden: OUTPUT_VAR;  //liegt in der Wanne des Verdampfers, besteht aus 3 Heizstaeben
+		
+		
+
 (*Hier sind alle Drucksensoren deklariert, die im Kältekreislauf installiert sind.
 	Die Positionen (Pos) beziehen sich auf das RI-Fließbild von der Kälteanlage*)
 
