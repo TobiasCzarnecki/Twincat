@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
+  <POU Name="DB_Lesen_r134a" Id="{b1198883-6aca-44a0-aac7-11dc7d9340c3}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM DB_Lesen_r134a
+VAR
+	
+	DbArray_r134a: ARRAY[0..100] OF DB_r134a;	
+
+	FbDbLesen: FB_DBRecordArraySelect;
+	sSelectString: STRING(800):= 'SELECT `id`, `timestamp`, `Temperatur`, `Enthalpie`, `Druck` FROM `r134a`';
+	nRecIndex: UDINT;
+	bStartStopSelect: BOOL;
+	bBusySelect: BOOL;
+	bErrorSelect: BOOL;
+	stSQLStateSelect: TC2_DATABASE.ST_DBSQLError;
+	nRecordCount: UDINT;
+	Busy_Lesen:BOOL;
+	start_Lesen:BOOL:=TRUE;
+	
+	ErrorId:UDINT;
+	start_Schliessen:BOOL:=FALSE;
+	Counter: UDINT:=0;
+	
+	pCmdAddr: UDINT;
+	
+
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF 	SM.Leerlauf THEN
+	
+start_Lesen:=TRUE;
+SM.Leerlauf:=FALSE;
+	
+END_IF
+
+//=========================================================================================	
+//Dampftafel auslesen		
+	FbDbLesen(
+				sNetID:=, 
+				hDBID:= 2, 
+				pCmdAddr:= ADR(sSelectString), 
+				cbCmdSize:= SIZEOF(sSelectString), 
+				nStartIndex:= nRecIndex, 
+				nRecordCount:=nRecordCount-1, 
+				pDestAddr:= ADR(DbArray_r134a), 
+				cbRecordArraySize:= SIZEOF(DbArray_r134a), 
+				bExecute:= start_Lesen, 
+				tTimeout:= T#5S, 
+				bBusy=> Busy_Lesen, 
+				bError=> SM.Fehler, 
+				nErrID=> ErrorId, 
+				sSQLState=> stSQLStateSelect, 
+				nRecords=> nRecordCount); 
+				
+	IF Busy_Lesen=FALSE THEN
+			start_Lesen:=FALSE;
+	END_IF
+	
+	IF nRecordCount>0 THEN
+		
+		FOR counter:=0 TO nRecordCount-1 BY 1 DO
+	   
+			r134a[counter].Temperatur :=STRING_TO_REAL(DbArray_r134a[counter].Temperatur);
+			r134a[counter].Enthalpie :=STRING_TO_REAL(DbArray_r134a[counter].Enthalpie);
+			r134a[counter].Druck :=STRING_TO_REAL(DbArray_r134a[counter].Druck);
+		END_FOR
+	END_IF
+	
+	
+	IF Busy_Lesen=FALSE AND nRecordCount>0 THEN
+		SM.Leerlauf:=TRUE;
+		ELSE  sm.Leerlauf:=FALSE;
+	END_IF
+	]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

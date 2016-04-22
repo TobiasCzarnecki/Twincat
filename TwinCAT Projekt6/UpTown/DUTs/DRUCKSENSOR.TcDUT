@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
-  <DUT Name="DRUCKSENSOR" Id="{d82aab08-7697-4aa1-8bf6-f49cf53293ad}">
-    <Declaration><![CDATA[TYPE DRUCKSENSOR :
+  <DUT Name="DruckSensor" Id="{d82aab08-7697-4aa1-8bf6-f49cf53293ad}">
+    <Declaration><![CDATA[TYPE DruckSensor :
 STRUCT
 	ModbusAdresse:			BYTE;
 	bDruckabfrage: 			BOOL  := TRUE;

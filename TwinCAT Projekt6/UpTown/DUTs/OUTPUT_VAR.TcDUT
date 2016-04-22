@@ -7,7 +7,6 @@ STRUCT
 REAL_VAR=INT_VAR_Output*REAL_PARA_M+REAL_PARA_C
 REAL_PARA_minWert>=REAL_VAR>=REAL_PARA_maxWert
 *)
-
 	INT_VAR_Output AT %Q*	:INT ; //Output an Klemme (z.B. 2100)
 	REAL_VAR 				:REAL; //Wert als REAL/Float/Single (z.B. 21.00)
 	REAL_PARA_M 			:REAL; //Parameter M

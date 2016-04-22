@@ -6,6 +6,8 @@ STRUCT
 	Temperatur 	: REAL; //°C
 	Dichte		: REAL; //kg/m³
 	Cp			: REAL;	//kJ/kg K
+	Druck		: REAL; //bar
+	Enthalpie	: REAL; //kJ/kg
 END_STRUCT
 END_TYPE
 ]]></Declaration>

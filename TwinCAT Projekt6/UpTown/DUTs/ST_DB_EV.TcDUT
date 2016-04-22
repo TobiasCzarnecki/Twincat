@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
+  <DUT Name="ST_DB_EV" Id="{ee556889-735e-4d34-b2f1-7282c069179d}">
+    <Declaration><![CDATA[TYPE ST_DB_EV :
+STRUCT
+	id: DINT;
+	Timestamp: DT;			
+	Name: STRING(45);		
+	IstDruck: REAL;			//bar
+	IstTemp: REAL;			//°C
+	SaugTemp: REAL;			//°C
+	VerdampfTemp: REAL;		//°C
+	VerdampfDruck: REAL;	//bar
+	UberhitzungTemp: REAL;	//°C
+	VentilOffnung: REAL;	//%
+	RegelSollwert: REAL;	//K
+	Ventilposition: REAL;	//0..9999
+	AktKuhlleistung: REAL; 	//%
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

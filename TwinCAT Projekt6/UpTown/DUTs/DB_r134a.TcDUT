@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
+  <DUT Name="DB_r134a" Id="{104427af-734f-4a2b-b8ae-006d16d5d762}">
+    <Declaration><![CDATA[TYPE DB_r134a :
+STRUCT
+	id: DINT;
+	timestamp: DT;
+	Temperatur: STRING(45);
+	Enthalpie: STRING(45);
+	Druck: STRING(45);
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

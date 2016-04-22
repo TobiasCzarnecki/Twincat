@@ -11,6 +11,7 @@ END_VAR
     <Implementation>
       <ST><![CDATA[strText:= 'Hallo Welt';
 
+DB_Lesen_r134a();
 
 WaagenAuslesen();
 Auslesen_Modbus();

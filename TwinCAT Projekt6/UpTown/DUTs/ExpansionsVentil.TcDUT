@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
+  <DUT Name="ExpansionsVentil" Id="{8496ebd3-da29-46b4-9bd3-98fbd36ef0f3}">
+    <Declaration><![CDATA[TYPE ExpansionsVentil EXTENDS ST_DB_EV :
+STRUCT
+
+//---Aktivierte Schutzsichernismus vom EV 
+	LOP : BOOL; 	//TRUE bei zu niedriger Verdampfungstemperatur
+	MOP : BOOL;		//TRUE bei zu hoher Verdampfungstemperatur
+	LowSH: BOOL;	//TRUE bei zu niedriger Überhitzung
+	HiTcond: BOOL;	//TRUE bei zu hoher Verflüssigungstemperatur
+	
+//---Speicherorte für die empfangenen/zu sendenden Modbusdaten
+  	modbusData: 			ARRAY[1..10] OF WORD;
+	modbusDataCoils: 		ARRAY[1..4] OF BOOL; 
+	SetAktKuhlleistung: 	BOOL:= FALSE;
+	SollAktKuhlleistung: 	WORD:= 50; 
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

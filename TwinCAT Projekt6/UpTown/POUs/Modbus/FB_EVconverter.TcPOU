@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
+  <POU Name="FB_EVconverter" Id="{4e44cd8a-91be-49eb-9799-8cd9c0e2e7b4}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_EVconverter
+VAR_INPUT
+	inEV : ExpansionsVentil;
+END_VAR
+VAR
+END_VAR
+
+VAR_OUTPUT
+	 outEV : ExpansionsVentil;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[	inEV.IstDruck :=	 	INT_TO_REAL(WORD_TO_INT(inEV.modbusData[1]))/10;
+	inEV.IstTemp:=	 		INT_TO_REAL(WORD_TO_INT(inEV.modbusData[2]))/10;
+	inEV.SaugTemp:= 		INT_TO_REAL(WORD_TO_INT(inEV.modbusData[3]))/10;
+	inEV.VerdampfTemp:= 	INT_TO_REAL(WORD_TO_INT(inEV.modbusData[4]))/10;
+	inEV.VerdampfDruck:= 	INT_TO_REAL(WORD_TO_INT(inEV.modbusData[5]))/10;
+	inEV.UberhitzungTemp:= 	INT_TO_REAL(WORD_TO_INT(inEV.modbusData[6]))/10;
+	inEV.VentilOffnung:= 	INT_TO_REAL(WORD_TO_INT(inEV.modbusData[7]))/10;
+	inEV.RegelSollwert:= 	INT_TO_REAL(WORD_TO_INT(inEV.modbusData[8]))/10;
+	inEV.Ventilposition:= 	INT_TO_REAL(WORD_TO_INT(inEV.modbusData[9]));
+	inEV.AktKuhlleistung:= 	INT_TO_REAL(WORD_TO_INT(inEV.modbusData[10]));
+	
+	inEV.LOP := inEV.modbusDataCoils[1];
+	inEV.MOP := inEV.modbusDataCoils[2];
+	inEV.LowSH:= inEV.modbusDataCoils[3];
+	inEV.HiTcond:= inEV.modbusDataCoils[4];
+	
+	outEV:= inEV;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

@@ -4,6 +4,10 @@
     <Declaration><![CDATA[PROGRAM Auslesen_Modbus
 VAR
 	Auslesen0, Auslesen1, Auslesen2, Auslesen3, Auslesen4, Auslesen5, Auslesen6, Auslesen7, Auslesen8 : FB_fpconverter;
+	
+	EV1 : FB_EVconverter;
+	EV2 : FB_EVconverter;
+	
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -32,7 +36,8 @@ PT_vor_EV_rev.Startfeld_ModbusData 	:= 9;
 PT_VD_in.Startfeld_ModbusData		:= 10;
 PT_VD_out.Startfeld_ModbusData		:= 11;
 
-]]></ST>
+EV1(inEV:=EV , outEV=> EV);
+EV2(inEV:=EV_rev, outEV=> EV_rev);]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>

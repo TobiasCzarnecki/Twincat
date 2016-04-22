@@ -14,10 +14,7 @@ Die Kommunikation verläuft in einer CASE-Struktur.*)
 
 VAR
 (*
-Sensor/Aktor	|	Position		|	Modbus-Adresse
-________________|___________________|____________________
-1V3				|	3				|	2
-1V4				|	3				|	3	
+
 _________________________________________________________	
 Drucksensoren	|					|
 PT_KP_in		|	1				|	4

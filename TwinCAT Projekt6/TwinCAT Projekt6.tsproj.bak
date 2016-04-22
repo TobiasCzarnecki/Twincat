@@ -2,6 +2,31 @@
 <TcSmProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4018.26">
 	<DataTypes>
 		<DataType>
+			<Name GUID="{7497D1D7-6402-4847-9333-70F1F25D0E78}" Namespace="Tc2_ModbusRTU" AutoDeleteType="true">MB_KL6inData22B</Name>
+			<BitSize>192</BitSize>
+			<SubItem>
+				<Name>Status</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000004}">WORD</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>D</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000001}">BYTE</Type>
+				<ArrayInfo>
+					<LBound>0</LBound>
+					<Elements>22</Elements>
+				</ArrayInfo>
+				<BitSize>176</BitSize>
+				<BitOffs>16</BitOffs>
+			</SubItem>
+			<Properties>
+				<Property>
+					<Name>hide</Name>
+				</Property>
+			</Properties>
+		</DataType>
+		<DataType>
 			<Name GUID="{A523B4A3-BE2B-482E-9E9C-9C13BCEF5A38}" Namespace="Tc2_SerialCom" AutoDeleteType="true">EL6inData22B</Name>
 			<Comment>
 				<![CDATA[ This data type is corresponding to the
@@ -55,10 +80,10 @@
 			</Properties>
 		</DataType>
 		<DataType>
-			<Name GUID="{7497D1D7-6402-4847-9333-70F1F25D0E78}" Namespace="Tc2_ModbusRTU" AutoDeleteType="true">MB_KL6inData22B</Name>
+			<Name GUID="{2CEC8100-3965-416E-9316-FB5437A28C48}" Namespace="Tc2_ModbusRTU" AutoDeleteType="true">MB_KL6outData22B</Name>
 			<BitSize>192</BitSize>
 			<SubItem>
-				<Name>Status</Name>
+				<Name>Ctrl</Name>
 				<Type GUID="{18071995-0000-0000-0000-000000000004}">WORD</Type>
 				<BitSize>16</BitSize>
 				<BitOffs>0</BitOffs>
@@ -132,31 +157,6 @@
 				</Property>
 			</Properties>
 		</DataType>
-		<DataType>
-			<Name GUID="{2CEC8100-3965-416E-9316-FB5437A28C48}" Namespace="Tc2_ModbusRTU" AutoDeleteType="true">MB_KL6outData22B</Name>
-			<BitSize>192</BitSize>
-			<SubItem>
-				<Name>Ctrl</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000004}">WORD</Type>
-				<BitSize>16</BitSize>
-				<BitOffs>0</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>D</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000001}">BYTE</Type>
-				<ArrayInfo>
-					<LBound>0</LBound>
-					<Elements>22</Elements>
-				</ArrayInfo>
-				<BitSize>176</BitSize>
-				<BitOffs>16</BitOffs>
-			</SubItem>
-			<Properties>
-				<Property>
-					<Name>hide</Name>
-				</Property>
-			</Properties>
-		</DataType>
 	</DataTypes>
 	<ImageDatas>
 		<ImageData Id="1000">424dd6020000000000003600000028000000100000000e0000000100180000000000a0020000c40e0000c40e00000000000000000000ff00ffff00ffff00ff808080808080808080808080808080808080808080808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff0000c00000c0ffffffc0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff0000c00000c0ffffffc0c0c000ffffc0c0c000ffff808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff0000c00000c0ffffffc0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff0000c00000c0ffffffc0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff0000c00000c0ffffffc0c0c0ff0000c0c0c0ff0000808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff0000c00000c0ffffffc0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff0000c00000c0ffffffc0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff0000c00000c0ffffffc0c0c00000ffc0c0c00000ff808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff0000c00000c0ffffffc0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff0000c00000c0ffffffc0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff0000c00000c0ffffffc0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff0000c00000c0ffffffc0c0c0008000c0c0c0008000808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff0000c00000c0ffffffc0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ff</ImageData>
@@ -192,6 +192,10 @@
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Vars VarGrpType="1">
 						<Name>PlcTask Inputs</Name>
+						<Var>
+							<Name>MODBUS_EL.ModbusEL6021.InData</Name>
+							<Type GUID="{7497D1D7-6402-4847-9333-70F1F25D0E78}" Namespace="Tc2_ModbusRTU">MB_KL6inData22B</Type>
+						</Var>
 						<Var>
 							<Name>WaagenAuslesen.fb_Waage1.myWaage.EL6002_in</Name>
 							<Comment>
@@ -343,13 +347,13 @@
 							<Name>MODBUS.myModbus.InData</Name>
 							<Type GUID="{87E4BE55-CB42-4032-8F5B-067BDB6E0344}" Namespace="Tc2_ModbusRTU">MB_PcComInData</Type>
 						</Var>
-						<Var>
-							<Name>MODBUS_EL.ModbusEL6021.InData</Name>
-							<Type GUID="{7497D1D7-6402-4847-9333-70F1F25D0E78}" Namespace="Tc2_ModbusRTU">MB_KL6inData22B</Type>
-						</Var>
 					</Vars>
 					<Vars VarGrpType="2">
 						<Name>PlcTask Outputs</Name>
+						<Var>
+							<Name>MODBUS_EL.ModbusEL6021.OutData</Name>
+							<Type GUID="{2CEC8100-3965-416E-9316-FB5437A28C48}" Namespace="Tc2_ModbusRTU">MB_KL6outData22B</Type>
+						</Var>
 						<Var>
 							<Name>WaagenAuslesen.fb_Waage1.myWaage.EL6002_out</Name>
 							<Comment>
@@ -458,10 +462,6 @@
 								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
 							</Comment>
 							<Type GUID="{6E02E5B1-1F6D-45E6-8AB8-880F0C8E7838}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
-						</Var>
-						<Var>
-							<Name>MODBUS_EL.ModbusEL6021.OutData</Name>
-							<Type GUID="{2CEC8100-3965-416E-9316-FB5437A28C48}" Namespace="Tc2_ModbusRTU">MB_KL6outData22B</Type>
 						</Var>
 					</Vars>
 					<Vars VarGrpType="1">

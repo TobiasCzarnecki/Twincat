@@ -4,31 +4,31 @@
     <Declaration><![CDATA[VAR_GLOBAL
 
 (*Hier sind alle Heizelemente deklariert*)
-		ElektHeizstaebe1 : OUTPUT_VAR;		// regelt ein Packet aus 10 Heizstaebe im Verdampfer
-		ElektHeizstaebe2 : OUTPUT_VAR;	 	// regelt ein Packet aus 10 Heizstaebe im Verdampfer
-		ElektHeizstaebe_Boden: OUTPUT_VAR;  //liegt in der Wanne des Verdampfers, besteht aus 3 Heizstaeben
+		ElektHeizstaebe1 : 		OUTPUT_VAR;		// regelt ein Packet aus 10 Heizstaebe im Verdampfer
+		ElektHeizstaebe2 : 		OUTPUT_VAR;	 	// regelt ein Packet aus 10 Heizstaebe im Verdampfer
+		ElektHeizstaebe_Boden: 	OUTPUT_VAR;  //liegt in der Wanne des Verdampfers, besteht aus 3 Heizstaeben
 		
 		
 
 (*Hier sind alle Drucksensoren deklariert, die im Kältekreislauf installiert sind.
 	Die Positionen (Pos) beziehen sich auf das RI-Fließbild von der Kälteanlage*)
 
-		PT_test : 			DRUCKSENSOR;		//nur zu Testprogrammierung
+		PT_test : 			DruckSensor;		//nur zu Testprogrammierung
 	
-		PT_KP_in: 			DRUCKSENSOR;		//Pos 1: PT-Sensor vor Kompressor
-		PT_KP_out:			DRUCKSENSOR;		//Pos 2: PT-Sensor nach Kompressor
+		PT_KP_in: 			DruckSensor;		//Pos 1: PT-Sensor vor Kompressor
+		PT_KP_out:			DruckSensor;		//Pos 2: PT-Sensor nach Kompressor
 
-		PT_VF_in:			DRUCKSENSOR;		//Pos 2': PT-Sensor vor Verflüssiger bzw. nach Abtau-Verdampfer 
-		PT_VF_out:			DRUCKSENSOR;		//Pos 3': PT-Sensor nach Verflüssiger bzw. vor Abtau-Verdampfer 
+		PT_VF_in:			DruckSensor;		//Pos 2': PT-Sensor vor Verflüssiger bzw. nach Abtau-Verdampfer 
+		PT_VF_out:			DruckSensor;		//Pos 3': PT-Sensor nach Verflüssiger bzw. vor Abtau-Verdampfer 
 
 		//PT_VD_defrost_in:= PT_VF_out;			//Pos 3': PT-Sensor vor Verdampfer außerhalb der Klimakammer
 		//PT_VD_defrost_out:= PT_VF_in;			//Pos 2': PT-Sensor nach Verdampfer außerhalb der Klimakammer
 
-		PT_vor_EV 	: 		DRUCKSENSOR;		//Pos 3: PT-Sensor vor dem Expansionsventil IV3
-		PT_vor_EV_rev : 	DRUCKSENSOR;		//Pos 3: PT-Sensor vor dem Expansionsventil IV4,bei Strömungsumkehrung (reverse)
+		PT_vor_EV 	: 		DruckSensor;		//Pos 3: PT-Sensor vor dem Expansionsventil IV3
+		PT_vor_EV_rev : 	DruckSensor;		//Pos 3: PT-Sensor vor dem Expansionsventil IV4,bei Strömungsumkehrung (reverse)
 
-		PT_VD_in	:		DRUCKSENSOR;		//Pos 4 : PT-Sensor vor Verdampfer in der Klimakammer 
-		PT_VD_out	:		DRUCKSENSOR;		//Pos 1': PT-Sensor nach Verdampfer in der Klimakammer 
+		PT_VD_in	:		DruckSensor;		//Pos 4 : PT-Sensor vor Verdampfer in der Klimakammer 
+		PT_VD_out	:		DruckSensor;		//Pos 1': PT-Sensor nach Verdampfer in der Klimakammer 
 
 		//PT_VD_in_rev:= PT_VD_out;				//Pos 1': PT-Sensor vor Verdampfer bei Strömungsumkehrung(reverse) 	
 		//PT_VD_out_rev:= PT_VD_in;				//Pos 4: PT-Sensor nach Verdampfer bei Strömungsumkehrung(reverse) 
@@ -57,6 +57,15 @@
 		
 		Temp_vor_EV:				INPUT_VAR; // Pos 3: T-Sensor vor dem Expansionsventil IV3
 		Temp_vor_EV_rev:			INPUT_VAR; // Pos 3: T-Sensor vor dem Expansionsventil IV4,bei Strömungsumkehrung (reverse)
+		
+(*Speicherorte für benötigte Stoffwerte*)		
+	r134a:	ARRAY[0..100] OF Stoffwerte;
+	
+(*ExpansionsVentile werden deklariert*)
+
+		EV :	 	ExpansionsVentil; //Dieses Expansionsventil regelt im Normalbetrieb den Verdampfungsdruck und -temperatur
+		EV_rev: 	ExpansionsVentil; //Im Falle einer Strömungsumkehrung wird über dieses Expansionsventil in den Verdampfer außerhalb der KlimaKammer eingespritzt
+		
 	
 END_VAR]]></Declaration>
   </GVL>

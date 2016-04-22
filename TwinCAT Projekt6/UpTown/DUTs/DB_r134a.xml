@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<project xmlns="http://www.plcopen.org/xml/tc6_0200">
+  <fileHeader companyName="Beckhoff Automation GmbH" productName="TF6420 Database Server Query Analyser" productVersion="1.0.0.0" creationDateTime="2016-04-21T11:41:57" />
+  <contentHeader name="Untitled1" modificationDateTime="2016-04-21T11:41:57">
+    <coordinateInfo>
+      <fbd>
+        <scaling x="1" y="1" />
+      </fbd>
+      <ld>
+        <scaling x="1" y="1" />
+      </ld>
+      <sfc>
+        <scaling x="1" y="1" />
+      </sfc>
+    </coordinateInfo>
+    <addData>
+      <data name="http://www.3s-software.com/plcopenxml/projectinformation" handleUnknown="implementation">
+        <ProjectInformation />
+      </data>
+    </addData>
+  </contentHeader>
+  <types>
+    <dataTypes>
+      <dataType name="DB_r134a">
+        <baseType>
+          <struct>
+            <variable name="id">
+              <type>
+                <DINT />
+              </type>
+            </variable>
+            <variable name="timestamp">
+              <type>
+                <DT />
+              </type>
+            </variable>
+            <variable name="Temperatur">
+              <type>
+                <string length="45" />
+              </type>
+            </variable>
+            <variable name="Enthalpie">
+              <type>
+                <string length="45" />
+              </type>
+            </variable>
+            <variable name="Druck">
+              <type>
+                <string length="45" />
+              </type>
+            </variable>
+          </struct>
+        </baseType>
+        <addData />
+      </dataType>
+    </dataTypes>
+    <pous />
+  </types>
+  <instances>
+    <configurations />
+  </instances>
+  <addData>
+    <data name="http://www.3s-software.com/plcopenxml/projectstructure" handleUnknown="discard">
+      <ProjectStructure>
+        <Object Name="DB_r134a" />
+      </ProjectStructure>
+    </data>
+  </addData>
+</project>

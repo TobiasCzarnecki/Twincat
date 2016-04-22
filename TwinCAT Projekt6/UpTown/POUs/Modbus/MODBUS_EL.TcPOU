@@ -10,10 +10,20 @@ VAR
 	isModbusError_EL:	BOOL;
 	modbusErrorId_EL:	MODBUS_ERRORS;
 	
-(*Hilfsvariablen für Modbus*)	
-	modbusData_EV: 	ARRAY[0..100] OF WORD;		//hier werden die Daten vom EV gespeichert
-	ModbusAdresse : INT := 2;
-	state: 			INT;
+(*Hilfsvariablen für Modbus	
+
+Sensor/Aktor	|	Position		|	Modbus-Adresse
+________________|___________________|____________________
+EV				|	3				|	2
+EV_rev			|	3				|	3	
+*)
+	//modbusData_EV: 	ARRAY[1..10] OF INT;		//hier werden die Daten vom EV gespeichert
+	ModbusAdresse : BYTE := 2;					//EV_
+	state: 			INT := 0;
+	counter: 		INT := 1;
+	
+	AbfrageRegs: ARRAY [1..10] OF INT := [0,1,4,5,6,9,16,20,131,134]; 	//Modbus-Register-Adressen. Das sind alle Werte die vom EV abgefragt werden
+	AbfrageCoils: ARRAY [1..4] OF INT := [49,50,51,52];					//Modbus-Coil-Adressen.
 	
 (*Variablen für Error- und Successzähler der Modbus-Komunikation *)
 	FtrigBusy:			F_TRIG;
@@ -21,37 +31,197 @@ VAR
 	LastModbusError: 	ST_ModbusErrorDiagnostics;
 	CounterError: 		DINT;
 	CounterSuccess: 	DINT;
-	
+
 END_VAR
 
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[ModbusEL6021.ReadInputRegs(Execute:= FALSE);
+      <ST><![CDATA[CASE state OF
 
+0: (*Initialisierung von Modbus*)
+	
+		ModbusEL6021.ReadInputRegs(Execute:= FALSE);
+		ModbusEL6021.ReadCoils(Execute:= FALSE);
+		ModbusEL6021.WriteSingleRegister(Execute:= FALSE);
+
+		state :=1;
+		
+1: (*Liest Register von EV aus*)
+ 	
 		ModbusEL6021.ReadInputRegs(
-		UnitID:= 2,
+		UnitID:= ModbusAdresse,
  		Quantity:= 1,								
- 		MBAddr:= 0,								
- 		cbLength:= SIZEOF(modbusData_EV[0]),		
- 		pMemoryAddr:= ADR(modbusData_EV[0]),		//Daten werden in für EV DATA-ARRAY geschrieben
+ 		MBAddr:= AbfrageRegs[counter],								
+ 		cbLength:= SIZEOF(EV.modbusData[counter]),//EV.modbusData[counter]),		
+ 		pMemoryAddr:= ADR(EV.modbusData[counter]),//EV.modbusData[counter]),		//Daten werden in für EV DATA-ARRAY geschrieben
   		Execute:= TRUE,
   		Timeout:= modbusTimeout_EL,
   		Busy => isModbusBusy_EL,
   		Error => isModbusError_EL,
   		ErrorId => modbusErrorId_EL
   		(*cbRead parameter)*));
-		
-	
-		
-		IF NOT isModbusBusy THEN
+
+		IF NOT isModbusBusy_EL THEN
 				ModbusEL6021.ReadInputRegs(Execute:= FALSE);
-		(*	IF MODBUS.myModbus.Error THEN
+			IF MODBUS.myModbus.Error THEN
 				state := 0;
-			ELSE
-				state :=state + 1 ;	
-			END_IF*)
+				ELSE
+				counter := counter + 1;	
+					IF counter > 10 THEN		//alle deklarierten Modbus-Register werden ausgelesen
+					counter := 1;
+					state:= 2;
+					END_IF
+			END_IF
 		END_IF
 		
+
+
+	
+2: (*Liest Coils von EV aus*)
+		ModbusEL6021.ReadCoils(
+		UnitID:= 2,
+ 		Quantity:= 1,								
+ 		MBAddr:= AbfrageCoils[counter],								
+ 		cbLength:= SIZEOF(EV.modbusDataCoils[counter]),		
+ 		pMemoryAddr:= ADR(EV.modbusDataCoils[counter]),		//Daten werden in für EV DATA-ARRAY geschrieben
+  		Execute:= TRUE,
+  		Timeout:= modbusTimeout_EL,
+  		Busy => isModbusBusy_EL,
+  		Error => isModbusError_EL,
+  		ErrorId => modbusErrorId_EL
+  		(*cbRead parameter)*));
+
+		IF NOT isModbusBusy_EL THEN
+				ModbusEL6021.ReadCoils(Execute:= FALSE);
+			IF ModbusEL6021.Error THEN
+				state := 0;
+			ELSE
+				counter:= counter+1;
+				IF counter > 4 THEN		//alle deklarierten Modbus-Register werden ausgelesen
+					counter := 1;
+					state:= 3;
+				END_IF
+			END_IF
+
+		END_IF
+3: (*Schreibt Akt_Kühlleistung Coil auf die Expansionsventile*)
+IF EV.SetAktKuhlleistung THEN 	
+	ModbusEL6021.WriteSingleRegister(
+		UnitID:= 2,
+ 		Quantity:= 1,								
+ 		MBAddr:= 134,								
+ 		cbLength:= SIZEOF(EV.SollAktKuhlleistung),		
+ 		pMemoryAddr:= ADR(EV.SollAktKuhlleistung),		//Daten werden in für EV DATA-ARRAY geschrieben
+  		Execute:= TRUE,
+  		Timeout:= modbusTimeout_EL,
+  		Busy => isModbusBusy_EL,
+  		Error => isModbusError_EL,
+  		ErrorId => modbusErrorId_EL
+  		(*cbRead parameter)*));
+
+		IF NOT isModbusBusy_EL THEN
+				ModbusEL6021.WriteSingleRegister(Execute:= FALSE);
+			IF ModbusEL6021.Error THEN
+				state := 0;
+			ELSE
+				state:= 4;
+			END_IF
+		END_IF
+	ELSE 
+		state:= 4;
+END_IF
+	
+4: (*Liest Register von EV_rev aus*)
+ 	
+		ModbusEL6021.ReadInputRegs(
+		UnitID:= 3,
+ 		Quantity:= 1,								
+ 		MBAddr:= AbfrageRegs[counter],								
+ 		cbLength:= SIZEOF(EV_rev.modbusData[counter]),//EV.modbusData[counter]),		
+ 		pMemoryAddr:= ADR(EV_rev.modbusData[counter]),//EV.modbusData[counter]),		//Daten werden in für EV DATA-ARRAY geschrieben
+  		Execute:= TRUE,
+  		Timeout:= modbusTimeout_EL,
+  		Busy => isModbusBusy_EL,
+  		Error => isModbusError_EL,
+  		ErrorId => modbusErrorId_EL
+  		(*cbRead parameter)*));
+
+		IF NOT isModbusBusy_EL THEN
+				ModbusEL6021.ReadInputRegs(Execute:= FALSE);
+			IF MODBUS.myModbus.Error THEN
+				state := 0;
+				ELSE
+				counter := counter + 1;	
+					IF counter > 10 THEN		//alle deklarierten Modbus-Register werden ausgelesen
+					counter := 1;
+					state:= 5;
+					END_IF
+			END_IF
+		END_IF
+		
+
+
+	
+5: (*Liest Coils von EV_rev aus*)
+		
+
+		ModbusEL6021.ReadCoils(
+		UnitID:= 3,
+ 		Quantity:= 1,								
+ 		MBAddr:= AbfrageCoils[counter],								
+ 		cbLength:= SIZEOF(EV_rev.modbusDataCoils[counter]),		
+ 		pMemoryAddr:= ADR(EV_rev.modbusDataCoils[counter]),		//Daten werden in für EV DATA-ARRAY geschrieben
+  		Execute:= TRUE,
+  		Timeout:= modbusTimeout_EL,
+  		Busy => isModbusBusy_EL,
+  		Error => isModbusError_EL,
+  		ErrorId => modbusErrorId_EL
+  		(*cbRead parameter)*));
+
+		IF NOT isModbusBusy_EL THEN
+				ModbusEL6021.ReadCoils(Execute:= FALSE);
+			IF ModbusEL6021.Error THEN
+				state := 0;
+			ELSE
+				counter:= counter+1;
+				IF counter > 4 THEN		//alle deklarierten Modbus-Register werden ausgelesen
+					counter := 1;
+					state:= 6;
+				END_IF
+			END_IF
+
+		END_IF
+
+6: (*Schreibt Akt_Kühlleistung Coil auf die Expansionsventile*)
+IF EV_rev.SetAktKuhlleistung THEN 	
+	ModbusEL6021.WriteSingleRegister(
+		UnitID:= 2,
+ 		Quantity:= 1,								
+ 		MBAddr:= 134,								
+ 		cbLength:= SIZEOF(EV_rev.SollAktKuhlleistung),		
+ 		pMemoryAddr:= ADR(EV_rev.SollAktKuhlleistung),		//Daten werden in für EV DATA-ARRAY geschrieben
+  		Execute:= TRUE,
+  		Timeout:= modbusTimeout_EL,
+  		Busy => isModbusBusy_EL,
+  		Error => isModbusError_EL,
+  		ErrorId => modbusErrorId_EL
+  		(*cbRead parameter)*));
+
+		IF NOT isModbusBusy_EL THEN
+				ModbusEL6021.WriteSingleRegister(Execute:= FALSE);
+			IF ModbusEL6021.Error THEN
+				state := 0;
+			ELSE
+				state:= 0;
+			END_IF
+		END_IF
+	ELSE 
+		state:= 0;
+END_IF	
+
+	
+
+END_CASE
 		
 		
 FtrigBusy(CLK:=ModbusEL6021.BUSY );

@@ -3,8 +3,8 @@
   <DUT Name="Log_p_h" Id="{2f225f72-14f3-436c-87e9-0046cbe108e8}">
     <Declaration><![CDATA[TYPE Log_p_h :
 STRUCT
-	Druck :=	 REAL; // log (Bar}
-	Enthalpie := REAL; // log (J)
+	xDruck :=	 REAL; // log (Bar}
+	yEnthalpie := REAL; // log (J)
 END_STRUCT
 END_TYPE
 ]]></Declaration>
