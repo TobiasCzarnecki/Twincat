@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
+  <DUT Name="k_Daten" Id="{fab6a44b-731e-4818-bb13-99b5c8e7a2dd}">
+    <Declaration><![CDATA[TYPE k_Daten :
+STRUCT
+	k_Kalibrierung : ARRAY [1..4,1..4] OF REAL;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

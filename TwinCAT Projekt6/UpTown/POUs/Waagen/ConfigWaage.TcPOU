@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
+  <POU Name="ConfigWaage" Id="{d4d09f66-48a2-4467-990b-a6bdbad30313}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM ConfigWaage 
+
+VAR
+//========================================================================================
+//Manuelle Variablen
+	ManuellOK: 			BOOL;			// Durch  USER auf TRUE gesetzt, wenn Prüfgewicht umgehangen ist und alles OK
+	NachstePosition: 	BOOL;
+	Kalibriergewicht : 	ARRAY[1..2] OF REAL := [5753.3,7500]; //später als Global deklarieren, angegeben in Gramm
+
+//========================================================================================
+	timer_Einschwing: TON;		//Einschwingzeit wird definiert
+	timer_Messen	: TON;
+	
+	bEinschwingvorgang_vorbei: 	BOOL;
+
+	
+	PositionKalibrierGewicht : INT :=1; 			//Immer an Position 1 anfangen bei der Kalibrierung
+	WertMitteln: ARRAY[1..4] OF FILTER_MAV_REAL;
+	FilterIn : ARRAY[1..4] OF REAL;
+	k_werte: ARRAY[1..4] OF REAL;
+	counter: INT;
+	bKalibrierungAbgeschlossen: BOOL;
+	
+	state: INT := 0;
+
+
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[CASE state OF
+
+0: (*Einschwingvorgang wird abgewartet*)
+	
+	timer_Einschwing(IN:= TRUE, PT:= T#120S ); // der Timer wird gestartet, damit sich das Wägesystem einschwingen kann
+	
+	IF timer_Einschwing.Q AND ManuellOK THEN 
+		timer_Einschwing(IN :=FALSE); 
+		ManuellOK := FALSE;
+		state:=1;
+	END_IF
+
+	
+1: (*Kalibrierungsdaten werden aufgenommen und über einen FIlter gemittelt*)
+	
+	timer_Messen(IN:= TRUE, PT:= T#120S); //120 Sekunden wird gemessen
+	//timer_Messen.IN:= TRUE;
+	
+	FOR counter:=1 TO 4 DO 
+	FilterIn[counter] :=WaageGewicht[counter]/ Kalibriergewicht[1];
+	END_FOR
+
+	WertMitteln[1](X:= FilterIn[1], N:=30 , RST:=ManuellOK , Y=> k_werte[1]);
+	WertMitteln[2](X:= FilterIn[2], N:=30 , RST:=ManuellOK , Y=> k_werte[2]);
+	WertMitteln[3](X:= FilterIn[3], N:=30 , RST:=ManuellOK , Y=> k_werte[3]);
+	WertMitteln[4](X:= FilterIn[4], N:=30 , RST:=ManuellOK , Y=> k_werte[4]);
+	
+	
+	IF timer_Messen.Q THEN 
+		state :=2;
+		timer_Messen(IN:= FALSE);
+	END_IF
+
+
+2: (*Übertragung der k-Werte in das Kalibrierungs-Array*)
+
+	FOR counter:=1 TO 4 DO 
+		k_alleDaten[1].k_Kalibrierung[counter,PositionKalibrierGewicht]:= k_werte[counter];
+	END_FOR
+	
+	state:= 3;
+
+3:	
+	IF NachstePosition THEN 
+	state:= 0;
+	NachstePosition:= FALSE;
+	bKalibrierungAbgeschlossen:= FALSE;
+	PositionKalibrierGewicht:= PositionKalibrierGewicht + 1; 
+		IF PositionKalibrierGewicht > 4 THEN 
+			PositionKalibrierGewicht:= 1;
+			bKalibrierungAbgeschlossen:= TRUE; 
+			bConfigWaage := FALSE;
+		END_IF
+	END_IF
+
+END_CASE]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

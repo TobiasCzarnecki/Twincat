@@ -4,13 +4,19 @@
   <Title>Scope YT Project</Title>
   <LayoutString>&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;Layout&gt;
-  &lt;Window Guid="31a2702c-1f3e-4b12-8d14-a1ad705998fb" LastFocused="131045149054074784" DockedSize="200" PopupSize="0" FloatingLocation="-1, -1" FloatingSize="550, 400" LastOpenDockSituation="Document" LastFixedDockSituation="Document" LastFixedDockLocation="Right" LastFloatingWindowGuid="00000000-0000-0000-0000-000000000000" LastDockContainerCount="0" LastDockContainerIndex="0" DockedWorkingSize="250, 400" DockedWindowGroupGuid="00000000-0000-0000-0000-000000000000" DockedIndexInWindowGroup="0" DockedSplitPath="0" DocumentWorkingSize="250, 400" DocumentWindowGroupGuid="e8779e27-517b-4bc2-bf7b-c451b96402b2" DocumentIndexInWindowGroup="0" DocumentSplitPath="1" FloatingWorkingSize="250, 400" FloatingWindowGroupGuid="00000000-0000-0000-0000-000000000000" FloatingIndexInWindowGroup="0" FloatingSplitPath="0" /&gt;
-  &lt;Window Guid="97332cdc-477f-498a-a8da-59f3e238ae5a" LastFocused="131045148964059485" DockedSize="200" PopupSize="0" FloatingLocation="-1, -1" FloatingSize="550, 400" LastOpenDockSituation="Document" LastFixedDockSituation="Document" LastFixedDockLocation="Right" LastFloatingWindowGuid="00000000-0000-0000-0000-000000000000" LastDockContainerCount="0" LastDockContainerIndex="0" DockedWorkingSize="250, 400" DockedWindowGroupGuid="00000000-0000-0000-0000-000000000000" DockedIndexInWindowGroup="0" DockedSplitPath="0" DocumentWorkingSize="250, 400" DocumentWindowGroupGuid="e3627557-a720-4c2a-9af0-d310b5d3d828" DocumentIndexInWindowGroup="0" DocumentSplitPath="0" FloatingWorkingSize="250, 400" FloatingWindowGroupGuid="00000000-0000-0000-0000-000000000000" FloatingIndexInWindowGroup="0" FloatingSplitPath="0" /&gt;
+  &lt;Window Guid="31a2702c-1f3e-4b12-8d14-a1ad705998fb" LastFocused="131062347263440177" DockedSize="200" PopupSize="0" FloatingLocation="-1, -1" FloatingSize="550, 400" LastOpenDockSituation="Document" LastFixedDockSituation="Document" LastFixedDockLocation="Right" LastFloatingWindowGuid="00000000-0000-0000-0000-000000000000" LastDockContainerCount="0" LastDockContainerIndex="0" DockedWorkingSize="250, 400" DockedWindowGroupGuid="00000000-0000-0000-0000-000000000000" DockedIndexInWindowGroup="0" DockedSplitPath="0" DocumentWorkingSize="250, 400" DocumentWindowGroupGuid="e8779e27-517b-4bc2-bf7b-c451b96402b2" DocumentIndexInWindowGroup="0" DocumentSplitPath="2" FloatingWorkingSize="250, 400" FloatingWindowGroupGuid="00000000-0000-0000-0000-000000000000" FloatingIndexInWindowGroup="0" FloatingSplitPath="0" /&gt;
+  &lt;Window Guid="97332cdc-477f-498a-a8da-59f3e238ae5a" LastFocused="131062351476340705" DockedSize="200" PopupSize="0" FloatingLocation="-1, -1" FloatingSize="550, 400" LastOpenDockSituation="Document" LastFixedDockSituation="Document" LastFixedDockLocation="Right" LastFloatingWindowGuid="00000000-0000-0000-0000-000000000000" LastDockContainerCount="0" LastDockContainerIndex="0" DockedWorkingSize="250, 400" DockedWindowGroupGuid="00000000-0000-0000-0000-000000000000" DockedIndexInWindowGroup="0" DockedSplitPath="0" DocumentWorkingSize="250, 400" DocumentWindowGroupGuid="e3627557-a720-4c2a-9af0-d310b5d3d828" DocumentIndexInWindowGroup="0" DocumentSplitPath="0" FloatingWorkingSize="250, 400" FloatingWindowGroupGuid="00000000-0000-0000-0000-000000000000" FloatingIndexInWindowGroup="0" FloatingSplitPath="0" /&gt;
+  &lt;Window Guid="5d341de7-ce5b-4462-ba2d-ea3759ae3e86" LastFocused="131062351476560718" DockedSize="200" PopupSize="0" FloatingLocation="-1, -1" FloatingSize="550, 400" LastOpenDockSituation="Document" LastFixedDockSituation="Document" LastFixedDockLocation="Right" LastFloatingWindowGuid="00000000-0000-0000-0000-000000000000" LastDockContainerCount="0" LastDockContainerIndex="0" DockedWorkingSize="250, 400" DockedWindowGroupGuid="00000000-0000-0000-0000-000000000000" DockedIndexInWindowGroup="0" DockedSplitPath="0" DocumentWorkingSize="250, 400" DocumentWindowGroupGuid="c0d980df-34b0-4437-981c-37b9ee185996" DocumentIndexInWindowGroup="0" DocumentSplitPath="1" FloatingWorkingSize="250, 400" FloatingWindowGroupGuid="00000000-0000-0000-0000-000000000000" FloatingIndexInWindowGroup="0" FloatingSplitPath="0" /&gt;
   &lt;DocumentContainer Dock="5"&gt;
     &lt;SplitLayoutSystem WorkingSize="250, 400" SplitMode="0"&gt;
       &lt;ControlLayoutSystem WorkingSize="250, 400" Guid="e3627557-a720-4c2a-9af0-d310b5d3d828" Collapsed="0" SelectedControl="97332cdc-477f-498a-a8da-59f3e238ae5a"&gt;
         &lt;Controls&gt;
           &lt;Control Guid="97332cdc-477f-498a-a8da-59f3e238ae5a" /&gt;
+        &lt;/Controls&gt;
+      &lt;/ControlLayoutSystem&gt;
+      &lt;ControlLayoutSystem WorkingSize="250, 400" Guid="c0d980df-34b0-4437-981c-37b9ee185996" Collapsed="0" SelectedControl="5d341de7-ce5b-4462-ba2d-ea3759ae3e86"&gt;
+        &lt;Controls&gt;
+          &lt;Control Guid="5d341de7-ce5b-4462-ba2d-ea3759ae3e86" /&gt;
         &lt;/Controls&gt;
       &lt;/ControlLayoutSystem&gt;
       &lt;ControlLayoutSystem WorkingSize="250, 400" Guid="e8779e27-517b-4bc2-bf7b-c451b96402b2" Collapsed="0" SelectedControl="31a2702c-1f3e-4b12-8d14-a1ad705998fb"&gt;
@@ -109,7 +115,7 @@
           </Style>
           <Channels>
             <ScopeChannelSerializable>
-              <Name>GVL.Temp_VD_in</Name>
+              <Name>Temp_VD_in</Name>
               <IdentHandle>1</IdentHandle>
               <Acquisition>
                 <DataType>REAL32</DataType>
@@ -162,7 +168,7 @@
               <SortPriority>-1</SortPriority>
             </ScopeChannelSerializable>
             <ScopeChannelSerializable>
-              <Name>GVL.Temp_VD_out</Name>
+              <Name>Temp_VD_out</Name>
               <IdentHandle>2</IdentHandle>
               <Acquisition>
                 <DataType>REAL32</DataType>
@@ -215,7 +221,7 @@
               <SortPriority>-1</SortPriority>
             </ScopeChannelSerializable>
             <ScopeChannelSerializable>
-              <Name>GVL.Temp_VD_in_rev</Name>
+              <Name>Temp_VD_in_rev</Name>
               <IdentHandle>3</IdentHandle>
               <Acquisition>
                 <DataType>REAL32</DataType>
@@ -268,7 +274,7 @@
               <SortPriority>-1</SortPriority>
             </ScopeChannelSerializable>
             <ScopeChannelSerializable>
-              <Name>GVL.Temp_VD_out_rev</Name>
+              <Name>Temp_VD_out_rev</Name>
               <IdentHandle>4</IdentHandle>
               <Acquisition>
                 <DataType>REAL32</DataType>
@@ -321,7 +327,7 @@
               <SortPriority>-1</SortPriority>
             </ScopeChannelSerializable>
             <ScopeChannelSerializable>
-              <Name>GVL.Temp_VF_in</Name>
+              <Name>Temp_VF_in</Name>
               <IdentHandle>5</IdentHandle>
               <Acquisition>
                 <DataType>REAL32</DataType>
@@ -374,7 +380,7 @@
               <SortPriority>-1</SortPriority>
             </ScopeChannelSerializable>
             <ScopeChannelSerializable>
-              <Name>GVL.Temp_VF_out</Name>
+              <Name>Temp_VF_out</Name>
               <IdentHandle>6</IdentHandle>
               <Acquisition>
                 <DataType>REAL32</DataType>
@@ -427,7 +433,7 @@
               <SortPriority>-1</SortPriority>
             </ScopeChannelSerializable>
             <ScopeChannelSerializable>
-              <Name>GVL.Temp_VD_defrost_in</Name>
+              <Name>Temp_VD_defrost_in</Name>
               <IdentHandle>7</IdentHandle>
               <Acquisition>
                 <DataType>REAL32</DataType>
@@ -480,7 +486,7 @@
               <SortPriority>-1</SortPriority>
             </ScopeChannelSerializable>
             <ScopeChannelSerializable>
-              <Name>GVL.Temp_VD_defrost_out</Name>
+              <Name>Temp_VD_defrost_out</Name>
               <IdentHandle>8</IdentHandle>
               <Acquisition>
                 <DataType>REAL32</DataType>
@@ -533,7 +539,7 @@
               <SortPriority>-1</SortPriority>
             </ScopeChannelSerializable>
             <ScopeChannelSerializable>
-              <Name>GVL.Temp_KP_in</Name>
+              <Name>Temp_KP_in</Name>
               <IdentHandle>9</IdentHandle>
               <Acquisition>
                 <DataType>REAL32</DataType>
@@ -586,7 +592,7 @@
               <SortPriority>-1</SortPriority>
             </ScopeChannelSerializable>
             <ScopeChannelSerializable>
-              <Name>GVL.Temp_KP_out</Name>
+              <Name>Temp_KP_out</Name>
               <IdentHandle>10</IdentHandle>
               <Acquisition>
                 <DataType>REAL32</DataType>
@@ -639,7 +645,7 @@
               <SortPriority>-1</SortPriority>
             </ScopeChannelSerializable>
             <ScopeChannelSerializable>
-              <Name>GVL.Temp_vor_EV</Name>
+              <Name>Temp_vor_EV</Name>
               <IdentHandle>11</IdentHandle>
               <Acquisition>
                 <DataType>REAL32</DataType>
@@ -692,7 +698,7 @@
               <SortPriority>-1</SortPriority>
             </ScopeChannelSerializable>
             <ScopeChannelSerializable>
-              <Name>GVL.Temp_vor_EV_rev</Name>
+              <Name>Temp_vor_EV_rev</Name>
               <IdentHandle>12</IdentHandle>
               <Acquisition>
                 <DataType>REAL32</DataType>
@@ -759,7 +765,7 @@
         <HexValues>false</HexValues>
       </CursorModule>
       <Operating>
-        <DisplayWidth>170000000</DisplayWidth>
+        <DisplayWidth>100000000</DisplayWidth>
       </Operating>
       <ChartType>XT</ChartType>
       <SortPriority>-1</SortPriority>
@@ -837,7 +843,7 @@
           </Style>
           <Channels>
             <ScopeChannelSerializable>
-              <Name>GVL.PT_KP_in(1)</Name>
+              <Name>PT_KP_in</Name>
               <IdentHandle>13</IdentHandle>
               <Acquisition>
                 <DataType>REAL32</DataType>
@@ -890,7 +896,7 @@
               <SortPriority>-1</SortPriority>
             </ScopeChannelSerializable>
             <ScopeChannelSerializable>
-              <Name>GVL.PT_KP_out(1)</Name>
+              <Name>PT_KP_out</Name>
               <IdentHandle>14</IdentHandle>
               <Acquisition>
                 <DataType>REAL32</DataType>
@@ -943,7 +949,7 @@
               <SortPriority>-1</SortPriority>
             </ScopeChannelSerializable>
             <ScopeChannelSerializable>
-              <Name>GVL.PT_VF_in(1)</Name>
+              <Name>PT_VF_in</Name>
               <IdentHandle>15</IdentHandle>
               <Acquisition>
                 <DataType>REAL32</DataType>
@@ -996,7 +1002,7 @@
               <SortPriority>-1</SortPriority>
             </ScopeChannelSerializable>
             <ScopeChannelSerializable>
-              <Name>GVL.PT_VF_out(1)</Name>
+              <Name>PT_VF_out</Name>
               <IdentHandle>16</IdentHandle>
               <Acquisition>
                 <DataType>REAL32</DataType>
@@ -1049,7 +1055,7 @@
               <SortPriority>-1</SortPriority>
             </ScopeChannelSerializable>
             <ScopeChannelSerializable>
-              <Name>GVL.PT_vor_EV(1)</Name>
+              <Name>PT_vor_EV</Name>
               <IdentHandle>17</IdentHandle>
               <Acquisition>
                 <DataType>REAL32</DataType>
@@ -1102,7 +1108,7 @@
               <SortPriority>-1</SortPriority>
             </ScopeChannelSerializable>
             <ScopeChannelSerializable>
-              <Name>GVL.PT_vor_EV_rev(1)</Name>
+              <Name>PT_vor_EV_rev</Name>
               <IdentHandle>18</IdentHandle>
               <Acquisition>
                 <DataType>REAL32</DataType>
@@ -1155,7 +1161,7 @@
               <SortPriority>-1</SortPriority>
             </ScopeChannelSerializable>
             <ScopeChannelSerializable>
-              <Name>GVL.PT_VD_in(1)</Name>
+              <Name>PT_VD_in</Name>
               <IdentHandle>19</IdentHandle>
               <Acquisition>
                 <DataType>REAL32</DataType>
@@ -1208,7 +1214,7 @@
               <SortPriority>-1</SortPriority>
             </ScopeChannelSerializable>
             <ScopeChannelSerializable>
-              <Name>GVL.PT_VD_out(1)</Name>
+              <Name>PT_VD_out</Name>
               <IdentHandle>20</IdentHandle>
               <Acquisition>
                 <DataType>REAL32</DataType>
@@ -1261,6 +1267,363 @@
               <SortPriority>-1</SortPriority>
             </ScopeChannelSerializable>
           </Channels>
+          <SortPriority>0</SortPriority>
+        </ScopeYAxisSerializable>
+      </YAxes>
+      <XYAxes />
+      <CursorModule>
+        <Cursors />
+        <ShowSelectedOnly>false</ShowSelectedOnly>
+        <AbsTimeVisible>true</AbsTimeVisible>
+        <RecordTimeVisible>true</RecordTimeVisible>
+        <ChartTimeVisible>true</ChartTimeVisible>
+        <DeltaValues>false</DeltaValues>
+        <HexValues>false</HexValues>
+      </CursorModule>
+      <Operating>
+        <DisplayWidth>100000000</DisplayWidth>
+      </Operating>
+      <ChartType>XT</ChartType>
+      <SortPriority>-1</SortPriority>
+      <AssignedCore>-1</AssignedCore>
+    </ScopeChartSerializable>
+    <ScopeChartSerializable>
+      <Name>Waagen</Name>
+      <GUID>5d341de7-ce5b-4462-ba2d-ea3759ae3e86</GUID>
+      <Style>
+        <BackgroundColorValue>-1118482</BackgroundColorValue>
+        <BorderColorValue>-1973016</BorderColorValue>
+        <IsSmooth>false</IsSmooth>
+        <SmoothTime>100</SmoothTime>
+        <YZoom>true</YZoom>
+        <StackedYAxes>false</StackedYAxes>
+        <Legend>false</Legend>
+        <VisibleToolstrip>true</VisibleToolstrip>
+        <VisibleTimestrip>true</VisibleTimestrip>
+        <BaseTime>100000000</BaseTime>
+        <Comment></Comment>
+        <ScaleOnZoom>true</ScaleOnZoom>
+        <AutoStartOnRecord>true</AutoStartOnRecord>
+        <ButtonSize>
+          <Width>16</Width>
+          <Height>16</Height>
+        </ButtonSize>
+        <ToolStripFontSize>8.25</ToolStripFontSize>
+        <TimeStripFontSize>8.25</TimeStripFontSize>
+        <EnabledButtons>RunButton PauseButton Splitter1 DisplaywidthTextBox Splitter2 ScrollBackBig ScrollBackSmall ScrollForwardSmall ScrollForwardBig Splitter3 PositionTextBox Splitter4 UndoButton RedoButton Splitter5 CursorButton PanButton PanXYButton ZoomButton ZoomXYButton UnzoomButton ZoomOutMaxButton OverviewButton</EnabledButtons>
+        <EnabledTimeLabels>StartTimeLabel Splitter1 EndTimeLabel Splitter2 PositionLabel Splitter3 AbsTimeLabel Splitter4 DateLabel</EnabledTimeLabels>
+        <ShowName>false</ShowName>
+        <VisibleOverview>false</VisibleOverview>
+        <DataPointToolTip>true</DataPointToolTip>
+      </Style>
+      <XAxis>
+        <Style>
+          <ColorValue>-13676721</ColorValue>
+          <UseGrid>true</UseGrid>
+          <Ticks>10</Ticks>
+          <LineWidth>1</LineWidth>
+          <GridColorValue>-13676721</GridColorValue>
+          <GridLineWidth>1</GridLineWidth>
+          <UseSubGrid>false</UseSubGrid>
+          <SubDivisions>5</SubDivisions>
+          <Comment></Comment>
+        </Style>
+        <SortPriority>-1</SortPriority>
+        <Invert>false</Invert>
+      </XAxis>
+      <YAxes>
+        <ScopeYAxisSerializable>
+          <Caption>Gewicht[g]</Caption>
+          <Name>Gewicht[g]</Name>
+          <Style>
+            <Visible>true</Visible>
+            <Enabled>true</Enabled>
+            <ColorValue>-13676721</ColorValue>
+            <UseGrid>true</UseGrid>
+            <Ticks>10</Ticks>
+            <LineWidth>1</LineWidth>
+            <AutoScale>true</AutoScale>
+            <AxisMin>-1</AxisMin>
+            <AxisMax>1</AxisMax>
+            <ScaleFactor>0</ScaleFactor>
+            <ShowCursorValue>true</ShowCursorValue>
+            <GridColorValue>-13676721</GridColorValue>
+            <GridLineWidth>1</GridLineWidth>
+            <UseSubGrid>false</UseSubGrid>
+            <SubDivisions>5</SubDivisions>
+            <Logarithmic>false</Logarithmic>
+            <Comment></Comment>
+            <ShowName>true</ShowName>
+            <Precision>6</Precision>
+            <ScaleMode>AutoGrowOnly</ScaleMode>
+          </Style>
+          <Channels>
+            <ScopeChannelSerializable>
+              <Name>WaageGewicht[1]</Name>
+              <IdentHandle>21</IdentHandle>
+              <Acquisition>
+                <DataType>REAL32</DataType>
+                <IndexGroup>16448</IndexGroup>
+                <IndexOffset>567756</IndexOffset>
+                <TargetPort>851</TargetPort>
+                <VariableSize>4</VariableSize>
+                <SymbolName>WAAGEN.WaageGewicht[1]</SymbolName>
+                <SymbolComment></SymbolComment>
+                <IsSymbolBased>true</IsSymbolBased>
+                <FileHandle>0</FileHandle>
+                <UseLocalServer>true</UseLocalServer>
+                <AmsNetIdString>5.33.15.132.1.1</AmsNetIdString>
+                <SampleTime>100000</SampleTime>
+                <Disabled>false</Disabled>
+                <Oversample>0</Oversample>
+                <UseTaskSampletime>true</UseTaskSampletime>
+                <ForceOversampling>false</ForceOversampling>
+                <IsArray>false</IsArray>
+                <ArrayLength>0</ArrayLength>
+                <ContextMask>0</ContextMask>
+              </Acquisition>
+              <Style>
+                <ColorValue>-23296</ColorValue>
+                <SolidLine>true</SolidLine>
+                <Marks>false</Marks>
+                <LineWidth>1</LineWidth>
+                <Antialias>true</Antialias>
+                <Offset>0</Offset>
+                <BitMask>18446744073709551615</BitMask>
+                <ShowCursorValue>true</ShowCursorValue>
+                <Visible>true</Visible>
+                <MarkColorValue>-23296</MarkColorValue>
+                <MarkSize>3</MarkSize>
+                <TimeShift>0</TimeShift>
+                <ScaleFactor>1</ScaleFactor>
+                <Comment></Comment>
+                <AutoMarks>true</AutoMarks>
+                <XOffset>0</XOffset>
+                <XScaleFactor>1</XScaleFactor>
+                <XBitMask>18446744073709551615</XBitMask>
+                <FillMode>0</FillMode>
+                <FillColorValue>838861055</FillColorValue>
+                <EndCap>false</EndCap>
+                <StartCap>false</StartCap>
+                <CapSize>3</CapSize>
+                <CapColorValue>-65536</CapColorValue>
+                <SeriesType>Line</SeriesType>
+              </Style>
+              <SortPriority>-1</SortPriority>
+            </ScopeChannelSerializable>
+            <ScopeChannelSerializable>
+              <Name>WaageGewicht[2]</Name>
+              <IdentHandle>22</IdentHandle>
+              <Acquisition>
+                <DataType>REAL32</DataType>
+                <IndexGroup>16448</IndexGroup>
+                <IndexOffset>567760</IndexOffset>
+                <TargetPort>851</TargetPort>
+                <VariableSize>4</VariableSize>
+                <SymbolName>WAAGEN.WaageGewicht[2]</SymbolName>
+                <SymbolComment></SymbolComment>
+                <IsSymbolBased>true</IsSymbolBased>
+                <FileHandle>0</FileHandle>
+                <UseLocalServer>true</UseLocalServer>
+                <AmsNetIdString>5.33.15.132.1.1</AmsNetIdString>
+                <SampleTime>100000</SampleTime>
+                <Disabled>false</Disabled>
+                <Oversample>0</Oversample>
+                <UseTaskSampletime>true</UseTaskSampletime>
+                <ForceOversampling>false</ForceOversampling>
+                <IsArray>false</IsArray>
+                <ArrayLength>0</ArrayLength>
+                <ContextMask>0</ContextMask>
+              </Acquisition>
+              <Style>
+                <ColorValue>-16711936</ColorValue>
+                <SolidLine>true</SolidLine>
+                <Marks>false</Marks>
+                <LineWidth>1</LineWidth>
+                <Antialias>true</Antialias>
+                <Offset>0</Offset>
+                <BitMask>18446744073709551615</BitMask>
+                <ShowCursorValue>true</ShowCursorValue>
+                <Visible>true</Visible>
+                <MarkColorValue>-16711936</MarkColorValue>
+                <MarkSize>3</MarkSize>
+                <TimeShift>0</TimeShift>
+                <ScaleFactor>1</ScaleFactor>
+                <Comment></Comment>
+                <AutoMarks>true</AutoMarks>
+                <XOffset>0</XOffset>
+                <XScaleFactor>1</XScaleFactor>
+                <XBitMask>18446744073709551615</XBitMask>
+                <FillMode>0</FillMode>
+                <FillColorValue>838861055</FillColorValue>
+                <EndCap>false</EndCap>
+                <StartCap>false</StartCap>
+                <CapSize>3</CapSize>
+                <CapColorValue>-65536</CapColorValue>
+                <SeriesType>Line</SeriesType>
+              </Style>
+              <SortPriority>-1</SortPriority>
+            </ScopeChannelSerializable>
+            <ScopeChannelSerializable>
+              <Name>WaageGewicht[3]</Name>
+              <IdentHandle>23</IdentHandle>
+              <Acquisition>
+                <DataType>REAL32</DataType>
+                <IndexGroup>16448</IndexGroup>
+                <IndexOffset>567764</IndexOffset>
+                <TargetPort>851</TargetPort>
+                <VariableSize>4</VariableSize>
+                <SymbolName>WAAGEN.WaageGewicht[3]</SymbolName>
+                <SymbolComment></SymbolComment>
+                <IsSymbolBased>true</IsSymbolBased>
+                <FileHandle>0</FileHandle>
+                <UseLocalServer>true</UseLocalServer>
+                <AmsNetIdString>5.33.15.132.1.1</AmsNetIdString>
+                <SampleTime>100000</SampleTime>
+                <Disabled>false</Disabled>
+                <Oversample>0</Oversample>
+                <UseTaskSampletime>true</UseTaskSampletime>
+                <ForceOversampling>false</ForceOversampling>
+                <IsArray>false</IsArray>
+                <ArrayLength>0</ArrayLength>
+                <ContextMask>0</ContextMask>
+              </Acquisition>
+              <Style>
+                <ColorValue>-14774017</ColorValue>
+                <SolidLine>true</SolidLine>
+                <Marks>false</Marks>
+                <LineWidth>1</LineWidth>
+                <Antialias>true</Antialias>
+                <Offset>0</Offset>
+                <BitMask>18446744073709551615</BitMask>
+                <ShowCursorValue>true</ShowCursorValue>
+                <Visible>true</Visible>
+                <MarkColorValue>-14774017</MarkColorValue>
+                <MarkSize>3</MarkSize>
+                <TimeShift>0</TimeShift>
+                <ScaleFactor>1</ScaleFactor>
+                <Comment></Comment>
+                <AutoMarks>true</AutoMarks>
+                <XOffset>0</XOffset>
+                <XScaleFactor>1</XScaleFactor>
+                <XBitMask>18446744073709551615</XBitMask>
+                <FillMode>0</FillMode>
+                <FillColorValue>838861055</FillColorValue>
+                <EndCap>false</EndCap>
+                <StartCap>false</StartCap>
+                <CapSize>3</CapSize>
+                <CapColorValue>-65536</CapColorValue>
+                <SeriesType>Line</SeriesType>
+              </Style>
+              <SortPriority>-1</SortPriority>
+            </ScopeChannelSerializable>
+            <ScopeChannelSerializable>
+              <Name>WaageGewicht[4]</Name>
+              <IdentHandle>24</IdentHandle>
+              <Acquisition>
+                <DataType>REAL32</DataType>
+                <IndexGroup>16448</IndexGroup>
+                <IndexOffset>567768</IndexOffset>
+                <TargetPort>851</TargetPort>
+                <VariableSize>4</VariableSize>
+                <SymbolName>WAAGEN.WaageGewicht[4]</SymbolName>
+                <SymbolComment></SymbolComment>
+                <IsSymbolBased>true</IsSymbolBased>
+                <FileHandle>0</FileHandle>
+                <UseLocalServer>true</UseLocalServer>
+                <AmsNetIdString>5.33.15.132.1.1</AmsNetIdString>
+                <SampleTime>100000</SampleTime>
+                <Disabled>false</Disabled>
+                <Oversample>0</Oversample>
+                <UseTaskSampletime>true</UseTaskSampletime>
+                <ForceOversampling>false</ForceOversampling>
+                <IsArray>false</IsArray>
+                <ArrayLength>0</ArrayLength>
+                <ContextMask>0</ContextMask>
+              </Acquisition>
+              <Style>
+                <ColorValue>-65281</ColorValue>
+                <SolidLine>true</SolidLine>
+                <Marks>false</Marks>
+                <LineWidth>1</LineWidth>
+                <Antialias>true</Antialias>
+                <Offset>0</Offset>
+                <BitMask>18446744073709551615</BitMask>
+                <ShowCursorValue>true</ShowCursorValue>
+                <Visible>true</Visible>
+                <MarkColorValue>-65281</MarkColorValue>
+                <MarkSize>3</MarkSize>
+                <TimeShift>0</TimeShift>
+                <ScaleFactor>1</ScaleFactor>
+                <Comment></Comment>
+                <AutoMarks>true</AutoMarks>
+                <XOffset>0</XOffset>
+                <XScaleFactor>1</XScaleFactor>
+                <XBitMask>18446744073709551615</XBitMask>
+                <FillMode>0</FillMode>
+                <FillColorValue>838861055</FillColorValue>
+                <EndCap>false</EndCap>
+                <StartCap>false</StartCap>
+                <CapSize>3</CapSize>
+                <CapColorValue>-65536</CapColorValue>
+                <SeriesType>Line</SeriesType>
+              </Style>
+              <SortPriority>-1</SortPriority>
+            </ScopeChannelSerializable>
+            <ScopeChannelSerializable>
+              <Name>WaageGewicht[5]</Name>
+              <IdentHandle>25</IdentHandle>
+              <Acquisition>
+                <DataType>REAL32</DataType>
+                <IndexGroup>16448</IndexGroup>
+                <IndexOffset>567772</IndexOffset>
+                <TargetPort>851</TargetPort>
+                <VariableSize>4</VariableSize>
+                <SymbolName>WAAGEN.WaageGewicht[5]</SymbolName>
+                <SymbolComment></SymbolComment>
+                <IsSymbolBased>true</IsSymbolBased>
+                <FileHandle>0</FileHandle>
+                <UseLocalServer>true</UseLocalServer>
+                <AmsNetIdString>5.33.15.132.1.1</AmsNetIdString>
+                <SampleTime>100000</SampleTime>
+                <Disabled>false</Disabled>
+                <Oversample>0</Oversample>
+                <UseTaskSampletime>true</UseTaskSampletime>
+                <ForceOversampling>false</ForceOversampling>
+                <IsArray>false</IsArray>
+                <ArrayLength>0</ArrayLength>
+                <ContextMask>0</ContextMask>
+              </Acquisition>
+              <Style>
+                <ColorValue>-8355840</ColorValue>
+                <SolidLine>true</SolidLine>
+                <Marks>false</Marks>
+                <LineWidth>1</LineWidth>
+                <Antialias>true</Antialias>
+                <Offset>0</Offset>
+                <BitMask>18446744073709551615</BitMask>
+                <ShowCursorValue>true</ShowCursorValue>
+                <Visible>true</Visible>
+                <MarkColorValue>-8355840</MarkColorValue>
+                <MarkSize>3</MarkSize>
+                <TimeShift>0</TimeShift>
+                <ScaleFactor>1</ScaleFactor>
+                <Comment></Comment>
+                <AutoMarks>true</AutoMarks>
+                <XOffset>0</XOffset>
+                <XScaleFactor>1</XScaleFactor>
+                <XBitMask>18446744073709551615</XBitMask>
+                <FillMode>0</FillMode>
+                <FillColorValue>838861055</FillColorValue>
+                <EndCap>false</EndCap>
+                <StartCap>false</StartCap>
+                <CapSize>3</CapSize>
+                <CapColorValue>-65536</CapColorValue>
+                <SeriesType>Line</SeriesType>
+              </Style>
+              <SortPriority>-1</SortPriority>
+            </ScopeChannelSerializable>
+          </Channels>
           <SortPriority>-1</SortPriority>
         </ScopeYAxisSerializable>
       </YAxes>
@@ -1275,7 +1638,7 @@
         <HexValues>false</HexValues>
       </CursorModule>
       <Operating>
-        <DisplayWidth>70000000</DisplayWidth>
+        <DisplayWidth>100000000</DisplayWidth>
       </Operating>
       <ChartType>XT</ChartType>
       <SortPriority>-1</SortPriority>

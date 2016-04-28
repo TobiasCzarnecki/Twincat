@@ -15,10 +15,12 @@ DB_Lesen_r134a();
 
 WaagenAuslesen();
 Auslesen_Modbus();
-ModbusRTU();
-Modbus_EL();
-AlleRealWerte();
+ModbusRTU_COM();
+ModbusRTU_EL();
 Temperatur();
+
+
+Schwerpunkt_Eismasse();
 
 IF SM.NeuInitialisieren THEN 		//Prüfen ob neu initialisiert werden muss
 	SM.Status:= Initialisieren;

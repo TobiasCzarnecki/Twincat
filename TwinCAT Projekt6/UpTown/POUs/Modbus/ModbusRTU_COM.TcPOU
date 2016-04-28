@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
-  <POU Name="ModbusRTU" Id="{69b407b8-16ef-438c-8d44-4b6ab31a34dd}" SpecialFunc="None">
-    <Declaration><![CDATA[PROGRAM ModbusRTU
+  <POU Name="ModbusRTU_COM" Id="{69b407b8-16ef-438c-8d44-4b6ab31a34dd}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM ModbusRTU_COM
 
 (*Dieses Programm komuniziert über einen MODBUS-RTU mit den installieren Drucksensoren(PT),
 den E-Ventilen und dem Massenstromsensor im Kältekreislauf. Die Senoren/Aktoren besitzen eine 

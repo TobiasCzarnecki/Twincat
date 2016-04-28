@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
+  <POU Name="FB_kIstBerechnung" Id="{6752fd2c-46c8-460c-abc1-ccb6d55e0f79}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_kIstBerechnung
+VAR_INPUT
+	myWaage : WAAGE_VAR;
+	Nummer: INT;
+END_VAR
+VAR_OUTPUT
+	outWaage : WAAGE_VAR;
+END_VAR
+VAR
+	Zwischenwert1 :REAL;
+	Zwischenwert2 :REAL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[Zwischenwert1:= (k_alleDaten[1].k_Kalibrierung[Nummer,1]+ (xPosition_SP_0+577.5)* (k_alleDaten[1].k_Kalibrierung[Nummer,2]-k_alleDaten[1].k_Kalibrierung[Nummer,1])/1155);
+Zwischenwert2:= (k_alleDaten[1].k_Kalibrierung[Nummer,4]+ (xPosition_SP_0+577.5)* (k_alleDaten[1].k_Kalibrierung[Nummer,4]-k_alleDaten[1].k_Kalibrierung[Nummer,3])/1155);
+
+myWaage.k_ist:= Zwischenwert1 +(yPosition_SP_0+150)/300*(Zwischenwert2-Zwischenwert1);
+
+outWaage:= myWaage;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

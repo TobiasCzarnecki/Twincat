@@ -80,31 +80,6 @@
 			</Properties>
 		</DataType>
 		<DataType>
-			<Name GUID="{2CEC8100-3965-416E-9316-FB5437A28C48}" Namespace="Tc2_ModbusRTU" AutoDeleteType="true">MB_KL6outData22B</Name>
-			<BitSize>192</BitSize>
-			<SubItem>
-				<Name>Ctrl</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000004}">WORD</Type>
-				<BitSize>16</BitSize>
-				<BitOffs>0</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>D</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000001}">BYTE</Type>
-				<ArrayInfo>
-					<LBound>0</LBound>
-					<Elements>22</Elements>
-				</ArrayInfo>
-				<BitSize>176</BitSize>
-				<BitOffs>16</BitOffs>
-			</SubItem>
-			<Properties>
-				<Property>
-					<Name>hide</Name>
-				</Property>
-			</Properties>
-		</DataType>
-		<DataType>
 			<Name GUID="{6E02E5B1-1F6D-45E6-8AB8-880F0C8E7838}" Namespace="Tc2_SerialCom" AutoDeleteType="true">EL6outData22B</Name>
 			<Comment>
 				<![CDATA[ This data type is corresponding to the
@@ -131,6 +106,31 @@
 				<BitSize>176</BitSize>
 				<BitOffs>16</BitOffs>
 			</SubItem>
+		</DataType>
+		<DataType>
+			<Name GUID="{2CEC8100-3965-416E-9316-FB5437A28C48}" Namespace="Tc2_ModbusRTU" AutoDeleteType="true">MB_KL6outData22B</Name>
+			<BitSize>192</BitSize>
+			<SubItem>
+				<Name>Ctrl</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000004}">WORD</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>D</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000001}">BYTE</Type>
+				<ArrayInfo>
+					<LBound>0</LBound>
+					<Elements>22</Elements>
+				</ArrayInfo>
+				<BitSize>176</BitSize>
+				<BitOffs>16</BitOffs>
+			</SubItem>
+			<Properties>
+				<Property>
+					<Name>hide</Name>
+				</Property>
+			</Properties>
 		</DataType>
 		<DataType>
 			<Name GUID="{BBC91BF7-AF5E-43C0-AFCB-2ABBF22B19C6}" Namespace="Tc2_ModbusRTU" AutoDeleteType="true">MB_PcComOutData</Name>
@@ -180,7 +180,7 @@
 				<Task Id="3" Priority="4" CycleTime="100000" AmsPort="350">
 					<Name>PlcTask</Name>
 				</Task>
-				<Task Id="4" Priority="8" CycleTime="700000" AmsPort="351">
+				<Task Id="4" Priority="8" CycleTime="100000" AmsPort="351">
 					<Name>SerialComTask</Name>
 				</Task>
 			</Tasks>
@@ -193,60 +193,60 @@
 					<Vars VarGrpType="1">
 						<Name>PlcTask Inputs</Name>
 						<Var>
-							<Name>MODBUS_EL.ModbusEL6021.InData</Name>
+							<Name>ModbusRTU_EL.ModbusEL6021.InData</Name>
 							<Type GUID="{7497D1D7-6402-4847-9333-70F1F25D0E78}" Namespace="Tc2_ModbusRTU">MB_KL6inData22B</Type>
 						</Var>
 						<Var>
-							<Name>WaagenAuslesen.fb_Waage1.myWaage.EL6002_in</Name>
+							<Name>Schwerpunkt_Eismasse.fb_kIstBerechnung1.myWaage.EL6002_in</Name>
 							<Comment>
 								<![CDATA[ wird mit COM TxPDO Status verknüpft und mit COM TxPDO Data Inxx multiverknüpft]]>
 							</Comment>
 							<Type GUID="{A523B4A3-BE2B-482E-9E9C-9C13BCEF5A38}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
 						</Var>
 						<Var>
-							<Name>WaagenAuslesen.fb_Waage1.Waage.EL6002_in</Name>
+							<Name>Schwerpunkt_Eismasse.fb_kIstBerechnung1.outWaage.EL6002_in</Name>
 							<Comment>
 								<![CDATA[ wird mit COM TxPDO Status verknüpft und mit COM TxPDO Data Inxx multiverknüpft]]>
 							</Comment>
 							<Type GUID="{A523B4A3-BE2B-482E-9E9C-9C13BCEF5A38}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
 						</Var>
 						<Var>
-							<Name>WaagenAuslesen.fb_Waage2.myWaage.EL6002_in</Name>
+							<Name>Schwerpunkt_Eismasse.fb_kIstBerechnung2.myWaage.EL6002_in</Name>
 							<Comment>
 								<![CDATA[ wird mit COM TxPDO Status verknüpft und mit COM TxPDO Data Inxx multiverknüpft]]>
 							</Comment>
 							<Type GUID="{A523B4A3-BE2B-482E-9E9C-9C13BCEF5A38}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
 						</Var>
 						<Var>
-							<Name>WaagenAuslesen.fb_Waage2.Waage.EL6002_in</Name>
+							<Name>Schwerpunkt_Eismasse.fb_kIstBerechnung2.outWaage.EL6002_in</Name>
 							<Comment>
 								<![CDATA[ wird mit COM TxPDO Status verknüpft und mit COM TxPDO Data Inxx multiverknüpft]]>
 							</Comment>
 							<Type GUID="{A523B4A3-BE2B-482E-9E9C-9C13BCEF5A38}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
 						</Var>
 						<Var>
-							<Name>WaagenAuslesen.fb_Waage3.myWaage.EL6002_in</Name>
+							<Name>Schwerpunkt_Eismasse.fb_kIstBerechnung3.myWaage.EL6002_in</Name>
 							<Comment>
 								<![CDATA[ wird mit COM TxPDO Status verknüpft und mit COM TxPDO Data Inxx multiverknüpft]]>
 							</Comment>
 							<Type GUID="{A523B4A3-BE2B-482E-9E9C-9C13BCEF5A38}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
 						</Var>
 						<Var>
-							<Name>WaagenAuslesen.fb_Waage3.Waage.EL6002_in</Name>
+							<Name>Schwerpunkt_Eismasse.fb_kIstBerechnung3.outWaage.EL6002_in</Name>
 							<Comment>
 								<![CDATA[ wird mit COM TxPDO Status verknüpft und mit COM TxPDO Data Inxx multiverknüpft]]>
 							</Comment>
 							<Type GUID="{A523B4A3-BE2B-482E-9E9C-9C13BCEF5A38}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
 						</Var>
 						<Var>
-							<Name>WaagenAuslesen.fb_Waage4.myWaage.EL6002_in</Name>
+							<Name>Schwerpunkt_Eismasse.fb_kIstBerechnung4.myWaage.EL6002_in</Name>
 							<Comment>
 								<![CDATA[ wird mit COM TxPDO Status verknüpft und mit COM TxPDO Data Inxx multiverknüpft]]>
 							</Comment>
 							<Type GUID="{A523B4A3-BE2B-482E-9E9C-9C13BCEF5A38}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
 						</Var>
 						<Var>
-							<Name>WaagenAuslesen.fb_Waage4.Waage.EL6002_in</Name>
+							<Name>Schwerpunkt_Eismasse.fb_kIstBerechnung4.outWaage.EL6002_in</Name>
 							<Comment>
 								<![CDATA[ wird mit COM TxPDO Status verknüpft und mit COM TxPDO Data Inxx multiverknüpft]]>
 							</Comment>
@@ -351,60 +351,144 @@
 					<Vars VarGrpType="2">
 						<Name>PlcTask Outputs</Name>
 						<Var>
-							<Name>MODBUS_EL.ModbusEL6021.OutData</Name>
+							<Name>WaagenAuslesen.fb_WaageAuslesen[1].myWaage.EL6002_out</Name>
+							<Comment>
+								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
+							</Comment>
+							<Type GUID="{6E02E5B1-1F6D-45E6-8AB8-880F0C8E7838}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
+						</Var>
+						<Var>
+							<Name>WaagenAuslesen.fb_WaageAuslesen[1].Waage.EL6002_out</Name>
+							<Comment>
+								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
+							</Comment>
+							<Type GUID="{6E02E5B1-1F6D-45E6-8AB8-880F0C8E7838}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
+						</Var>
+						<Var>
+							<Name>WaagenAuslesen.fb_WaageAuslesen[2].myWaage.EL6002_out</Name>
+							<Comment>
+								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
+							</Comment>
+							<Type GUID="{6E02E5B1-1F6D-45E6-8AB8-880F0C8E7838}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
+						</Var>
+						<Var>
+							<Name>WaagenAuslesen.fb_WaageAuslesen[2].Waage.EL6002_out</Name>
+							<Comment>
+								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
+							</Comment>
+							<Type GUID="{6E02E5B1-1F6D-45E6-8AB8-880F0C8E7838}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
+						</Var>
+						<Var>
+							<Name>WaagenAuslesen.fb_WaageAuslesen[3].myWaage.EL6002_out</Name>
+							<Comment>
+								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
+							</Comment>
+							<Type GUID="{6E02E5B1-1F6D-45E6-8AB8-880F0C8E7838}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
+						</Var>
+						<Var>
+							<Name>WaagenAuslesen.fb_WaageAuslesen[3].Waage.EL6002_out</Name>
+							<Comment>
+								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
+							</Comment>
+							<Type GUID="{6E02E5B1-1F6D-45E6-8AB8-880F0C8E7838}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
+						</Var>
+						<Var>
+							<Name>WaagenAuslesen.fb_WaageAuslesen[4].myWaage.EL6002_out</Name>
+							<Comment>
+								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
+							</Comment>
+							<Type GUID="{6E02E5B1-1F6D-45E6-8AB8-880F0C8E7838}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
+						</Var>
+						<Var>
+							<Name>WaagenAuslesen.fb_WaageAuslesen[4].Waage.EL6002_out</Name>
+							<Comment>
+								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
+							</Comment>
+							<Type GUID="{6E02E5B1-1F6D-45E6-8AB8-880F0C8E7838}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
+						</Var>
+						<Var>
+							<Name>WaagenAuslesen.fb_WaageAuslesen[5].myWaage.EL6002_out</Name>
+							<Comment>
+								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
+							</Comment>
+							<Type GUID="{6E02E5B1-1F6D-45E6-8AB8-880F0C8E7838}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
+						</Var>
+						<Var>
+							<Name>WaagenAuslesen.fb_WaageAuslesen[5].Waage.EL6002_out</Name>
+							<Comment>
+								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
+							</Comment>
+							<Type GUID="{6E02E5B1-1F6D-45E6-8AB8-880F0C8E7838}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
+						</Var>
+						<Var>
+							<Name>WaagenAuslesen.fb_WaageAuslesen[6].myWaage.EL6002_out</Name>
+							<Comment>
+								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
+							</Comment>
+							<Type GUID="{6E02E5B1-1F6D-45E6-8AB8-880F0C8E7838}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
+						</Var>
+						<Var>
+							<Name>WaagenAuslesen.fb_WaageAuslesen[6].Waage.EL6002_out</Name>
+							<Comment>
+								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
+							</Comment>
+							<Type GUID="{6E02E5B1-1F6D-45E6-8AB8-880F0C8E7838}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
+						</Var>
+						<Var>
+							<Name>ModbusRTU_EL.ModbusEL6021.OutData</Name>
 							<Type GUID="{2CEC8100-3965-416E-9316-FB5437A28C48}" Namespace="Tc2_ModbusRTU">MB_KL6outData22B</Type>
 						</Var>
 						<Var>
-							<Name>WaagenAuslesen.fb_Waage1.myWaage.EL6002_out</Name>
+							<Name>Schwerpunkt_Eismasse.fb_kIstBerechnung1.myWaage.EL6002_out</Name>
 							<Comment>
 								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
 							</Comment>
 							<Type GUID="{6E02E5B1-1F6D-45E6-8AB8-880F0C8E7838}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
 						</Var>
 						<Var>
-							<Name>WaagenAuslesen.fb_Waage1.Waage.EL6002_out</Name>
+							<Name>Schwerpunkt_Eismasse.fb_kIstBerechnung1.outWaage.EL6002_out</Name>
 							<Comment>
 								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
 							</Comment>
 							<Type GUID="{6E02E5B1-1F6D-45E6-8AB8-880F0C8E7838}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
 						</Var>
 						<Var>
-							<Name>WaagenAuslesen.fb_Waage2.myWaage.EL6002_out</Name>
+							<Name>Schwerpunkt_Eismasse.fb_kIstBerechnung2.myWaage.EL6002_out</Name>
 							<Comment>
 								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
 							</Comment>
 							<Type GUID="{6E02E5B1-1F6D-45E6-8AB8-880F0C8E7838}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
 						</Var>
 						<Var>
-							<Name>WaagenAuslesen.fb_Waage2.Waage.EL6002_out</Name>
+							<Name>Schwerpunkt_Eismasse.fb_kIstBerechnung2.outWaage.EL6002_out</Name>
 							<Comment>
 								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
 							</Comment>
 							<Type GUID="{6E02E5B1-1F6D-45E6-8AB8-880F0C8E7838}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
 						</Var>
 						<Var>
-							<Name>WaagenAuslesen.fb_Waage3.myWaage.EL6002_out</Name>
+							<Name>Schwerpunkt_Eismasse.fb_kIstBerechnung3.myWaage.EL6002_out</Name>
 							<Comment>
 								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
 							</Comment>
 							<Type GUID="{6E02E5B1-1F6D-45E6-8AB8-880F0C8E7838}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
 						</Var>
 						<Var>
-							<Name>WaagenAuslesen.fb_Waage3.Waage.EL6002_out</Name>
+							<Name>Schwerpunkt_Eismasse.fb_kIstBerechnung3.outWaage.EL6002_out</Name>
 							<Comment>
 								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
 							</Comment>
 							<Type GUID="{6E02E5B1-1F6D-45E6-8AB8-880F0C8E7838}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
 						</Var>
 						<Var>
-							<Name>WaagenAuslesen.fb_Waage4.myWaage.EL6002_out</Name>
+							<Name>Schwerpunkt_Eismasse.fb_kIstBerechnung4.myWaage.EL6002_out</Name>
 							<Comment>
 								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
 							</Comment>
 							<Type GUID="{6E02E5B1-1F6D-45E6-8AB8-880F0C8E7838}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
 						</Var>
 						<Var>
-							<Name>WaagenAuslesen.fb_Waage4.Waage.EL6002_out</Name>
+							<Name>Schwerpunkt_Eismasse.fb_kIstBerechnung4.outWaage.EL6002_out</Name>
 							<Comment>
 								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
 							</Comment>
@@ -436,28 +520,42 @@
 							<Type GUID="{BBC91BF7-AF5E-43C0-AFCB-2ABBF22B19C6}" Namespace="Tc2_ModbusRTU">MB_PcComOutData</Type>
 						</Var>
 						<Var>
-							<Name>WAAGEN.Waage_1.EL6002_out</Name>
+							<Name>WAAGEN.Waage[1].EL6002_out</Name>
 							<Comment>
 								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
 							</Comment>
 							<Type GUID="{6E02E5B1-1F6D-45E6-8AB8-880F0C8E7838}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
 						</Var>
 						<Var>
-							<Name>WAAGEN.Waage_2.EL6002_out</Name>
+							<Name>WAAGEN.Waage[2].EL6002_out</Name>
 							<Comment>
 								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
 							</Comment>
 							<Type GUID="{6E02E5B1-1F6D-45E6-8AB8-880F0C8E7838}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
 						</Var>
 						<Var>
-							<Name>WAAGEN.Waage_3.EL6002_out</Name>
+							<Name>WAAGEN.Waage[3].EL6002_out</Name>
 							<Comment>
 								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
 							</Comment>
 							<Type GUID="{6E02E5B1-1F6D-45E6-8AB8-880F0C8E7838}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
 						</Var>
 						<Var>
-							<Name>WAAGEN.Waage_4.EL6002_out</Name>
+							<Name>WAAGEN.Waage[4].EL6002_out</Name>
+							<Comment>
+								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
+							</Comment>
+							<Type GUID="{6E02E5B1-1F6D-45E6-8AB8-880F0C8E7838}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
+						</Var>
+						<Var>
+							<Name>WAAGEN.Waage[5].EL6002_out</Name>
+							<Comment>
+								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
+							</Comment>
+							<Type GUID="{6E02E5B1-1F6D-45E6-8AB8-880F0C8E7838}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
+						</Var>
+						<Var>
+							<Name>WAAGEN.Waage[6].EL6002_out</Name>
 							<Comment>
 								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
 							</Comment>
@@ -467,28 +565,126 @@
 					<Vars VarGrpType="1">
 						<Name>SerialComTask Inputs</Name>
 						<Var>
-							<Name>WAAGEN.Waage_1.EL6002_in</Name>
+							<Name>WaagenAuslesen.fb_WaageAuslesen[1].myWaage.EL6002_in</Name>
 							<Comment>
 								<![CDATA[ wird mit COM TxPDO Status verknüpft und mit COM TxPDO Data Inxx multiverknüpft]]>
 							</Comment>
 							<Type GUID="{A523B4A3-BE2B-482E-9E9C-9C13BCEF5A38}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
 						</Var>
 						<Var>
-							<Name>WAAGEN.Waage_2.EL6002_in</Name>
+							<Name>WaagenAuslesen.fb_WaageAuslesen[1].Waage.EL6002_in</Name>
 							<Comment>
 								<![CDATA[ wird mit COM TxPDO Status verknüpft und mit COM TxPDO Data Inxx multiverknüpft]]>
 							</Comment>
 							<Type GUID="{A523B4A3-BE2B-482E-9E9C-9C13BCEF5A38}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
 						</Var>
 						<Var>
-							<Name>WAAGEN.Waage_3.EL6002_in</Name>
+							<Name>WaagenAuslesen.fb_WaageAuslesen[2].myWaage.EL6002_in</Name>
 							<Comment>
 								<![CDATA[ wird mit COM TxPDO Status verknüpft und mit COM TxPDO Data Inxx multiverknüpft]]>
 							</Comment>
 							<Type GUID="{A523B4A3-BE2B-482E-9E9C-9C13BCEF5A38}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
 						</Var>
 						<Var>
-							<Name>WAAGEN.Waage_4.EL6002_in</Name>
+							<Name>WaagenAuslesen.fb_WaageAuslesen[2].Waage.EL6002_in</Name>
+							<Comment>
+								<![CDATA[ wird mit COM TxPDO Status verknüpft und mit COM TxPDO Data Inxx multiverknüpft]]>
+							</Comment>
+							<Type GUID="{A523B4A3-BE2B-482E-9E9C-9C13BCEF5A38}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
+						</Var>
+						<Var>
+							<Name>WaagenAuslesen.fb_WaageAuslesen[3].myWaage.EL6002_in</Name>
+							<Comment>
+								<![CDATA[ wird mit COM TxPDO Status verknüpft und mit COM TxPDO Data Inxx multiverknüpft]]>
+							</Comment>
+							<Type GUID="{A523B4A3-BE2B-482E-9E9C-9C13BCEF5A38}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
+						</Var>
+						<Var>
+							<Name>WaagenAuslesen.fb_WaageAuslesen[3].Waage.EL6002_in</Name>
+							<Comment>
+								<![CDATA[ wird mit COM TxPDO Status verknüpft und mit COM TxPDO Data Inxx multiverknüpft]]>
+							</Comment>
+							<Type GUID="{A523B4A3-BE2B-482E-9E9C-9C13BCEF5A38}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
+						</Var>
+						<Var>
+							<Name>WaagenAuslesen.fb_WaageAuslesen[4].myWaage.EL6002_in</Name>
+							<Comment>
+								<![CDATA[ wird mit COM TxPDO Status verknüpft und mit COM TxPDO Data Inxx multiverknüpft]]>
+							</Comment>
+							<Type GUID="{A523B4A3-BE2B-482E-9E9C-9C13BCEF5A38}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
+						</Var>
+						<Var>
+							<Name>WaagenAuslesen.fb_WaageAuslesen[4].Waage.EL6002_in</Name>
+							<Comment>
+								<![CDATA[ wird mit COM TxPDO Status verknüpft und mit COM TxPDO Data Inxx multiverknüpft]]>
+							</Comment>
+							<Type GUID="{A523B4A3-BE2B-482E-9E9C-9C13BCEF5A38}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
+						</Var>
+						<Var>
+							<Name>WaagenAuslesen.fb_WaageAuslesen[5].myWaage.EL6002_in</Name>
+							<Comment>
+								<![CDATA[ wird mit COM TxPDO Status verknüpft und mit COM TxPDO Data Inxx multiverknüpft]]>
+							</Comment>
+							<Type GUID="{A523B4A3-BE2B-482E-9E9C-9C13BCEF5A38}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
+						</Var>
+						<Var>
+							<Name>WaagenAuslesen.fb_WaageAuslesen[5].Waage.EL6002_in</Name>
+							<Comment>
+								<![CDATA[ wird mit COM TxPDO Status verknüpft und mit COM TxPDO Data Inxx multiverknüpft]]>
+							</Comment>
+							<Type GUID="{A523B4A3-BE2B-482E-9E9C-9C13BCEF5A38}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
+						</Var>
+						<Var>
+							<Name>WaagenAuslesen.fb_WaageAuslesen[6].myWaage.EL6002_in</Name>
+							<Comment>
+								<![CDATA[ wird mit COM TxPDO Status verknüpft und mit COM TxPDO Data Inxx multiverknüpft]]>
+							</Comment>
+							<Type GUID="{A523B4A3-BE2B-482E-9E9C-9C13BCEF5A38}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
+						</Var>
+						<Var>
+							<Name>WaagenAuslesen.fb_WaageAuslesen[6].Waage.EL6002_in</Name>
+							<Comment>
+								<![CDATA[ wird mit COM TxPDO Status verknüpft und mit COM TxPDO Data Inxx multiverknüpft]]>
+							</Comment>
+							<Type GUID="{A523B4A3-BE2B-482E-9E9C-9C13BCEF5A38}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
+						</Var>
+						<Var>
+							<Name>WAAGEN.Waage[1].EL6002_in</Name>
+							<Comment>
+								<![CDATA[ wird mit COM TxPDO Status verknüpft und mit COM TxPDO Data Inxx multiverknüpft]]>
+							</Comment>
+							<Type GUID="{A523B4A3-BE2B-482E-9E9C-9C13BCEF5A38}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
+						</Var>
+						<Var>
+							<Name>WAAGEN.Waage[2].EL6002_in</Name>
+							<Comment>
+								<![CDATA[ wird mit COM TxPDO Status verknüpft und mit COM TxPDO Data Inxx multiverknüpft]]>
+							</Comment>
+							<Type GUID="{A523B4A3-BE2B-482E-9E9C-9C13BCEF5A38}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
+						</Var>
+						<Var>
+							<Name>WAAGEN.Waage[3].EL6002_in</Name>
+							<Comment>
+								<![CDATA[ wird mit COM TxPDO Status verknüpft und mit COM TxPDO Data Inxx multiverknüpft]]>
+							</Comment>
+							<Type GUID="{A523B4A3-BE2B-482E-9E9C-9C13BCEF5A38}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
+						</Var>
+						<Var>
+							<Name>WAAGEN.Waage[4].EL6002_in</Name>
+							<Comment>
+								<![CDATA[ wird mit COM TxPDO Status verknüpft und mit COM TxPDO Data Inxx multiverknüpft]]>
+							</Comment>
+							<Type GUID="{A523B4A3-BE2B-482E-9E9C-9C13BCEF5A38}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
+						</Var>
+						<Var>
+							<Name>WAAGEN.Waage[5].EL6002_in</Name>
+							<Comment>
+								<![CDATA[ wird mit COM TxPDO Status verknüpft und mit COM TxPDO Data Inxx multiverknüpft]]>
+							</Comment>
+							<Type GUID="{A523B4A3-BE2B-482E-9E9C-9C13BCEF5A38}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
+						</Var>
+						<Var>
+							<Name>WAAGEN.Waage[6].EL6002_in</Name>
 							<Comment>
 								<![CDATA[ wird mit COM TxPDO Status verknüpft und mit COM TxPDO Data Inxx multiverknüpft]]>
 							</Comment>
@@ -690,7 +886,7 @@
 			</Project>
 		</Plc>
 		<Io>
-			<Device DevType="111" DevFlags="#x0003" AmsPort="28673" AmsNetId="5.33.15.132.2.1" RemoteName="Gerät 1 (EtherCAT)" Id="1">
+			<Device DevType="111" DevFlags="#x0003" AmsPort="28673" AmsNetId="192.168.178.116.2.1" RemoteName="Gerät 1 (EtherCAT)" Id="1">
 				<Name>Gerät 1 (EtherCAT)</Name>
 				<AddressInfo>
 					<Ccat>
@@ -2336,7 +2532,7 @@ Bit1: Value bigger/equal Limit2]]>
 							<EL60xxComPort BaudRate="9600" ByteSize="8" EnableRtsCts="true" LocalComPort="true" RxFifoFullThreshold="864"/>
 						</EtherCAT>
 					</Box>
-					<Box Disabled="true" BoxType="9101" Id="11">
+					<Box BoxType="9101" Id="11">
 						<Name>Klemme 11 (EL6002)</Name>
 						<ImageId>1004</ImageId>
 						<EtherCAT SlaveType="7" PdiType="#x0005" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="39" FoeType="1" VendorId="#x00000002" ProductCode="#x17723052" RevisionNo="#x00130000" InfoDataAddr="true" TimeoutMailbox2="2000" CheckRevisionNoType="3" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL6002 Schnittstelle 2K. (RS232)" Desc="EL6002" PortABoxInfo="#x0100000f">
@@ -3008,7 +3204,7 @@ Bit1: Value bigger/equal Limit2]]>
 							<EL60xxComPort BaudRate="9600" ByteSize="8" EnableRtsCts="true" LocalComPort="true" RxFifoFullThreshold="864"/>
 						</EtherCAT>
 					</Box>
-					<Box Disabled="true" BoxType="9101" Id="12">
+					<Box BoxType="9101" Id="12">
 						<Name>Klemme 12 (EL6002)</Name>
 						<ImageId>1004</ImageId>
 						<EtherCAT SlaveType="7" PdiType="#x0005" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="39" FoeType="1" VendorId="#x00000002" ProductCode="#x17723052" RevisionNo="#x00130000" InfoDataAddr="true" TimeoutMailbox2="2000" CheckRevisionNoType="3" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL6002 Schnittstelle 2K. (RS232)" Desc="EL6002" PortABoxInfo="#x0100000b">
@@ -3680,7 +3876,7 @@ Bit1: Value bigger/equal Limit2]]>
 							<EL60xxComPort BaudRate="9600" ByteSize="8" EnableRtsCts="true" LocalComPort="true" RxFifoFullThreshold="864"/>
 						</EtherCAT>
 					</Box>
-					<Box Disabled="true" BoxType="9101" Id="13">
+					<Box BoxType="9101" Id="13">
 						<Name>Klemme 13 (EL6002)</Name>
 						<ImageId>1004</ImageId>
 						<EtherCAT SlaveType="7" PdiType="#x0005" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="39" FoeType="1" VendorId="#x00000002" ProductCode="#x17723052" RevisionNo="#x00130000" InfoDataAddr="true" TimeoutMailbox2="2000" CheckRevisionNoType="3" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL6002 Schnittstelle 2K. (RS232)" Desc="EL6002" PortABoxInfo="#x0100000c">
@@ -4355,7 +4551,7 @@ Bit1: Value bigger/equal Limit2]]>
 					<Box BoxType="9099" Id="14">
 						<Name>Klemme 14 (EL9011)</Name>
 						<ImageId>1005</ImageId>
-						<EtherCAT CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x23333050" InfoDataState="false" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL9011 Endklemme" Desc="EL9011" PortABoxInfo="#x0100000f"/>
+						<EtherCAT CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x23333050" InfoDataState="false" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL9011 Endklemme" Desc="EL9011" PortABoxInfo="#x0100000d"/>
 					</Box>
 				</Box>
 				<EtherCAT/>
@@ -4375,244 +4571,339 @@ Bit1: Value bigger/equal Limit2]]>
 		</Io>
 	</Project>
 	<Mappings>
+		<MappingInfo Identifier="{01010012-0010-0304-1000-010110000403}" Id="#x03070030" Watchdog="04000000040000000400000004000000"/>
 		<MappingInfo Identifier="{00000000-0011-0101-1000-010110000403}" Id="#x03070020"/>
 		<MappingInfo Identifier="{00000000-0011-0101-1000-010130000403}" Id="#x03070010"/>
 		<OwnerA Name="TIPC^UpTown^UpTown Instance">
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 11 (EL6002)">
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_1.EL6002_out^Ctrl" VarB="COM RxPDO-Map Outputs Channel 1^Ctrl"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_1.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 0"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_1.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 1" Size="8" OffsA="8"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_1.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 10" Size="8" OffsA="80"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_1.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 11" Size="8" OffsA="88"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_1.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 12" Size="8" OffsA="96"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_1.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 13" Size="8" OffsA="104"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_1.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 14" Size="8" OffsA="112"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_1.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 15" Size="8" OffsA="120"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_1.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 16" Size="8" OffsA="128"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_1.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 17" Size="8" OffsA="136"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_1.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 18" Size="8" OffsA="144"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_1.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 19" Size="8" OffsA="152"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_1.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 2" Size="8" OffsA="16"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_1.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 20" Size="8" OffsA="160"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_1.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 21" Size="8" OffsA="168"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_1.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 3" Size="8" OffsA="24"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_1.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 4" Size="8" OffsA="32"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_1.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 5" Size="8" OffsA="40"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_1.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 6" Size="8" OffsA="48"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_1.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 7" Size="8" OffsA="56"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_1.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 8" Size="8" OffsA="64"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_1.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 9" Size="8" OffsA="72"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_2.EL6002_out^Ctrl" VarB="COM RxPDO-Map Outputs Channel 2^Ctrl"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_2.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 0"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_2.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 1" Size="8" OffsA="8"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_2.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 10" Size="8" OffsA="80"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_2.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 11" Size="8" OffsA="88"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_2.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 12" Size="8" OffsA="96"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_2.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 13" Size="8" OffsA="104"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_2.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 14" Size="8" OffsA="112"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_2.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 15" Size="8" OffsA="120"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_2.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 16" Size="8" OffsA="128"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_2.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 17" Size="8" OffsA="136"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_2.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 18" Size="8" OffsA="144"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_2.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 19" Size="8" OffsA="152"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_2.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 2" Size="8" OffsA="16"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_2.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 20" Size="8" OffsA="160"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_2.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 21" Size="8" OffsA="168"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_2.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 3" Size="8" OffsA="24"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_2.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 4" Size="8" OffsA="32"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_2.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 5" Size="8" OffsA="40"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_2.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 6" Size="8" OffsA="48"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_2.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 7" Size="8" OffsA="56"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_2.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 8" Size="8" OffsA="64"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_2.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 9" Size="8" OffsA="72"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_1.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 1^Data In 0"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_1.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 1^Data In 1" Size="8" OffsA="8"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_1.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 1^Data In 10" Size="8" OffsA="80"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_1.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 1^Data In 11" Size="8" OffsA="88"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_1.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 1^Data In 12" Size="8" OffsA="96"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_1.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 1^Data In 13" Size="8" OffsA="104"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_1.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 1^Data In 14" Size="8" OffsA="112"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_1.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 1^Data In 15" Size="8" OffsA="120"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_1.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 1^Data In 16" Size="8" OffsA="128"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_1.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 1^Data In 17" Size="8" OffsA="136"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_1.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 1^Data In 18" Size="8" OffsA="144"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_1.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 1^Data In 19" Size="8" OffsA="152"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_1.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 1^Data In 2" Size="8" OffsA="16"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_1.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 1^Data In 20" Size="8" OffsA="160"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_1.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 1^Data In 21" Size="8" OffsA="168"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_1.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 1^Data In 3" Size="8" OffsA="24"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_1.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 1^Data In 4" Size="8" OffsA="32"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_1.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 1^Data In 5" Size="8" OffsA="40"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_1.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 1^Data In 6" Size="8" OffsA="48"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_1.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 1^Data In 7" Size="8" OffsA="56"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_1.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 1^Data In 8" Size="8" OffsA="64"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_1.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 1^Data In 9" Size="8" OffsA="72"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_1.EL6002_in^Status" VarB="COM TxPDO-Map Inputs Channel 1^Status"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_2.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 2^Data In 0"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_2.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 2^Data In 1" Size="8" OffsA="8"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_2.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 2^Data In 10" Size="8" OffsA="80"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_2.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 2^Data In 11" Size="8" OffsA="88"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_2.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 2^Data In 12" Size="8" OffsA="96"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_2.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 2^Data In 13" Size="8" OffsA="104"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_2.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 2^Data In 14" Size="8" OffsA="112"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_2.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 2^Data In 15" Size="8" OffsA="120"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_2.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 2^Data In 16" Size="8" OffsA="128"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_2.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 2^Data In 17" Size="8" OffsA="136"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_2.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 2^Data In 18" Size="8" OffsA="144"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_2.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 2^Data In 19" Size="8" OffsA="152"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_2.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 2^Data In 2" Size="8" OffsA="16"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_2.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 2^Data In 20" Size="8" OffsA="160"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_2.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 2^Data In 21" Size="8" OffsA="168"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_2.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 2^Data In 3" Size="8" OffsA="24"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_2.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 2^Data In 4" Size="8" OffsA="32"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_2.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 2^Data In 5" Size="8" OffsA="40"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_2.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 2^Data In 6" Size="8" OffsA="48"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_2.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 2^Data In 7" Size="8" OffsA="56"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_2.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 2^Data In 8" Size="8" OffsA="64"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_2.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 2^Data In 9" Size="8" OffsA="72"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_2.EL6002_in^Status" VarB="COM TxPDO-Map Inputs Channel 2^Status"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[1].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Ctrl"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[1].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 0" Size="8" OffsA="16"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[1].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 1" Size="8" OffsA="24"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[1].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 10" Size="8" OffsA="96"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[1].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 11" Size="8" OffsA="104"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[1].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 12" Size="8" OffsA="112"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[1].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 13" Size="8" OffsA="120"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[1].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 14" Size="8" OffsA="128"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[1].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 15" Size="8" OffsA="136"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[1].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 16" Size="8" OffsA="144"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[1].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 17" Size="8" OffsA="152"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[1].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 18" Size="8" OffsA="160"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[1].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 19" Size="8" OffsA="168"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[1].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 2" Size="8" OffsA="32"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[1].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 20" Size="8" OffsA="176"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[1].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 21" Size="8" OffsA="184"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[1].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 3" Size="8" OffsA="40"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[1].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 4" Size="8" OffsA="48"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[1].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 5" Size="8" OffsA="56"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[1].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 6" Size="8" OffsA="64"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[1].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 7" Size="8" OffsA="72"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[1].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 8" Size="8" OffsA="80"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[1].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 9" Size="8" OffsA="88"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[2].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Ctrl"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[2].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 0" Size="8" OffsA="16"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[2].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 1" Size="8" OffsA="24"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[2].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 10" Size="8" OffsA="96"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[2].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 11" Size="8" OffsA="104"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[2].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 12" Size="8" OffsA="112"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[2].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 13" Size="8" OffsA="120"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[2].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 14" Size="8" OffsA="128"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[2].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 15" Size="8" OffsA="136"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[2].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 16" Size="8" OffsA="144"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[2].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 17" Size="8" OffsA="152"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[2].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 18" Size="8" OffsA="160"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[2].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 19" Size="8" OffsA="168"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[2].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 2" Size="8" OffsA="32"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[2].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 20" Size="8" OffsA="176"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[2].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 21" Size="8" OffsA="184"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[2].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 3" Size="8" OffsA="40"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[2].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 4" Size="8" OffsA="48"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[2].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 5" Size="8" OffsA="56"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[2].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 6" Size="8" OffsA="64"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[2].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 7" Size="8" OffsA="72"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[2].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 8" Size="8" OffsA="80"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[2].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 9" Size="8" OffsA="88"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[1].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 0" Size="8" OffsA="16"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[1].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 1" Size="8" OffsA="24"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[1].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 10" Size="8" OffsA="96"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[1].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 11" Size="8" OffsA="104"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[1].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 12" Size="8" OffsA="112"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[1].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 13" Size="8" OffsA="120"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[1].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 14" Size="8" OffsA="128"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[1].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 15" Size="8" OffsA="136"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[1].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 16" Size="8" OffsA="144"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[1].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 17" Size="8" OffsA="152"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[1].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 18" Size="8" OffsA="160"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[1].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 19" Size="8" OffsA="168"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[1].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 2" Size="8" OffsA="32"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[1].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 20" Size="8" OffsA="176"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[1].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 21" Size="8" OffsA="184"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[1].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 3" Size="8" OffsA="40"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[1].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 4" Size="8" OffsA="48"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[1].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 5" Size="8" OffsA="56"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[1].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 6" Size="8" OffsA="64"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[1].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 7" Size="8" OffsA="72"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[1].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 8" Size="8" OffsA="80"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[1].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 9" Size="8" OffsA="88"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[1].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Status"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[2].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 0" Size="8" OffsA="16"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[2].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 1" Size="8" OffsA="24"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[2].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 10" Size="8" OffsA="96"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[2].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 11" Size="8" OffsA="104"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[2].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 12" Size="8" OffsA="112"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[2].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 13" Size="8" OffsA="120"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[2].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 14" Size="8" OffsA="128"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[2].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 15" Size="8" OffsA="136"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[2].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 16" Size="8" OffsA="144"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[2].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 17" Size="8" OffsA="152"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[2].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 18" Size="8" OffsA="160"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[2].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 19" Size="8" OffsA="168"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[2].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 2" Size="8" OffsA="32"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[2].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 20" Size="8" OffsA="176"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[2].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 21" Size="8" OffsA="184"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[2].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 3" Size="8" OffsA="40"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[2].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 4" Size="8" OffsA="48"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[2].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 5" Size="8" OffsA="56"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[2].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 6" Size="8" OffsA="64"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[2].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 7" Size="8" OffsA="72"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[2].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 8" Size="8" OffsA="80"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[2].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 9" Size="8" OffsA="88"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[2].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Status"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 12 (EL6002)">
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_3.EL6002_out^Ctrl" VarB="COM RxPDO-Map Outputs Channel 1^Ctrl"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_3.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 0"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_3.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 1" Size="8" OffsA="8"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_3.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 10" Size="8" OffsA="80"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_3.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 11" Size="8" OffsA="88"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_3.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 12" Size="8" OffsA="96"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_3.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 13" Size="8" OffsA="104"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_3.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 14" Size="8" OffsA="112"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_3.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 15" Size="8" OffsA="120"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_3.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 16" Size="8" OffsA="128"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_3.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 17" Size="8" OffsA="136"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_3.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 18" Size="8" OffsA="144"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_3.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 19" Size="8" OffsA="152"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_3.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 2" Size="8" OffsA="16"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_3.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 20" Size="8" OffsA="160"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_3.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 21" Size="8" OffsA="168"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_3.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 3" Size="8" OffsA="24"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_3.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 4" Size="8" OffsA="32"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_3.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 5" Size="8" OffsA="40"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_3.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 6" Size="8" OffsA="48"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_3.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 7" Size="8" OffsA="56"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_3.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 8" Size="8" OffsA="64"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_3.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 9" Size="8" OffsA="72"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_4.EL6002_out^Ctrl" VarB="COM RxPDO-Map Outputs Channel 2^Ctrl"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_4.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 0"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_4.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 1" Size="8" OffsA="8"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_4.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 10" Size="8" OffsA="80"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_4.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 11" Size="8" OffsA="88"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_4.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 12" Size="8" OffsA="96"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_4.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 13" Size="8" OffsA="104"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_4.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 14" Size="8" OffsA="112"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_4.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 15" Size="8" OffsA="120"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_4.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 16" Size="8" OffsA="128"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_4.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 17" Size="8" OffsA="136"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_4.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 18" Size="8" OffsA="144"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_4.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 19" Size="8" OffsA="152"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_4.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 2" Size="8" OffsA="16"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_4.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 20" Size="8" OffsA="160"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_4.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 21" Size="8" OffsA="168"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_4.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 3" Size="8" OffsA="24"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_4.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 4" Size="8" OffsA="32"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_4.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 5" Size="8" OffsA="40"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_4.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 6" Size="8" OffsA="48"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_4.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 7" Size="8" OffsA="56"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_4.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 8" Size="8" OffsA="64"/>
-				<Link VarA="PlcTask Outputs^WAAGEN.Waage_4.EL6002_out^D" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 9" Size="8" OffsA="72"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_3.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 1^Data In 0"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_3.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 1^Data In 1" Size="8" OffsA="8"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_3.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 1^Data In 10" Size="8" OffsA="80"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_3.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 1^Data In 11" Size="8" OffsA="88"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_3.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 1^Data In 12" Size="8" OffsA="96"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_3.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 1^Data In 13" Size="8" OffsA="104"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_3.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 1^Data In 14" Size="8" OffsA="112"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_3.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 1^Data In 15" Size="8" OffsA="120"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_3.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 1^Data In 16" Size="8" OffsA="128"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_3.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 1^Data In 17" Size="8" OffsA="136"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_3.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 1^Data In 18" Size="8" OffsA="144"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_3.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 1^Data In 19" Size="8" OffsA="152"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_3.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 1^Data In 2" Size="8" OffsA="16"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_3.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 1^Data In 20" Size="8" OffsA="160"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_3.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 1^Data In 21" Size="8" OffsA="168"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_3.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 1^Data In 3" Size="8" OffsA="24"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_3.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 1^Data In 4" Size="8" OffsA="32"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_3.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 1^Data In 5" Size="8" OffsA="40"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_3.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 1^Data In 6" Size="8" OffsA="48"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_3.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 1^Data In 7" Size="8" OffsA="56"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_3.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 1^Data In 8" Size="8" OffsA="64"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_3.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 1^Data In 9" Size="8" OffsA="72"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_3.EL6002_in^Status" VarB="COM TxPDO-Map Inputs Channel 1^Status"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_4.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 2^Data In 0"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_4.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 2^Data In 1" Size="8" OffsA="8"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_4.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 2^Data In 10" Size="8" OffsA="80"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_4.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 2^Data In 11" Size="8" OffsA="88"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_4.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 2^Data In 12" Size="8" OffsA="96"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_4.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 2^Data In 13" Size="8" OffsA="104"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_4.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 2^Data In 14" Size="8" OffsA="112"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_4.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 2^Data In 15" Size="8" OffsA="120"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_4.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 2^Data In 16" Size="8" OffsA="128"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_4.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 2^Data In 17" Size="8" OffsA="136"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_4.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 2^Data In 18" Size="8" OffsA="144"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_4.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 2^Data In 19" Size="8" OffsA="152"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_4.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 2^Data In 2" Size="8" OffsA="16"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_4.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 2^Data In 20" Size="8" OffsA="160"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_4.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 2^Data In 21" Size="8" OffsA="168"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_4.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 2^Data In 3" Size="8" OffsA="24"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_4.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 2^Data In 4" Size="8" OffsA="32"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_4.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 2^Data In 5" Size="8" OffsA="40"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_4.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 2^Data In 6" Size="8" OffsA="48"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_4.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 2^Data In 7" Size="8" OffsA="56"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_4.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 2^Data In 8" Size="8" OffsA="64"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_4.EL6002_in^D" VarB="COM TxPDO-Map Inputs Channel 2^Data In 9" Size="8" OffsA="72"/>
-				<Link VarA="SerialComTask Inputs^WAAGEN.Waage_4.EL6002_in^Status" VarB="COM TxPDO-Map Inputs Channel 2^Status"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[3].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Ctrl"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[3].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 0" Size="8" OffsA="16"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[3].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 1" Size="8" OffsA="24"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[3].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 10" Size="8" OffsA="96"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[3].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 11" Size="8" OffsA="104"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[3].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 12" Size="8" OffsA="112"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[3].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 13" Size="8" OffsA="120"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[3].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 14" Size="8" OffsA="128"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[3].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 15" Size="8" OffsA="136"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[3].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 16" Size="8" OffsA="144"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[3].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 17" Size="8" OffsA="152"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[3].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 18" Size="8" OffsA="160"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[3].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 19" Size="8" OffsA="168"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[3].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 2" Size="8" OffsA="32"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[3].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 20" Size="8" OffsA="176"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[3].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 21" Size="8" OffsA="184"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[3].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 3" Size="8" OffsA="40"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[3].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 4" Size="8" OffsA="48"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[3].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 5" Size="8" OffsA="56"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[3].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 6" Size="8" OffsA="64"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[3].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 7" Size="8" OffsA="72"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[3].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 8" Size="8" OffsA="80"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[3].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 9" Size="8" OffsA="88"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[4].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Ctrl"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[4].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 0" Size="8" OffsA="16"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[4].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 1" Size="8" OffsA="24"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[4].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 10" Size="8" OffsA="96"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[4].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 11" Size="8" OffsA="104"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[4].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 12" Size="8" OffsA="112"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[4].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 13" Size="8" OffsA="120"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[4].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 14" Size="8" OffsA="128"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[4].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 15" Size="8" OffsA="136"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[4].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 16" Size="8" OffsA="144"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[4].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 17" Size="8" OffsA="152"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[4].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 18" Size="8" OffsA="160"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[4].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 19" Size="8" OffsA="168"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[4].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 2" Size="8" OffsA="32"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[4].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 20" Size="8" OffsA="176"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[4].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 21" Size="8" OffsA="184"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[4].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 3" Size="8" OffsA="40"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[4].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 4" Size="8" OffsA="48"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[4].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 5" Size="8" OffsA="56"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[4].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 6" Size="8" OffsA="64"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[4].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 7" Size="8" OffsA="72"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[4].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 8" Size="8" OffsA="80"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[4].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 9" Size="8" OffsA="88"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[3].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 0" Size="8" OffsA="16"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[3].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 1" Size="8" OffsA="24"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[3].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 10" Size="8" OffsA="96"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[3].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 11" Size="8" OffsA="104"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[3].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 12" Size="8" OffsA="112"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[3].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 13" Size="8" OffsA="120"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[3].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 14" Size="8" OffsA="128"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[3].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 15" Size="8" OffsA="136"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[3].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 16" Size="8" OffsA="144"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[3].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 17" Size="8" OffsA="152"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[3].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 18" Size="8" OffsA="160"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[3].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 19" Size="8" OffsA="168"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[3].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 2" Size="8" OffsA="32"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[3].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 20" Size="8" OffsA="176"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[3].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 21" Size="8" OffsA="184"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[3].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 3" Size="8" OffsA="40"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[3].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 4" Size="8" OffsA="48"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[3].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 5" Size="8" OffsA="56"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[3].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 6" Size="8" OffsA="64"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[3].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 7" Size="8" OffsA="72"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[3].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 8" Size="8" OffsA="80"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[3].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 9" Size="8" OffsA="88"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[3].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Status"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[4].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 0" Size="8" OffsA="16"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[4].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 1" Size="8" OffsA="24"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[4].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 10" Size="8" OffsA="96"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[4].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 11" Size="8" OffsA="104"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[4].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 12" Size="8" OffsA="112"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[4].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 13" Size="8" OffsA="120"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[4].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 14" Size="8" OffsA="128"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[4].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 15" Size="8" OffsA="136"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[4].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 16" Size="8" OffsA="144"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[4].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 17" Size="8" OffsA="152"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[4].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 18" Size="8" OffsA="160"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[4].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 19" Size="8" OffsA="168"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[4].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 2" Size="8" OffsA="32"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[4].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 20" Size="8" OffsA="176"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[4].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 21" Size="8" OffsA="184"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[4].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 3" Size="8" OffsA="40"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[4].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 4" Size="8" OffsA="48"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[4].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 5" Size="8" OffsA="56"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[4].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 6" Size="8" OffsA="64"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[4].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 7" Size="8" OffsA="72"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[4].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 8" Size="8" OffsA="80"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[4].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 9" Size="8" OffsA="88"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[4].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Status"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 13 (EL6002)">
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[5].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Ctrl"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[5].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 0" Size="8" OffsA="16"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[5].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 1" Size="8" OffsA="24"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[5].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 10" Size="8" OffsA="96"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[5].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 11" Size="8" OffsA="104"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[5].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 12" Size="8" OffsA="112"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[5].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 13" Size="8" OffsA="120"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[5].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 14" Size="8" OffsA="128"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[5].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 15" Size="8" OffsA="136"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[5].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 16" Size="8" OffsA="144"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[5].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 17" Size="8" OffsA="152"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[5].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 18" Size="8" OffsA="160"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[5].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 19" Size="8" OffsA="168"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[5].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 2" Size="8" OffsA="32"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[5].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 20" Size="8" OffsA="176"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[5].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 21" Size="8" OffsA="184"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[5].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 3" Size="8" OffsA="40"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[5].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 4" Size="8" OffsA="48"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[5].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 5" Size="8" OffsA="56"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[5].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 6" Size="8" OffsA="64"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[5].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 7" Size="8" OffsA="72"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[5].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 8" Size="8" OffsA="80"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[5].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 1^Data Out 9" Size="8" OffsA="88"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[6].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Ctrl"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[6].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 0" Size="8" OffsA="16"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[6].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 1" Size="8" OffsA="24"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[6].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 10" Size="8" OffsA="96"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[6].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 11" Size="8" OffsA="104"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[6].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 12" Size="8" OffsA="112"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[6].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 13" Size="8" OffsA="120"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[6].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 14" Size="8" OffsA="128"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[6].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 15" Size="8" OffsA="136"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[6].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 16" Size="8" OffsA="144"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[6].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 17" Size="8" OffsA="152"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[6].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 18" Size="8" OffsA="160"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[6].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 19" Size="8" OffsA="168"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[6].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 2" Size="8" OffsA="32"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[6].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 20" Size="8" OffsA="176"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[6].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 21" Size="8" OffsA="184"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[6].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 3" Size="8" OffsA="40"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[6].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 4" Size="8" OffsA="48"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[6].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 5" Size="8" OffsA="56"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[6].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 6" Size="8" OffsA="64"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[6].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 7" Size="8" OffsA="72"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[6].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 8" Size="8" OffsA="80"/>
+				<Link VarA="PlcTask Outputs^WAAGEN.Waage[6].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 9" Size="8" OffsA="88"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[5].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 0" Size="8" OffsA="16"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[5].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 1" Size="8" OffsA="24"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[5].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 10" Size="8" OffsA="96"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[5].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 11" Size="8" OffsA="104"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[5].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 12" Size="8" OffsA="112"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[5].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 13" Size="8" OffsA="120"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[5].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 14" Size="8" OffsA="128"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[5].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 15" Size="8" OffsA="136"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[5].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 16" Size="8" OffsA="144"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[5].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 17" Size="8" OffsA="152"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[5].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 18" Size="8" OffsA="160"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[5].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 19" Size="8" OffsA="168"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[5].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 2" Size="8" OffsA="32"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[5].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 20" Size="8" OffsA="176"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[5].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 21" Size="8" OffsA="184"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[5].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 3" Size="8" OffsA="40"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[5].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 4" Size="8" OffsA="48"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[5].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 5" Size="8" OffsA="56"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[5].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 6" Size="8" OffsA="64"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[5].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 7" Size="8" OffsA="72"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[5].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 8" Size="8" OffsA="80"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[5].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 9" Size="8" OffsA="88"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[5].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Status"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[6].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 0" Size="8" OffsA="16"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[6].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 1" Size="8" OffsA="24"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[6].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 10" Size="8" OffsA="96"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[6].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 11" Size="8" OffsA="104"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[6].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 12" Size="8" OffsA="112"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[6].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 13" Size="8" OffsA="120"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[6].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 14" Size="8" OffsA="128"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[6].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 15" Size="8" OffsA="136"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[6].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 16" Size="8" OffsA="144"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[6].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 17" Size="8" OffsA="152"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[6].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 18" Size="8" OffsA="160"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[6].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 19" Size="8" OffsA="168"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[6].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 2" Size="8" OffsA="32"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[6].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 20" Size="8" OffsA="176"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[6].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 21" Size="8" OffsA="184"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[6].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 3" Size="8" OffsA="40"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[6].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 4" Size="8" OffsA="48"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[6].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 5" Size="8" OffsA="56"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[6].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 6" Size="8" OffsA="64"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[6].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 7" Size="8" OffsA="72"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[6].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 8" Size="8" OffsA="80"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[6].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Data In 9" Size="8" OffsA="88"/>
+				<Link VarA="SerialComTask Inputs^WAAGEN.Waage[6].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 2^Status"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 15 (EL6021)">
-				<Link VarA="PlcTask Inputs^MODBUS_EL.ModbusEL6021.InData" VarB="COM TxPDO-Map Inputs^Data In 0" Size="8" OffsA="16"/>
-				<Link VarA="PlcTask Inputs^MODBUS_EL.ModbusEL6021.InData" VarB="COM TxPDO-Map Inputs^Data In 1" Size="8" OffsA="24"/>
-				<Link VarA="PlcTask Inputs^MODBUS_EL.ModbusEL6021.InData" VarB="COM TxPDO-Map Inputs^Data In 10" Size="8" OffsA="96"/>
-				<Link VarA="PlcTask Inputs^MODBUS_EL.ModbusEL6021.InData" VarB="COM TxPDO-Map Inputs^Data In 11" Size="8" OffsA="104"/>
-				<Link VarA="PlcTask Inputs^MODBUS_EL.ModbusEL6021.InData" VarB="COM TxPDO-Map Inputs^Data In 12" Size="8" OffsA="112"/>
-				<Link VarA="PlcTask Inputs^MODBUS_EL.ModbusEL6021.InData" VarB="COM TxPDO-Map Inputs^Data In 13" Size="8" OffsA="120"/>
-				<Link VarA="PlcTask Inputs^MODBUS_EL.ModbusEL6021.InData" VarB="COM TxPDO-Map Inputs^Data In 14" Size="8" OffsA="128"/>
-				<Link VarA="PlcTask Inputs^MODBUS_EL.ModbusEL6021.InData" VarB="COM TxPDO-Map Inputs^Data In 15" Size="8" OffsA="136"/>
-				<Link VarA="PlcTask Inputs^MODBUS_EL.ModbusEL6021.InData" VarB="COM TxPDO-Map Inputs^Data In 16" Size="8" OffsA="144"/>
-				<Link VarA="PlcTask Inputs^MODBUS_EL.ModbusEL6021.InData" VarB="COM TxPDO-Map Inputs^Data In 17" Size="8" OffsA="152"/>
-				<Link VarA="PlcTask Inputs^MODBUS_EL.ModbusEL6021.InData" VarB="COM TxPDO-Map Inputs^Data In 18" Size="8" OffsA="160"/>
-				<Link VarA="PlcTask Inputs^MODBUS_EL.ModbusEL6021.InData" VarB="COM TxPDO-Map Inputs^Data In 19" Size="8" OffsA="168"/>
-				<Link VarA="PlcTask Inputs^MODBUS_EL.ModbusEL6021.InData" VarB="COM TxPDO-Map Inputs^Data In 2" Size="8" OffsA="32"/>
-				<Link VarA="PlcTask Inputs^MODBUS_EL.ModbusEL6021.InData" VarB="COM TxPDO-Map Inputs^Data In 20" Size="8" OffsA="176"/>
-				<Link VarA="PlcTask Inputs^MODBUS_EL.ModbusEL6021.InData" VarB="COM TxPDO-Map Inputs^Data In 21" Size="8" OffsA="184"/>
-				<Link VarA="PlcTask Inputs^MODBUS_EL.ModbusEL6021.InData" VarB="COM TxPDO-Map Inputs^Data In 3" Size="8" OffsA="40"/>
-				<Link VarA="PlcTask Inputs^MODBUS_EL.ModbusEL6021.InData" VarB="COM TxPDO-Map Inputs^Data In 4" Size="8" OffsA="48"/>
-				<Link VarA="PlcTask Inputs^MODBUS_EL.ModbusEL6021.InData" VarB="COM TxPDO-Map Inputs^Data In 5" Size="8" OffsA="56"/>
-				<Link VarA="PlcTask Inputs^MODBUS_EL.ModbusEL6021.InData" VarB="COM TxPDO-Map Inputs^Data In 6" Size="8" OffsA="64"/>
-				<Link VarA="PlcTask Inputs^MODBUS_EL.ModbusEL6021.InData" VarB="COM TxPDO-Map Inputs^Data In 7" Size="8" OffsA="72"/>
-				<Link VarA="PlcTask Inputs^MODBUS_EL.ModbusEL6021.InData" VarB="COM TxPDO-Map Inputs^Data In 8" Size="8" OffsA="80"/>
-				<Link VarA="PlcTask Inputs^MODBUS_EL.ModbusEL6021.InData" VarB="COM TxPDO-Map Inputs^Data In 9" Size="8" OffsA="88"/>
-				<Link VarA="PlcTask Inputs^MODBUS_EL.ModbusEL6021.InData" VarB="COM TxPDO-Map Inputs^Status"/>
-				<Link VarA="PlcTask Outputs^MODBUS_EL.ModbusEL6021.OutData" VarB="COM RxPDO-Map Outputs^Ctrl"/>
-				<Link VarA="PlcTask Outputs^MODBUS_EL.ModbusEL6021.OutData" VarB="COM RxPDO-Map Outputs^Data Out 0" Size="8" OffsA="16"/>
-				<Link VarA="PlcTask Outputs^MODBUS_EL.ModbusEL6021.OutData" VarB="COM RxPDO-Map Outputs^Data Out 1" Size="8" OffsA="24"/>
-				<Link VarA="PlcTask Outputs^MODBUS_EL.ModbusEL6021.OutData" VarB="COM RxPDO-Map Outputs^Data Out 10" Size="8" OffsA="96"/>
-				<Link VarA="PlcTask Outputs^MODBUS_EL.ModbusEL6021.OutData" VarB="COM RxPDO-Map Outputs^Data Out 11" Size="8" OffsA="104"/>
-				<Link VarA="PlcTask Outputs^MODBUS_EL.ModbusEL6021.OutData" VarB="COM RxPDO-Map Outputs^Data Out 12" Size="8" OffsA="112"/>
-				<Link VarA="PlcTask Outputs^MODBUS_EL.ModbusEL6021.OutData" VarB="COM RxPDO-Map Outputs^Data Out 13" Size="8" OffsA="120"/>
-				<Link VarA="PlcTask Outputs^MODBUS_EL.ModbusEL6021.OutData" VarB="COM RxPDO-Map Outputs^Data Out 14" Size="8" OffsA="128"/>
-				<Link VarA="PlcTask Outputs^MODBUS_EL.ModbusEL6021.OutData" VarB="COM RxPDO-Map Outputs^Data Out 15" Size="8" OffsA="136"/>
-				<Link VarA="PlcTask Outputs^MODBUS_EL.ModbusEL6021.OutData" VarB="COM RxPDO-Map Outputs^Data Out 16" Size="8" OffsA="144"/>
-				<Link VarA="PlcTask Outputs^MODBUS_EL.ModbusEL6021.OutData" VarB="COM RxPDO-Map Outputs^Data Out 17" Size="8" OffsA="152"/>
-				<Link VarA="PlcTask Outputs^MODBUS_EL.ModbusEL6021.OutData" VarB="COM RxPDO-Map Outputs^Data Out 18" Size="8" OffsA="160"/>
-				<Link VarA="PlcTask Outputs^MODBUS_EL.ModbusEL6021.OutData" VarB="COM RxPDO-Map Outputs^Data Out 19" Size="8" OffsA="168"/>
-				<Link VarA="PlcTask Outputs^MODBUS_EL.ModbusEL6021.OutData" VarB="COM RxPDO-Map Outputs^Data Out 2" Size="8" OffsA="32"/>
-				<Link VarA="PlcTask Outputs^MODBUS_EL.ModbusEL6021.OutData" VarB="COM RxPDO-Map Outputs^Data Out 20" Size="8" OffsA="176"/>
-				<Link VarA="PlcTask Outputs^MODBUS_EL.ModbusEL6021.OutData" VarB="COM RxPDO-Map Outputs^Data Out 21" Size="8" OffsA="184"/>
-				<Link VarA="PlcTask Outputs^MODBUS_EL.ModbusEL6021.OutData" VarB="COM RxPDO-Map Outputs^Data Out 3" Size="8" OffsA="40"/>
-				<Link VarA="PlcTask Outputs^MODBUS_EL.ModbusEL6021.OutData" VarB="COM RxPDO-Map Outputs^Data Out 4" Size="8" OffsA="48"/>
-				<Link VarA="PlcTask Outputs^MODBUS_EL.ModbusEL6021.OutData" VarB="COM RxPDO-Map Outputs^Data Out 5" Size="8" OffsA="56"/>
-				<Link VarA="PlcTask Outputs^MODBUS_EL.ModbusEL6021.OutData" VarB="COM RxPDO-Map Outputs^Data Out 6" Size="8" OffsA="64"/>
-				<Link VarA="PlcTask Outputs^MODBUS_EL.ModbusEL6021.OutData" VarB="COM RxPDO-Map Outputs^Data Out 7" Size="8" OffsA="72"/>
-				<Link VarA="PlcTask Outputs^MODBUS_EL.ModbusEL6021.OutData" VarB="COM RxPDO-Map Outputs^Data Out 8" Size="8" OffsA="80"/>
-				<Link VarA="PlcTask Outputs^MODBUS_EL.ModbusEL6021.OutData" VarB="COM RxPDO-Map Outputs^Data Out 9" Size="8" OffsA="88"/>
+				<Link VarA="PlcTask Inputs^ModbusRTU_EL.ModbusEL6021.InData" VarB="COM TxPDO-Map Inputs^Data In 0" Size="8" OffsA="16"/>
+				<Link VarA="PlcTask Inputs^ModbusRTU_EL.ModbusEL6021.InData" VarB="COM TxPDO-Map Inputs^Data In 1" Size="8" OffsA="24"/>
+				<Link VarA="PlcTask Inputs^ModbusRTU_EL.ModbusEL6021.InData" VarB="COM TxPDO-Map Inputs^Data In 10" Size="8" OffsA="96"/>
+				<Link VarA="PlcTask Inputs^ModbusRTU_EL.ModbusEL6021.InData" VarB="COM TxPDO-Map Inputs^Data In 11" Size="8" OffsA="104"/>
+				<Link VarA="PlcTask Inputs^ModbusRTU_EL.ModbusEL6021.InData" VarB="COM TxPDO-Map Inputs^Data In 12" Size="8" OffsA="112"/>
+				<Link VarA="PlcTask Inputs^ModbusRTU_EL.ModbusEL6021.InData" VarB="COM TxPDO-Map Inputs^Data In 13" Size="8" OffsA="120"/>
+				<Link VarA="PlcTask Inputs^ModbusRTU_EL.ModbusEL6021.InData" VarB="COM TxPDO-Map Inputs^Data In 14" Size="8" OffsA="128"/>
+				<Link VarA="PlcTask Inputs^ModbusRTU_EL.ModbusEL6021.InData" VarB="COM TxPDO-Map Inputs^Data In 15" Size="8" OffsA="136"/>
+				<Link VarA="PlcTask Inputs^ModbusRTU_EL.ModbusEL6021.InData" VarB="COM TxPDO-Map Inputs^Data In 16" Size="8" OffsA="144"/>
+				<Link VarA="PlcTask Inputs^ModbusRTU_EL.ModbusEL6021.InData" VarB="COM TxPDO-Map Inputs^Data In 17" Size="8" OffsA="152"/>
+				<Link VarA="PlcTask Inputs^ModbusRTU_EL.ModbusEL6021.InData" VarB="COM TxPDO-Map Inputs^Data In 18" Size="8" OffsA="160"/>
+				<Link VarA="PlcTask Inputs^ModbusRTU_EL.ModbusEL6021.InData" VarB="COM TxPDO-Map Inputs^Data In 19" Size="8" OffsA="168"/>
+				<Link VarA="PlcTask Inputs^ModbusRTU_EL.ModbusEL6021.InData" VarB="COM TxPDO-Map Inputs^Data In 2" Size="8" OffsA="32"/>
+				<Link VarA="PlcTask Inputs^ModbusRTU_EL.ModbusEL6021.InData" VarB="COM TxPDO-Map Inputs^Data In 20" Size="8" OffsA="176"/>
+				<Link VarA="PlcTask Inputs^ModbusRTU_EL.ModbusEL6021.InData" VarB="COM TxPDO-Map Inputs^Data In 21" Size="8" OffsA="184"/>
+				<Link VarA="PlcTask Inputs^ModbusRTU_EL.ModbusEL6021.InData" VarB="COM TxPDO-Map Inputs^Data In 3" Size="8" OffsA="40"/>
+				<Link VarA="PlcTask Inputs^ModbusRTU_EL.ModbusEL6021.InData" VarB="COM TxPDO-Map Inputs^Data In 4" Size="8" OffsA="48"/>
+				<Link VarA="PlcTask Inputs^ModbusRTU_EL.ModbusEL6021.InData" VarB="COM TxPDO-Map Inputs^Data In 5" Size="8" OffsA="56"/>
+				<Link VarA="PlcTask Inputs^ModbusRTU_EL.ModbusEL6021.InData" VarB="COM TxPDO-Map Inputs^Data In 6" Size="8" OffsA="64"/>
+				<Link VarA="PlcTask Inputs^ModbusRTU_EL.ModbusEL6021.InData" VarB="COM TxPDO-Map Inputs^Data In 7" Size="8" OffsA="72"/>
+				<Link VarA="PlcTask Inputs^ModbusRTU_EL.ModbusEL6021.InData" VarB="COM TxPDO-Map Inputs^Data In 8" Size="8" OffsA="80"/>
+				<Link VarA="PlcTask Inputs^ModbusRTU_EL.ModbusEL6021.InData" VarB="COM TxPDO-Map Inputs^Data In 9" Size="8" OffsA="88"/>
+				<Link VarA="PlcTask Inputs^ModbusRTU_EL.ModbusEL6021.InData" VarB="COM TxPDO-Map Inputs^Status"/>
+				<Link VarA="PlcTask Outputs^ModbusRTU_EL.ModbusEL6021.OutData" VarB="COM RxPDO-Map Outputs^Ctrl"/>
+				<Link VarA="PlcTask Outputs^ModbusRTU_EL.ModbusEL6021.OutData" VarB="COM RxPDO-Map Outputs^Data Out 0" Size="8" OffsA="16"/>
+				<Link VarA="PlcTask Outputs^ModbusRTU_EL.ModbusEL6021.OutData" VarB="COM RxPDO-Map Outputs^Data Out 1" Size="8" OffsA="24"/>
+				<Link VarA="PlcTask Outputs^ModbusRTU_EL.ModbusEL6021.OutData" VarB="COM RxPDO-Map Outputs^Data Out 10" Size="8" OffsA="96"/>
+				<Link VarA="PlcTask Outputs^ModbusRTU_EL.ModbusEL6021.OutData" VarB="COM RxPDO-Map Outputs^Data Out 11" Size="8" OffsA="104"/>
+				<Link VarA="PlcTask Outputs^ModbusRTU_EL.ModbusEL6021.OutData" VarB="COM RxPDO-Map Outputs^Data Out 12" Size="8" OffsA="112"/>
+				<Link VarA="PlcTask Outputs^ModbusRTU_EL.ModbusEL6021.OutData" VarB="COM RxPDO-Map Outputs^Data Out 13" Size="8" OffsA="120"/>
+				<Link VarA="PlcTask Outputs^ModbusRTU_EL.ModbusEL6021.OutData" VarB="COM RxPDO-Map Outputs^Data Out 14" Size="8" OffsA="128"/>
+				<Link VarA="PlcTask Outputs^ModbusRTU_EL.ModbusEL6021.OutData" VarB="COM RxPDO-Map Outputs^Data Out 15" Size="8" OffsA="136"/>
+				<Link VarA="PlcTask Outputs^ModbusRTU_EL.ModbusEL6021.OutData" VarB="COM RxPDO-Map Outputs^Data Out 16" Size="8" OffsA="144"/>
+				<Link VarA="PlcTask Outputs^ModbusRTU_EL.ModbusEL6021.OutData" VarB="COM RxPDO-Map Outputs^Data Out 17" Size="8" OffsA="152"/>
+				<Link VarA="PlcTask Outputs^ModbusRTU_EL.ModbusEL6021.OutData" VarB="COM RxPDO-Map Outputs^Data Out 18" Size="8" OffsA="160"/>
+				<Link VarA="PlcTask Outputs^ModbusRTU_EL.ModbusEL6021.OutData" VarB="COM RxPDO-Map Outputs^Data Out 19" Size="8" OffsA="168"/>
+				<Link VarA="PlcTask Outputs^ModbusRTU_EL.ModbusEL6021.OutData" VarB="COM RxPDO-Map Outputs^Data Out 2" Size="8" OffsA="32"/>
+				<Link VarA="PlcTask Outputs^ModbusRTU_EL.ModbusEL6021.OutData" VarB="COM RxPDO-Map Outputs^Data Out 20" Size="8" OffsA="176"/>
+				<Link VarA="PlcTask Outputs^ModbusRTU_EL.ModbusEL6021.OutData" VarB="COM RxPDO-Map Outputs^Data Out 21" Size="8" OffsA="184"/>
+				<Link VarA="PlcTask Outputs^ModbusRTU_EL.ModbusEL6021.OutData" VarB="COM RxPDO-Map Outputs^Data Out 3" Size="8" OffsA="40"/>
+				<Link VarA="PlcTask Outputs^ModbusRTU_EL.ModbusEL6021.OutData" VarB="COM RxPDO-Map Outputs^Data Out 4" Size="8" OffsA="48"/>
+				<Link VarA="PlcTask Outputs^ModbusRTU_EL.ModbusEL6021.OutData" VarB="COM RxPDO-Map Outputs^Data Out 5" Size="8" OffsA="56"/>
+				<Link VarA="PlcTask Outputs^ModbusRTU_EL.ModbusEL6021.OutData" VarB="COM RxPDO-Map Outputs^Data Out 6" Size="8" OffsA="64"/>
+				<Link VarA="PlcTask Outputs^ModbusRTU_EL.ModbusEL6021.OutData" VarB="COM RxPDO-Map Outputs^Data Out 7" Size="8" OffsA="72"/>
+				<Link VarA="PlcTask Outputs^ModbusRTU_EL.ModbusEL6021.OutData" VarB="COM RxPDO-Map Outputs^Data Out 8" Size="8" OffsA="80"/>
+				<Link VarA="PlcTask Outputs^ModbusRTU_EL.ModbusEL6021.OutData" VarB="COM RxPDO-Map Outputs^Data Out 9" Size="8" OffsA="88"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 3 (EL3202-0020)">
 				<Link VarA="PlcTask Inputs^GVL.Temp_VD_in.INT_VAR_Input" VarB="RTD Inputs Channel 1^GVL.Temp_VD_in.INT_VAR_Input"/>
@@ -4639,136 +4930,136 @@ Bit1: Value bigger/equal Limit2]]>
 				<Link VarA="PlcTask Inputs^GVL.Temp_vor_EV_rev.INT_VAR_Input" VarB="RTD Inputs Channel 2^GVL.Temp_vor_EV_rev.INT_VAR_Input"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Modbus RTU (COM Port)">
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data1"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data10" Size="8" OffsA="72"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data11" Size="8" OffsA="80"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data12" Size="8" OffsA="88"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data13" Size="8" OffsA="96"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data14" Size="8" OffsA="104"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data15" Size="8" OffsA="112"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data16" Size="8" OffsA="120"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data17" Size="8" OffsA="128"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data18" Size="8" OffsA="136"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data19" Size="8" OffsA="144"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data2" Size="8" OffsA="8"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data20" Size="8" OffsA="152"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data21" Size="8" OffsA="160"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data22" Size="8" OffsA="168"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data23" Size="8" OffsA="176"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data24" Size="8" OffsA="184"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data25" Size="8" OffsA="192"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data26" Size="8" OffsA="200"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data27" Size="8" OffsA="208"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data28" Size="8" OffsA="216"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data29" Size="8" OffsA="224"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data3" Size="8" OffsA="16"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data30" Size="8" OffsA="232"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data31" Size="8" OffsA="240"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data32" Size="8" OffsA="248"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data33" Size="8" OffsA="256"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data34" Size="8" OffsA="264"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data35" Size="8" OffsA="272"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data36" Size="8" OffsA="280"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data37" Size="8" OffsA="288"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data38" Size="8" OffsA="296"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data39" Size="8" OffsA="304"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data4" Size="8" OffsA="24"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data40" Size="8" OffsA="312"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data41" Size="8" OffsA="320"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data42" Size="8" OffsA="328"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data43" Size="8" OffsA="336"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data44" Size="8" OffsA="344"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data45" Size="8" OffsA="352"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data46" Size="8" OffsA="360"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data47" Size="8" OffsA="368"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data48" Size="8" OffsA="376"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data49" Size="8" OffsA="384"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data5" Size="8" OffsA="32"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data50" Size="8" OffsA="392"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data51" Size="8" OffsA="400"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data52" Size="8" OffsA="408"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data53" Size="8" OffsA="416"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data54" Size="8" OffsA="424"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data55" Size="8" OffsA="432"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data56" Size="8" OffsA="440"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data57" Size="8" OffsA="448"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data58" Size="8" OffsA="456"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data59" Size="8" OffsA="464"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data6" Size="8" OffsA="40"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data60" Size="8" OffsA="472"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data61" Size="8" OffsA="480"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data62" Size="8" OffsA="488"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data63" Size="8" OffsA="496"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data64" Size="8" OffsA="504"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data7" Size="8" OffsA="48"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data8" Size="8" OffsA="56"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^D" VarB="Inputs^Data9" Size="8" OffsA="64"/>
-				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData^SerStatus" VarB="Inputs^Status"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data1"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data10" Size="8" OffsA="72"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data11" Size="8" OffsA="80"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data12" Size="8" OffsA="88"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data13" Size="8" OffsA="96"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data14" Size="8" OffsA="104"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data15" Size="8" OffsA="112"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data16" Size="8" OffsA="120"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data17" Size="8" OffsA="128"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data18" Size="8" OffsA="136"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data19" Size="8" OffsA="144"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data2" Size="8" OffsA="8"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data20" Size="8" OffsA="152"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data21" Size="8" OffsA="160"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data22" Size="8" OffsA="168"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data23" Size="8" OffsA="176"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data24" Size="8" OffsA="184"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data25" Size="8" OffsA="192"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data26" Size="8" OffsA="200"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data27" Size="8" OffsA="208"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data28" Size="8" OffsA="216"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data29" Size="8" OffsA="224"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data3" Size="8" OffsA="16"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data30" Size="8" OffsA="232"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data31" Size="8" OffsA="240"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data32" Size="8" OffsA="248"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data33" Size="8" OffsA="256"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data34" Size="8" OffsA="264"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data35" Size="8" OffsA="272"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data36" Size="8" OffsA="280"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data37" Size="8" OffsA="288"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data38" Size="8" OffsA="296"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data39" Size="8" OffsA="304"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data4" Size="8" OffsA="24"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data40" Size="8" OffsA="312"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data41" Size="8" OffsA="320"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data42" Size="8" OffsA="328"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data43" Size="8" OffsA="336"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data44" Size="8" OffsA="344"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data45" Size="8" OffsA="352"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data46" Size="8" OffsA="360"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data47" Size="8" OffsA="368"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data48" Size="8" OffsA="376"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data49" Size="8" OffsA="384"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data5" Size="8" OffsA="32"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data50" Size="8" OffsA="392"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data51" Size="8" OffsA="400"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data52" Size="8" OffsA="408"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data53" Size="8" OffsA="416"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data54" Size="8" OffsA="424"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data55" Size="8" OffsA="432"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data56" Size="8" OffsA="440"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data57" Size="8" OffsA="448"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data58" Size="8" OffsA="456"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data59" Size="8" OffsA="464"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data6" Size="8" OffsA="40"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data60" Size="8" OffsA="472"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data61" Size="8" OffsA="480"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data62" Size="8" OffsA="488"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data63" Size="8" OffsA="496"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data64" Size="8" OffsA="504"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data7" Size="8" OffsA="48"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data8" Size="8" OffsA="56"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^D" VarB="Outputs^Data9" Size="8" OffsA="64"/>
-				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData^SerCtrl" VarB="Outputs^Ctrl"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data1" Size="8" OffsA="16"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data10" Size="8" OffsA="88"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data11" Size="8" OffsA="96"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data12" Size="8" OffsA="104"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data13" Size="8" OffsA="112"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data14" Size="8" OffsA="120"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data15" Size="8" OffsA="128"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data16" Size="8" OffsA="136"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data17" Size="8" OffsA="144"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data18" Size="8" OffsA="152"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data19" Size="8" OffsA="160"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data2" Size="8" OffsA="24"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data20" Size="8" OffsA="168"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data21" Size="8" OffsA="176"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data22" Size="8" OffsA="184"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data23" Size="8" OffsA="192"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data24" Size="8" OffsA="200"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data25" Size="8" OffsA="208"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data26" Size="8" OffsA="216"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data27" Size="8" OffsA="224"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data28" Size="8" OffsA="232"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data29" Size="8" OffsA="240"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data3" Size="8" OffsA="32"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data30" Size="8" OffsA="248"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data31" Size="8" OffsA="256"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data32" Size="8" OffsA="264"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data33" Size="8" OffsA="272"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data34" Size="8" OffsA="280"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data35" Size="8" OffsA="288"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data36" Size="8" OffsA="296"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data37" Size="8" OffsA="304"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data38" Size="8" OffsA="312"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data39" Size="8" OffsA="320"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data4" Size="8" OffsA="40"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data40" Size="8" OffsA="328"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data41" Size="8" OffsA="336"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data42" Size="8" OffsA="344"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data43" Size="8" OffsA="352"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data44" Size="8" OffsA="360"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data45" Size="8" OffsA="368"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data46" Size="8" OffsA="376"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data47" Size="8" OffsA="384"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data48" Size="8" OffsA="392"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data49" Size="8" OffsA="400"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data5" Size="8" OffsA="48"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data50" Size="8" OffsA="408"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data51" Size="8" OffsA="416"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data52" Size="8" OffsA="424"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data53" Size="8" OffsA="432"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data54" Size="8" OffsA="440"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data55" Size="8" OffsA="448"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data56" Size="8" OffsA="456"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data57" Size="8" OffsA="464"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data58" Size="8" OffsA="472"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data59" Size="8" OffsA="480"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data6" Size="8" OffsA="56"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data60" Size="8" OffsA="488"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data61" Size="8" OffsA="496"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data62" Size="8" OffsA="504"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data63" Size="8" OffsA="512"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data64" Size="8" OffsA="520"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data7" Size="8" OffsA="64"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data8" Size="8" OffsA="72"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Data9" Size="8" OffsA="80"/>
+				<Link VarA="PlcTask Inputs^MODBUS.myModbus.InData" VarB="Inputs^Status"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Ctrl"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data1" Size="8" OffsA="16"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data10" Size="8" OffsA="88"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data11" Size="8" OffsA="96"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data12" Size="8" OffsA="104"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data13" Size="8" OffsA="112"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data14" Size="8" OffsA="120"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data15" Size="8" OffsA="128"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data16" Size="8" OffsA="136"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data17" Size="8" OffsA="144"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data18" Size="8" OffsA="152"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data19" Size="8" OffsA="160"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data2" Size="8" OffsA="24"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data20" Size="8" OffsA="168"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data21" Size="8" OffsA="176"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data22" Size="8" OffsA="184"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data23" Size="8" OffsA="192"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data24" Size="8" OffsA="200"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data25" Size="8" OffsA="208"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data26" Size="8" OffsA="216"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data27" Size="8" OffsA="224"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data28" Size="8" OffsA="232"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data29" Size="8" OffsA="240"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data3" Size="8" OffsA="32"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data30" Size="8" OffsA="248"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data31" Size="8" OffsA="256"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data32" Size="8" OffsA="264"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data33" Size="8" OffsA="272"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data34" Size="8" OffsA="280"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data35" Size="8" OffsA="288"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data36" Size="8" OffsA="296"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data37" Size="8" OffsA="304"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data38" Size="8" OffsA="312"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data39" Size="8" OffsA="320"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data4" Size="8" OffsA="40"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data40" Size="8" OffsA="328"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data41" Size="8" OffsA="336"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data42" Size="8" OffsA="344"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data43" Size="8" OffsA="352"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data44" Size="8" OffsA="360"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data45" Size="8" OffsA="368"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data46" Size="8" OffsA="376"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data47" Size="8" OffsA="384"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data48" Size="8" OffsA="392"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data49" Size="8" OffsA="400"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data5" Size="8" OffsA="48"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data50" Size="8" OffsA="408"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data51" Size="8" OffsA="416"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data52" Size="8" OffsA="424"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data53" Size="8" OffsA="432"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data54" Size="8" OffsA="440"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data55" Size="8" OffsA="448"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data56" Size="8" OffsA="456"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data57" Size="8" OffsA="464"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data58" Size="8" OffsA="472"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data59" Size="8" OffsA="480"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data6" Size="8" OffsA="56"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data60" Size="8" OffsA="488"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data61" Size="8" OffsA="496"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data62" Size="8" OffsA="504"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data63" Size="8" OffsA="512"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data64" Size="8" OffsA="520"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data7" Size="8" OffsA="64"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data8" Size="8" OffsA="72"/>
+				<Link VarA="PlcTask Outputs^MODBUS.myModbus.OutData" VarB="Outputs^Data9" Size="8" OffsA="80"/>
 			</OwnerB>
 		</OwnerA>
 	</Mappings>

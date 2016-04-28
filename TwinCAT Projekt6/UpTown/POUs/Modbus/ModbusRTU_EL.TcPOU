@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
-  <POU Name="MODBUS_EL" Id="{98159f27-7da7-4f3a-9d45-35bf24bd6264}" SpecialFunc="None">
-    <Declaration><![CDATA[PROGRAM MODBUS_EL
+  <POU Name="ModbusRTU_EL" Id="{98159f27-7da7-4f3a-9d45-35bf24bd6264}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM ModbusRTU_EL
 VAR
 (*Modbus wird deklariert*)
 	ModbusEL6021:		ModbusRtuMaster_KL6x22B;	
@@ -32,11 +32,44 @@ EV_rev			|	3				|	3
 	CounterError: 		DINT;
 	CounterSuccess: 	DINT;
 
+	TestMSS: ARRAY [0..10] OF DWORD;
 END_VAR
 
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[CASE state OF
+      <ST><![CDATA[
+
+CASE state OF
+	
+0:
+	ModbusEL6021.ReadInputRegs(Execute:= FALSE);
+	state:=1;
+1:	
+	ModbusEL6021.ReadInputRegs(
+		UnitID:= 12,
+ 		Quantity:= 1,							
+ 		MBAddr:= 30000,								
+ 		cbLength:= SIZEOF(TestMSS[0]),		
+ 		pMemoryAddr:= ADR(TestMSS[0]),	 
+  		Execute:= TRUE,
+  		Timeout:= modbusTimeout_EL,
+  		Busy => isModbusBusy_EL,
+  		Error => isModbusError_EL,
+  		ErrorId => modbusErrorId_EL
+  		(*cbRead parameter)*));
+	
+		IF NOT isModbusBusy_EL THEN
+				ModbusEL6021.ReadInputRegs(Execute:= FALSE);
+			IF ModbusEL6021.Error THEN
+				state:= 0;
+			ELSE
+				state := 1;	
+			END_IF
+		END_IF
+END_CASE
+
+(*
+CASE state OF
 
 0: (*Initialisierung von Modbus*)
 	
@@ -193,6 +226,7 @@ END_IF
 		END_IF
 
 6: (*Schreibt Akt_Kühlleistung Coil auf die Expansionsventile*)
+
 IF EV_rev.SetAktKuhlleistung THEN 	
 	ModbusEL6021.WriteSingleRegister(
 		UnitID:= 2,
@@ -218,13 +252,11 @@ IF EV_rev.SetAktKuhlleistung THEN
 	ELSE 
 		state:= 0;
 END_IF	
-
-	
-
 END_CASE
-		
+*)	
 		
 FtrigBusy(CLK:=ModbusEL6021.BUSY );
+(*zählt fehlgeschlagene und erfolgreiche Komunikationsschritte*)
 IF FtrigBusy.Q THEN
 	IF ModbusEL6021.Error THEN
 		LastModbusError := ModbusEL6021.ErrorDiagnostics;

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5" FileSignature="886509e1f71e462b45e551b339292f173c035905ff16650da58c0bc1653642b47484434708879c753a2082978b6155cf2d3568ae9f533cf161ab4213a9c65c8a9ad391d3c84f45b024f3e3dbd6804a8ac444b4a35ab253fcb28217d27bcfac4a21b7407347a7bb89f0a7d913ea5d682f7afe7a7a0c69c7f78a30504eaaab7db2f49f783a44f4d8300c57cc6530c70b1691ac6d623f50f98bf4629d75c05cfff1d3f3087132b9cbcf6bdeb420ab6685d6c0317a42e2741f677b9a906b86dd343c54012a3246bde5952494ef46db68716e8b8d5013806cdc2b0e70452d0772ead33f01ebb430b62685886400378c751890fc436c81c8279e9c264948191baa757b">
+  <POU Name="MittelwertBilden" Id="{df99a6a3-14e7-4073-a394-86e92b595caf}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK MittelwertBilden
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
