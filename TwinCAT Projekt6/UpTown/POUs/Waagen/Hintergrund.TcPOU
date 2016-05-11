@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
+  <POU Name="Hintergrund" Id="{a7d83ced-05c9-4483-8bd2-3478f81da11d}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Hintergrund
+VAR   
+ (* background communication with the EL6002 terminal *)
+ 	fbEL6002Ctrl: 		ARRAY[1..6] OF SerialLineControl;
+ 	bEL6002CtrlError: 	ARRAY[1..6] OF BOOL;
+	eEL6002CtrlErrorID: ARRAY[1..6] OF ComError_t;
+	counter: INT;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+IF counter >= 6 THEN 
+	counter:= 1;
+END_IF
+
+//--Jede Waage wird abgefragt. Der counter läuft einmal durch und fragt jeweils den neuesten Datenstring ab.
+
+FOR counter:= 1 TO 6 DO
+fbEL6002Ctrl[counter](   
+	Mode:= 		SERIALLINEMODE_EL6_22B, 
+   pComIn:= 	ADR(Waage[counter].EL6002_in), 
+   pComOut:= 	ADR(Waage[counter].EL6002_out), 
+   SizeComIn:=	SIZEOF(Waage[counter].EL6002_in), 
+   Error=> 		bEL6002CtrlError[counter], 
+   ErrorID=> 	eEL6002CtrlErrorID[counter], 
+   TxBuffer:= 	TxBuffer[counter], 
+   RxBuffer:= 	RxBuffer[counter] );
+END_FOR
+
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

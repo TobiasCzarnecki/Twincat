@@ -6,25 +6,33 @@
 (*Variablen für den Betrieb der Waagen unter dem Verdampfer in der Klimakammer.
  Die Waagen dienen zur Bestimmung von der Eismenge im Wärmetauscher des Verdampfers *)
  
+ //Alle Waagenwerte zusammen in einem Array
+ 		WaageGewicht : 	ARRAY[1..6] OF REAL;
+ 		bConfigWaage: 	BOOL := FALSE;
+		
  //Variablen Deklarirung von den Waagen. Siehe unter DUTs.
-   		Waage_1 : 	WAAGE_VAR;
-		Waage_2 : 	WAAGE_VAR;
-		Waage_3 : 	WAAGE_VAR;
-   		Waage_4 :	WAAGE_VAR;
-   
-//Zwischenspeicher für eingehende Werte von Waagen
-		RxBuffer1   : ComBuffer;
-		RxBuffer2   : ComBuffer;
-		RxBuffer3   : ComBuffer;
-		RxBuffer4   : ComBuffer;
+ 		Waage : ARRAY [1..6] OF WAAGE_VAR;
+		
+//Zwischenspeicher für ein- und ausgehende Werte von Waagen
+		RxBuffer: ARRAY [1..6] OF ComBuffer;
+		TxBuffer: ARRAY [1..6] OF ComBuffer;
+		
+//Schwerpunkt vom Eis
 
-//Zwischenspeicher für ausgehende Werte für Waagen
-		TxBuffer1   : ComBuffer;
-		TxBuffer2   : ComBuffer;
-		TxBuffer3   : ComBuffer;
-		TxBuffer4   : ComBuffer;
-
+		xPosition_SP_0	:REAL :=20;
+		yPosition_SP_0	:REAL :=20;
+		xPosition_SP_1	:REAL;
+		yPosition_SP_1	:REAL;
 	
-END_VAR]]></Declaration>
+
+	//k_alleDaten :	ARRAY[1..2] OF k_Daten;	
+END_VAR
+
+
+VAR_GLOBAL PERSISTENT
+    (* Declaration of Variables *)
+	k_alleDaten :	ARRAY[1..2] OF k_Daten;	
+END_VAR
+]]></Declaration>
   </GVL>
 </TcPlcObject>

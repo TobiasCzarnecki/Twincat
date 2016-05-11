@@ -27,6 +27,10 @@
       <SubType>Code</SubType>
       <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
     </Compile>
+    <Compile Include="DUTs\k_Daten.TcDUT">
+      <SubType>Code</SubType>
+      <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
+    </Compile>
     <Compile Include="DUTs\MassenstromSensor.TcDUT">
       <SubType>Code</SubType>
       <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
@@ -114,18 +118,6 @@
       <SubType>Code</SubType>
       <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
     </Compile>
-    <Compile Include="POUs\FastTask\Hintergrund.TcPOU">
-      <SubType>Code</SubType>
-      <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
-    </Compile>
-    <Compile Include="POUs\FastTask\Hintergrund_fasttask.TcPOU">
-      <SubType>Code</SubType>
-      <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
-    </Compile>
-    <Compile Include="POUs\FastTask\WaageBufferKomunikation.TcPOU">
-      <SubType>Code</SubType>
-      <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
-    </Compile>
     <Compile Include="POUs\Funktionen\BINSTRING_TO_REAL.TcPOU">
       <SubType>Code</SubType>
       <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
@@ -134,11 +126,39 @@
       <SubType>Code</SubType>
       <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
     </Compile>
+    <Compile Include="POUs\Funktionen\FB_EVconverter.TcPOU">
+      <SubType>Code</SubType>
+      <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
+    </Compile>
+    <Compile Include="POUs\Funktionen\FB_FILTER_MAV_REAL.TcPOU">
+      <SubType>Code</SubType>
+      <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
+    </Compile>
+    <Compile Include="POUs\Funktionen\FB_fpconverter.TcPOU">
+      <SubType>Code</SubType>
+      <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
+    </Compile>
+    <Compile Include="POUs\Funktionen\FB_GewichtAuslesen.TcPOU">
+      <SubType>Code</SubType>
+      <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
+    </Compile>
+    <Compile Include="POUs\Funktionen\FB_kIstBerechnung.TcPOU">
+      <SubType>Code</SubType>
+      <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
+    </Compile>
     <Compile Include="POUs\Funktionen\FB_PT1.TcPOU">
       <SubType>Code</SubType>
       <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
     </Compile>
     <Compile Include="POUs\Funktionen\FB_SPS_zu_Nativ_lin.TcPOU">
+      <SubType>Code</SubType>
+      <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
+    </Compile>
+    <Compile Include="POUs\Funktionen\FILTER_MAV_REAL.TcPOU">
+      <SubType>Code</SubType>
+      <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
+    </Compile>
+    <Compile Include="POUs\Funktionen\MittelwertBilden.TcPOU">
       <SubType>Code</SubType>
       <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
     </Compile>
@@ -161,31 +181,11 @@
       <SubType>Code</SubType>
       <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
     </Compile>
-    <Compile Include="POUs\Modbus\FB_EVconverter.TcPOU">
+    <Compile Include="POUs\Modbus\ModbusRTU_COM.TcPOU">
       <SubType>Code</SubType>
       <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
     </Compile>
-    <Compile Include="POUs\Modbus\FB_fpconverter.TcPOU">
-      <SubType>Code</SubType>
-      <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
-    </Compile>
-    <Compile Include="POUs\Modbus\ModbusMasterApplication.TcPOU">
-      <SubType>Code</SubType>
-      <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
-    </Compile>
-    <Compile Include="POUs\Modbus\ModbusRTU.TcPOU">
-      <SubType>Code</SubType>
-      <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
-    </Compile>
-    <Compile Include="POUs\Modbus\MODBUS_EL.TcPOU">
-      <SubType>Code</SubType>
-      <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
-    </Compile>
-    <Compile Include="POUs\POU.TcPOU">
-      <SubType>Code</SubType>
-      <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
-    </Compile>
-    <Compile Include="POUs\AlleRealWerte.TcPOU">
+    <Compile Include="POUs\Modbus\ModbusRTU_EL.TcPOU">
       <SubType>Code</SubType>
       <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
     </Compile>
@@ -197,6 +197,10 @@
       <SubType>Code</SubType>
       <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
     </Compile>
+    <Compile Include="POUs\Testprogramme\EmpfangeString.TcPOU">
+      <SubType>Code</SubType>
+      <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
+    </Compile>
     <Compile Include="POUs\Testprogramme\FB_FileCopy.TcPOU">
       <SubType>Code</SubType>
       <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
@@ -205,23 +209,35 @@
       <SubType>Code</SubType>
       <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
     </Compile>
-    <Compile Include="POUs\WaagenAuswertung\EmpfangeString.TcPOU">
+    <Compile Include="POUs\Testprogramme\GewichtAuslesen.TcPOU">
       <SubType>Code</SubType>
       <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
     </Compile>
-    <Compile Include="POUs\WaagenAuswertung\FB_GewichtAuslesen.TcPOU">
+    <Compile Include="POUs\Testprogramme\Hintergrund_fasttask.TcPOU">
       <SubType>Code</SubType>
       <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
     </Compile>
-    <Compile Include="POUs\WaagenAuswertung\GewichtAuslesen.TcPOU">
+    <Compile Include="POUs\Testprogramme\ModbusMasterApplication.TcPOU">
       <SubType>Code</SubType>
       <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
     </Compile>
-    <Compile Include="POUs\WaagenAuswertung\SummeGewichte.TcPOU">
+    <Compile Include="POUs\Testprogramme\WaageBufferKomunikation.TcPOU">
       <SubType>Code</SubType>
       <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
     </Compile>
-    <Compile Include="POUs\WaagenAuswertung\WaagenAuslesen.TcPOU">
+    <Compile Include="POUs\Waagen\ConfigWaage.TcPOU">
+      <SubType>Code</SubType>
+      <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
+    </Compile>
+    <Compile Include="POUs\Waagen\Hintergrund.TcPOU">
+      <SubType>Code</SubType>
+      <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
+    </Compile>
+    <Compile Include="POUs\Waagen\Schwerpunkt_Eismasse.TcPOU">
+      <SubType>Code</SubType>
+      <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
+    </Compile>
+    <Compile Include="POUs\Waagen\WaagenAuslesen.TcPOU">
       <SubType>Code</SubType>
       <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
     </Compile>
@@ -233,12 +249,11 @@
   <ItemGroup>
     <Folder Include="DUTs" />
     <Folder Include="GVLs" />
-    <Folder Include="POUs\FastTask" />
     <Folder Include="POUs\Modbus" />
     <Folder Include="POUs\Funktionen" />
     <Folder Include="POUs\Datenbank" />
     <Folder Include="POUs\Testprogramme" />
-    <Folder Include="POUs\WaagenAuswertung" />
+    <Folder Include="POUs\Waagen" />
     <Folder Include="VISUs" />
     <Folder Include="POUs" />
   </ItemGroup>
@@ -354,13 +369,15 @@
           <v n="Name">"{C70B7845-2722-4a9b-A0EA-88C877A4B36F}"</v>
           <d n="SubKeys" t="Hashtable" />
           <d n="Values" t="Hashtable" ckt="String">
+            <v>EnableMaxAuthenticationTrials</v>
+            <v>true</v>
             <v>MaxAuthenticationTrials</v>
             <v>3</v>
             <v>UserList</v>
             <o t="UserList">
               <a n="Users" cet="User">
                 <o>
-                  <v n="Id">{b8b688a2-a0d3-43ab-b972-3c637290dc51}</v>
+                  <v n="Id">{57e7a9b8-d6b4-45e1-bca2-5efa6969ae2f}</v>
                   <v n="Name">"Owner"</v>
                   <v n="FullName">""</v>
                   <v n="Description">""</v>
@@ -376,24 +393,24 @@
             <o t="GroupList">
               <a n="Groups" cet="Group">
                 <o>
-                  <v n="Id">{ff5a551a-e2b1-494a-9bd3-15d0fa099fc9}</v>
-                  <v n="Name">"Owner"</v>
-                  <v n="Description">""</v>
-                  <v n="IsEveryoneGroup">false</v>
-                  <v n="IsOwnerGroup">true</v>
-                  <l n="UserMembers" t="ArrayList" cet="Guid">
-                    <v>b8b688a2-a0d3-43ab-b972-3c637290dc51</v>
-                  </l>
-                  <l n="GroupMembers" t="ArrayList" />
-                </o>
-                <o>
-                  <v n="Id">{a9eafe30-3174-48bd-9755-0213be404d44}</v>
+                  <v n="Id">{9d6e8686-4936-45e7-84fe-c09c7228e26c}</v>
                   <v n="Name">"Everyone"</v>
                   <v n="Description">""</v>
                   <v n="IsEveryoneGroup">true</v>
                   <v n="IsOwnerGroup">false</v>
                   <l n="UserMembers" t="ArrayList" cet="Guid">
-                    <v>b8b688a2-a0d3-43ab-b972-3c637290dc51</v>
+                    <v>57e7a9b8-d6b4-45e1-bca2-5efa6969ae2f</v>
+                  </l>
+                  <l n="GroupMembers" t="ArrayList" />
+                </o>
+                <o>
+                  <v n="Id">{24f5f936-b3be-47e4-96a4-17a81ef42710}</v>
+                  <v n="Name">"Owner"</v>
+                  <v n="Description">""</v>
+                  <v n="IsEveryoneGroup">false</v>
+                  <v n="IsOwnerGroup">true</v>
+                  <l n="UserMembers" t="ArrayList" cet="Guid">
+                    <v>57e7a9b8-d6b4-45e1-bca2-5efa6969ae2f</v>
                   </l>
                   <l n="GroupMembers" t="ArrayList" />
                 </o>
@@ -402,12 +419,10 @@
             <v>UserAuthentication</v>
             <o t="UserAuthentication">
               <d n="UserToPasswordHash" t="Hashtable" ckt="Guid" cvt="String">
-                <v>b8b688a2-a0d3-43ab-b972-3c637290dc51</v>
+                <v>57e7a9b8-d6b4-45e1-bca2-5efa6969ae2f</v>
                 <v>d41d8cd98f00b204e9800998ecf8427e</v>
               </d>
             </o>
-            <v>EnableMaxAuthenticationTrials</v>
-            <v>true</v>
           </d>
         </o>
         <v>{192FAD59-8248-4824-A8DE-9177C94C195A}</v>

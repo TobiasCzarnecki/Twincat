@@ -1,28 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
-  <Task Name="SerialComTask" Id="{bb8dbb9c-4bb6-4f91-8ccd-dbd7b94ff6be}">
+  <Task Name="SerialComTask" Id="{f4f22c5d-a70c-46ac-803a-5af7b1cab6b6}">
     <!--CycleTime in micro seconds.-->
-    <CycleTime>70000</CycleTime>
+    <CycleTime>10000</CycleTime>
     <Priority>8</Priority>
     <PouCall>
       <Name>Hintergrund</Name>
     </PouCall>
     <PouCall>
-      <Name>ModbusRTU</Name>
+      <Name>WaagenAuslesen</Name>
     </PouCall>
-    <PouCall>
-      <Name>ConfigDrucksensor</Name>
-    </PouCall>
-    <PouCall>
-      <Name>ConfigMassenstromsensor</Name>
-    </PouCall>
-    <PouCall>
-      <Name>MODBUS_EL</Name>
-    </PouCall>
-    <TaskFBGuid>{81b88b29-5b30-4cd2-8db1-61813bdad29a}</TaskFBGuid>
-    <Fb_init>{ecd713ab-0b58-4199-aac5-432615872dca}</Fb_init>
-    <Fb_exit>{59310768-3821-4295-8224-f7697d81b6b2}</Fb_exit>
-    <CycleUpdate>{93716dce-526a-4749-9496-ac37da840d00}</CycleUpdate>
-    <PostCycleUpdate>{a478c21c-89d0-4807-a291-3f43d25155b5}</PostCycleUpdate>
+    <TaskFBGuid>{5720aef6-f38a-4721-ba3a-d8421cbd47bb}</TaskFBGuid>
+    <Fb_init>{05ddfe51-c841-43e1-b853-dd16d4451119}</Fb_init>
+    <Fb_exit>{f379ea2b-37bd-4ee3-855a-cf643700df5a}</Fb_exit>
+    <CycleUpdate>{7bdeb214-aeed-4e5c-87f1-5876849774bb}</CycleUpdate>
+    <PostCycleUpdate>{1c369335-91f2-4825-b867-c2d6945446a6}</PostCycleUpdate>
   </Task>
 </TcPlcObject>

@@ -7,23 +7,23 @@
 	zugewiesen und gespeichert. *)  
 
 VAR
-	fb_Waage1 : FB_GewichtAuslesen;  	 
-	fb_Waage2 : FB_GewichtAuslesen;		
-	fb_Waage3 : FB_GewichtAuslesen;		
-	fb_Waage4 : FB_GewichtAuslesen;		
-	
-		
+	fb_WaageAuslesen : ARRAY[1..6] OF FB_GewichtAuslesen;
+	counter: INT;
 END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[
-fb_Waage1(myWaage:= Waage_1 , myBuffer:= RxBuffer1 , Waage=> Waage_1 ); // Waage_1 wird ausgelesen
-fb_Waage2(myWaage:= Waage_2 , myBuffer:= RxBuffer2 , Waage=> Waage_2 ); // Waage_2 wird ausgelesen
-fb_Waage3(myWaage:= Waage_3 , myBuffer:= RxBuffer3 , Waage=> Waage_3 ); // Waage_3 wird ausgelesen
-fb_Waage4(myWaage:= Waage_4 , myBuffer:= RxBuffer4 , Waage=> Waage_4 ); // Waage_4 wird ausgelesen
+//----Kontrolle ob Counter über 6 ist, Falls ja, wird Counter wieder auf 1 gesetzt
+IF counter >= 6 THEN
+	counter:= 1;
+END_IF
 
 
-
+//--Die Waagen werden alle ausgelesen. 
+FOR counter:= 1 TO 6 DO 
+	fb_WaageAuslesen[counter](myWaage:= Waage[counter] , myBuffer:= RxBuffer[counter] , Waage=> Waage[counter] );
+	WaageGewicht[counter] := Waage[counter].rGewicht;
+END_FOR
 
 
 ]]></ST>

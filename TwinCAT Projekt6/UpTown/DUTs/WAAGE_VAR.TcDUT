@@ -13,9 +13,10 @@ STRUCT
 
 	rGewicht			: REAL;					// angegeben in [gr]		
 	bStabilerWert      	: BOOL;					// wird TRUE falls der ausgegebene Wert stabil ist
-	
+	Nummer				: INT;					// 1 bis 4 sind verteilt
 	xPosition			: REAL;					// [mm]; relativ zum 2D-Mittelpunkt des Wärmeübertragers im VD
 	yPosition			: REAL;					// [mm]; relativ zum 2D-Mittelpunkt des Wärmeübertragers im VD
+	k_ist 				: REAL := 0.5;
 END_STRUCT
 END_TYPE
 

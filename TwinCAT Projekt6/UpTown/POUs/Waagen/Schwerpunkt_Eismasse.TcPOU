@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
+  <POU Name="Schwerpunkt_Eismasse" Id="{435a4698-bf4e-4530-9411-3a8d988b1d27}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Schwerpunkt_Eismasse
+VAR
+
+
+(*Gewicht von den vier Waagen angegeben in [g]. Die Waage zeigt einmal ein Gewicht an. Das tatsächliche EchtGewicht wird berechnen mit
+EchtGewicht:= AnzeigeGewicht / k.  
+*)
+	Summe_Eis: 			REAL := 1;
+	Summe_negativ : 	BOOL;
+	Summe_positiv : 	BOOL;
+	EchtGewicht :		ARRAY[1..4] OF REAL; 		//Tatsächliches Gewicht von jeder Waage
+	alleDatenPositiv:	BOOL; 
+
+(* Umrechnungsfaktoren k bezeichnet den Anteil des angezeigten Wertes von der 
+	tatsächliche Masse, die den Verdampfer belastet *)
+	fb_kIstBerechnung1: FB_kIstBerechnung;
+	fb_kIstBerechnung2: FB_kIstBerechnung;
+	fb_kIstBerechnung3: FB_kIstBerechnung;
+	fb_kIstBerechnung4: FB_kIstBerechnung;
+	
+	PrufGewichte : 	ARRAY[1..4] OF REAL := [1750,2750,3750,4750]; 	//angegeben in Gramm. Es werden verschiedene Prüfgewichte an den Verdampfer gehangen
+//	k_ist : 		ARRAY[1..4] OF REAL := [1,1,1,1];						//für jede Waage ergibts sich aufgrund von der aktuellen Position vom Schwerpunkt(x_s,y_s) ein k-Wert
+	
+//Positionen der Kalibrieungsgewichte
+	xPosition_KG: ARRAY [1..4] OF REAL := [-630,630,630,-630];
+	yPosition_KG: ARRAY [1..4] OF REAL := [-150,-150,150,150];
+	
+//Positionen der Waagen unter dem Verdampfer in x und y-Richtung
+
+	xPositionWaage : ARRAY[1..4] OF REAL := [-272.5, 272.5, 272.5, -272.5];
+	yPositionWaage : ARRAY[1..4] OF REAL := [-760, -760, 280, 280];
+	
+//Anteil der Waagen an der Gesamtsumme
+	Anteil_W : ARRAY[1..4] OF REAL;
+	counter			:INT;
+
+
+(*Kalibrierungsdaten für jede Waage. Werden vor jeder Messung mit mehreren Kalibrierungsgewichten 
+	ermittelt. [0] entspricht dem Kallibriegungsgewicht.[1..4] sind die Positionen der Belastung,
+	siehe Dokumentation*)
+(*
+	k_Waage1:ARRAY [1..2,0..4] OF REAL := [5748.8,	0.279,	-0.090,	-0.145,	0.216 ]; //für Kalibrierungsgewicht 1076.9gr & 3
+	k_Waage2:ARRAY [1..2,0..4] OF REAL := [5748.8,	-0.090,	0.255,	0.199,	-0.139];
+	k_Waage3:ARRAY [1..2,0..4] OF REAL := [5748.8,	-0.069,	0.267,	0.331,	-0.016];
+	k_Waage4:ARRAY [1..2,0..4] OF REAL := [5748.8,	0.269,	-0.072,	-0.022,	0.330];
+*)
+	state: INT := 0;
+
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[Waage[1].Nummer := 1;
+Waage[2].Nummer := 2;
+Waage[3].Nummer := 3;
+Waage[4].Nummer := 4;
+
+
+CASE state OF
+
+
+0: 	
+	
+	IF bConfigWaage THEN 
+	state:= 10;
+	ELSE 
+	state:=1;
+	END_IF
+	
+
+
+1: 
+	//Kontrolle der Vorzeichen der vier Waagen
+	IF WaageGewicht[1] >0 AND WaageGewicht[2] >0 AND WaageGewicht[3] >0  AND WaageGewicht[4]>0 THEN
+		alleDatenPositiv := TRUE;
+		ELSE
+		alleDatenPositiv := FALSE;
+	END_IF
+	state:=2;
+
+
+2:
+	//Gewichtsanteil W jeder Waage berechnen
+
+		Anteil_W[1]:= WaageGewicht[1]/(WaageGewicht[1]+WaageGewicht[2]+WaageGewicht[3]+WaageGewicht[4]);//(Waage[1].k_ist*Summe_Eis) ;
+		Anteil_W[2]:= WaageGewicht[2]/(WaageGewicht[1]+WaageGewicht[2]+WaageGewicht[3]+WaageGewicht[4]);//(Waage[2].k_ist*Summe_Eis) ;
+		Anteil_W[3]:= WaageGewicht[3]/(WaageGewicht[1]+WaageGewicht[2]+WaageGewicht[3]+WaageGewicht[4]);//(Waage[3].k_ist*Summe_Eis) ;
+		Anteil_W[4]:= WaageGewicht[4]/(WaageGewicht[1]+WaageGewicht[2]+WaageGewicht[3]+WaageGewicht[4]);//(Waage[4].k_ist*Summe_Eis) ;
+		
+	state:=3;
+	
+	
+
+3:
+	//Aktuelle Position vom Schwerpunkt
+
+	xPosition_SP_0:= Anteil_W[1]*xPositionWaage[1]+ Anteil_W[2]*xPositionWaage[2] + Anteil_W[3]*xPositionWaage[3] + Anteil_W[4]*xPositionWaage[4];
+	yPosition_SP_0:= Anteil_W[1]*yPositionWaage[1]+ Anteil_W[2]*yPositionWaage[2] + Anteil_W[3]*yPositionWaage[3] + Anteil_W[4]*yPositionWaage[4];
+	
+	state:= 4;
+
+
+4:
+	//Aktueller k-Wert von jeder Waage wird ausgerechnen
+
+	fb_kIstBerechnung1(myWaage:=Waage[1],Nummer:=1 , outWaage=>Waage[1]);
+	fb_kIstBerechnung2(myWaage:=Waage[2],Nummer:=2 , outWaage=>Waage[2]);
+	fb_kIstBerechnung3(myWaage:=Waage[3],Nummer:=3 , outWaage=>Waage[3]);
+	fb_kIstBerechnung4(myWaage:=Waage[4],Nummer:=4, outWaage=>Waage[4]);
+	
+	state:=5;
+
+
+5: 
+	//Tatsächliches Gewicht wird für jede Waage ausgerechnet
+
+	 EchtGewicht[1]:=WaageGewicht[1] / Waage[1].k_ist;
+	 EchtGewicht[2]:=WaageGewicht[2] / Waage[2].k_ist;
+	 EchtGewicht[3]:=WaageGewicht[3] / Waage[3].k_ist;
+	 EchtGewicht[4]:=WaageGewicht[4] / Waage[4].k_ist;
+	 
+	 state:=6;
+
+
+6: 
+	//Gesamtsumme aus den vier Waagen ausrechnen
+	Summe_Eis:= EchtGewicht[1]+EchtGewicht[2]+EchtGewicht[3]+EchtGewicht[4];
+
+	state:= 0;
+
+
+
+10:	ConfigWaage();
+	
+	IF ConfigWaage.bKalibrierungAbgeschlossen THEN 
+	state:= 0;
+	END_IF
+	
+END_CASE]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

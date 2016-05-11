@@ -2,23 +2,30 @@
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
   <GVL Name="MODBUS" Id="{6e972123-b21b-429a-94ba-7a72977f60c8}">
     <Declaration><![CDATA[VAR_GLOBAL
-(*ModbusRTU Schnittstelle wird deklariert*)
+
+//------MODBUS RTU  über COM-Schnittstelle----------------------------------------- 
+
 	myModbus :		ModbusRtuMaster_PcCOM;
 	isModbusBusy:	BOOL;						//wird TRUE wenn der Modbus empfängt oder sendet
 	isModbusError:	BOOL;					//wird TRUE bei einem Fehler bei der Komunikation
 	modbusErrorId: 	MODBUS_ERRORS;			//Fehlertyp des Komunikationsfehlers	
 	modbusTimeout: 	TIME := T#300MS;
+	
 (*Status-Maschine wird *)
-	Status_Modbus : Status_ModbusRTU := Normalbetrieb; //Status-Maschine von STRUC Status_ModbusRTU für ModbusRTU Betrieb
+	Status_Modbus : Status_ModbusRTU := Normalbetrieb; //Status-Maschine von STRUC Status_ModbusRTU für ModbusRTU Betrieb	
 	
 (*bei Konfigurierung der Slaves(Adressierung, Baurate usw. ) muss Variable 
   auf TRUE gesetzen werden.*) 
-	
 	bConfigPT:				BOOL; 		
 		bConfigPT_setadresse: 	BOOL;
 		bConfigPT_setUART: 		BOOL;
 	bConfigEV: 				BOOL;
 	bConfigMSS: 			BOOL;
+	
+	
+//-----MODBUS RTU über Klemme EL6021 -------------------------------------------------
+
+
 
 END_VAR]]></Declaration>
   </GVL>

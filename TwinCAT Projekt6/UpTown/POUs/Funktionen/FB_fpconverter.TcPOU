@@ -21,10 +21,10 @@ VAR_OUTPUT
 END_VAR]]></Declaration>
     <Implementation>
       <ST><![CDATA[//Umrechnung der BYTEs in Binär-STRINGs und zusammensetzen der 4 DATA-BYTEs zu einem 32 bit STRING
-myPT.Data[0]:= ModbusRTU.modbusData_PT[myPT.Startfeld_ModbusData];
+myPT.Data[0]:= ModbusRTU_COM.modbusData_PT[myPT.Startfeld_ModbusData];
 
 	IF myPT.bDruckabfrage THEN
-		myString_druck:=DWORD_TO_BINSTRING(ModbusRTU.modbusData_PT[myPT.Startfeld_ModbusData]);
+		myString_druck:=DWORD_TO_BINSTRING(ModbusRTU_COM.modbusData_PT[myPT.Startfeld_ModbusData]);
 		myPT.rDruck:=BINSTRING_TO_REAL(myString_druck); 		// tatsächlicher Druck in Bar
 	ELSE
 		myPT.rDruck:=0;	
@@ -33,7 +33,7 @@ myPT.Data[0]:= ModbusRTU.modbusData_PT[myPT.Startfeld_ModbusData];
 	
 (*Umrechnung für Temperatur, falls bTemperaturabfrage gleich TRUE *)	
 	IF myPT.bTemperaturabfrage  THEN
-		myString_druck:=DWORD_TO_BINSTRING(ModbusRTU.modbusData_PT[myPT.Startfeld_ModbusData]);
+		myString_druck:=DWORD_TO_BINSTRING(ModbusRTU_COM.modbusData_PT[myPT.Startfeld_ModbusData]);
 		myPT.rTemp:= BINSTRING_TO_REAL(myBinString:= myString_temp); 		//Umrechnung nach IEEE 754 von 32 bit floating point zur REAL-Variable 
 	ELSE
 		myPT.rTemp:= 0;

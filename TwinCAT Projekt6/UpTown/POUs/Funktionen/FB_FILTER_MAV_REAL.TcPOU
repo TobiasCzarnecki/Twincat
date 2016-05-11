@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5" FileSignature="63372cbf1177b40b2d4fbf1226c8397e87fc6f73053bf2a8e1c41a44cd7744163754fe6ddb904bd4d0c219d8daa8d37f7f567af366b92666735abc87362a161c2336ddc73a227f5c6c173305009f5e003c71594da93f272ef023ca22595b9847e6dd6100a566eac13b113e161bbcb45cbf3797f0d9000c9d1f76f6982d7b581eed32e3c4a9cf18bbe12032a6d44feb4dff5c34eab7a06207814e8e9ce7daf824747f400a0a3dbb25d1e9784c403915f2e59387d142f293b97f7d4ee7f2ba455dd2912dbbbffdcb486eb43cc9c7e603a1f90552f2ce9d2f77594d32925ed63fedc394486f370a148e7fcb2f98d5937bc3514ed532cf43cd894b1b286dfd1b1e66">
+  <POU Name="FB_FILTER_MAV_REAL" Id="{2eade0bc-efc6-4d69-8e89-ad78c3c894e0}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_FILTER_MAV_REAL EXTENDS FILTER_MAV_W
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
