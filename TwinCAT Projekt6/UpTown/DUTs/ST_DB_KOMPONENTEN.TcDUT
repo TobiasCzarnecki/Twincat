@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4019.2">
+  <DUT Name="ST_DB_KOMPONENTEN" Id="{187db44b-0f89-4d4e-a50f-90e375c161e0}">
+    <Declaration><![CDATA[TYPE ST_DB_KOMPONENTEN :
+STRUCT
+	id: DINT;
+	timestamp: DT;
+	typ: STRING(45);
+	symbolname: STRING(255);
+	faktor_lin_m: STRING(255);
+	faktor_lin_c: STRING(255);
+	sonstiges: STRING(255);
+	einheit: STRING(45);
+	maxwert: STRING(45);
+	minwert: STRING(45);
+	faktor_PT1_K:STRING(255);
+	faktor_PT1_T:STRING(45);
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

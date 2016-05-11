@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4019.2">
+  <POU Name="Vereisung" Id="{c06eee5f-b84b-4826-8ee5-3ea1b679b266}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Vereisung
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[CASE SM.Status OF
+
+Vollautomatik:	
+
+(*Starte Timer zur Vereisung*)
+	
+	IF NOT TimerVereisung.IN THEN
+	TimerVereisung(IN:= TRUE, PT:= T#1H);
+	END_IF
+	
+(*Magnetventile*)
+ 		MV_1Y1 :=TRUE;
+		MV_1Y2 :=TRUE;
+		MV_1Y3 :=FALSE;
+		MV_1Y4 :=FALSE;
+		MV_1Y5 :=FALSE;
+		MV_1Y6 :=FALSE;
+		
+(*4 Wege Ventil wird auf Normalbetrieb gestellt, falls es im Abtaubetrieb auf reverse geschaltet worden ist*)
+	VierWegeVentil_Abtauen := FALSE;
+
+(*Verdampfer Ventilator wird angeschaltet*)
+	VF_Ventilator_ON:= TRUE;
+	PID_VF_Ventilator_Drehzahl.Aktiv := TRUE;
+
+(*Regler aktivieren *)
+	PID_Kompressor_Drehzahl.Aktiv:= TRUE;
+	PID_VF_Ventilator_Drehzahl.Aktiv:= TRUE;
+	
+(*Abtauung wird begonnen wenn Zeit des Timers abgelaufen ist*)
+
+	IF TimerVereisung.Q THEN
+		TimerVereisung.IN := FALSE;			//Reset vom Vereisungstimer
+		bVereisungAbgeschlossen:= TRUE;		//Der Verdampfer ist nun vereist
+		bAbtauen:= TRUE;
+	//======nächster Modus====
+			SM.Status:= Abtauen;		
+	END_IF
+	
+END_CASE]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

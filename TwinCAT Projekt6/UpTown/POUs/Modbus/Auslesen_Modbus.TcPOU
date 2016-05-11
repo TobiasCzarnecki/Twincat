@@ -11,10 +11,7 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[//Test...
-Auslesen0(myPT:=PT_test, PT=> PT_test);
-PT_test.Startfeld_ModbusData:= 2;
-
+      <ST><![CDATA[
 //Auslesen der Druckdaten der 8 Drucksensoren im Kältekreis
 Auslesen1(myPT:= PT_KP_in, 	PT=> PT_KP_in);
 Auslesen2(myPT:= PT_KP_out, PT=> PT_KP_out);

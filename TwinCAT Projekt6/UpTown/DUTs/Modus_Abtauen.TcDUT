@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
+  <DUT Name="Modus_Abtauen" Id="{cfb136ed-0116-4be7-b393-79e392ec61b6}">
+    <Declaration><![CDATA[TYPE Modus_Abtauen :
+(
+		NichtAusgewahlt,
+		Abtauen_elektrisch,
+		Abtauen_Heissgas_oben,
+		Abtauen_Heissgas_unten
+);
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

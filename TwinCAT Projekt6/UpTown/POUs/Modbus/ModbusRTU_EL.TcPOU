@@ -38,7 +38,6 @@ END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[
-
 CASE state OF
 	
 0:
@@ -47,7 +46,7 @@ CASE state OF
 1:	
 	ModbusEL6021.ReadInputRegs(
 		UnitID:= 12,
- 		Quantity:= 1,							
+ 		Quantity:= 2,							
  		MBAddr:= 30000,								
  		cbLength:= SIZEOF(TestMSS[0]),		
  		pMemoryAddr:= ADR(TestMSS[0]),	 
@@ -254,7 +253,6 @@ IF EV_rev.SetAktKuhlleistung THEN
 END_IF	
 END_CASE
 *)	
-		
 FtrigBusy(CLK:=ModbusEL6021.BUSY );
 (*zählt fehlgeschlagene und erfolgreiche Komunikationsschritte*)
 IF FtrigBusy.Q THEN

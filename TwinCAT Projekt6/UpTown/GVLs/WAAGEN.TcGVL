@@ -6,31 +6,29 @@
 (*Variablen für den Betrieb der Waagen unter dem Verdampfer in der Klimakammer.
  Die Waagen dienen zur Bestimmung von der Eismenge im Wärmetauscher des Verdampfers *)
  
- //Alle Waagenwerte zusammen in einem Array
- 		WaageGewicht : 	ARRAY[1..6] OF REAL;
- 		bConfigWaage: 	BOOL := FALSE;
+		Summe_Eis: 			REAL;
+
+(* Auf das tatsächlich Gewicht zurückgerechneter Wert der Waagen
+ k-Werte wurde mittels Kalibrierung für mehrere Fälle ermittelt *)
+			
+		bWaagenVorbelastet: 	BOOL; 
+ 		Waage_k : 		ARRAY[1..6] OF REAL;			// Waage_k[i] = Waage_Offset[i] / k[i]
+ 		Waage_Offset : 	ARRAY[1..6] OF REAL;			//Alle mit Offset korrigierten Waagenwerte zusammen in einem Array
+		Waage_roh	: 	ARRAY[1..6] OF REAL;
+ 		Waage : 		ARRAY [1..6] OF WAAGE_VAR;		//Variablen Deklarirung von den Waagen. Siehe unter DUTs.
 		
- //Variablen Deklarirung von den Waagen. Siehe unter DUTs.
- 		Waage : ARRAY [1..6] OF WAAGE_VAR;
-		
-//Zwischenspeicher für ein- und ausgehende Werte von Waagen
+(*Zwischenspeicher für ein- und ausgehende Werte von Waagen*)
 		RxBuffer: ARRAY [1..6] OF ComBuffer;
 		TxBuffer: ARRAY [1..6] OF ComBuffer;
 		
-//Schwerpunkt vom Eis
-
-		xPosition_SP_0	:REAL :=20;
-		yPosition_SP_0	:REAL :=20;
-		xPosition_SP_1	:REAL;
-		yPosition_SP_1	:REAL;
-	
-
-	//k_alleDaten :	ARRAY[1..2] OF k_Daten;	
+(*Schwerpunkt vom Eis*)
+		xPosition_SP_0	:REAL :=0;
+		yPosition_SP_0	:REAL :=0;
 END_VAR
 
 
 VAR_GLOBAL PERSISTENT
-    (* Declaration of Variables *)
+	(*Hier werden die Kalibrierungs-Daten gespeichert. Persistente Variablen bleiben auch nach erneuter Kompilierung bzw. Reset erhalten*)
 	k_alleDaten :	ARRAY[1..2] OF k_Daten;	
 END_VAR
 ]]></Declaration>

@@ -1,23 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4019.2">
   <GVL Name="SM" Id="{bc6b87a2-3fc4-4d1b-b930-7e7397c0fd58}">
     <Declaration><![CDATA[VAR_GLOBAL
 	Status : Status_KK:= Lesen;//Initialisieren;
-
-	//	Lesen:BOOL:=TRUE;		
-	NeuInitialisieren:			BOOL:=TRUE;
-	AbtauModus:					BOOL:=FALSE;
-		bAbtauen_elektrisch:		BOOL:=FALSE;
-		bAbtauen_Heissgas_oben:		BOOL:=FALSE;
-		bAbtauen_Heissgas_unten:	BOOL:=FALSE;
-		AbtauModusAbbrechen:		BOOL:=FALSE;
-	ManuellerModus:				BOOL:=FALSE;
-	AnlagenschutzModus:			BOOL:=TRUE;
-	Fehler:						BOOL:=FALSE;
+	
+	bLesen:							BOOL:=TRUE;		
+	bNeuInitialisieren:				BOOL:=TRUE;
+			bWaagenKalibrierung:			BOOL:=FALSE;
+	bKuehlen:						BOOL:=TRUE;
+			bVollautomatikModbus: 			BOOL:= TRUE;
+			bManuellerModus:				BOOL:=FALSE;
+	bAbtauen: 						BOOL:= FALSE;
+			bAbtauen_elektrisch:			BOOL:=FALSE;
+			bAbtauen_Heissgas_oben:			BOOL:=FALSE;
+			bAbtauen_Heissgas_unten:		BOOL:=FALSE;
+			bAbtauModusAbbrechen:			BOOL:=FALSE;
+	bAnlagenschutzModus:			BOOL:=TRUE;
+	bFehler:						BOOL:=FALSE;
+	bLeerlauf:						BOOL:=TRUE;	
+	
 	NetID:T_amsnetid;
-	Leerlauf:					BOOL:=TRUE;
-		
-		
+	
+	Abtaumethode : Modus_Abtauen; 
+	//Status_MagnetVentil: Status_MV:= Normalbetrieb;
+
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

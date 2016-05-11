@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
+  <DUT Name="Status_Waegesystem" Id="{6662074b-1010-48ce-8355-27be617da273}">
+    <Declaration><![CDATA[TYPE Status_Waegesystem : (Kalibrieren, Wiegen);
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

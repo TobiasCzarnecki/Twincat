@@ -5,13 +5,10 @@
 VAR
 
 
-(*Gewicht von den vier Waagen angegeben in [g]. Die Waage zeigt einmal ein Gewicht an. Das tatsächliche EchtGewicht wird berechnen mit
-EchtGewicht:= AnzeigeGewicht / k.  
+(*Gewicht von den vier Waagen angegeben in [g]. Die Waage zeigt einmal ein Gewicht an. Das tatsächliche Waage_k wird berechnen mit
+Waage_k:= AnzeigeGewicht / k.  
 *)
-	Summe_Eis: 			REAL := 1;
-	Summe_negativ : 	BOOL;
-	Summe_positiv : 	BOOL;
-	EchtGewicht :		ARRAY[1..4] OF REAL; 		//Tatsächliches Gewicht von jeder Waage
+
 	alleDatenPositiv:	BOOL; 
 
 (* Umrechnungsfaktoren k bezeichnet den Anteil des angezeigten Wertes von der 
@@ -20,10 +17,7 @@ EchtGewicht:= AnzeigeGewicht / k.
 	fb_kIstBerechnung2: FB_kIstBerechnung;
 	fb_kIstBerechnung3: FB_kIstBerechnung;
 	fb_kIstBerechnung4: FB_kIstBerechnung;
-	
-	PrufGewichte : 	ARRAY[1..4] OF REAL := [1750,2750,3750,4750]; 	//angegeben in Gramm. Es werden verschiedene Prüfgewichte an den Verdampfer gehangen
-//	k_ist : 		ARRAY[1..4] OF REAL := [1,1,1,1];						//für jede Waage ergibts sich aufgrund von der aktuellen Position vom Schwerpunkt(x_s,y_s) ein k-Wert
-	
+		
 //Positionen der Kalibrieungsgewichte
 	xPosition_KG: ARRAY [1..4] OF REAL := [-630,630,630,-630];
 	yPosition_KG: ARRAY [1..4] OF REAL := [-150,-150,150,150];
@@ -41,12 +35,7 @@ EchtGewicht:= AnzeigeGewicht / k.
 (*Kalibrierungsdaten für jede Waage. Werden vor jeder Messung mit mehreren Kalibrierungsgewichten 
 	ermittelt. [0] entspricht dem Kallibriegungsgewicht.[1..4] sind die Positionen der Belastung,
 	siehe Dokumentation*)
-(*
-	k_Waage1:ARRAY [1..2,0..4] OF REAL := [5748.8,	0.279,	-0.090,	-0.145,	0.216 ]; //für Kalibrierungsgewicht 1076.9gr & 3
-	k_Waage2:ARRAY [1..2,0..4] OF REAL := [5748.8,	-0.090,	0.255,	0.199,	-0.139];
-	k_Waage3:ARRAY [1..2,0..4] OF REAL := [5748.8,	-0.069,	0.267,	0.331,	-0.016];
-	k_Waage4:ARRAY [1..2,0..4] OF REAL := [5748.8,	0.269,	-0.072,	-0.022,	0.330];
-*)
+	
 	state: INT := 0;
 
 END_VAR
@@ -63,7 +52,7 @@ CASE state OF
 
 0: 	
 	
-	IF bConfigWaage THEN 
+	IF bWaagenKalibrierung THEN 
 	state:= 10;
 	ELSE 
 	state:=1;
@@ -73,7 +62,7 @@ CASE state OF
 
 1: 
 	//Kontrolle der Vorzeichen der vier Waagen
-	IF WaageGewicht[1] >0 AND WaageGewicht[2] >0 AND WaageGewicht[3] >0  AND WaageGewicht[4]>0 THEN
+	IF Waage_Offset[1] >0 AND Waage_Offset[2] >0 AND Waage_Offset[3] >0  AND Waage_Offset[4]>0 THEN
 		alleDatenPositiv := TRUE;
 		ELSE
 		alleDatenPositiv := FALSE;
@@ -84,10 +73,10 @@ CASE state OF
 2:
 	//Gewichtsanteil W jeder Waage berechnen
 
-		Anteil_W[1]:= WaageGewicht[1]/(WaageGewicht[1]+WaageGewicht[2]+WaageGewicht[3]+WaageGewicht[4]);//(Waage[1].k_ist*Summe_Eis) ;
-		Anteil_W[2]:= WaageGewicht[2]/(WaageGewicht[1]+WaageGewicht[2]+WaageGewicht[3]+WaageGewicht[4]);//(Waage[2].k_ist*Summe_Eis) ;
-		Anteil_W[3]:= WaageGewicht[3]/(WaageGewicht[1]+WaageGewicht[2]+WaageGewicht[3]+WaageGewicht[4]);//(Waage[3].k_ist*Summe_Eis) ;
-		Anteil_W[4]:= WaageGewicht[4]/(WaageGewicht[1]+WaageGewicht[2]+WaageGewicht[3]+WaageGewicht[4]);//(Waage[4].k_ist*Summe_Eis) ;
+		Anteil_W[1]:= Waage_Offset[1]/(Waage_Offset[1]+Waage_Offset[2]+Waage_Offset[3]+Waage_Offset[4]);//(Waage[1].k_ist*Summe_Eis) ;
+		Anteil_W[2]:= Waage_Offset[2]/(Waage_Offset[1]+Waage_Offset[2]+Waage_Offset[3]+Waage_Offset[4]);//(Waage[2].k_ist*Summe_Eis) ;
+		Anteil_W[3]:= Waage_Offset[3]/(Waage_Offset[1]+Waage_Offset[2]+Waage_Offset[3]+Waage_Offset[4]);//(Waage[3].k_ist*Summe_Eis) ;
+		Anteil_W[4]:= Waage_Offset[4]/(Waage_Offset[1]+Waage_Offset[2]+Waage_Offset[3]+Waage_Offset[4]);//(Waage[4].k_ist*Summe_Eis) ;
 		
 	state:=3;
 	
@@ -108,7 +97,7 @@ CASE state OF
 	fb_kIstBerechnung1(myWaage:=Waage[1],Nummer:=1 , outWaage=>Waage[1]);
 	fb_kIstBerechnung2(myWaage:=Waage[2],Nummer:=2 , outWaage=>Waage[2]);
 	fb_kIstBerechnung3(myWaage:=Waage[3],Nummer:=3 , outWaage=>Waage[3]);
-	fb_kIstBerechnung4(myWaage:=Waage[4],Nummer:=4, outWaage=>Waage[4]);
+	fb_kIstBerechnung4(myWaage:=Waage[4],Nummer:=4,  outWaage=>Waage[4]);
 	
 	state:=5;
 
@@ -116,17 +105,17 @@ CASE state OF
 5: 
 	//Tatsächliches Gewicht wird für jede Waage ausgerechnet
 
-	 EchtGewicht[1]:=WaageGewicht[1] / Waage[1].k_ist;
-	 EchtGewicht[2]:=WaageGewicht[2] / Waage[2].k_ist;
-	 EchtGewicht[3]:=WaageGewicht[3] / Waage[3].k_ist;
-	 EchtGewicht[4]:=WaageGewicht[4] / Waage[4].k_ist;
+	 Waage_k[1]:=Waage_Offset[1] / Waage[1].k_ist;
+	 Waage_k[2]:=Waage_Offset[2] / Waage[2].k_ist;
+	 Waage_k[3]:=Waage_Offset[3] / Waage[3].k_ist;
+	 Waage_k[4]:=Waage_Offset[4] / Waage[4].k_ist;
 	 
 	 state:=6;
 
 
 6: 
 	//Gesamtsumme aus den vier Waagen ausrechnen
-	Summe_Eis:= EchtGewicht[1]+EchtGewicht[2]+EchtGewicht[3]+EchtGewicht[4];
+	Summe_Eis:= Waage_k[1]+Waage_k[2]+Waage_k[3]+Waage_k[4];
 
 	state:= 0;
 

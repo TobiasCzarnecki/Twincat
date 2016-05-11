@@ -1,16 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4019.2">
   <POU Name="MAIN" Id="{7650379b-af73-431c-a084-bfa6692fa016}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
-strText:STRING;
 
 END_VAR
 
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[strText:= 'Hallo Welt';
-
+      <ST><![CDATA[
 DB_Lesen_r134a();
 
 WaagenAuslesen();
@@ -18,13 +16,12 @@ Auslesen_Modbus();
 ModbusRTU_COM();
 ModbusRTU_EL();
 Temperatur();
-
-
 Schwerpunkt_Eismasse();
 
-IF SM.NeuInitialisieren THEN 		//Prüfen ob neu initialisiert werden muss
+(*Prüfen ob neu initialisiert werden muss*)
+IF SM.bNeuInitialisieren THEN 		
 	SM.Status:= Initialisieren;
-	sm.Leerlauf:=TRUE;
+	SM.bLeerlauf:=TRUE;
 END_IF
 
 
@@ -33,78 +30,116 @@ CASE SM.Status OF
 
 Initialisieren: 
 
+	IF 
+	//======nächster Modus====
+		SM.Status:= Lesen;
+	END_IF
+	
 Lesen: //Input von Klemmen Lesen und in native Werte umrechen
 
 	Temperatur();
-
-//======nächster Modus====			
-SM.Status:=Vollautomatik; //Regelbetrieb
 	
 
-		IF SM.bAbtauen_elektrisch THEN			
-			SM.Status:=Abtauen_elektrisch;			// Status wird auf Abtauen_elektrisch gesetzt
-			
+(*SM wird entweder auf Kühlen- oder einen der drei Abtau-Modi gestellt*)
+	IF bKuehlen THEN 	
+	//======nächster Modus====	
+		SM.Status:=Kuehlen; //Regelbetrieb
+	END_IF 
+	
+//Abtau-Modus wird gewählt		
+	IF SM.bAbtauen_elektrisch THEN				
 				SM.bAbtauen_Heissgas_oben 		:= FALSE;
 				SM.bAbtauen_Heissgas_unten 		:= FALSE;
-				SM.ManuellerModus				:= FALSE;
+				SM.bManuellerModus				:= FALSE;
 			
-			AnlagenschutzModus:=TRUE;		
+			bAnlagenschutzModus:=TRUE;
+		//======nächster Modus====			
+			SM.Status := Abtauen;
 		END_IF
 		
 		IF SM.bAbtauen_Heissgas_oben THEN
-			SM.Status:=Abtauen_Heissgas_oben;
-			
 				SM.bAbtauen_elektrisch			:=FALSE;
 				SM.bAbtauen_Heissgas_unten 		:=FALSE;
-				SM.ManuellerModus				:=FALSE;
+				SM.bManuellerModus				:=FALSE;
 	
-			AnlagenschutzModus:=TRUE;
+			bAnlagenschutzModus:=TRUE;
+		//======nächster Modus====			
+			SM.Status := Abtauen;
 		END_IF
 		
 		IF SM.bAbtauen_Heissgas_unten THEN
-			SM.Status:=Abtauen_Heissgas_unten;
-			
 				SM.bAbtauen_elektrisch			:=FALSE;
 				SM.bAbtauen_Heissgas_oben 		:=FALSE;
-				SM.ManuellerModus				:=FALSE;
+				SM.bManuellerModus				:=FALSE;
 			
-			AnlagenschutzModus:=TRUE;
-		END_IF
-		
-		IF SM.ManuellerModus THEN
-			SM.Status:=Manuell;
-			
-				SM.bAbtauen_elektrisch			:=FALSE;
-				SM.bAbtauen_Heissgas_oben 		:=FALSE;
-				SM.bAbtauen_Heissgas_unten 		:=FALSE;
-			
-			SM.AbtauModus:=FALSE;
+			bAnlagenschutzModus:=TRUE;
+		//======nächster Modus====			
+			SM.Status := Abtauen;
 		END_IF
 	
-//======nächster Modus====			
-Abtauen_elektrisch:
+	IF NOT bKuehlen AND NOT bAbtauen_Heissgas_unten AND NOT bAbtauen_Heissgas_oben AND NOT bAbtauen_elektrisch THEN 
+		SM.bFehler:= TRUE;
+		//======nächster Modus====	
+			SM.Status := Leerlauf;
+	END_IF
+	
+				
+Kuehlen:	// Der Verdampfer vereist. Der Timer "TimerVereisung" bestimmt die Zeit der Vereisung.
 
-//======nächster Modus====			
-Abtauen_Heissgas_oben:
+		//======nächster Modus====
+			SM.Status:=Vollautomatik;  // Es wird automatisch in den Vollautomatik-Modus gewechselt, falls bManuellerModus-> FALSE ist
 
-//======nächster Modus====			
-Abtauen_Heissgas_unten: 
+			IF SM.bManuellerModus THEN
+				SM.bVollautomatikModbus			:= FALSE;
+				SM.bAbtauen_Heissgas_oben 		:= FALSE;
+				SM.bAbtauen_Heissgas_unten 		:= FALSE;
+				SM.bAbtauen_elektrisch			:= FALSE;	
+		//======nächster Modus====
+			SM.Status:=Manuell;	
+			END_IF
+	
+			
+Vollautomatik:	// Alle Regler sind Aktiv und regeln auf Normalbetrieb
+				
+	 	SM.bVollautomatikModbus 			:= TRUE;
+		SM.bManuellerModus					:=FALSE;
+		
+	Vereisung();
+		
+	//======nächster Modus====					
+		SM.Status:=Anlagenschutz;
+			
+Manuell: // Regler müssen manuell auf Aktiv umgestellt werden
 
-//======nächster Modus====			
-Vollautomatik:
+		
+	//======nächster Modus====					
+		SM.Status:=Anlagenschutz;
+		
+		
+Abtauen: //Der Verdampfer wird abgetaut. Über GVL wird der Abtaumodus ausgewählt	
+	
+	Abtauung();
+	
+	//======nächster Modus====					
+		SM.Status:=Anlagenschutz;
+		
+Anlagenschutz: //Anlagenschutzsysteme überschreiben ggf. Anweisungen
 
-//======nächster Modus====			
-Manuell: 
+	//======nächster Modus====					
+		SM.Status:=Schreiben;
 
-//======nächster Modus====			
-Anlagenschutz: 
-
-//======nächster Modus====			
-Schreiben:
+		
+Schreiben:		//Native Werte werden zurückgerechnet und an Klemmen übergeben
 
 	Temperatur();
 	
+	//======nächster Modus====			
+		SM.Status:=Lesen;
+		
+Leerlauf: 		//Status-Maschine springt in Leerlauf falls notwendige Bool-variablen nicht gesetzt sind oder die Initionlisierung noch Zeit benötigt
 
+ELSE
+	SM.bFehler := TRUE;
 END_CASE
 
 ]]></ST>

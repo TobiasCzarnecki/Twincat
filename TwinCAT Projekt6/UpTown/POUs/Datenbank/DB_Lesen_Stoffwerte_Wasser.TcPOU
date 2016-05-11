@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4019.2">
   <POU Name="DB_Lesen_Stoffwerte_Wasser" Id="{f698a5c1-61c2-4d03-9419-7d08a0cbfb21}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM DB_Lesen_Stoffwerte_Wasser
 VAR
@@ -48,7 +48,7 @@ END_IF
 				bExecute:= start_Lesen, 
 				tTimeout:= T#5S, 
 				bBusy=> Busy_Lesen, 
-				bError=> SM.Fehler, 
+				bError=> SM.bFehler, 
 				nErrID=> , 
 				sSQLState=> stSQLStateSelect, 
 				nRecords=> nRecordCount); 

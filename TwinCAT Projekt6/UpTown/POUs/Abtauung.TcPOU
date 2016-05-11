@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4019.2">
+  <POU Name="Abtauung" Id="{0fb38945-52b5-4ce6-a5e7-029b1206c271}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Abtauung
+VAR
+	Timer :TOF;
+	state: INT:= 0;
+	bAbtauen_Abgeschlossen: BOOL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[CASE  SM.Status OF	
+
+(*Ablaufstruktur bei einer elektrischen Abtauung des Verdampfers*)	
+Abtauen:	
+
+	IF bAbtauModusAbbrechen THEN 
+		bAbtauen_elektrisch:=FALSE;
+		bAbtauen_Heissgas_oben:=FALSE;
+		bAbtauen_Heissgas_unten:=FALSE;
+		
+	(*nächster Status*)
+		SM.Status := Anlagenschutz;
+	END_IF
+
+CASE state OF
+0:	
+		bAbtauen_Abgeschlossen := FALSE;
+	
+	(*Setze Magnetventile  auf Pump_Down*)
+		MV_1Y1 :=FALSE;
+		MV_1Y2 :=TRUE;
+		MV_1Y3 :=FALSE;
+		MV_1Y4 :=FALSE;
+		MV_1Y5 :=FALSE;
+		MV_1Y6 :=FALSE;
+		
+	(*Kompressor wird angeschaltet*)	
+		PID_Kompressor_Drehzahl.Aktiv:= TRUE;
+		
+	(*Pump-Down wird durchgeführt bis der Druck vor dem KP kleiner als 1,4 Bar ist*)	
+		IF PT_KP_in.rDruck< 1.4 THEN 
+		state:= 1;
+		END_IF
+1: 
+	(*Kompressor wird ausgeschaltet*)
+		PID_Kompressor_Drehzahl.Aktiv:= TRUE;
+		
+	(*Ventilatoren werden ausgeschaltet*)
+		VD_Ventilator_ON		:= FALSE;
+		
+		//PID_VD_Ventilator_Drehzahl.Aktiv := FALSE;
+		PID_VF_Ventilator_Drehzahl.Aktiv := FALSE;
+		PID_VD_defrost_Ventilator_Drehzahl.Aktiv := FALSE;
+	
+	(*Nächster State wird je nach Abtau-Modus ausgewählt*)	
+		IF bAbtauen_elektrisch THEN
+		state:= 2;
+		END_IF	
+		
+		IF bAbtauen_Heissgas_oben THEN
+		state:= 6;
+		END_IF	
+		
+		IF bAbtauen_Heissgas_unten THEN
+		state:= 6;
+		END_IF	
+		
+		IF NOT bAbtauen_elektrisch AND NOT bAbtauen_Heissgas_oben AND NOT bAbtauen_Heissgas_unten THEN
+		SM.bFehler := TRUE;
+		state:= 0;
+		END_IF
+			
+2:	
+	(*Elektrische Heizung wird eingeschaltet*)
+		//Regler aktivieren
+		PID_ElektHeizrack1.Aktiv := TRUE;
+		PID_ElektHeizrack2.Aktiv := TRUE;
+		PID_ElektHeizrack_Boden.Aktiv := TRUE;
+
+		
+	
+	(*Überprüfung ob Oberflächentemperatur auf dem Verdampfer größer als 10°C ist*)
+	(*Elektrische Heizung wird ausgeschaltet*)
+
+		IF 	Temp_VD_surface.REAL_VAR > 10 THEN
+			PID_ElektHeizrack1.Aktiv := FALSE;
+			PID_ElektHeizrack2.Aktiv := FALSE;
+			PID_ElektHeizrack_Boden.Aktiv := FALSE;
+			state:= 20;
+		END_IF
+
+
+6:
+	(*VierwegeVentil wird auf Abtauen umgeschaltet*)
+		VierWegeVentil_Abtauen:= TRUE;
+		
+		IF bAbtauen_Heissgas_oben THEN 
+			state:= 7;
+		END_IF
+		
+		IF bAbtauen_Heissgas_unten THEN 
+			state:=8; 
+		END_IF
+		
+7: 	
+	(*Setze Magnetventile auf Abtauen_oben*)
+		MV_1Y1 :=FALSE;
+		MV_1Y2 :=FALSE;
+		MV_1Y3 :=FALSE;
+		MV_1Y4 :=FALSE;
+		MV_1Y5 :=TRUE;
+		MV_1Y6 :=TRUE;
+		
+		state:= 9;
+	
+8:
+	(*Setze Magnetventile auf Abtauen_unten*)
+		MV_1Y1 :=FALSE;
+		MV_1Y2 :=FALSE;
+		MV_1Y3 :=TRUE;
+		MV_1Y4 :=TRUE;
+		MV_1Y5 :=FALSE;
+		MV_1Y6 :=FALSE;
+		
+		state:=9;
+
+9: 	(*Kompressor und Ventilator vom VD_defrost werden eingeschaltet*)	
+		PID_Kompressor_Drehzahl.Aktiv := TRUE;
+		PID_VD_defrost_Ventilator_Drehzahl.Aktiv := TRUE;
+		
+		IF Temp_VD_surface.REAL_VAR > 10 THEN			
+			PID_Kompressor_Drehzahl.Aktiv := FALSE;
+			PID_VD_defrost_Ventilator_Drehzahl.Aktiv := FALSE;
+			state:= 20;
+		END_IF
+20: 	
+	(*Starte Timer. Timer läuft 10 Minuten*)
+		Timer(IN:= TRUE, PT:= T#10M);
+	
+		IF Timer.Q THEN
+			state:= 21;
+			Timer(IN:= FALSE);
+		END_IF
+	
+21: 	
+	(*Setze Magnetventile auf Normalbetrieb*)
+		MV_1Y1 :=TRUE;
+		MV_1Y2 :=TRUE;
+		MV_1Y3 :=FALSE;
+		MV_1Y4 :=FALSE;
+		MV_1Y5 :=FALSE;
+		MV_1Y6 :=FALSE;
+		
+	(*VierwegeVentil wird zurück auf Normalbetrieb geschaltet*)
+		VierWegeVentil_Abtauen:= FALSE;
+	
+	(*Kompressor wird eingeschaltet*)
+		PID_Kompressor_Drehzahl.Aktiv:= TRUE;
+		
+	(*Überprüfung ob Oberflächentemperatur auf dem Verdampfer kleiner als 0°C ist*)	
+		IF Temp_VD_surface.REAL_VAR < 0 THEN
+			VD_Ventilator_ON:= TRUE;
+			state:=22;
+		END_IF
+		
+22: 	
+	(*Abtau-Vorgang ist abgeschlossen. State-Maschine: Abtauen->FALSE. Kuehlen-> TRUE. *)	
+		bAbtauen_Abgeschlossen := 	TRUE;
+		bAbtauen_elektrisch:= 		FALSE;
+		bAbtauen_Heissgas_oben:= 	FALSE;
+		bAbtauen_Heissgas_unten:= 	FALSE;
+		bKuehlen:= TRUE;	
+	(*nächster Status*)
+		SM.Status := Anlagenschutz;
+		
+	(*Reset von State auf Null*)
+		state:= 0;
+END_CASE
+END_CASE
+
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

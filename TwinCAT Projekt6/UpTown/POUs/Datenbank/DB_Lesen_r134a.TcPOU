@@ -27,10 +27,10 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[IF 	SM.Leerlauf THEN
+      <ST><![CDATA[IF 	SM.bLeerlauf THEN
 	
 start_Lesen:=TRUE;
-SM.Leerlauf:=FALSE;
+SM.bLeerlauf:=FALSE;
 	
 END_IF
 
@@ -48,7 +48,7 @@ END_IF
 				bExecute:= start_Lesen, 
 				tTimeout:= T#5S, 
 				bBusy=> Busy_Lesen, 
-				bError=> SM.Fehler, 
+				bError=> SM.bFehler, 
 				nErrID=> ErrorId, 
 				sSQLState=> stSQLStateSelect, 
 				nRecords=> nRecordCount); 
@@ -69,8 +69,8 @@ END_IF
 	
 	
 	IF Busy_Lesen=FALSE AND nRecordCount>0 THEN
-		SM.Leerlauf:=TRUE;
-		ELSE  sm.Leerlauf:=FALSE;
+		SM.bLeerlauf:=TRUE;
+		ELSE  sm.bLeerlauf:=FALSE;
 	END_IF
 	]]></ST>
     </Implementation>

@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
+  <DUT Name="Status_Kaeltemittel" Id="{c4b58e57-ebdb-452c-b17e-fba0cb6d2908}">
+    <Declaration><![CDATA[TYPE Status_Kaeltemittel : (gasformig, flussig, uberhitzt, unterkuhlt);
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

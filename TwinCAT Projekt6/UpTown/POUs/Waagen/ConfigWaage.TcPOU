@@ -8,28 +8,31 @@ VAR
 //Manuelle Variablen
 	ManuellOK: 			BOOL;			// Durch  USER auf TRUE gesetzt, wenn Prüfgewicht umgehangen ist und alles OK
 	NachstePosition: 	BOOL;
+	PositionKalibrierGewicht : INT :=1; 			//Immer an Position 1 anfangen bei der Kalibrierung
 	Kalibriergewicht : 	ARRAY[1..2] OF REAL := [5753.3,7500]; //später als Global deklarieren, angegeben in Gramm
+	
 
 //========================================================================================
 	timer_Einschwing: TON;		//Einschwingzeit wird definiert
-	timer_Messen	: TON;
+	timer_Messen	: TON;		//Messzeit wird definiert
 	
 	bEinschwingvorgang_vorbei: 	BOOL;
-
-	
-	PositionKalibrierGewicht : INT :=1; 			//Immer an Position 1 anfangen bei der Kalibrierung
-	WertMitteln: ARRAY[1..4] OF FILTER_MAV_REAL;
-	FilterIn : ARRAY[1..4] OF REAL;
-	k_werte: ARRAY[1..4] OF REAL;
-	counter: INT;
 	bKalibrierungAbgeschlossen: BOOL;
 	
-	state: INT := 0;
-
-
+	
+	
+	WertMitteln: 	ARRAY[1..4] OF FT_AVG;
+	Trigger :		ARRAY[1..4] OF SH_1;
+	FilterIn : 		ARRAY[1..4] OF REAL;
+	k_werte: 		ARRAY[1..4] OF REAL;
+	
+	counter: 	INT;		//Laufvariable für For-Schleifen
+	state: 		INT := 0; 
 END_VAR]]></Declaration>
     <Implementation>
-      <ST><![CDATA[CASE state OF
+      <ST><![CDATA[
+
+CASE state OF
 
 0: (*Einschwingvorgang wird abgewartet*)
 	
@@ -45,17 +48,17 @@ END_VAR]]></Declaration>
 1: (*Kalibrierungsdaten werden aufgenommen und über einen FIlter gemittelt*)
 	
 	timer_Messen(IN:= TRUE, PT:= T#120S); //120 Sekunden wird gemessen
-	//timer_Messen.IN:= TRUE;
 	
+
 	FOR counter:=1 TO 4 DO 
-	FilterIn[counter] :=WaageGewicht[counter]/ Kalibriergewicht[1];
+	FilterIn[counter] :=Waage_Offset[counter]/ Kalibriergewicht[1];
+	Trigger[counter](in:= FilterIn[counter], PT:= T#1S, out=> , Trig=> );
 	END_FOR
 
-	WertMitteln[1](X:= FilterIn[1], N:=30 , RST:=ManuellOK , Y=> k_werte[1]);
-	WertMitteln[2](X:= FilterIn[2], N:=30 , RST:=ManuellOK , Y=> k_werte[2]);
-	WertMitteln[3](X:= FilterIn[3], N:=30 , RST:=ManuellOK , Y=> k_werte[3]);
-	WertMitteln[4](X:= FilterIn[4], N:=30 , RST:=ManuellOK , Y=> k_werte[4]);
-	
+	WertMitteln[1](IN:= Trigger[1].out, E:= Trigger[1].Trig, N:= 30, RST:= NachstePosition, AVG=>k_werte[1] );	
+	WertMitteln[2](IN:= Trigger[2].out, E:= Trigger[2].Trig, N:= 30, RST:= NachstePosition, AVG=>k_werte[2] );	
+	WertMitteln[3](IN:= Trigger[3].out, E:= Trigger[3].Trig, N:= 30, RST:= NachstePosition, AVG=>k_werte[3] );	
+	WertMitteln[4](IN:= Trigger[4].out, E:= Trigger[4].Trig, N:= 30, RST:= NachstePosition, AVG=>k_werte[4] );	
 	
 	IF timer_Messen.Q THEN 
 		state :=2;
@@ -80,7 +83,7 @@ END_VAR]]></Declaration>
 		IF PositionKalibrierGewicht > 4 THEN 
 			PositionKalibrierGewicht:= 1;
 			bKalibrierungAbgeschlossen:= TRUE; 
-			bConfigWaage := FALSE;
+			bWaagenKalibrierung := FALSE;
 		END_IF
 	END_IF
 

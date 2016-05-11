@@ -1,0 +1,10 @@
+E:\Twincat\GUI UpTown\GUI UpTown\bin\Debug\GUI UpTown.exe.config
+E:\Twincat\GUI UpTown\GUI UpTown\bin\Debug\GUI UpTown.exe
+E:\Twincat\GUI UpTown\GUI UpTown\bin\Debug\GUI UpTown.pdb
+E:\Twincat\GUI UpTown\GUI UpTown\bin\Debug\GUI UpTown.xml
+E:\Twincat\GUI UpTown\GUI UpTown\obj\Debug\GUI_UpTown.Form1.resources
+E:\Twincat\GUI UpTown\GUI UpTown\obj\Debug\GUI_UpTown.Resources.resources
+E:\Twincat\GUI UpTown\GUI UpTown\obj\Debug\GUI UpTown.vbproj.GenerateResource.Cache
+E:\Twincat\GUI UpTown\GUI UpTown\obj\Debug\GUI UpTown.exe
+E:\Twincat\GUI UpTown\GUI UpTown\obj\Debug\GUI UpTown.xml
+E:\Twincat\GUI UpTown\GUI UpTown\obj\Debug\GUI UpTown.pdb
