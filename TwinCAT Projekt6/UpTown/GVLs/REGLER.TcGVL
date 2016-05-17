@@ -2,11 +2,20 @@
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4019.2">
   <GVL Name="REGLER" Id="{7b35d618-5e5e-4991-ac01-e7c1902fedd9}">
     <Declaration><![CDATA[VAR_GLOBAL
-//Liste der zu regelnden Komponentem im Kältekreislauf
-	PID_Kompressor_Drehzahl:			PID;
-	PID_VF_Ventilator_Drehzahl:			PID;
-	//PID_VD_Ventilator_Drehzahl:		PID; // zurzeit noch keine Regelung für die zwei Ventilatoren am VD installiert
-	PID_VD_defrost_Ventilator_Drehzahl:	PID;
+(*Liste der zu regelnden Komponentem im Kältekreislauf *)
+	PID_KP:							PID;
+	PID_VF_Ventilator:				PID;
+	PID_VD_defrost_Ventilator:		PID;
+	//PID_VD_Ventilator_Drehzahl:	PID; // !zurzeit noch keine Regelung für die zwei Ventilatoren am VD installiert!
+	
+	VD_Ventilator_ON AT  %Q*:	 	BOOL:= FALSE;   // Im RI-Fließbild Bezeichnung: 1W1
+	//VierWegeVentil_Abtauen: 		BOOL:= FALSE;	// Im RI-Fließbild Bezeichnung: 1V4
+
+(*Digitale Ausgänge für de Schütze 1K3..1K5*)
+	Schuetz_1K3 AT %Q*:	BOOL:= FALSE;
+	Schuetz_1K4 AT %Q*:	BOOL:= FALSE;
+	Schuetz_1K5	AT %Q*:	BOOL:= FALSE;
+	
 	
 END_VAR]]></Declaration>
   </GVL>

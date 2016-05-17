@@ -10,8 +10,6 @@ VAR
 
   myInputVar :INPUT_VAR; 
   
- // myInputVarUINT :INPUT_VAR_UINT;
-  
   myOutputVar :OUTPUT_VAR; 
   
 	FB_DB_Lese_Komponenten: FB_DBRecordArraySelect;
@@ -35,10 +33,11 @@ END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[
-SM.Leerlauf:=FALSE;
+SM.bLeerlauf:=FALSE;
 
 timer1(IN:=timer1_start,pt:=T#3S);
 //timer1_start:=FALSE;
+
 IF timer1.Q THEN
 	start_Lesen_Komponenten:=TRUE;
 	timer1_start:=FALSE;
@@ -60,7 +59,7 @@ END_IF
 				bExecute:= start_Lesen_Komponenten, 
 				tTimeout:= T#5S, 
 				bBusy=> Busy_Lesen_Komponenten, 
-				bError=> SM.Fehler, 
+				bError=> SM.bFehler, 
 				nErrID=> Lesen_nErrID , 
 				sSQLState=> stSQLStateSelect, 
 				nRecords=> nRecordCount); 
@@ -81,13 +80,6 @@ END_IF
 		myinputvar.REAL_PARA_PT1_K:=STRING_TO_REAL(a[Counter].faktor_PT1_K);
 		myinputvar.REAL_PARA_PT1_T:=STRING_TO_TIME(a[Counter].faktor_PT1_T);
 		
-		myInputVarUINT.REAL_PARA_C:=STRING_TO_REAL(a[Counter].faktor_lin_c);
-		myInputVarUINT.REAL_PARA_M:=STRING_TO_REAL(a[Counter].faktor_lin_m);
-		myInputVarUINT.REAL_PARA_maxWert:=STRING_TO_REAL(a[Counter].maxwert);
-		myInputVarUINT.REAL_PARA_minWert:=STRING_TO_REAL(a[Counter].minwert);
-		myInputVarUINT.REAL_PARA_PT1_K:=STRING_TO_REAL(a[Counter].faktor_PT1_K);
-		myInputVarUINT.REAL_PARA_PT1_T:=STRING_TO_TIME(a[Counter].faktor_PT1_T);
-		
 		myOutputVar.REAL_PARA_C:=STRING_TO_REAL(a[Counter].faktor_lin_c);
 		myOutputVar.REAL_PARA_M:=STRING_TO_REAL(a[Counter].faktor_lin_m);
 		myOutputVar.REAL_PARA_maxWert:=STRING_TO_REAL(a[Counter].maxwert);
@@ -96,381 +88,91 @@ END_IF
 		
 	//=========================================================================================	
 	//Temperaturen		
-			IF a[counter].symbolname = 'KK.Temp_KK_Raummitte_OL' THEN
-				KK.Temp_KK_Raummitte_OL:=myinputVar;
-			END_IF
-			IF a[counter].symbolname = 'KK.Temp_KK_Raummitte_OR' THEN
-				KK.Temp_KK_Raummitte_OR:=myinputVar;
-			END_IF
-			IF a[counter].symbolname = 'KK.Temp_KK_Raummitte_UL' THEN
-				KK.Temp_KK_Raummitte_UL:=myinputVar;
-			END_IF
-			IF a[counter].symbolname = 'KK.Temp_KK_Raummitte_UR' THEN
-				KK.Temp_KK_Raummitte_UR:=myinputVar;
-			END_IF
-			IF a[counter].symbolname = 'KK.Temp_KK_Auslass_OL' THEN
-				KK.Temp_KK_Auslass_OL:=myinputVar;
-			END_IF
-			IF a[counter].symbolname = 'KK.Temp_KK_Auslass_OR' THEN
-				KK.Temp_KK_Auslass_OR:=myinputVar;
-			END_IF
-			IF a[counter].symbolname = 'KK.Temp_KK_Auslass_UL' THEN
-				KK.Temp_KK_Auslass_UL:=myinputVar;
-			END_IF
-			IF a[counter].symbolname = 'KK.Temp_KK_Auslass_UR' THEN
-				KK.Temp_KK_Auslass_UR:=myinputVar;
-			END_IF
-			IF a[counter].symbolname = 'KK.Temp_KK_Kanal_nach_Heizer' THEN
-				KK.Temp_KK_Kanal_nach_Heizer:=myinputVar;
-			END_IF
-			IF a[counter].symbolname = 'KK.Temp_KK_Kanal_nach_WU' THEN
-				KK.Temp_KK_Kanal_nach_WU:=myinputVar;
-			END_IF
-			IF a[counter].symbolname = 'KK.Temp_KK_Kanal_vor_Ventilator' THEN
-				KK.Temp_KK_Kanal_vor_Ventilator:=myinputVar;
-			END_IF
-			IF a[counter].symbolname = 'KK.Temp_KK_Kalte_VL' THEN
-				KK.Temp_KK_Kalte_VL:=myinputVar;
-			END_IF				
-			IF a[counter].symbolname = 'KK.Temp_KK_Kalte_RL' THEN
-				KK.Temp_KK_Kalte_RL:=myinputVar;
-			END_IF	
-			IF a[counter].symbolname = 'KK.Temp_KK_Abtau_VL' THEN
-				KK.Temp_KK_Abtau_VL:=myinputVar;
-			END_IF	
-			IF a[counter].symbolname = 'KK.Temp_KK_Abtau_RL' THEN
-				KK.Temp_KK_Abtau_RL:=myinputVar;
+			IF a[counter].symbolname = 'GVL.Temp_VD_in' THEN
+				GVL.Temp_VD_in :=myinputVar;
 			END_IF		
-			IF a[counter].symbolname = 'KK.Temp_VS_Kalte_RL' THEN
-				KK.Temp_VS_Kalte_RL:=myinputVar;
-			END_IF	
-			IF a[counter].symbolname = 'KK.Temp_VS_Kalte_VL' THEN
-				KK.Temp_VS_Kalte_VL:=myinputVar;
+			IF a[counter].symbolname = 'GVL.Temp_VD_out' THEN
+				GVL.Temp_VD_out :=myinputVar;
 			END_IF
-
-			IF a[counter].symbolname = 'HYD.U15.Temp_VL' THEN
-				HYD.U15.Temp_VL:=myinputVar;
+			IF a[counter].symbolname = 'GVL.Temp_VD_in_rev' THEN
+				GVL.Temp_VD_in_rev :=myinputVar;
 			END_IF
-			IF a[counter].symbolname = 'HYD.U15.Temp_extVL' THEN
-				HYD.U15.Temp_extVL:=myinputVar;
+			IF a[counter].symbolname = 'GVL.Temp_VD_out_rev' THEN
+				GVL.Temp_VD_out_rev :=myinputVar;
+			END_IF						
+			IF a[counter].symbolname = 'GVL.Temp_VD_surface1' THEN
+				GVL.Temp_VD_surface1 :=myinputVar;
 			END_IF
-			IF a[counter].symbolname = 'HYD.U15.Temp_extRL' THEN
-				HYD.U15.Temp_extRL:=myinputVar;
+			IF a[counter].symbolname = 'GVL.Temp_VD_surface2' THEN
+				GVL.Temp_VD_surface2 :=myinputVar;
 			END_IF
-			IF a[counter].symbolname = 'HYD.U15.Temp_extEin' THEN
-				HYD.U15.Temp_extEin:=myinputVar;
+			IF a[counter].symbolname = 'GVL.Temp_VD_surface3' THEN
+				GVL.Temp_VD_surface3 :=myinputVar;
 			END_IF
-			IF a[counter].symbolname = 'HYD.U15.Temp_extAus' THEN
-				HYD.U15.Temp_extAus:=myinputVar;
+			IF a[counter].symbolname = 'GVL.Temp_VD_surface4' THEN
+				GVL.Temp_VD_surface4 :=myinputVar;
+			END_IF
+			IF a[counter].symbolname = 'GVL.Temp_VF_in' THEN
+				GVL.Temp_VF_in :=myinputVar;
+			END_IF
+			IF a[counter].symbolname = 'GVL.Temp_VF_out' THEN
+				GVL.Temp_VF_out :=myinputVar;
+			END_IF
+			IF a[counter].symbolname = 'GVL.Temp_VD_defrost_in' THEN
+				GVL.Temp_VD_defrost_in :=myinputVar;
 			END_IF		
-				IF a[counter].symbolname = 'HYD.O15.Temp_VL' THEN
-				HYD.O15.Temp_VL:=myinputVar;
+			IF a[counter].symbolname = 'GVL.Temp_VD_defrost_out' THEN
+				GVL.Temp_VD_defrost_out :=myinputVar;
 			END_IF
-			IF a[counter].symbolname = 'HYD.O15.Temp_extVL' THEN
-				HYD.O15.Temp_extVL:=myinputVar;
+			IF a[counter].symbolname = 'GVL.Temp_KP_in' THEN
+				GVL.Temp_KP_in :=myinputVar;
 			END_IF
-			IF a[counter].symbolname = 'HYD.O15.Temp_extRL' THEN
-				HYD.O15.Temp_extRL:=myinputVar;
-			END_IF
-			IF a[counter].symbolname = 'HYD.O15.Temp_extEin' THEN
-				HYD.O15.Temp_extEin:=myinputVar;
-			END_IF
-			IF a[counter].symbolname = 'HYD.O15.Temp_extAus' THEN
-				HYD.O15.Temp_extAus:=myinputVar;
+			IF a[counter].symbolname = 'GVL.Temp_KP_out' THEN
+				GVL.Temp_KP_out :=myinputVar;
 			END_IF	
-			IF a[counter].symbolname = 'HYD.U22L.Temp_VL' THEN
-				HYD.U22L.Temp_VL:=myinputVar;
+			IF a[counter].symbolname = 'GVL.Temp_vor_EV' THEN
+				GVL.Temp_vor_EV :=myinputVar;
 			END_IF
-			IF a[counter].symbolname = 'HYD.U22L.Temp_extVL' THEN
-				HYD.U22L.Temp_extVL:=myinputVar;
+			IF a[counter].symbolname = 'GVL.Temp_vor_EV_rev' THEN
+				GVL.Temp_vor_EV_rev :=myinputVar;
 			END_IF
-			IF a[counter].symbolname = 'HYD.U22L.Temp_extRL' THEN
-				HYD.U22L.Temp_extRL:=myinputVar;
-			END_IF
-			IF a[counter].symbolname = 'HYD.U22L.Temp_extEin' THEN
-				HYD.U22L.Temp_extEin:=myinputVar;
-			END_IF
-			IF a[counter].symbolname = 'HYD.U22L.Temp_extAus' THEN
-				HYD.U22L.Temp_extAus:=myinputVar;
-			END_IF	
-			IF a[counter].symbolname = 'HYD.O22L.Temp_VL' THEN
-				HYD.O22L.Temp_VL:=myinputVar;
-			END_IF
-			IF a[counter].symbolname = 'HYD.O22L.Temp_extVL' THEN
-				HYD.O22L.Temp_extVL:=myinputVar;
-			END_IF
-			IF a[counter].symbolname = 'HYD.O22L.Temp_extRL' THEN
-				HYD.O22L.Temp_extRL:=myinputVar;
-			END_IF
-			IF a[counter].symbolname = 'HYD.O22L.Temp_extEin' THEN
-				HYD.O22L.Temp_extEin:=myinputVar;
-			END_IF
-			IF a[counter].symbolname = 'HYD.O22L.Temp_extAus' THEN
-				HYD.O22L.Temp_extAus:=myinputVar;
-			END_IF	
-			IF a[counter].symbolname = 'HYD.U22R.Temp_VL' THEN
-				HYD.U22R.Temp_VL:=myinputVar;
-			END_IF
-			IF a[counter].symbolname = 'HYD.U22R.Temp_extVL' THEN
-				HYD.U22R.Temp_extVL:=myinputVar;
-			END_IF
-			IF a[counter].symbolname = 'HYD.U22R.Temp_extRL' THEN
-				HYD.U22R.Temp_extRL:=myinputVar;
-			END_IF
-			IF a[counter].symbolname = 'HYD.U22R.Temp_extEin' THEN
-				HYD.U22R.Temp_extEin:=myinputVar;
-			END_IF
-			IF a[counter].symbolname = 'HYD.U22R.Temp_extAus' THEN
-				HYD.U22R.Temp_extAus:=myinputVar;
-			END_IF	
-			IF a[counter].symbolname = 'HYD.O22R.Temp_VL' THEN
-				HYD.O22R.Temp_VL:=myinputVar;
-			END_IF
-			IF a[counter].symbolname = 'HYD.O22R.Temp_extVL' THEN
-				HYD.O22R.Temp_extVL:=myinputVar;
-			END_IF
-			IF a[counter].symbolname = 'HYD.O22R.Temp_extRL' THEN
-				HYD.O22R.Temp_extRL:=myinputVar;
-			END_IF
-			IF a[counter].symbolname = 'HYD.O22R.Temp_extEin' THEN
-				HYD.O22R.Temp_extEin:=myinputVar;
-			END_IF
-			IF a[counter].symbolname = 'HYD.O22R.Temp_extAus' THEN
-				HYD.O22R.Temp_extAus:=myinputVar;
-			END_IF	
-			IF a[counter].symbolname = 'HYD.U28.Temp_VL' THEN
-				HYD.U28.Temp_VL:=myinputVar;
-			END_IF
-			IF a[counter].symbolname = 'HYD.U28.Temp_extVL' THEN
-				HYD.U28.Temp_extVL:=myinputVar;
-			END_IF
-			IF a[counter].symbolname = 'HYD.U28.Temp_extRL' THEN
-				HYD.U28.Temp_extRL:=myinputVar;
-			END_IF
-			IF a[counter].symbolname = 'HYD.U28.Temp_extEin' THEN
-				HYD.U28.Temp_extEin:=myinputVar;
-			END_IF
-			IF a[counter].symbolname = 'HYD.U28.Temp_extAus' THEN
-				HYD.U28.Temp_extAus:=myinputVar;
-			END_IF	
-			IF a[counter].symbolname = 'HYD.O28.Temp_VL' THEN
-				HYD.O28.Temp_VL:=myinputVar;
-			END_IF
-			IF a[counter].symbolname = 'HYD.O28.Temp_extVL' THEN
-				HYD.O28.Temp_extVL:=myinputVar;
-			END_IF
-			IF a[counter].symbolname = 'HYD.O28.Temp_extRL' THEN
-				HYD.O28.Temp_extRL:=myinputVar;
-			END_IF
-			IF a[counter].symbolname = 'HYD.O28.Temp_extEin' THEN
-				HYD.O28.Temp_extEin:=myinputVar;
-			END_IF
-			IF a[counter].symbolname = 'HYD.O28.Temp_extAus' THEN
-				HYD.O28.Temp_extAus:=myinputVar;
-			END_IF
-			IF a[counter].symbolname = 'KK.Temp_VS_Kaltwasser_VL' THEN
-				KK.Temp_VS_Kaltwasser_VL:=myinputVar;
-			END_IF				
-	//=========================================================================================	
-	//Volumenströme		
-			IF a[counter].symbolname = 'KK.Vdot_KK_Auslass_OL' THEN
-				KK.Vdot_KK_Auslass_OL:=myinputVar;
-			END_IF			
-			IF a[counter].symbolname = 'KK.Vdot_KK_Auslass_OR' THEN
-				KK.Vdot_KK_Auslass_OR:=myinputVar;
-			END_IF			
-			IF a[counter].symbolname = 'KK.Vdot_KK_Auslass_UL' THEN
-				KK.Vdot_KK_Auslass_UL:=myinputVar;
-			END_IF			
-			IF a[counter].symbolname = 'KK.Vdot_KK_Auslass_UR' THEN
-				KK.Vdot_KK_Auslass_UR:=myinputVar;
-			END_IF			
-			IF a[counter].symbolname = 'KK.Vdot_KK_Kalte' THEN
-				KK.Vdot_KK_Kalte:=myinputVar;
-			END_IF			
-			IF a[counter].symbolname = 'KK.Vdot_KK_Abtau' THEN
-				KK.Vdot_KK_Abtau:=myinputVar;
-			END_IF			
-			IF a[counter].symbolname = 'KK.Vdot_VS_Warmwasser' THEN
-				KK.Vdot_VS_Warmwasser:=myinputVar;
-			END_IF			
-			IF a[counter].symbolname = 'KK.Vdot_VS_Kaltwasser' THEN
-				KK.Vdot_VS_Kaltwasser:=myinputVar;
-			END_IF
-			
-			IF a[counter].symbolname = 'HYD.O15.Vdot' THEN
-				HYD.O15.Vdot :=myInputVarUINT;
-			END_IF
-			IF a[counter].symbolname = 'HYD.U15.Vdot' THEN
-				HYD.U15.Vdot :=myInputVarUINT;
-			END_IF
-			IF a[counter].symbolname = 'HYD.O22L.Vdot' THEN
-				HYD.O22L.Vdot :=myInputVarUINT;
-			END_IF
-			IF a[counter].symbolname = 'HYD.U22L.Vdot' THEN
-				HYD.U22L.Vdot :=myInputVarUINT;
-			END_IF
-			IF a[counter].symbolname = 'HYD.O22R.Vdot' THEN
-				HYD.O22R.Vdot :=myInputVarUINT;
-			END_IF
-			IF a[counter].symbolname = 'HYD.U22R.Vdot' THEN
-				HYD.U22R.Vdot :=myInputVarUINT;
-			END_IF
-			IF a[counter].symbolname = 'HYD.O28.Vdot' THEN
-				HYD.O28.Vdot :=myInputVarUINT;
-			END_IF
-			IF a[counter].symbolname = 'HYD.U28.Vdot' THEN
-				HYD.U28.Vdot :=myInputVarUINT;
-			END_IF
-	
-			IF a[counter].symbolname = 'HYD.Vdot_Warmwasser_VS' THEN
-				HYD.Vdot_Warmwasser_VS :=myinputVar;
-			END_IF
-	//=========================================================================================	
-	//Rel. Feuchte Sensor
-			IF a[counter].symbolname = 'KK.rlFeuchte_KK_Raummitte' THEN
-				KK.rlFeuchte_KK_Raummitte:=myinputVar;
-			END_IF
-			IF a[counter].symbolname = 'KK.rlFeuchte_KK_Stativ' THEN
-				KK.rlFeuchte_KK_Stativ:=myinputVar;
-			END_IF		
 		
 	//=========================================================================================	
-	//Stellsignal Ventilator
-			IF a[counter].symbolname = 'KK.Soll_KK_Ventilator' THEN
-				KK.Soll_KK_Ventilator:=myOutputVar;
+	//Stellsignal Elektrische Heizracks
+			IF a[counter].symbolname = 'GVL.ElektHeizrack1' THEN
+				GVL.ElektHeizrack1:=myOutputVar;
+			END_IF		
+			IF a[counter].symbolname = 'GVL.ElektHeizrack2' THEN
+				GVL.ElektHeizrack2:=myOutputVar;
 			END_IF	
-	//=========================================================================================	
-	//Stellsignal 3WV 
-			IF a[counter].symbolname = 'KK.Soll_KK_Kalte_3WV' THEN
-				KK.Soll_KK_Kalte_3WV:=myOutputVar;
-			END_IF	
-			IF a[counter].symbolname = 'KK.Soll_VS_Warmwasser_3WV_Drossel' THEN
-				KK.Soll_VS_Warmwasser_3WV_Drossel:=myOutputVar;
-			END_IF	
-			IF a[counter].symbolname = 'KK.Soll_VS_Warmwasser_3WV' THEN
-				KK.Soll_VS_Warmwasser_3WV:=myOutputVar;
-			END_IF	
-			
-	
-			IF a[counter].symbolname = 'HYD.U15.DWV_VL' THEN
-				HYD.U15.DWV_VL:=myOutputVar;
-			END_IF	
-			IF a[counter].symbolname = 'HYD.O15.DWV_VL' THEN
-				HYD.O15.DWV_VL:=myOutputVar;
-			END_IF	
-			IF a[counter].symbolname = 'HYD.U22L.DWV_VL' THEN
-				HYD.U22L.DWV_VL:=myOutputVar;
-			END_IF	
-			IF a[counter].symbolname = 'HYD.O22L.DWV_VL' THEN
-				HYD.O22L.DWV_VL:=myOutputVar;
-			END_IF	
-			IF a[counter].symbolname = 'HYD.U22R.DWV_VL' THEN
-				HYD.U22R.DWV_VL:=myOutputVar;
-			END_IF	
-			IF a[counter].symbolname = 'HYD.O22R.DWV_VL' THEN
-				HYD.O22R.DWV_VL:=myOutputVar;
-			END_IF	
-			IF a[counter].symbolname = 'HYD.U28.DWV_VL' THEN
-				HYD.U28.DWV_VL:=myOutputVar;
-			END_IF	
-			IF a[counter].symbolname = 'HYD.O28.DWV_VL' THEN
-				HYD.O28.DWV_VL:=myOutputVar;
-			END_IF	
-			IF a[counter].symbolname = 'HYD.U15.DWV_Drossel' THEN
-				HYD.U15.DWV_Drossel:=myOutputVar;
-			END_IF	
-			IF a[counter].symbolname = 'HYD.O15.DWV_Drossel' THEN
-				HYD.O15.DWV_Drossel:=myOutputVar;
-			END_IF	
-			IF a[counter].symbolname = 'HYD.U22L.DWV_Drossel' THEN
-				HYD.U22L.DWV_Drossel:=myOutputVar;
-			END_IF	
-			IF a[counter].symbolname = 'HYD.O22L.DWV_Drossel' THEN
-				HYD.O22L.DWV_Drossel:=myOutputVar;
-			END_IF	
-			IF a[counter].symbolname = 'HYD.U22R.DWV_Drossel' THEN
-				HYD.U22R.DWV_Drossel:=myOutputVar;
-			END_IF	
-			IF a[counter].symbolname = 'HYD.O22R.DWV_Drossel' THEN
-				HYD.O22R.DWV_Drossel:=myOutputVar;
-			END_IF	
-			IF a[counter].symbolname = 'HYD.U28.DWV_Drossel' THEN
-				HYD.U28.DWV_Drossel:=myOutputVar;
-			END_IF	
-			IF a[counter].symbolname = 'HYD.O28.DWV_Drossel' THEN
-				HYD.O28.DWV_Drossel:=myOutputVar;
-			END_IF
-	//=========================================================================================	
-	//Stellsignal Heizer
-			IF a[counter].symbolname = 'KK.Soll_KK_Heizer_1' THEN
-				KK.Soll_KK_Heizer_1:=myOutputVar;
-			END_IF	
-			IF a[counter].symbolname = 'KK.Soll_KK_Heizer_2' THEN
-				KK.Soll_KK_Heizer_2:=myOutputVar;
+			IF a[counter].symbolname = 'GVL.ElektHeizrack_Boden' THEN
+				GVL.ElektHeizrack_Boden:=myOutputVar;
 			END_IF	
 		
 	//=========================================================================================	
-	//Stellsignal Pumpen
-			IF a[counter].symbolname = 'KK.Soll_KK_Kalte_Pumpe' THEN
-				KK.Soll_KK_Kalte_Pumpe:=myOutputVar;
-			END_IF	
-			IF a[counter].symbolname = 'KK.Soll_KK_Abtau_Pumpe' THEN
-				KK.Soll_KK_Abtau_Pumpe:=myOutputVar;
-			END_IF	
-			IF a[counter].symbolname = 'KK.Soll_VS_Warmwasser_Pumpe' THEN
-				KK.Soll_VS_Warmwasser_Pumpe:=myOutputVar;
-			END_IF	
-			IF a[counter].symbolname = 'KK.Soll_VS_Kaltwasser_Pumpe' THEN
-				KK.Soll_VS_Kaltwasser_Pumpe:=myOutputVar;
-			END_IF	
-			IF a[counter].symbolname = 'HYD.U15.Pumpe' THEN
-				HYD.U15.Pumpe:=myOutputVar;
-			END_IF	
-			IF a[counter].symbolname = 'HYD.O15.Pumpe' THEN
-				HYD.O15.Pumpe:=myOutputVar;
-			END_IF
-			IF a[counter].symbolname = 'HYD.U22L.Pumpe' THEN
-				HYD.U22L.Pumpe:=myOutputVar;
-			END_IF	
-			IF a[counter].symbolname = 'HYD.O22L.Pumpe' THEN
-				HYD.O22L.Pumpe:=myOutputVar;
-			END_IF
-			IF a[counter].symbolname = 'HYD.U22R.Pumpe' THEN
-				HYD.U22R.Pumpe:=myOutputVar;
-			END_IF	
-			IF a[counter].symbolname = 'HYD.O22R.Pumpe' THEN
-				HYD.O22R.Pumpe:=myOutputVar;
-			END_IF
-			IF a[counter].symbolname = 'HYD.U28.Pumpe' THEN
-				HYD.U28.Pumpe:=myOutputVar;
-			END_IF	
-			IF a[counter].symbolname = 'HYD.O28.Pumpe' THEN
-				HYD.O28.Pumpe:=myOutputVar;
-			END_IF
-
+	//Stellsignal Kompressor
+			IF a[counter].symbolname = 'GVL.Soll_KP' THEN
+				GVL.Soll_KP:=myOutputVar;
+			END_IF		
 	
 	//=========================================================================================	
-	//Befeuchter
-			IF a[counter].symbolname = 'KK.Soll_KK_Befeuchter' THEN
-				KK.Soll_KK_Befeuchter:=myOutputVar;
-			END_IF				
-			
-
-	
-		
-		END_FOR
+	//Stellsignal Ventilatoren 
+			IF a[counter].symbolname = 'GVL.Soll_VF_Ventilator' THEN
+				GVL.Soll_VF_Ventilator := myOutputVar;
+			END_IF		
+			IF a[counter].symbolname = 'GVL.Soll_VD_defrost_Ventilator' THEN
+				GVL.Soll_VD_defrost_Ventilator := myOutputVar;
+			END_IF		
 	
 			
-	
-
+			END_FOR		
 	ELSE
-		 SM.Fehler:=TRUE;
+		 SM.bFehler:=TRUE;
 	END_IF
 	
 	IF Busy_Lesen_Komponenten=FALSE THEN
-		SM.Leerlauf:=TRUE;
-		ELSE  sm.Leerlauf:=FALSE;
+		SM.bLeerlauf:=TRUE;
+		ELSE  sm.bLeerlauf:=FALSE;
 	END_IF
 	
 

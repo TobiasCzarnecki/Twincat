@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4019.2">
+  <POU Name="Enthalpie" Id="{7bf06cb2-28c4-496a-a004-06e7ce19c24e}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION Enthalpie : REAL
+VAR_INPUT
+	Druck: REAL;
+	fb_Interpolation : LINEAR_INT;
+	
+	
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fb_Interpolation();
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

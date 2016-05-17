@@ -15,90 +15,77 @@
     <LibraryReferences>{49b47ab6-3edd-4bd7-844a-d6ba554fbf74}</LibraryReferences>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="DUTs\Modus_Abtauen.TcDUT">
+    <Compile Include="DUTs\DB\Enthalpie_r134a.TcDUT">
       <SubType>Code</SubType>
-      <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
     </Compile>
-    <Compile Include="DUTs\DB_r134a.TcDUT">
+    <Compile Include="DUTs\DB\Stoffwerte.TcDUT">
       <SubType>Code</SubType>
-      <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
     </Compile>
-    <Compile Include="DUTs\DruckSensor.TcDUT">
+    <Compile Include="DUTs\DB\ST_DB_Enthalpie_r134a.TcDUT">
       <SubType>Code</SubType>
-      <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
     </Compile>
-    <Compile Include="DUTs\ExpansionsVentil.TcDUT">
+    <Compile Include="DUTs\DB\ST_DB_EV.TcDUT">
       <SubType>Code</SubType>
-      <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
+    </Compile>
+    <Compile Include="DUTs\DB\ST_DB_KOMPONENTEN.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\DB\ST_DB_PID.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\DB\ST_DB_r134a.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\DB\ST_DB_STOFFWERTE.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\Komponenten\DruckSensor.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\Komponenten\ExpansionsVentil.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\Komponenten\INPUT_VAR.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\Komponenten\MassenstromSensor.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\Komponenten\OUTPUT_VAR.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\Komponenten\PID.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\Komponenten\PM_VAR.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\Komponenten\WAAGE_VAR.TcDUT">
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DUTs\k_Daten.TcDUT">
       <SubType>Code</SubType>
       <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
     </Compile>
-    <Compile Include="DUTs\MassenstromSensor.TcDUT">
+    <Compile Include="DUTs\Status\Modus_Abtauen.TcDUT">
       <SubType>Code</SubType>
-      <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
     </Compile>
-    <Compile Include="DUTs\Status_MV.TcDUT">
+    <Compile Include="DUTs\Status\Status_Kaeltemittel.TcDUT">
       <SubType>Code</SubType>
-      <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
     </Compile>
-    <Compile Include="DUTs\Status_Kaeltemittel.TcDUT">
+    <Compile Include="DUTs\Status\Status_KK.TcDUT">
       <SubType>Code</SubType>
-      <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
     </Compile>
-    <Compile Include="DUTs\Status_Waegesystem.TcDUT">
+    <Compile Include="DUTs\Status\Status_ModbusRTU.TcDUT">
       <SubType>Code</SubType>
-      <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
     </Compile>
-    <Compile Include="DUTs\Status_ModbusRTU.TcDUT">
+    <Compile Include="DUTs\Status\Status_Schuetzstellung.TcDUT">
       <SubType>Code</SubType>
-      <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
     </Compile>
-    <Compile Include="DUTs\INPUT_VAR.TcDUT">
+    <Compile Include="DUTs\Status\Status_Waegesystem.TcDUT">
       <SubType>Code</SubType>
-      <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
     </Compile>
     <Compile Include="DUTs\Log_p_h.TcDUT">
-      <SubType>Code</SubType>
-      <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
-    </Compile>
-    <Compile Include="DUTs\OUTPUT_VAR.TcDUT">
-      <SubType>Code</SubType>
-      <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
-    </Compile>
-    <Compile Include="DUTs\PID.TcDUT">
-      <SubType>Code</SubType>
-      <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
-    </Compile>
-    <Compile Include="DUTs\PM_VAR.TcDUT">
-      <SubType>Code</SubType>
-      <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
-    </Compile>
-    <Compile Include="DUTs\Status_KK.TcDUT">
-      <SubType>Code</SubType>
-      <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
-    </Compile>
-    <Compile Include="DUTs\Stoffwerte.TcDUT">
-      <SubType>Code</SubType>
-      <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
-    </Compile>
-    <Compile Include="DUTs\ST_DB_EV.TcDUT">
-      <SubType>Code</SubType>
-      <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
-    </Compile>
-    <Compile Include="DUTs\ST_DB_KOMPONENTEN.TcDUT">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="DUTs\ST_DB_STOFFWERTE.TcDUT">
-      <SubType>Code</SubType>
-      <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
-    </Compile>
-    <Compile Include="DUTs\ST_TEMP1_Save.TcDUT">
-      <SubType>Code</SubType>
-      <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
-    </Compile>
-    <Compile Include="DUTs\WAAGE_VAR.TcDUT">
       <SubType>Code</SubType>
       <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
     </Compile>
@@ -140,6 +127,9 @@
       <SubType>Code</SubType>
       <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
     </Compile>
+    <Compile Include="POUs\Datenbank\DB_Lesen_Enthalpie_r134a.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\Datenbank\DB_Lesen_Stoffwerte_Wasser.TcPOU">
       <SubType>Code</SubType>
       <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
@@ -155,6 +145,9 @@
     <Compile Include="POUs\Funktionen\DWORD_TO_BINSTRING.TcPOU">
       <SubType>Code</SubType>
       <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
+    </Compile>
+    <Compile Include="POUs\Funktionen\Enthalpie.TcPOU">
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\Funktionen\FB_EVconverter.TcPOU">
       <SubType>Code</SubType>
@@ -176,9 +169,18 @@
       <SubType>Code</SubType>
       <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
     </Compile>
+    <Compile Include="POUs\Funktionen\FB_Schuetzstellung.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\Funktionen\FB_SPS_zu_Nativ_lin.TcPOU">
       <SubType>Code</SubType>
       <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
+    </Compile>
+    <Compile Include="POUs\Funktionen\PunktErsetztKomma.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Funktionen\FB_PID.TcPOU">
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\Funktionen\WORD_TO_BINSTRING.TcPOU">
       <SubType>Code</SubType>
@@ -206,6 +208,9 @@
     <Compile Include="POUs\Modbus\ModbusRTU_EL.TcPOU">
       <SubType>Code</SubType>
       <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
+    </Compile>
+    <Compile Include="POUs\Regelung.TcPOU">
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\Vereisung.TcPOU">
       <SubType>Code</SubType>
@@ -259,7 +264,7 @@
       <SubType>Code</SubType>
       <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
     </Compile>
-    <Compile Include="POUs\Waagen\WaagenAuslesen.TcPOU">
+    <Compile Include="POUs\Waagen\Auslesen_Waagen.TcPOU">
       <SubType>Code</SubType>
       <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
     </Compile>
@@ -270,6 +275,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DUTs" />
+    <Folder Include="DUTs\DB" />
+    <Folder Include="DUTs\Komponenten" />
+    <Folder Include="DUTs\Status" />
     <Folder Include="GVLs" />
     <Folder Include="POUs\Modbus" />
     <Folder Include="POUs\Funktionen" />

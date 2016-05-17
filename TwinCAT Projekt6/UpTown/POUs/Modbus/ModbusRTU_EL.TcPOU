@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4019.2">
   <POU Name="ModbusRTU_EL" Id="{98159f27-7da7-4f3a-9d45-35bf24bd6264}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM ModbusRTU_EL
 VAR
@@ -47,7 +47,7 @@ CASE state OF
 	ModbusEL6021.ReadInputRegs(
 		UnitID:= 12,
  		Quantity:= 2,							
- 		MBAddr:= 30000,								
+ 		MBAddr:= 30006,								
  		cbLength:= SIZEOF(TestMSS[0]),		
  		pMemoryAddr:= ADR(TestMSS[0]),	 
   		Execute:= TRUE,
@@ -57,6 +57,8 @@ CASE state OF
   		ErrorId => modbusErrorId_EL
   		(*cbRead parameter)*));
 	
+		
+		
 		IF NOT isModbusBusy_EL THEN
 				ModbusEL6021.ReadInputRegs(Execute:= FALSE);
 			IF ModbusEL6021.Error THEN
@@ -67,7 +69,7 @@ CASE state OF
 		END_IF
 END_CASE
 
-(*
+(* 
 CASE state OF
 
 0: (*Initialisierung von Modbus*)
@@ -153,6 +155,7 @@ IF EV.SetAktKuhlleistung THEN
 
 		IF NOT isModbusBusy_EL THEN
 				ModbusEL6021.WriteSingleRegister(Execute:= FALSE);
+				EV.SetAktKuhlleistung := FALSE;
 			IF ModbusEL6021.Error THEN
 				state := 0;
 			ELSE
@@ -242,6 +245,7 @@ IF EV_rev.SetAktKuhlleistung THEN
 
 		IF NOT isModbusBusy_EL THEN
 				ModbusEL6021.WriteSingleRegister(Execute:= FALSE);
+				EV_rev.SetAktKuhlleistung := FALSE;
 			IF ModbusEL6021.Error THEN
 				state := 0;
 			ELSE
@@ -252,7 +256,8 @@ IF EV_rev.SetAktKuhlleistung THEN
 		state:= 0;
 END_IF	
 END_CASE
-*)	
+*)
+
 FtrigBusy(CLK:=ModbusEL6021.BUSY );
 (*zählt fehlgeschlagene und erfolgreiche Komunikationsschritte*)
 IF FtrigBusy.Q THEN

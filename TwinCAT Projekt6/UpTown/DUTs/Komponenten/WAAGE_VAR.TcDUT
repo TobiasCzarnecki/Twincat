@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4019.2">
   <DUT Name="WAAGE_VAR" Id="{02166590-eac0-43fe-9e94-88f3d5299a78}">
     <Declaration><![CDATA[TYPE WAAGE_VAR :
 STRUCT

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4019.2">
   <DUT Name="INPUT_VAR" Id="{5286979e-e7aa-43b1-82ec-13216a9641b0}">
     <Declaration><![CDATA[TYPE INPUT_VAR :
 STRUCT

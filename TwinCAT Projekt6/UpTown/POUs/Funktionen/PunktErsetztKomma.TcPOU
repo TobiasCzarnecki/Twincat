@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4019.2">
+  <POU Name="PunktErsetztKomma" Id="{e8da6946-1916-4bb7-b53a-677c6dcf85d9}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION PunktErsetztKomma : STRING
+VAR_INPUT
+	in : STRING;
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[PunktErsetztKomma:= REPLACE (in,'.',1,FIND (in,','));]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4019.2">
+  <DUT Name="ST_DB_r134a" Id="{af80400d-4ec4-43ec-b8f2-66c9f2176832}">
+    <Declaration><![CDATA[TYPE ST_DB_r134a :
+STRUCT
+	id: DINT;
+	timestamp: DT;
+	Druck: STRING(45);
+	Temperatur: STRING(45);
+	Dichte_l: STRING(45);
+	Dichte_v: STRING(45);
+	Enthalpie_l: STRING(45);
+	Enthalpie_v: STRING(45);
+	cp_l: STRING(45);
+	cp_v: STRING(45);
+	Verdampfungsenthalpie: STRING(45);
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

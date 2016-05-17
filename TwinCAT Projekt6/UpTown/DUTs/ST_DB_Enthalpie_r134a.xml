@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <project xmlns="http://www.plcopen.org/xml/tc6_0200">
-  <fileHeader companyName="Beckhoff Automation GmbH" productName="TF6420 Database Server Query Analyser" productVersion="1.0.0.0" creationDateTime="2016-05-11T09:39:26" />
-  <contentHeader name="Untitled1" modificationDateTime="2016-05-11T09:39:26">
+  <fileHeader companyName="Beckhoff Automation GmbH" productName="TF6420 Database Server Query Analyser" productVersion="1.0.0.0" creationDateTime="2016-05-17T16:57:53" />
+  <contentHeader name="Untitled1" modificationDateTime="2016-05-17T16:57:53">
     <coordinateInfo>
       <fbd>
         <scaling x="1" y="1" />
@@ -21,7 +21,7 @@
   </contentHeader>
   <types>
     <dataTypes>
-      <dataType name="DB_r134a">
+      <dataType name="ST_DB_Enthalpie_r134a">
         <baseType>
           <struct>
             <variable name="id">
@@ -34,47 +34,82 @@
                 <DT />
               </type>
             </variable>
-            <variable name="Druck">
-              <type>
-                <string length="45" />
-              </type>
-            </variable>
             <variable name="Temperatur">
               <type>
                 <string length="45" />
               </type>
             </variable>
-            <variable name="Dichte_l">
+            <variable name="h1">
               <type>
                 <string length="45" />
               </type>
             </variable>
-            <variable name="Dichte_v">
+            <variable name="h2">
               <type>
                 <string length="45" />
               </type>
             </variable>
-            <variable name="Enthalpie_l">
+            <variable name="h3">
               <type>
                 <string length="45" />
               </type>
             </variable>
-            <variable name="Enthalpie_v">
+            <variable name="h4">
               <type>
                 <string length="45" />
               </type>
             </variable>
-            <variable name="cp_l">
+            <variable name="h5">
               <type>
                 <string length="45" />
               </type>
             </variable>
-            <variable name="cp_v">
+            <variable name="h6">
               <type>
                 <string length="45" />
               </type>
             </variable>
-            <variable name="Verdampfungsenthalpie">
+            <variable name="h7">
+              <type>
+                <string length="45" />
+              </type>
+            </variable>
+            <variable name="h8">
+              <type>
+                <string length="45" />
+              </type>
+            </variable>
+            <variable name="h9">
+              <type>
+                <string length="45" />
+              </type>
+            </variable>
+            <variable name="h10">
+              <type>
+                <string length="45" />
+              </type>
+            </variable>
+            <variable name="h11">
+              <type>
+                <string length="45" />
+              </type>
+            </variable>
+            <variable name="h12">
+              <type>
+                <string length="45" />
+              </type>
+            </variable>
+            <variable name="h13">
+              <type>
+                <string length="45" />
+              </type>
+            </variable>
+            <variable name="h14">
+              <type>
+                <string length="45" />
+              </type>
+            </variable>
+            <variable name="h15">
               <type>
                 <string length="45" />
               </type>
@@ -92,7 +127,7 @@
   <addData>
     <data name="http://www.3s-software.com/plcopenxml/projectstructure" handleUnknown="discard">
       <ProjectStructure>
-        <Object Name="DB_r134a" />
+        <Object Name="ST_DB_Enthalpie_r134a" />
       </ProjectStructure>
     </data>
   </addData>

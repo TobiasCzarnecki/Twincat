@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4019.2">
   <DUT Name="PM_VAR" Id="{35461691-8c31-411d-9505-39e445d250a4}">
     <Declaration><![CDATA[TYPE PM_VAR :
 STRUCT

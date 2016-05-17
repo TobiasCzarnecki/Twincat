@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
-  <POU Name="WaagenAuslesen" Id="{58121edd-f273-4acb-92a5-8b8bc8fa1c60}" SpecialFunc="None">
-    <Declaration><![CDATA[PROGRAM WaagenAuslesen
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4019.2">
+  <POU Name="Auslesen_Waagen" Id="{58121edd-f273-4acb-92a5-8b8bc8fa1c60}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Auslesen_Waagen
 (* Dieses Program wird dazu verwendet den aktuellen Waagenwert(String) aus dem Zwischenspeicher (RxBuffer) 
 	zu entnehmen. Nach der Verarbeitung im Funktionsbaustein werden alle Werte der Waage_X wieder sich
 	zugewiesen und gespeichert. *)  

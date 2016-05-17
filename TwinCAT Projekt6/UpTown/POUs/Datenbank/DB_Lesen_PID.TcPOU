@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4019.2">
   <POU Name="DB_Lesen_PID" Id="{1976f1af-4c89-43c8-b0e8-ac69a71d8c23}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM DB_Lesen_PID
 VAR
 	  
    FB_DB_Schliesse_PID:FB_DBConnectionClose;
- a: ARRAY[0..100] OF ST_DB_PID;
+ 	a: ARRAY[0..100] OF ST_DB_PID;
 
 	myPID: PID;
 
   
 	FB_DB_Lese_PID: FB_DBRecordArraySelect;
-	sSelectString: STRING(800):= 'SELECT `id`, `timestamp`, `symbolname`, `aktiv`, `Kp`, `I`, `D`, `Ta` FROM `pid`';
+	sSelectString: STRING(800):= 'SELECT `id`, `timestamp`, `symbolname`, `aktiv`, `Kp`, `I`, `D`, `limitunten`,`limitoben`,`Einschalttoleranz`,`Offset` FROM `pid`';
 	nRecIndex: UDINT;
 	bStartStopSelect: BOOL;
 	bBusySelect: BOOL;
@@ -28,10 +28,10 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[IF 	SM.Leerlauf THEN
+      <ST><![CDATA[IF 	SM.bLeerlauf THEN
 	
 start_Lesen_PID:=TRUE;
-SM.Leerlauf:=FALSE;
+SM.bLeerlauf:=FALSE;
 	
 END_IF
 
@@ -49,7 +49,7 @@ END_IF
 				bExecute:= start_Lesen_PID, 
 				tTimeout:= T#5S, 
 				bBusy=> Busy_Lesen_PID, 
-				bError=> SM.Fehler, 
+				bError=> SM.bFehler, 
 				nErrID=> , 
 				sSQLState=> stSQLStateSelect, 
 				nRecords=> nRecordCount); 
@@ -61,131 +61,40 @@ END_IF
 		start_Schliessen_PID:=TRUE;
 	END_IF
 	
-	(*FB_DB_Schliesse_PID(
-				sNetID:= , 
-				hDBID:=3, 
-				bExecute:= start_Schliessen_PID, 
-				tTimeout:= T#1S, 
-				bBusy=> , 
-				bError=> SM.Fehler, 
-				nErrID=> );
-	
-	*)
-	
-	
 	IF nRecordCount>0 THEN
 		
 		FOR counter:=0 TO nRecordCount-1 BY 1 DO
-	   
+		
+	//mypid.w:=STRING_TO_REAL(a[Counter].w);
+	//mypid.x:=STRING_TO_REAL(a[Counter].x);
 	mypid.Kp:=STRING_TO_REAL(a[Counter].Kp);
 	mypid.I:=STRING_TO_REAL(a[Counter].I);
 	mypid.D:=STRING_TO_REAL(a[Counter].D);
-	mypid.Ta:=STRING_TO_REAL(a[Counter].Ta);
-	mypid.Aktiv:=a[Counter].aktiv;
+	//mypid.Einschalttoleranz:= STRING_TO_REAL(a[Counter].Einschalttoleranz);
+	//myPID.Offset:= STRING_TO_REAL(a[Counter].Offset);
+	
+//	mypid.Ta:=STRING_TO_REAL(a[Counter].Ta);
+//	mypid.Aktiv:=a[Counter].aktiv;
 		
 		
 	//=========================================================================================	
 	//	
-			IF a[counter].symbolname = 'REGLER.PID_Vdot_KK' THEN
-				Regler.PID_Vdot_KK:=mypid;
+			IF a[counter].symbolname = 'REGLER.PID_KP' THEN
+				REGLER.PID_KP:=mypid;
 			END_IF
-			IF a[counter].symbolname = 'REGLER.PID_Heizer_KK' THEN
-				Regler.PID_Heizer_KK:=mypid;
+			IF a[counter].symbolname = 'REGLER.PID_VF_Ventilator' THEN
+				REGLER.PID_VF_Ventilator:=mypid;
 			END_IF
-			IF a[counter].symbolname = 'REGLER.PID_3wv_Kalte_KK' THEN
-				Regler.PID_3wv_Kalte_KK:=mypid;
-			END_IF
-			IF a[counter].symbolname = 'REGLER.PID_Pumpe_Kalte_KK' THEN
-				Regler.PID_Pumpe_Kalte_KK:=mypid;
-			END_IF
-			IF a[counter].symbolname = 'REGLER.PID_rlFeuchte_KK' THEN
-				Regler.PID_rlFeuchte_KK:=mypid;
-			END_IF
-			IF a[counter].symbolname = 'HYD.U15.PID_Drossel' THEN
-				HYD.U15.PID_Drossel:=mypid;
-			END_IF
-			IF a[counter].symbolname = 'HYD.U15.PID_Pumpe' THEN
-				HYD.U15.PID_Pumpe :=mypid;
-			END_IF
-			IF a[counter].symbolname = 'HYD.O15.PID_Drossel' THEN
-				HYD.O15.PID_Drossel:=mypid;
-			END_IF
-			IF a[counter].symbolname = 'HYD.O15.PID_Pumpe' THEN
-				HYD.O15.PID_Pumpe :=mypid;
-			END_IF
-			IF a[counter].symbolname = 'HYD.U22L.PID_Drossel' THEN
-				HYD.U22L.PID_Drossel:=mypid;
-			END_IF
-			IF a[counter].symbolname = 'HYD.U22L.PID_Pumpe' THEN
-				HYD.U22L.PID_Pumpe :=mypid;
-			END_IF		
-			IF a[counter].symbolname = 'HYD.O22L.PID_Drossel' THEN
-				HYD.O22L.PID_Drossel:=mypid;
-			END_IF
-			IF a[counter].symbolname = 'HYD.O22L.PID_Pumpe' THEN
-				HYD.O22L.PID_Pumpe :=mypid;
-			END_IF			
-			IF a[counter].symbolname = 'HYD.U22R.PID_Drossel' THEN
-				HYD.U22R.PID_Drossel:=mypid;
-			END_IF
-			IF a[counter].symbolname = 'HYD.U22R.PID_Pumpe' THEN
-				HYD.U22R.PID_Pumpe :=mypid;
-			END_IF			
-			IF a[counter].symbolname = 'HYD.O22R.PID_Drossel' THEN
-				HYD.O22R.PID_Drossel:=mypid;
-			END_IF
-			IF a[counter].symbolname = 'HYD.O22R.PID_Pumpe' THEN
-				HYD.O22R.PID_Pumpe :=mypid;
-			END_IF			
-			IF a[counter].symbolname = 'HYD.U28.PID_Drossel' THEN
-				HYD.U28.PID_Drossel:=mypid;
-			END_IF
-			IF a[counter].symbolname = 'HYD.U28.PID_Pumpe' THEN
-				HYD.U28.PID_Pumpe :=mypid;
-			END_IF			
-			IF a[counter].symbolname = 'HYD.O28.PID_Drossel' THEN
-				HYD.O28.PID_Drossel:=mypid;
-			END_IF
-			IF a[counter].symbolname = 'HYD.O28.PID_Pumpe' THEN
-				HYD.O28.PID_Pumpe :=mypid;
-			END_IF
-			IF a[counter].symbolname = 'HYD.U15.PID_Mischen' THEN
-				HYD.U15.PID_Mischen :=mypid;
-			END_IF
-			
-			IF a[counter].symbolname = 'HYD.O15.PID_Mischen' THEN
-				HYD.O15.PID_Mischen :=mypid;
+			IF a[counter].symbolname = 'REGLER.PID_VD_defrost_Ventilator' THEN
+				REGLER.PID_VD_defrost_Ventilator:=mypid;
 			END_IF
 
-			IF a[counter].symbolname = 'HYD.U22L.PID_Mischen' THEN
-				HYD.U22L.PID_Mischen :=mypid;
-			END_IF		
-
-			IF a[counter].symbolname = 'HYD.O22L.PID_Mischen' THEN
-				HYD.O22L.PID_Mischen :=mypid;
-			END_IF			
-
-			IF a[counter].symbolname = 'HYD.U22R.PID_Mischen' THEN
-				HYD.U22R.PID_Mischen :=mypid;
-			END_IF			
-
-			IF a[counter].symbolname = 'HYD.O22R.PID_Mischen' THEN
-				HYD.O22R.PID_Mischen :=mypid;
-			END_IF			
-
-			IF a[counter].symbolname = 'HYD.U28.PID_Mischen' THEN
-				HYD.U28.PID_Mischen :=mypid;
-			END_IF			
-
-			IF a[counter].symbolname = 'HYD.O28.PID_Mischen' THEN
-				HYD.O28.PID_Mischen :=mypid;
-			END_IF
 		END_FOR
 	END_IF
 	
 	IF Busy_Lesen_pid=FALSE THEN
-		SM.Leerlauf:=TRUE;
-		ELSE  sm.Leerlauf:=FALSE;
+		SM.bLeerlauf:=TRUE;
+		ELSE  sm.bLeerlauf:=FALSE;
 	END_IF
 	]]></ST>
     </Implementation>

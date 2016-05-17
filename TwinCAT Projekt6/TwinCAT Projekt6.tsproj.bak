@@ -166,7 +166,7 @@
 		<ImageData Id="1004">424dd6020000000000003600000028000000100000000e0000000100180000000000a0020000c40e0000c40e00000000000000000000ff00ff000000000000ff00ffff00ffff00ff808080808080808080808080808080ff00ffff00ffff00ffff00ffff00ff000000ff00ffff00ff000000ff00ffff00ffc0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ff000000ff00ffff00ffff00ffff00ffff00ffc0c0c000ffffc0c0c000ffff808080ff00ffff00ffff00ffff00ffff00ff000000ff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ff000000ff00ffff00ff000000ff00ffff00ffc0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ffff00ff000000000000ff00ffff00ffff00ffc0c0c0ff0000c0c0c0ff0000808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c00000ffc0c0c00000ff808080ff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0008000c0c0c0008000808080ff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ff</ImageData>
 		<ImageData Id="1005">424dd6020000000000003600000028000000100000000e0000000100180000000000a0020000c40e0000c40e00000000000000000000ff00ffff00ffff00ffff00ffff00ffff00ff808080808080808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ff</ImageData>
 	</ImageDatas>
-	<Project ProjectGUID="{101B1EEB-66FE-4A62-86EF-B049CAA5028A}" Target64Bit="true" ShowHideConfigurations="#x6">
+	<Project ProjectGUID="{101B1EEB-66FE-4A62-86EF-B049CAA5028A}" TargetNetId="5.33.15.132.1.1" ShowHideConfigurations="#x6">
 		<System>
 			<Settings>
 				<IoIdleTask Priority="6" CycleTime="100000"/>
@@ -316,14 +316,14 @@
 							<Type GUID="{27C33280-DA01-45C5-AA9F-7B198D734670}" Namespace="TC2_SERIALCOM">EL6inData22B</Type>
 						</Var>
 						<Var>
-							<Name>Schwerpunkt_Eismasse.fb_kIstBerechnung3.outWaage.EL6002_in</Name>
+							<Name>Schwerpunkt_Eismasse.fb_kIstBerechnung4.myWaage.EL6002_in</Name>
 							<Comment>
 								<![CDATA[ wird mit COM TxPDO Status verknüpft und mit COM TxPDO Data Inxx multiverknüpft]]>
 							</Comment>
 							<Type GUID="{27C33280-DA01-45C5-AA9F-7B198D734670}" Namespace="TC2_SERIALCOM">EL6inData22B</Type>
 						</Var>
 						<Var>
-							<Name>Schwerpunkt_Eismasse.fb_kIstBerechnung4.myWaage.EL6002_in</Name>
+							<Name>Schwerpunkt_Eismasse.fb_kIstBerechnung3.outWaage.EL6002_in</Name>
 							<Comment>
 								<![CDATA[ wird mit COM TxPDO Status verknüpft und mit COM TxPDO Data Inxx multiverknüpft]]>
 							</Comment>
@@ -561,25 +561,22 @@
 							<Type GUID="{80F174B3-65D6-4F54-A59E-41537B2903AF}" Namespace="TC2_SERIALCOM">EL6outData22B</Type>
 						</Var>
 						<Var>
+							<Name>KM.Schuetz_1K3</Name>
+							<Comment>
+								<![CDATA[Digitale Ausgänge für de Schütze 1K3..1K5]]>
+							</Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>KM.Schuetz_1K5</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
 							<Name>ModbusRTU_EL.ModbusEL6021.OutData</Name>
 							<Type GUID="{A1B06858-89D6-461B-92A3-F54208E6B306}" Namespace="TC2_MODBUSRTU">MB_KL6outData22B</Type>
 						</Var>
 						<Var>
-							<Name>Schwerpunkt_Eismasse.fb_kIstBerechnung1.myWaage.EL6002_out</Name>
-							<Comment>
-								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
-							</Comment>
-							<Type GUID="{80F174B3-65D6-4F54-A59E-41537B2903AF}" Namespace="TC2_SERIALCOM">EL6outData22B</Type>
-						</Var>
-						<Var>
 							<Name>Schwerpunkt_Eismasse.fb_kIstBerechnung1.outWaage.EL6002_out</Name>
-							<Comment>
-								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
-							</Comment>
-							<Type GUID="{80F174B3-65D6-4F54-A59E-41537B2903AF}" Namespace="TC2_SERIALCOM">EL6outData22B</Type>
-						</Var>
-						<Var>
-							<Name>Schwerpunkt_Eismasse.fb_kIstBerechnung2.myWaage.EL6002_out</Name>
 							<Comment>
 								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
 							</Comment>
@@ -601,6 +598,20 @@
 						</Var>
 						<Var>
 							<Name>Schwerpunkt_Eismasse.fb_kIstBerechnung3.outWaage.EL6002_out</Name>
+							<Comment>
+								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
+							</Comment>
+							<Type GUID="{80F174B3-65D6-4F54-A59E-41537B2903AF}" Namespace="TC2_SERIALCOM">EL6outData22B</Type>
+						</Var>
+						<Var>
+							<Name>Schwerpunkt_Eismasse.fb_kIstBerechnung1.myWaage.EL6002_out</Name>
+							<Comment>
+								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
+							</Comment>
+							<Type GUID="{80F174B3-65D6-4F54-A59E-41537B2903AF}" Namespace="TC2_SERIALCOM">EL6outData22B</Type>
+						</Var>
+						<Var>
+							<Name>Schwerpunkt_Eismasse.fb_kIstBerechnung2.myWaage.EL6002_out</Name>
 							<Comment>
 								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
 							</Comment>
@@ -669,6 +680,10 @@
 					</Vars>
 					<Vars VarGrpType="2">
 						<Name>SerialComTask Outputs</Name>
+						<Var>
+							<Name>KM.Schuetz_1K4</Name>
+							<Type>BOOL</Type>
+						</Var>
 						<Var>
 							<Name>GVL.ElektHeizrack1.INT_VAR_Output</Name>
 							<Comment>
@@ -2532,8 +2547,71 @@ Bit1: Value bigger/equal Limit2]]>
 							<EL60xxComPort BaudRate="9600" ByteSize="8" EnableRtsCts="true" LocalComPort="true" RxFifoFullThreshold="864"/>
 						</EtherCAT>
 					</Box>
+					<Box Disabled="true" BoxType="9099" Id="15">
+						<Name>Klemme 12 (EL4008)</Name>
+						<ImageId>1001</ImageId>
+						<EtherCAT SlaveType="2" PdiType="#x0405" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="3" FoeType="1" VendorId="#x00000002" ProductCode="#x0fa83052" RevisionNo="#x00130000" InfoDataAddr="true" TimeoutMailbox2="2000" CheckRevisionNoType="3" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL4008 8K. Ana. Ausgang 0-10V, 12bit" Desc="EL4008" PortABoxInfo="#x01000019">
+							<SyncMan>001080002600010001000000800080008000001026010000</SyncMan>
+							<SyncMan>801080002200010002000000800080008000801022010000</SyncMan>
+							<SyncMan>001110002400010003000000000000001000001124010000</SyncMan>
+							<SyncMan>801100000000000004000000000000000000801100000000</SyncMan>
+							<Fmmu>0000000000000000001100020100000001000000000000000000000000000000</Fmmu>
+							<Fmmu>00000000000000000d0800010100000003000000000000000000000000000000</Fmmu>
+							<BootStrapData>0010f400f410f400</BootStrapData>
+							<DcMode>53796e6368726f6e0000000000000000534d2d53796e6368726f6e000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</DcMode>
+							<DcMode>4443000000000000000000000000000044432d53796e6368726f6e0000000000000000000000000000000000000000000000000000000000a0860100000000070100000000000000000000000000000000000000000000000000000000000000</DcMode>
+							<Pdo Name="AO Outputs Channel 1" Index="#x1600" InOut="1" Flags="#x0011" SyncMan="2">
+								<Entry Name="Analog output" Index="#x7000" Sub="#x11" Flags="#x00020000">
+									<Type>INT</Type>
+								</Entry>
+							</Pdo>
+							<Pdo Name="AO Outputs Channel 2" Index="#x1601" InOut="1" Flags="#x0011" SyncMan="2">
+								<Entry Name="Analog output" Index="#x7010" Sub="#x11" Flags="#x00020000">
+									<Type>INT</Type>
+								</Entry>
+							</Pdo>
+							<Pdo Name="AO Outputs Channel 3" Index="#x1602" InOut="1" Flags="#x0011" SyncMan="2">
+								<Entry Name="Analog output" Index="#x7020" Sub="#x11" Flags="#x00020000">
+									<Type>INT</Type>
+								</Entry>
+							</Pdo>
+							<Pdo Name="AO Outputs Channel 4" Index="#x1603" InOut="1" Flags="#x0011" SyncMan="2">
+								<Entry Name="Analog output" Index="#x7030" Sub="#x11" Flags="#x00020000">
+									<Type>INT</Type>
+								</Entry>
+							</Pdo>
+							<Pdo Name="AO Outputs Channel 5" Index="#x1604" InOut="1" Flags="#x0011" SyncMan="2">
+								<Entry Name="Analog output" Index="#x7040" Sub="#x11" Flags="#x00020000">
+									<Type>INT</Type>
+								</Entry>
+							</Pdo>
+							<Pdo Name="AO Outputs Channel 6" Index="#x1605" InOut="1" Flags="#x0011" SyncMan="2">
+								<Entry Name="Analog output" Index="#x7050" Sub="#x11" Flags="#x00020000">
+									<Type>INT</Type>
+								</Entry>
+							</Pdo>
+							<Pdo Name="AO Outputs Channel 7" Index="#x1606" InOut="1" Flags="#x0011" SyncMan="2">
+								<Entry Name="Analog output" Index="#x7060" Sub="#x11" Flags="#x00020000">
+									<Type>INT</Type>
+								</Entry>
+							</Pdo>
+							<Pdo Name="AO Outputs Channel 8" Index="#x1607" InOut="1" Flags="#x0011" SyncMan="2">
+								<Entry Name="Analog output" Index="#x7070" Sub="#x11" Flags="#x00020000">
+									<Type>INT</Type>
+								</Entry>
+							</Pdo>
+							<CoeProfile ProfileNo="26219401"/>
+							<CoeProfile ProfileNo="26219401"/>
+							<CoeProfile ProfileNo="26219401"/>
+							<CoeProfile ProfileNo="26219401"/>
+							<CoeProfile ProfileNo="26219401"/>
+							<CoeProfile ProfileNo="26219401"/>
+							<CoeProfile ProfileNo="26219401"/>
+							<CoeProfile ProfileNo="26219401"/>
+						</EtherCAT>
+					</Box>
 					<Box BoxType="9101" Id="11">
-						<Name>Klemme 12 (EL6002)</Name>
+						<Name>Klemme 13 (EL6002)</Name>
 						<ImageId>1004</ImageId>
 						<EtherCAT SlaveType="7" PdiType="#x0005" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="39" FoeType="1" VendorId="#x00000002" ProductCode="#x17723052" RevisionNo="#x00130000" InfoDataAddr="true" TimeoutMailbox2="2000" CheckRevisionNoType="3" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL6002 Schnittstelle 2K. (RS232)" Desc="EL6002" PortABoxInfo="#x01000019">
 							<SyncMan>001080002600010001000000400080008000001026010000</SyncMan>
@@ -3205,7 +3283,7 @@ Bit1: Value bigger/equal Limit2]]>
 						</EtherCAT>
 					</Box>
 					<Box BoxType="9101" Id="12">
-						<Name>Klemme 13 (EL6002)</Name>
+						<Name>Klemme 14 (EL6002)</Name>
 						<ImageId>1004</ImageId>
 						<EtherCAT SlaveType="7" PdiType="#x0005" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="39" FoeType="1" VendorId="#x00000002" ProductCode="#x17723052" RevisionNo="#x00130000" InfoDataAddr="true" TimeoutMailbox2="2000" CheckRevisionNoType="3" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL6002 Schnittstelle 2K. (RS232)" Desc="EL6002" PortABoxInfo="#x0100000b">
 							<SyncMan>001080002600010001000000400080008000001026010000</SyncMan>
@@ -3877,7 +3955,7 @@ Bit1: Value bigger/equal Limit2]]>
 						</EtherCAT>
 					</Box>
 					<Box BoxType="9101" Id="13">
-						<Name>Klemme 14 (EL6002)</Name>
+						<Name>Klemme 15 (EL6002)</Name>
 						<ImageId>1004</ImageId>
 						<EtherCAT SlaveType="7" PdiType="#x0005" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="39" FoeType="1" VendorId="#x00000002" ProductCode="#x17723052" RevisionNo="#x00130000" InfoDataAddr="true" TimeoutMailbox2="2000" CheckRevisionNoType="3" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL6002 Schnittstelle 2K. (RS232)" Desc="EL6002" PortABoxInfo="#x0100000c">
 							<SyncMan>001080002600010001000000400080008000001026010000</SyncMan>
@@ -4549,7 +4627,7 @@ Bit1: Value bigger/equal Limit2]]>
 						</EtherCAT>
 					</Box>
 					<Box BoxType="9099" Id="14">
-						<Name>Klemme 15 (EL9011)</Name>
+						<Name>Klemme 16 (EL9011)</Name>
 						<ImageId>1005</ImageId>
 						<EtherCAT CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x23333050" InfoDataState="false" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL9011 Endklemme" Desc="EL9011" PortABoxInfo="#x0100000d"/>
 					</Box>
@@ -4574,6 +4652,10 @@ Bit1: Value bigger/equal Limit2]]>
 		<MappingInfo Identifier="{00000000-0011-0101-1000-010110000403}" Id="#x03070020"/>
 		<MappingInfo Identifier="{00000000-0011-0101-1000-010130000403}" Id="#x03070010"/>
 		<OwnerA Name="TIPC^UpTown^UpTown Instance">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 10 (EL2809)">
+				<Link VarA="PlcTask Outputs^KM.Schuetz_1K3" VarB="Channel 1^Output"/>
+				<Link VarA="PlcTask Outputs^KM.Schuetz_1K5" VarB="Channel 2^Output"/>
+			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 11 (EL6021)">
 				<Link VarA="PlcTask Inputs^ModbusRTU_EL.ModbusEL6021.InData" VarB="COM TxPDO-Map Inputs^Data In 0" Size="8" OffsA="16"/>
 				<Link VarA="PlcTask Inputs^ModbusRTU_EL.ModbusEL6021.InData" VarB="COM TxPDO-Map Inputs^Data In 1" Size="8" OffsA="24"/>
@@ -4622,7 +4704,7 @@ Bit1: Value bigger/equal Limit2]]>
 				<Link VarA="PlcTask Outputs^ModbusRTU_EL.ModbusEL6021.OutData" VarB="COM RxPDO-Map Outputs^Data Out 8" Size="8" OffsA="80"/>
 				<Link VarA="PlcTask Outputs^ModbusRTU_EL.ModbusEL6021.OutData" VarB="COM RxPDO-Map Outputs^Data Out 9" Size="8" OffsA="88"/>
 			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 12 (EL6002)">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 13 (EL6002)">
 				<Link VarA="PlcTask Inputs^WAAGEN.Waage[1].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 0" Size="8" OffsA="16"/>
 				<Link VarA="PlcTask Inputs^WAAGEN.Waage[1].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 1" Size="8" OffsA="24"/>
 				<Link VarA="PlcTask Inputs^WAAGEN.Waage[1].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 10" Size="8" OffsA="96"/>
@@ -4716,7 +4798,7 @@ Bit1: Value bigger/equal Limit2]]>
 				<Link VarA="PlcTask Outputs^WAAGEN.Waage[2].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 8" Size="8" OffsA="80"/>
 				<Link VarA="PlcTask Outputs^WAAGEN.Waage[2].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 9" Size="8" OffsA="88"/>
 			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 13 (EL6002)">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 14 (EL6002)">
 				<Link VarA="PlcTask Inputs^WAAGEN.Waage[3].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 0" Size="8" OffsA="16"/>
 				<Link VarA="PlcTask Inputs^WAAGEN.Waage[3].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 1" Size="8" OffsA="24"/>
 				<Link VarA="PlcTask Inputs^WAAGEN.Waage[3].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 10" Size="8" OffsA="96"/>
@@ -4810,7 +4892,7 @@ Bit1: Value bigger/equal Limit2]]>
 				<Link VarA="PlcTask Outputs^WAAGEN.Waage[4].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 8" Size="8" OffsA="80"/>
 				<Link VarA="PlcTask Outputs^WAAGEN.Waage[4].EL6002_out" VarB="COM RxPDO-Map Outputs Channel 2^Data Out 9" Size="8" OffsA="88"/>
 			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 14 (EL6002)">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 15 (EL6002)">
 				<Link VarA="PlcTask Inputs^WAAGEN.Waage[5].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 0" Size="8" OffsA="16"/>
 				<Link VarA="PlcTask Inputs^WAAGEN.Waage[5].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 1" Size="8" OffsA="24"/>
 				<Link VarA="PlcTask Inputs^WAAGEN.Waage[5].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 10" Size="8" OffsA="96"/>

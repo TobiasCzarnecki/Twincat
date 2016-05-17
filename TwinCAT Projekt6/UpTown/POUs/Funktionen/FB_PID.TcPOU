@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4019.2">
+  <POU Name="FB_PID" Id="{91018433-4397-4e7b-976f-2775a97c0c49}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_PID //EXTENDS CTRL_PID
+VAR_INPUT
+	PID_in : PID;
+END_VAR
+VAR_OUTPUT
+	PID_out: PID;
+END_VAR
+	
+VAR
+	FB_PID: CTRL_PID;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF PID_in.Aktiv THEN
+
+	FB_PID( 
+	ACT:= PID_in.x, 
+	SET:= PID_in.w, 
+	SUP:= PID_in.Einschalttolleranz, 
+	OFS:= PID_in.Offset, 
+	M_I:= PID_in.ManuellerWert, 
+	MAN:= PID_in.ManuellerModus, 
+	RST:= PID_in.Restart, 
+	KP:= PID_in.Kp, 
+	TN:= PID_in.Kp/ PID_in.I, 
+	TV:= PID_in.D/ PID_in.Kp, 
+	LL:= PID_in.Limit_unten, 
+	LH:= PID_in.Limit_oben, 
+	Y=> PID_in.y, 
+	DIFF=> PID_in.e, 
+	LIM=> PID_in.LimitErreicht);
+ELSE 
+	// Rergler ist ausgeschaltenen und sendet 0 mA ODER 0 V.
+	PID_in.y := 0; 
+END_IF
+
+PID_out:= PID_in;
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4019.2">
+  <POU Name="DB_Lesen_Enthalpie_r134a" Id="{b0bfeeb1-0a07-4266-a8ee-51fbcbd4d562}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM DB_Lesen_Enthalpie_r134a
+VAR
+	
+	DbArray_Enthalpie_r134a: ARRAY[0..200] OF ST_DB_Enthalpie_r134a;	
+
+	FbDbLesen: FB_DBRecordArraySelect;
+	sSelectString: STRING(800):= 'SELECT `id`, `timestamp`, `Temperatur`, `h1`, `h2`, `h3`,`h4`, `h5`, `h6`, `h7`,`h8`, `h9`, `h10`, `h11`,`h12`,`h13`,`h14`,`h15` FROM `enthalpie_r134a`';
+	nRecIndex: UDINT;
+	bStartStopSelect: BOOL;
+	bBusySelect: BOOL;
+	bErrorSelect: BOOL;
+	stSQLStateSelect: TC2_DATABASE.ST_DBSQLError;
+	nRecordCount: UDINT;
+	Busy_Lesen:BOOL;
+	start_Lesen:BOOL:=TRUE;
+	
+	ErrorId:UDINT;
+	start_Schliessen:BOOL:=FALSE;
+	Counter: UDINT:=0;
+	
+	pCmdAddr: UDINT;
+	
+
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF 	SM.bLeerlauf THEN
+	
+start_Lesen:=TRUE;
+SM.bLeerlauf:=FALSE;
+	
+END_IF
+
+//=========================================================================================	
+//Dampftafel auslesen		
+	FbDbLesen(
+				sNetID:=, 
+				hDBID:= 4, 
+				pCmdAddr:= ADR(sSelectString), 
+				cbCmdSize:= SIZEOF(sSelectString), 
+				nStartIndex:= nRecIndex, 
+				nRecordCount:=nRecordCount-1, 
+				pDestAddr:= ADR(DbArray_Enthalpie_r134a), 
+				cbRecordArraySize:= SIZEOF(DbArray_Enthalpie_r134a), 
+				bExecute:= start_Lesen, 
+				tTimeout:= T#5S, 
+				bBusy=> Busy_Lesen, 
+				bError=> SM.bFehler, 
+				nErrID=> ErrorId, 
+				sSQLState=> stSQLStateSelect, 
+				nRecords=> nRecordCount); 
+				
+	IF Busy_Lesen=FALSE THEN
+			start_Lesen:=FALSE;
+	END_IF
+	
+	IF nRecordCount>0 THEN
+		
+		FOR counter:=0 TO nRecordCount-1 BY 1 DO
+			Enthalpie_r134a[counter].Temperatur :=			STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].Temperatur));
+			Enthalpie_r134a[counter].h1 :=		STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].h1));
+			Enthalpie_r134a[counter].h2 :=		STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].h2));
+			Enthalpie_r134a[counter].h3 :=		STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].h3));
+			Enthalpie_r134a[counter].h4	:=		STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].h4));
+			Enthalpie_r134a[counter].h5 :=		STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].h5));
+			Enthalpie_r134a[counter].h6	:=		STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].h6));
+			Enthalpie_r134a[counter].h7 :=		STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].h7));
+			Enthalpie_r134a[counter].h8	:=		STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].h8));
+			Enthalpie_r134a[counter].h9 :=		STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].h9));
+			Enthalpie_r134a[counter].h10:=		STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].h10));
+			Enthalpie_r134a[counter].h11:=		STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].h11));
+			Enthalpie_r134a[counter].h12:=		STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].h12));
+			Enthalpie_r134a[counter].h13:=		STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].h13));
+			Enthalpie_r134a[counter].h14:=		STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].h14));
+			Enthalpie_r134a[counter].h15:=		STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].h15));
+		END_FOR
+	END_IF
+	
+	
+	IF Busy_Lesen=FALSE AND nRecordCount>0 THEN
+		SM.bLeerlauf:=TRUE;
+		ELSE  sm.bLeerlauf:=FALSE;
+	END_IF
+	]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4019.2">
+  <DUT Name="ST_DB_PID" Id="{bcb6a6d6-d7d1-4113-8335-003921ff22c6}">
+    <Declaration><![CDATA[TYPE ST_DB_PID :
+STRUCT
+	id: DINT;
+	timestamp: DT;
+	symbolname: STRING(255);
+	aktiv: BOOL;
+	Kp: STRING(45);
+	I: STRING(45);
+	D: STRING(45);
+	Ta: STRING(45);
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4019.2">
+  <POU Name="Regelung" Id="{05ac8433-e45f-42f3-8c7e-64a31f93e4f5}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Regelung
+VAR
+	fb_pid_KP : 		CTRL_PID;
+	fb_pid_VF : 		CTRL_PID;
+	fb_pid_VD_defrost : CTRL_PID;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[(*Reglerausgänge den Output_VAR zuordnen*)
+
+	PID_VF_Ventilator.y := 			Soll_VF_Ventilator.REAL_VAR;
+	PID_VD_defrost_Ventilator.y:= 	Soll_VD_defrost_Ventilator.REAL_VAR;
+
+	
+
+(*Regler für die Drehzahl des Kompressors*)
+IF PID_KP.Aktiv THEN	
+fb_pid_KP( 
+	ACT:= PID_KP.x, //PT.rDruck 
+	SET:= PID_KP.w, //3.5 [bar]
+	SUP:= PID_KP.Einschalttoleranz, 
+	OFS:= PID_KP.Offset, 
+	M_I:= PID_KP.ManuellerWert, 
+	MAN:= PID_KP.ManuellerModus, 
+	RST:= PID_KP.Restart, 
+	KP:= PID_KP.Kp, 
+	TN:= PID_KP.Kp/ PID_KP.I, 
+	TV:= PID_KP.D/ PID_KP.Kp, 
+	LL:= Soll_KP.REAL_PARA_minWert,//PID_KP.LimitUnten, 
+	LH:= Soll_KP.REAL_PARA_maxWert,//PID_KP.LimitOben, 
+	Y=> PID_KP.y, //4..20mA Kompressor_drehzahl
+	DIFF=> PID_KP.e, 
+	LIM=> PID_KP.LimitErreicht);
+ELSE 
+	PID_KP.y := 0; // Regler ist ausgeschalten und sendet 0 mA
+END_IF
+	Soll_KP.REAL_VAR	 := 		PID_KP.y;	
+		
+(*Regler für den Ventilator vom Verflüssiger*)	
+IF PID_VF_Ventilator.Aktiv THEN	
+fb_pid_VF( 
+	ACT:= PID_VF_Ventilator.x, 
+	SET:= PID_VF_Ventilator.w, 
+	SUP:= PID_VF_Ventilator.Einschalttoleranz, 
+	OFS:= PID_VF_Ventilator.Offset, 
+	M_I:= PID_VF_Ventilator.ManuellerWert, 
+	MAN:= PID_VF_Ventilator.ManuellerModus, 
+	RST:= PID_VF_Ventilator.Restart, 
+	KP:= PID_VF_Ventilator.Kp, 
+	TN:= PID_VF_Ventilator.Kp/ PID_VF_Ventilator.I, 
+	TV:= PID_VF_Ventilator.D/ PID_VF_Ventilator.Kp, 
+	LL:= Soll_VF_Ventilator.REAL_PARA_minWert,//PID_VF_Ventilator.LimitUnten, 
+	LH:= Soll_VF_Ventilator.REAL_PARA_maxWert,//PID_VF_Ventilator.LimitOben, 
+	Y=> PID_VF_Ventilator.y, 
+	DIFF=> PID_VF_Ventilator.e, 
+	LIM=> PID_VF_Ventilator.LimitErreicht);
+ELSE 
+	PID_VF_Ventilator.y := 0; // Rergler ist ausgeschaltenen und sendet 0 mA.
+END_IF
+
+(*Regler für den Ventilator vom Verdampfer außerhalb der Klimakammer in der Abtauphase*)
+IF PID_VD_defrost_Ventilator.Aktiv THEN	
+fb_pid_VD_defrost( 
+	ACT:= PID_VD_defrost_Ventilator.x, 
+	SET:= PID_VD_defrost_Ventilator.w, 
+	SUP:= PID_VD_defrost_Ventilator.Einschalttoleranz, 
+	OFS:= PID_VD_defrost_Ventilator.Offset, 
+	M_I:= PID_VD_defrost_Ventilator.ManuellerWert, 
+	MAN:= PID_VD_defrost_Ventilator.ManuellerModus, 
+	RST:= PID_VD_defrost_Ventilator.Restart, 
+	KP:= PID_VD_defrost_Ventilator.Kp, 
+	TN:= PID_VD_defrost_Ventilator.Kp/ PID_VD_defrost_Ventilator.I, 
+	TV:= PID_VD_defrost_Ventilator.D/ PID_VD_defrost_Ventilator.Kp, 
+	LL:= Soll_VD_defrost_Ventilator.REAL_PARA_minWert,//PID_VD_defrost_Ventilator.LimitUnten, 
+	LH:= Soll_VD_defrost_Ventilator.REAL_PARA_maxWert,//PID_VD_defrost_Ventilator.LimitOben, 
+	Y=> PID_VD_defrost_Ventilator.y, 
+	DIFF=> PID_VD_defrost_Ventilator.e, 
+	LIM=> PID_VD_defrost_Ventilator.LimitErreicht);
+ELSE 
+	PID_VD_defrost_Ventilator.y := 0; // Rergler ist ausgeschaltenen und sendet 0 mA ODER 0 V.
+END_IF
+
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

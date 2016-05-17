@@ -4,13 +4,20 @@
     <Declaration><![CDATA[VAR_GLOBAL
 
 (*Hier sind alle Heizelemente deklariert.*)
+
+
 		ElektHeizrack1 : 		OUTPUT_VAR;		// regelt ein Packet aus 10 Heizstaebe im Verdampfer
 		ElektHeizrack2 : 		OUTPUT_VAR;	 	// regelt ein Packet aus 10 Heizstaebe im Verdampfer
 		//ElektHeizrack3 : 		OUTPUT_VAR;		// !noch nicht im Verdampfer verbaut!
 		//ElektHeizrack4 : 		OUTPUT_VAR;		// !noch nicht im Verdampfer verbaut!
 		//ElektHeizrack5 : 		OUTPUT_VAR;		// !noch nicht im Verdampfer verbaut!
 		ElektHeizrack_Boden: 	OUTPUT_VAR;  	//liegt in der Wanne des Verdampfers, besteht aus 3 Heizstaeben
-				
+
+(*Hier sind die Stellsignale für die Ausgangsklemmen deklariert.*)
+
+		Soll_KP: 						OUTPUT_VAR;
+		Soll_VF_Ventilator : 			OUTPUT_VAR;
+		Soll_VD_defrost_Ventilator : 	OUTPUT_VAR;
 
 (*Hier sind alle Drucksensoren deklariert, die im Kältekreislauf installiert sind.
 	Die Positionen (Pos) beziehen sich auf das RI-Fließbild von der Kälteanlage*)
@@ -19,14 +26,10 @@
 		PT_KP_out:			DruckSensor;		//Pos 2: PT-Sensor nach Kompressor
 		PT_VF_in:			DruckSensor;		//Pos 2': PT-Sensor vor Verflüssiger bzw. nach Abtau-Verdampfer 
 		PT_VF_out:			DruckSensor;		//Pos 3': PT-Sensor nach Verflüssiger bzw. vor Abtau-Verdampfer 
-		//PT_VD_defrost_in:= PT_VF_out;			//Pos 3': PT-Sensor vor Verdampfer außerhalb der Klimakammer
-		//PT_VD_defrost_out:= PT_VF_in;			//Pos 2': PT-Sensor nach Verdampfer außerhalb der Klimakammer
 		PT_vor_EV 	: 		DruckSensor;		//Pos 3: PT-Sensor vor dem Expansionsventil IV3
 		PT_vor_EV_rev : 	DruckSensor;		//Pos 3: PT-Sensor vor dem Expansionsventil IV4,bei Strömungsumkehrung (reverse)
 		PT_VD_in	:		DruckSensor;		//Pos 4 : PT-Sensor vor Verdampfer in der Klimakammer 
 		PT_VD_out	:		DruckSensor;		//Pos 1': PT-Sensor nach Verdampfer in der Klimakammer 
-		//PT_VD_in_rev:= PT_VD_out;				//Pos 1': PT-Sensor vor Verdampfer bei Strömungsumkehrung(reverse) 	
-		//PT_VD_out_rev:= PT_VD_in;				//Pos 4: PT-Sensor nach Verdampfer bei Strömungsumkehrung(reverse) 
 
 
 (*Hier sind alle Temperatursensoren deklariert, die im Kältekreislauf installiert sind.
@@ -36,9 +39,12 @@
 		Temp_VD_out:				INPUT_VAR; //Pos 1': T-Sensor nach Verdampfer in der Klimakammer	
 		Temp_VD_in_rev:	 			INPUT_VAR; //Pos 1A': T-Sensor vor Verdampfer bei Strömungsumkehrung(reverse) 	
 		Temp_VD_out_rev:			INPUT_VAR; //Pos 4A: T-Sensor nach Verdampfer bei Strömungsumkehrung(reverse)
-		Temp_VD_surface: 			INPUT_VAR; //T-Sensor auf Wärmeübertrager im Verdampfer in der Klimakammer	
-		Temp_VF_in:					INPUT_VAR ; // Pos 2': T-Sensor vor Verflüssiger    
-		Temp_VF_out: 				INPUT_VAR ; // Pos 3': T-Sensor nach Verflüssiger		
+		Temp_VD_surface1: 			INPUT_VAR; //T-Sensor auf Wärmeübertrager im Verdampfer in der Klimakammer	
+		Temp_VD_surface2: 			INPUT_VAR; //T-Sensor auf Wärmeübertrager im Verdampfer in der Klimakammer	
+		Temp_VD_surface3: 			INPUT_VAR; //T-Sensor auf Wärmeübertrager im Verdampfer in der Klimakammer	
+		Temp_VD_surface4: 			INPUT_VAR; //T-Sensor auf Wärmeübertrager im Verdampfer in der Klimakammer	
+		Temp_VF_in:					INPUT_VAR; // Pos 2': T-Sensor vor Verflüssiger    
+		Temp_VF_out: 				INPUT_VAR; // Pos 3': T-Sensor nach Verflüssiger		
 		Temp_VD_defrost_in:			INPUT_VAR; // Pos 3A': T-Sensor vor Verdampfer außerhalb der Klimakammer
 		Temp_VD_defrost_out:		INPUT_VAR; // Pos 2A': T-Sensor nach Verdampfer außerhalb der Klimakammer
 		Temp_KP_in:					INPUT_VAR; // Pos 1: T-Sensor vor Kompressor, im RI-Schema Position 1
@@ -46,17 +52,19 @@
 		Temp_vor_EV:				INPUT_VAR; // Pos 3: T-Sensor vor dem Expansionsventil IV3
 		Temp_vor_EV_rev:			INPUT_VAR; // Pos 3: T-Sensor vor dem Expansionsventil IV4,bei Strömungsumkehrung (reverse)
 
-		
-(*Speicherorte für benötigte Stoffwerte*)		
-		r134a:	ARRAY[0..200] OF Stoffwerte;
-	
+		Temp_VD_Surface_gemittelt : REAL;
 	
 (*ExpansionsVentile werden deklariert*)
-
 		EV :	 	ExpansionsVentil; //Dieses Expansionsventil regelt im Normalbetrieb den Verdampfungsdruck und -temperatur
 		EV_rev: 	ExpansionsVentil; //Im Falle einer Strömungsumkehrung wird über dieses Expansionsventil in den Verdampfer außerhalb der KlimaKammer eingespritzt
 		
 	
+END_VAR
+
+VAR_GLOBAL PERSISTENT
+(*Speicherorte für benötigte Stoffwerte*)		
+		r134a:	ARRAY[0..200] OF Stoffwerte;
+		Enthalpie_r134a : ARRAY[0..200] OF Enthalpie_r134a;
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

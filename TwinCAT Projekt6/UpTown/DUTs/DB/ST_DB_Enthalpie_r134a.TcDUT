@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4019.2">
+  <DUT Name="ST_DB_Enthalpie_r134a" Id="{8842a1f7-13cf-48b2-be97-bcc8c171c5be}">
+    <Declaration><![CDATA[TYPE ST_DB_Enthalpie_r134a :
+STRUCT
+	id: DINT;
+	timestamp: DT;
+	Temperatur: STRING(45);
+	h1: STRING(45);
+	h2: STRING(45);
+	h3: STRING(45);
+	h4: STRING(45);
+	h5: STRING(45);
+	h6: STRING(45);
+	h7: STRING(45);
+	h8: STRING(45);
+	h9: STRING(45);
+	h10: STRING(45);
+	h11: STRING(45);
+	h12: STRING(45);
+	h13: STRING(45);
+	h14: STRING(45);
+	h15: STRING(45);
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

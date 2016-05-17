@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4019.2">
+  <DUT Name="Stoffwerte" Id="{a9d357f2-ecb0-4c75-9d71-911c2b7f6b34}">
+    <Declaration><![CDATA[TYPE Stoffwerte :
+STRUCT
+	Temperatur 	: 			REAL;	//°C
+	Druck		: 			REAL; 	//bar
+	Dichte_l	:			REAL; 	//kg/m³
+	Dichte_v	: 			REAL; 	//kg/m³
+	Enthalpie_l	: 			REAL; 	//kJ/kg
+	Enthalpie_v	: 			REAL; 	//kJ/kg
+	Cp_l		:			REAL;	//kJ/kg K
+	Cp_v		: 			REAL;	//kJ/kg K
+	Verdampfungsenthalpie: 	REAL; 	//kJ/kg
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

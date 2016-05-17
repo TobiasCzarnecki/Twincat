@@ -8,32 +8,42 @@ END_VAR
 
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[
-DB_Lesen_r134a();
-
-WaagenAuslesen();
-Auslesen_Modbus();
-ModbusRTU_COM();
-ModbusRTU_EL();
-Temperatur();
-Schwerpunkt_Eismasse();
-
-(*Prüfen ob neu initialisiert werden muss*)
+      <ST><![CDATA[(*Prüfen ob neu initialisiert werden muss*)
 IF SM.bNeuInitialisieren THEN 		
 	SM.Status:= Initialisieren;
 	SM.bLeerlauf:=TRUE;
 END_IF
 
 
+(*Hintergrundkommunikationsprogramme*)
+Auslesen_Waagen();
+Auslesen_Modbus();
+ModbusRTU_COM();
+ModbusRTU_EL();
+//Temperatur();
+Schwerpunkt_Eismasse();
+
+
+
 CASE SM.Status OF
 	
 
-Initialisieren: 
+Initialisieren: //Parameter und Standardwerte aus Datenbank lesen und übergeben
+	
+	DB_Lesen_r134a();			//Liest die Stoffwerte von dem Kältemittel R134a ein
+	//DB_Lesen_Komponenten();		//
+	DB_Lesen_PID();
+	DB_Lesen_Enthalpie_r134a();
+		IF 	DB_Lesen_r134a.Busy_Lesen = FALSE 
+		AND DB_Lesen_Komponenten.Busy_Lesen_Komponenten =FALSE	
+		AND DB_Lesen_PID.Busy_Lesen_PID = FALSE
+		AND DB_Lesen_Enthalpie_r134a.Busy_Lesen = FALSE
+		AND SM.bLeerlauf AND SM.bFehler=FALSE THEN
+				SM.bNeuInitialisieren:=FALSE;
+				SM.bLeerlauf:= FALSE;
+				SM.Status:= Lesen; //Initialisation abgeschlossen
+		END_IF
 
-	IF 
-	//======nächster Modus====
-		SM.Status:= Lesen;
-	END_IF
 	
 Lesen: //Input von Klemmen Lesen und in native Werte umrechen
 
@@ -73,14 +83,16 @@ Lesen: //Input von Klemmen Lesen und in native Werte umrechen
 				SM.bManuellerModus				:=FALSE;
 			
 			bAnlagenschutzModus:=TRUE;
+			
 		//======nächster Modus====			
 			SM.Status := Abtauen;
 		END_IF
 	
 	IF NOT bKuehlen AND NOT bAbtauen_Heissgas_unten AND NOT bAbtauen_Heissgas_oben AND NOT bAbtauen_elektrisch THEN 
 		SM.bFehler:= TRUE;
+		
 		//======nächster Modus====	
-			SM.Status := Leerlauf;
+			SM.Status := Lesen;
 	END_IF
 	
 				
@@ -94,6 +106,7 @@ Kuehlen:	// Der Verdampfer vereist. Der Timer "TimerVereisung" bestimmt die Zeit
 				SM.bAbtauen_Heissgas_oben 		:= FALSE;
 				SM.bAbtauen_Heissgas_unten 		:= FALSE;
 				SM.bAbtauen_elektrisch			:= FALSE;	
+				
 		//======nächster Modus====
 			SM.Status:=Manuell;	
 			END_IF
@@ -103,22 +116,46 @@ Vollautomatik:	// Alle Regler sind Aktiv und regeln auf Normalbetrieb
 				
 	 	SM.bVollautomatikModbus 			:= TRUE;
 		SM.bManuellerModus					:=FALSE;
-		
+
+	(*Schütze werden geschaltet. Timer wird auf 1 Stunde gestellt. *)
 	Vereisung();
+	
+	(*Regler aktivieren *)
+		VD_Ventilator_ON := 				TRUE;
+		PID_KP.Aktiv:= 						TRUE;
+		PID_VF_Ventilator.Aktiv:= 			TRUE;
+		PID_VD_defrost_Ventilator.Aktiv:= 	FALSE;
+		Regelung();
 		
 	//======nächster Modus====					
 		SM.Status:=Anlagenschutz;
 			
 Manuell: // Regler müssen manuell auf Aktiv umgestellt werden
 
+	(*Schütze werden geschaltet. Timer wird auf 1 Stunde gestellt. *)
+	Vereisung();
+	
+	(*Regler müssen manuell aktiviert werden *)
+		VD_Ventilator_ON := 				FALSE;
+		PID_KP.Aktiv:= 						FALSE;
+		PID_VF_Ventilator.Aktiv:= 			FALSE;
+		PID_VD_defrost_Ventilator.Aktiv:= 	FALSE;
+		Regelung();
+	
+	//======nächster Modus====	
+		IF  SM.bAnlagenschutzModus THEN
+			SM.Status:=Anlagenschutz;
+			ELSE
+			SM.Status:=Schreiben;
+		END_IF
+	
 		
-	//======nächster Modus====					
-		SM.Status:=Anlagenschutz;
-		
-		
+
 Abtauen: //Der Verdampfer wird abgetaut. Über GVL wird der Abtaumodus ausgewählt	
 	
+	(*Regler werden im Programm Abtauen() aktiviert und deaktiviert*)
 	Abtauung();
+	Regelung();
 	
 	//======nächster Modus====					
 		SM.Status:=Anlagenschutz;
@@ -135,8 +172,6 @@ Schreiben:		//Native Werte werden zurückgerechnet und an Klemmen übergeben
 	
 	//======nächster Modus====			
 		SM.Status:=Lesen;
-		
-Leerlauf: 		//Status-Maschine springt in Leerlauf falls notwendige Bool-variablen nicht gesetzt sind oder die Initionlisierung noch Zeit benötigt
 
 ELSE
 	SM.bFehler := TRUE;

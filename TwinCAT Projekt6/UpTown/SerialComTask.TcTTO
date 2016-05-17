@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4019.2">
   <Task Name="SerialComTask" Id="{f4f22c5d-a70c-46ac-803a-5af7b1cab6b6}">
     <!--CycleTime in micro seconds.-->
     <CycleTime>10000</CycleTime>
@@ -8,7 +8,7 @@
       <Name>Hintergrund</Name>
     </PouCall>
     <PouCall>
-      <Name>WaagenAuslesen</Name>
+      <Name>Auslesen_Waagen</Name>
     </PouCall>
     <TaskFBGuid>{5720aef6-f38a-4721-ba3a-d8421cbd47bb}</TaskFBGuid>
     <Fb_init>{05ddfe51-c841-43e1-b853-dd16d4451119}</Fb_init>

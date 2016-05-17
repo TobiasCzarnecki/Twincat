@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4019.2">
+  <POU Name="FB_Schuetzstellung" Id="{708b9cd3-618e-4c49-a643-8acb079c6268}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_Schuetzstellung
+VAR_INPUT
+myStatus: Status_Schuetzstellung;
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[CASE  myStatus OF
+
+KuehlenUnten:
+	(*Schütze werden geschaltet*)
+		Schuetz_1K3 := TRUE;
+		Schuetz_1K4 := FALSE;
+		Schuetz_1K5 := TRUE;
+
+	(*Falls Komponente ON ist wird sie auf TRUE gesetzt*)	
+		VD_Ventilator_ON			:= TRUE;  
+		
+	(*Expansionsventil wird aktiviert und auf 100% gestellt. Komunikation erfolgt über Modbus_EL*)
+		EV.SetAktKuhlleistung := TRUE;
+		EV.SollAktKuhlleistung:= 100;
+		
+PumpDown:
+	(*Schütze werden geschaltet*)
+		Schuetz_1K3 := TRUE;
+		Schuetz_1K4 := FALSE;
+		Schuetz_1K5 := TRUE;
+		
+	(*Falls Komponente ON ist wird sie auf TRUE gesetzt*)	
+		VD_Ventilator_ON			:= TRUE;  
+		
+	(*Expansionsventil wird aktiviert und auf 0% gestellt. Komunikation erfolgt über Modbus_EL*)
+		EV.SetAktKuhlleistung := TRUE;
+		EV.SollAktKuhlleistung:= 0;
+		
+AbtauenOben:
+	(*Schütze werden geschaltet*)
+		Schuetz_1K3 := FALSE;
+		Schuetz_1K4 := TRUE;
+		Schuetz_1K5 := FALSE;
+		
+	(*Falls Komponente ON ist wird sie auf TRUE gesetzt*)	
+		VD_Ventilator_ON			:= FALSE;  
+	
+AbtauenUnten:
+	(*Schütze werden geschaltet*)
+		Schuetz_1K3 := FALSE;
+		Schuetz_1K4 := FALSE;
+		Schuetz_1K5 := FALSE;
+
+	(*Falls Komponente ON ist wird sie auf TRUE gesetzt*)	
+		VD_Ventilator_ON			:= FALSE;  
+		
+AbtauenElektrisch: 
+	(*Schütze werden geschaltet*)
+		Schuetz_1K3 := TRUE;
+		Schuetz_1K4 := FALSE;
+		Schuetz_1K5 := TRUE;
+
+	(*Falls Komponente ON ist wird sie auf TRUE gesetzt*)	
+		VD_Ventilator_ON			:= FALSE;  
+		
+	(*Expansionsventil wird aktiviert und auf 0% gestellt. Komunikation erfolgt über Modbus_EL*)
+		EV.SetAktKuhlleistung := 	TRUE;
+		EV.SollAktKuhlleistung:= 	0;
+	
+
+END_CASE
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

@@ -3,37 +3,18 @@
   <GVL Name="KM" Id="{c916a42b-7fa4-487c-b497-82570ee7ce33}">
     <Declaration><![CDATA[VAR_GLOBAL
 (*Timer für die Vereisungszeit wird deklariert*)
-	TimerVereisung: 		TON; 	
+	TimerVereisung: 			TON; 
+
+(*Status der Kältemaschine*)	
 	bVereisungAbgeschlossen: 	BOOL;
+	bAbtauenNotwendig:			BOOL;
+	bAbtauenAbgeschlossen: 		BOOL;
 	
-(*Status der verschiedenen Kältekreis-Komponenten*)		
-	VD_Ventilator_ON:	 		BOOL:= FALSE;   // Im RI-Fließbild Bezeichnung: 1W1 
+(*(*Status der verschiedenen Kältekreis-Komponenten*)		 
 	VF_Ventilator_ON:			BOOL:= FALSE;	// Im RI-Fließbild Bezeichnung: 1W2 
 	VD_defrost_Ventilator_ON: 	BOOL:= FALSE;	// Im RI-Fließbild Bezeichnung: 1W3	
 	Kompressor_ON: 				BOOL:= FALSE; 	// Im RI-Fließbild Bezeichnung: 1V1 
-	ElektrischeHeizung_ON:		BOOL:= FALSE; 
-	VierWegeVentil_Abtauen: 	BOOL:= FALSE;	// Im RI-Fließbild Bezeichnung: 1V4
-
-(*Soll-Werte für Regelung der Kältekreis-Komponenten*)		
-	Soll_KP_Drehzahl: 			REAL;
-	Soll_VF_Ventilator_Drehzahl:REAL;	
-	Soll_ElektHeizstabe1: 		REAL:= 0; // Angegeben in V		
-	Soll_ElektHeizstabe2: 		REAL:= 0; // Angegeben in V	
-	Soll_ElektHeizstabe_Boden: 	REAL:= 0; // Angegeben in V		
-
-(*Ist-Werte für Regelung der Kältekreis-Komponenten*)	
-	KP_Drehzahl: 				REAL;
-	VF_Ventilator_Drehzahl :	REAL;
-	
-
-(*Magnetventile. TRUE entspircht geöffnet. FALSE entspricht geschlossen*)
-
-	MV_1Y1 : BOOL:=TRUE;		//Normalbetrieb->TRUE	PumpDown->TRUE		Abtauung_oben-> FALSE	Abtauung_unten-> FALSE	
-	MV_1Y2 : BOOL:=TRUE;		//Normalbetrieb->TRUE	PumpDown->FALSE		Abtauung_oben-> FALSE	Abtauung_unten-> FALSE
-	MV_1Y3 : BOOL:=FALSE;		//Normalbetrieb->FALSE	PumpDown->FALSE		Abtauung_oben-> FALSE	Abtauung_unten-> TRUE
-	MV_1Y4 : BOOL:=FALSE;		//Normalbetrieb->FALSE	PumpDown->FALSE		Abtauung_oben-> FALSE	Abtauung_unten-> TRUE
-	MV_1Y5 : BOOL:=FALSE;		//Normalbetrieb->FALSE	PumpDown->FALSE		Abtauung_oben-> TRUE	Abtauung_unten-> FALSE
-	MV_1Y6 : BOOL:=FALSE;		//Normalbetrieb->FALSE	PumpDown->FALSE		Abtauung_oben-> TRUE	Abtauung_unten-> FALSE
+	ElektrischeHeizung_ON:		BOOL:= FALSE; *)
 	
 (*Kältemittel im Verdampfer*)
 	VD_Kaltemittel_g: BOOL; //Agregatzustand vom Kältemittel im Verdampfer

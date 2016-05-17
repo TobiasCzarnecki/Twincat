@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4019.2">
   <DUT Name="ST_DB_STOFFWERTE" Id="{df2a5b8a-4413-49fa-899b-27aa6d251e96}">
     <Declaration><![CDATA[TYPE ST_DB_STOFFWERTE :
 STRUCT
