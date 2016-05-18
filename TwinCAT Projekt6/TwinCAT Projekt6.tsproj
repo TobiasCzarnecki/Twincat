@@ -166,7 +166,7 @@
 		<ImageData Id="1004">424dd6020000000000003600000028000000100000000e0000000100180000000000a0020000c40e0000c40e00000000000000000000ff00ff000000000000ff00ffff00ffff00ff808080808080808080808080808080ff00ffff00ffff00ffff00ffff00ff000000ff00ffff00ff000000ff00ffff00ffc0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ff000000ff00ffff00ffff00ffff00ffff00ffc0c0c000ffffc0c0c000ffff808080ff00ffff00ffff00ffff00ffff00ff000000ff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ff000000ff00ffff00ff000000ff00ffff00ffc0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ffff00ff000000000000ff00ffff00ffff00ffc0c0c0ff0000c0c0c0ff0000808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c00000ffc0c0c00000ff808080ff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0008000c0c0c0008000808080ff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ff</ImageData>
 		<ImageData Id="1005">424dd6020000000000003600000028000000100000000e0000000100180000000000a0020000c40e0000c40e00000000000000000000ff00ffff00ffff00ffff00ffff00ffff00ff808080808080808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ff</ImageData>
 	</ImageDatas>
-	<Project ProjectGUID="{101B1EEB-66FE-4A62-86EF-B049CAA5028A}" TargetNetId="5.33.15.132.1.1" Target64Bit="true" ShowHideConfigurations="#x6">
+	<Project ProjectGUID="{101B1EEB-66FE-4A62-86EF-B049CAA5028A}" TargetNetId="5.33.15.132.1.1" ShowHideConfigurations="#x6">
 		<System>
 			<Settings>
 				<IoIdleTask Priority="6" CycleTime="100000"/>
@@ -335,6 +335,13 @@
 								<![CDATA[ wird mit COM TxPDO Status verknüpft und mit COM TxPDO Data Inxx multiverknüpft]]>
 							</Comment>
 							<Type GUID="{27C33280-DA01-45C5-AA9F-7B198D734670}" Namespace="TC2_SERIALCOM">EL6inData22B</Type>
+						</Var>
+						<Var>
+							<Name>DB_Lesen_Komponenten.myInputVar.INT_VAR_Input</Name>
+							<Comment>
+								<![CDATA[Input von Klemme (z.B. 2100)]]>
+							</Comment>
+							<Type>INT</Type>
 						</Var>
 						<Var>
 							<Name>GVL.Temp_VD_in.INT_VAR_Input</Name>
@@ -642,6 +649,55 @@
 							<Type GUID="{80F174B3-65D6-4F54-A59E-41537B2903AF}" Namespace="TC2_SERIALCOM">EL6outData22B</Type>
 						</Var>
 						<Var>
+							<Name>DB_Lesen_Komponenten.myOutputVar.INT_VAR_Output</Name>
+							<Comment>
+								<![CDATA[Output an Klemme (z.B. 2100)]]>
+							</Comment>
+							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.ElektHeizrack1.INT_VAR_Output</Name>
+							<Comment>
+								<![CDATA[Output an Klemme (z.B. 2100)]]>
+							</Comment>
+							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.ElektHeizrack2.INT_VAR_Output</Name>
+							<Comment>
+								<![CDATA[Output an Klemme (z.B. 2100)]]>
+							</Comment>
+							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.ElektHeizrack_Boden.INT_VAR_Output</Name>
+							<Comment>
+								<![CDATA[Output an Klemme (z.B. 2100)]]>
+							</Comment>
+							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.Soll_KP.INT_VAR_Output</Name>
+							<Comment>
+								<![CDATA[Output an Klemme (z.B. 2100)]]>
+							</Comment>
+							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.Soll_VF_Ventilator.INT_VAR_Output</Name>
+							<Comment>
+								<![CDATA[Output an Klemme (z.B. 2100)]]>
+							</Comment>
+							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.Soll_VD_defrost_Ventilator.INT_VAR_Output</Name>
+							<Comment>
+								<![CDATA[Output an Klemme (z.B. 2100)]]>
+							</Comment>
+							<Type>INT</Type>
+						</Var>
+						<Var>
 							<Name>MODBUS.myModbus.OutData</Name>
 							<Type GUID="{2952907C-3283-4F8E-99B3-C7A6D58D1211}" Namespace="TC2_MODBUSRTU">MB_PcComOutData</Type>
 						</Var>
@@ -709,68 +765,6 @@ Digitale Ausgänge für de Schütze 1K3..1K5]]>
 								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
 							</Comment>
 							<Type GUID="{80F174B3-65D6-4F54-A59E-41537B2903AF}" Namespace="TC2_SERIALCOM">EL6outData22B</Type>
-						</Var>
-					</Vars>
-					<Vars VarGrpType="1">
-						<Name>SerialComTask Inputs</Name>
-						<Var>
-							<Name>DB_Lesen_Komponenten.myInputVar.INT_VAR_Input</Name>
-							<Comment>
-								<![CDATA[Input von Klemme (z.B. 2100)]]>
-							</Comment>
-							<Type>INT</Type>
-						</Var>
-					</Vars>
-					<Vars VarGrpType="2">
-						<Name>SerialComTask Outputs</Name>
-						<Var>
-							<Name>GVL.ElektHeizrack1.INT_VAR_Output</Name>
-							<Comment>
-								<![CDATA[Output an Klemme (z.B. 2100)]]>
-							</Comment>
-							<Type>INT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.ElektHeizrack2.INT_VAR_Output</Name>
-							<Comment>
-								<![CDATA[Output an Klemme (z.B. 2100)]]>
-							</Comment>
-							<Type>INT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.ElektHeizrack_Boden.INT_VAR_Output</Name>
-							<Comment>
-								<![CDATA[Output an Klemme (z.B. 2100)]]>
-							</Comment>
-							<Type>INT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.Soll_KP.INT_VAR_Output</Name>
-							<Comment>
-								<![CDATA[Output an Klemme (z.B. 2100)]]>
-							</Comment>
-							<Type>INT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.Soll_VF_Ventilator.INT_VAR_Output</Name>
-							<Comment>
-								<![CDATA[Output an Klemme (z.B. 2100)]]>
-							</Comment>
-							<Type>INT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.Soll_VD_defrost_Ventilator.INT_VAR_Output</Name>
-							<Comment>
-								<![CDATA[Output an Klemme (z.B. 2100)]]>
-							</Comment>
-							<Type>INT</Type>
-						</Var>
-						<Var>
-							<Name>DB_Lesen_Komponenten.myOutputVar.INT_VAR_Output</Name>
-							<Comment>
-								<![CDATA[Output an Klemme (z.B. 2100)]]>
-							</Comment>
-							<Type>INT</Type>
 						</Var>
 					</Vars>
 					<UnrestoredVarLinks ImportTime="2016-01-28T16:06:34">
@@ -982,9 +976,6 @@ Digitale Ausgänge für de Schütze 1K3..1K5]]>
 				</AddressInfo>
 				<Image Id="1" ImageFlags="#x00000030" AddrType="9" ImageType="3">
 					<Name>Prozessabbild</Name>
-				</Image>
-				<Image Id="4" AddrType="10" ImageType="3">
-					<Name>Prozessabbild-2</Name>
 				</Image>
 				<Box BoxType="9099" Id="1">
 					<Name>E-Bus Klemme (EK1200)</Name>
@@ -4724,14 +4715,14 @@ Bit1: Value bigger/equal Limit2]]>
 		<MappingInfo Identifier="{00000000-0012-0101-1000-010140000403}" Id="#x03070030"/>
 		<OwnerA Name="TIPC^UpTown^UpTown Instance">
 			<OwnerB Name="TIID^CX 9020 (EtherCAT)^E-Bus Klemme (EK1200)^Analoge Ausgänge 0..10 V (EL4008)">
-				<Link VarA="SerialComTask Outputs^GVL.ElektHeizrack1.INT_VAR_Output" VarB="AO Outputs Channel 1^GVL.ElektHeizrack1.INT_VAR_Output"/>
-				<Link VarA="SerialComTask Outputs^GVL.ElektHeizrack2.INT_VAR_Output" VarB="AO Outputs Channel 2^GVL.ElektHeizrack2.INT_VAR_Output"/>
-				<Link VarA="SerialComTask Outputs^GVL.ElektHeizrack_Boden.INT_VAR_Output" VarB="AO Outputs Channel 3^GVL.ElektHeizrack_Boden.INT_VAR_Output"/>
+				<Link VarA="PlcTask Outputs^GVL.ElektHeizrack1.INT_VAR_Output" VarB="AO Outputs Channel 1^GVL.ElektHeizrack1.INT_VAR_Output"/>
+				<Link VarA="PlcTask Outputs^GVL.ElektHeizrack2.INT_VAR_Output" VarB="AO Outputs Channel 2^GVL.ElektHeizrack2.INT_VAR_Output"/>
+				<Link VarA="PlcTask Outputs^GVL.ElektHeizrack_Boden.INT_VAR_Output" VarB="AO Outputs Channel 3^GVL.ElektHeizrack_Boden.INT_VAR_Output"/>
 			</OwnerB>
 			<OwnerB Name="TIID^CX 9020 (EtherCAT)^E-Bus Klemme (EK1200)^Analoge Ausgänge 4..20 mA (EL4024)">
-				<Link VarA="SerialComTask Outputs^GVL.Soll_KP.INT_VAR_Output" VarB="AO Outputs Channel 1^GVL.Soll_KP.INT_VAR_Output"/>
-				<Link VarA="SerialComTask Outputs^GVL.Soll_VD_defrost_Ventilator.INT_VAR_Output" VarB="AO Outputs Channel 3^GVL.Soll_VD_defrost_Ventilator.INT_VAR_Output"/>
-				<Link VarA="SerialComTask Outputs^GVL.Soll_VF_Ventilator.INT_VAR_Output" VarB="AO Outputs Channel 2^GVL.Soll_VF_Ventilator.INT_VAR_Output"/>
+				<Link VarA="PlcTask Outputs^GVL.Soll_KP.INT_VAR_Output" VarB="AO Outputs Channel 1^GVL.Soll_KP.INT_VAR_Output"/>
+				<Link VarA="PlcTask Outputs^GVL.Soll_VD_defrost_Ventilator.INT_VAR_Output" VarB="AO Outputs Channel 3^GVL.Soll_VD_defrost_Ventilator.INT_VAR_Output"/>
+				<Link VarA="PlcTask Outputs^GVL.Soll_VF_Ventilator.INT_VAR_Output" VarB="AO Outputs Channel 2^GVL.Soll_VF_Ventilator.INT_VAR_Output"/>
 			</OwnerB>
 			<OwnerB Name="TIID^CX 9020 (EtherCAT)^E-Bus Klemme (EK1200)^Digitale Ausgänge 24 V DC (EL2809)">
 				<Link VarA="PlcTask Outputs^REGLER.Schuetz_1K3" VarB="Channel 1^KM.Schuetz_1K3"/>

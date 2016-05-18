@@ -11,8 +11,8 @@ END_VAR
       <ST><![CDATA[(*Prüfen ob neu initialisiert werden muss*)
 IF SM.bNeuInitialisieren THEN 		
 	SM.Status:= Initialisieren;
-	SM.bLeerlauf:=TRUE;
 END_IF
+
 
 
 (*Hintergrundkommunikationsprogramme*)
@@ -29,24 +29,26 @@ CASE SM.Status OF
 	
 
 Initialisieren: //Parameter und Standardwerte aus Datenbank lesen und übergeben
-	
-	DB_Lesen_r134a();			//Liest die Stoffwerte von dem Kältemittel R134a ein
-	//DB_Lesen_Komponenten();		//
-	DB_Lesen_PID();
+
+	DB_Lesen_r134a();				//Liest die Stoffwerte von dem Kältemittel R134a ein
 	DB_Lesen_Enthalpie_r134a();
-		IF 	DB_Lesen_r134a.Busy_Lesen = FALSE 
-		AND DB_Lesen_Komponenten.Busy_Lesen_Komponenten =FALSE	
-		AND DB_Lesen_PID.Busy_Lesen_PID = FALSE
-		AND DB_Lesen_Enthalpie_r134a.Busy_Lesen = FALSE
-		AND SM.bLeerlauf AND SM.bFehler=FALSE THEN
-				SM.bNeuInitialisieren:=FALSE;
-				SM.bLeerlauf:= FALSE;
+	DB_Lesen_Komponenten();		
+	DB_Lesen_PID();
+
+		IF 	DB_Lesen_r134a.Busy_Lesen = FALSE 			//Abgeschlossen = TRUE 
+		AND DB_Lesen_Enthalpie_r134a.Busy_Lesen = FALSE //Abgeschlossen = TRUE
+		AND DB_Lesen_Komponenten.Busy_Lesen = FALSE		//Abgeschlossen = TRUE
+		AND DB_Lesen_PID.Busy_Lesen = FALSE				//Abgeschlossen = TRUE
+		AND SM.bFehler=FALSE THEN	
+
+		//======nächster Modus====		
 				SM.Status:= Lesen; //Initialisation abgeschlossen
 		END_IF
-
+	SM.bNeuInitialisieren:=FALSE;
 	
 Lesen: //Input von Klemmen Lesen und in native Werte umrechen
 
+(*Prüfen ob neu initialisiert werden muss*)
 	Temperatur();
 	
 

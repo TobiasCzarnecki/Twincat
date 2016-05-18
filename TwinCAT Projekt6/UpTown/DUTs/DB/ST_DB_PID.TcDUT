@@ -1,16 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4019.2">
-  <DUT Name="ST_DB_PID" Id="{bcb6a6d6-d7d1-4113-8335-003921ff22c6}">
+  <DUT Name="ST_DB_PID" Id="{f4d11d55-5545-4c5e-8933-a3b3ef7f7236}">
     <Declaration><![CDATA[TYPE ST_DB_PID :
 STRUCT
-	id: DINT;
-	timestamp: DT;
-	symbolname: STRING(255);
-	aktiv: BOOL;
-	Kp: STRING(45);
-	I: STRING(45);
-	D: STRING(45);
-	Ta: STRING(45);
+	id: 				DINT;
+	timestamp: 			DT;
+	symbolname: 		STRING(255);
+	aktiv: 				BOOL;
+	w:			 		STRING(45);
+	x: 					STRING(45);
+	y: 					STRING(45);
+	KP: 				STRING(45);
+	I: 					STRING(45);
+	D: 					STRING(45);
+	Ta: 				STRING(45);
+	Einschalttoleranz: 	STRING(45);
+	Offset: 			STRING(45);
 END_STRUCT
 END_TYPE
 ]]></Declaration>

@@ -22,6 +22,7 @@
 	NetID:T_amsnetid;
 	
 	Abtaumethode : Modus_Abtauen; 
+	Starte_DB : TON;
 	//Status_MagnetVentil: Status_MV:= Normalbetrieb;
 
 END_VAR]]></Declaration>

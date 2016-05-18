@@ -6,25 +6,25 @@ VAR
   FB_DB_Schliesse_Komponenten:FB_DBConnectionClose;
 
    
-  a: ARRAY[0..200] OF st_db_komponenten; 
+  a: ARRAY[0..200] OF ST_DB_KOMPONENTEN; 
 
   myInputVar :INPUT_VAR; 
   
   myOutputVar :OUTPUT_VAR; 
   
 	FB_DB_Lese_Komponenten: FB_DBRecordArraySelect;
-	sSelectString: STRING(800):= 'SELECT `id`, `timestamp`, `typ`, `symbolname`, `faktor_lin_m`, `faktor_lin_c`, `sonstiges`, `einheit`, `maxwert`, `minwert` ,`faktor_PT1_K`,`faktor_PT1_T` FROM `komponenten`';
+	sSelectString: STRING(800):= 'SELECT  * FROM komponenten';
 	nRecIndex: UDINT;
 	bStartStopSelect: BOOL;
 	bBusySelect: BOOL;
 	bErrorSelect: BOOL;
 	stSQLStateSelect: TC2_DATABASE.ST_DBSQLError;
 	nRecordCount: UDINT;
-	Busy_Lesen_Komponenten:BOOL;
+	Busy_Lesen:BOOL;
 	start_Lesen_Komponenten:BOOL:=false;
 	start_Schliessen_Komponenten:BOOL:=True;
 	Counter: UDINT:=0;
-	
+	Abgeschlossen: BOOL:= FALSE;
 	
 	timer1: ton;
 	timer1_start:BOOL:=TRUE;
@@ -32,19 +32,13 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[
-SM.bLeerlauf:=FALSE;
-
-timer1(IN:=timer1_start,pt:=T#3S);
-//timer1_start:=FALSE;
-
-IF timer1.Q THEN
-	start_Lesen_Komponenten:=TRUE;
-	timer1_start:=FALSE;
+      <ST><![CDATA[IF bNeuInitialisieren THEN
+	Abgeschlossen := FALSE;
 END_IF
 
+//timer1(IN:=TRUE,pt:=T#3S);
 
-
+IF Abgeschlossen = FALSE THEN 
 //=========================================================================================	
 //Komponenten auslesen		
 	FB_DB_Lese_Komponenten(
@@ -56,9 +50,9 @@ END_IF
 				nRecordCount:=nRecordCount-1, 
 				pDestAddr:= ADR(a), 
 				cbRecordArraySize:= SIZEOF(a), 
-				bExecute:= start_Lesen_Komponenten, 
+				bExecute:= 	TRUE,//timer1.Q, 
 				tTimeout:= T#5S, 
-				bBusy=> Busy_Lesen_Komponenten, 
+				bBusy=> Busy_Lesen, 
 				bError=> SM.bFehler, 
 				nErrID=> Lesen_nErrID , 
 				sSQLState=> stSQLStateSelect, 
@@ -170,11 +164,12 @@ END_IF
 		 SM.bFehler:=TRUE;
 	END_IF
 	
-	IF Busy_Lesen_Komponenten=FALSE THEN
-		SM.bLeerlauf:=TRUE;
-		ELSE  sm.bLeerlauf:=FALSE;
+	IF Busy_Lesen=FALSE AND nRecordCount>0  THEN
+		//timer1(IN:= FALSE);
+		FB_DB_Lese_Komponenten(bExecute:= FALSE);
+		Abgeschlossen := TRUE;
 	END_IF
-	
+	END_IF
 
 	
 ]]></ST>

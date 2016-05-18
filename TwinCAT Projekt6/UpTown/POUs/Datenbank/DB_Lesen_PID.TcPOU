@@ -9,72 +9,64 @@ VAR
 
 	myPID: PID;
 
-  
 	FB_DB_Lese_PID: FB_DBRecordArraySelect;
-	sSelectString: STRING(800):= 'SELECT `id`, `timestamp`, `symbolname`, `aktiv`, `Kp`, `I`, `D`, `limitunten`,`limitoben`,`Einschalttoleranz`,`Offset` FROM `pid`';
+	sSelectString: STRING(800):= 'SELECT * FROM pid'; //`id`, `timestamp`, `symbolname`,`aktiv`, `w`, `x`, `y`,  `Kp`, `I`, `D`,`Einschalttoleranz`,`Offset`
 	nRecIndex: UDINT;
 	bStartStopSelect: BOOL;
 	bBusySelect: BOOL;
 	bErrorSelect: BOOL;
 	stSQLStateSelect: TC2_DATABASE.ST_DBSQLError;
 	nRecordCount: UDINT;
-	Busy_Lesen_PID:BOOL;
+	Busy_Lesen:BOOL;
 	start_Lesen_PID:BOOL:=TRUE;
 	start_Schliessen_PID:BOOL:=FALSE;
 	Counter: UDINT:=0;
-	
+	Lesen_nErrID: UDINT;
 	pCmdAddr: UDINT;
 	
+	Abgeschlossen: BOOL:= FALSE;
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[IF 	SM.bLeerlauf THEN
-	
-start_Lesen_PID:=TRUE;
-SM.bLeerlauf:=FALSE;
-	
+      <ST><![CDATA[IF bNeuInitialisieren THEN
+	Abgeschlossen := FALSE;
 END_IF
 
 //=========================================================================================	
-//PID auslesen		
+//PID auslesen	
+IF Abgeschlossen = FALSE THEN	
 	FB_DB_Lese_PID(
 				sNetID:=, 
-				hDBID:= 4, 
+				hDBID:= 5, 
 				pCmdAddr:= ADR(sSelectString), 
 				cbCmdSize:= SIZEOF(sSelectString), 
 				nStartIndex:= nRecIndex, 
 				nRecordCount:=nRecordCount-1, 
 				pDestAddr:= ADR(a), 
 				cbRecordArraySize:= SIZEOF(a), 
-				bExecute:= start_Lesen_PID, 
+				bExecute:= TRUE, 
 				tTimeout:= T#5S, 
-				bBusy=> Busy_Lesen_PID, 
+				bBusy=> Busy_Lesen, 
 				bError=> SM.bFehler, 
-				nErrID=> , 
+				nErrID=> Lesen_nErrID, 
 				sSQLState=> stSQLStateSelect, 
 				nRecords=> nRecordCount); 
 				
-
-				
-	IF Busy_Lesen_PID=FALSE THEN
-			start_Lesen_pid:=FALSE;
-		start_Schliessen_PID:=TRUE;
-	END_IF
 	
 	IF nRecordCount>0 THEN
 		
 		FOR counter:=0 TO nRecordCount-1 BY 1 DO
-		
-	//mypid.w:=STRING_TO_REAL(a[Counter].w);
-	//mypid.x:=STRING_TO_REAL(a[Counter].x);
+	mypid.Aktiv:=a[Counter].aktiv;	
+	mypid.w:=STRING_TO_REAL(a[Counter].w);
+	mypid.x:=STRING_TO_REAL(a[Counter].x);
+	
 	mypid.Kp:=STRING_TO_REAL(a[Counter].Kp);
 	mypid.I:=STRING_TO_REAL(a[Counter].I);
 	mypid.D:=STRING_TO_REAL(a[Counter].D);
-	//mypid.Einschalttoleranz:= STRING_TO_REAL(a[Counter].Einschalttoleranz);
-	//myPID.Offset:= STRING_TO_REAL(a[Counter].Offset);
-	
+	mypid.Einschalttoleranz:= STRING_TO_REAL(a[Counter].Einschalttoleranz);
+	myPID.Offset:= STRING_TO_REAL(a[Counter].Offset);
 //	mypid.Ta:=STRING_TO_REAL(a[Counter].Ta);
-//	mypid.Aktiv:=a[Counter].aktiv;
+
 		
 		
 	//=========================================================================================	
@@ -92,9 +84,10 @@ END_IF
 		END_FOR
 	END_IF
 	
-	IF Busy_Lesen_pid=FALSE THEN
-		SM.bLeerlauf:=TRUE;
-		ELSE  sm.bLeerlauf:=FALSE;
+	IF Busy_Lesen=FALSE AND nRecordCount> 0 THEN
+		FB_DB_Lese_PID(bExecute:= FALSE);
+		Abgeschlossen:= TRUE;
+	END_IF
 	END_IF
 	]]></ST>
     </Implementation>
