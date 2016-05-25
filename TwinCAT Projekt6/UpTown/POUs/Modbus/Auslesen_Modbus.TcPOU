@@ -1,18 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4019.2">
   <POU Name="Auslesen_Modbus" Id="{1e48c3d5-c6d7-4791-a739-e77e41e0e28f}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM Auslesen_Modbus
+(*In diesem Programm werden alle Modbus-Daten umgerechnet. *)
+
 VAR
 	Auslesen0, Auslesen1, Auslesen2, Auslesen3, Auslesen4, Auslesen5, Auslesen6, Auslesen7, Auslesen8 : FB_fpconverter;
 	
-	EV1 : FB_EVconverter;
-	EV2 : FB_EVconverter;
-	
+	EV1 : FB_EVconverter;		//Funktionsbaustein zur Auswertung eines Expansionsventiles
+	EV2 : FB_EVconverter;		//Funktionsbaustein zur Auswertung eines Expansionsventiles
+	FP_Umrechnen : FB_fpconverter;	//Funktionsbaustein zur Umrechnung von FLOAT->REAL
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[
-//Auslesen der Druckdaten der 8 Drucksensoren im Kältekreis
+      <ST><![CDATA[(*Auslesen der Druckdaten der 8 Drucksensoren im Kältekreis*)
 Auslesen1(myPT:= PT_KP_in, 	PT=> PT_KP_in);
 Auslesen2(myPT:= PT_KP_out, PT=> PT_KP_out);
 Auslesen3(myPT:= PT_VF_in,	PT=> PT_VF_in);
@@ -33,8 +34,18 @@ PT_vor_EV_rev.Startfeld_ModbusData 	:= 9;
 PT_VD_in.Startfeld_ModbusData		:= 10;
 PT_VD_out.Startfeld_ModbusData		:= 11;
 
+(*Expansionsventile werden ausgelesen und umgerechnet*)
 EV1(inEV:=EV , outEV=> EV);
-EV2(inEV:=EV_rev, outEV=> EV_rev);]]></ST>
+EV2(inEV:=EV_rev, outEV=> EV_rev);
+
+(*Daten vom Massestromsensoren werden umgerechnet. FLOAT-Werte werden in REAL umgerechnet*)
+MSS.rFliessgeschwindigkeit	:= FloatPointDW_TO_REAL(MSS.Data[1]);
+MSS.rVolumenstrom			:= FloatPointDW_TO_REAL(MSS.Data[2]);
+MSS.rMassenstrom			:= FloatPointDW_TO_REAL(MSS.Data[3]);
+MSS.rTemp					:= K_TO_C(FloatPointDW_TO_REAL(MSS.Data[4]));
+MSS.rDichte					:= FloatPointDW_TO_REAL(MSS.Data[5]);
+
+]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4019.2">
+  <POU Name="FB_SPS_zu_Nativ_INPUT_VAR" Id="{f02bbc43-2c49-4ffe-9222-f75ffc30ebba}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION FB_SPS_zu_Nativ_INPUT_VAR : INPUT_VAR
+VAR_INPUT
+	INPUT: INPUT_VAR;
+	
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[//Lineare Umrechnung der Eingangsgröße vom Typ INT in den nativen Wert vom Typ REAL
+INPUT.REAL_VAR := INPUT.REAL_PARA_M * INPUT.INT_VAR_Input + INPUT.REAL_PARA_C;
+
+//Übergabe an den Rückgabewert
+FB_SPS_zu_Nativ_INPUT_VAR:=INPUT;
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

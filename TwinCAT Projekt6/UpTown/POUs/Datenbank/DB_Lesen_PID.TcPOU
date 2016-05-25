@@ -45,7 +45,7 @@ IF Abgeschlossen = FALSE THEN
 				pDestAddr:= ADR(a), 
 				cbRecordArraySize:= SIZEOF(a), 
 				bExecute:= TRUE, 
-				tTimeout:= T#5S, 
+				tTimeout:= T#15S, 
 				bBusy=> Busy_Lesen, 
 				bError=> SM.bFehler, 
 				nErrID=> Lesen_nErrID, 
@@ -58,7 +58,7 @@ IF Abgeschlossen = FALSE THEN
 		FOR counter:=0 TO nRecordCount-1 BY 1 DO
 	mypid.Aktiv:=a[Counter].aktiv;	
 	mypid.w:=STRING_TO_REAL(a[Counter].w);
-	mypid.x:=STRING_TO_REAL(a[Counter].x);
+	//mypid.x:=STRING_TO_REAL(a[Counter].x);
 	
 	mypid.Kp:=STRING_TO_REAL(a[Counter].Kp);
 	mypid.I:=STRING_TO_REAL(a[Counter].I);

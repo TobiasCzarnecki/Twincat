@@ -3,54 +3,66 @@
   <POU Name="MAIN" Id="{7650379b-af73-431c-a084-bfa6692fa016}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
-
+	GetEnthalpie :FB_GetEnthalpie;
+	Test :REAL;
+	xTest: REAL;
+	sTest: STRING;
+	timer: TON;
 END_VAR
 
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[(*Prüfen ob neu initialisiert werden muss*)
+      <ST><![CDATA[EnthalpieBerechnen();
+	
+(*Prüfen ob neu initialisiert werden muss*)
 IF SM.bNeuInitialisieren THEN 		
 	SM.Status:= Initialisieren;
 END_IF
 
 
 
-(*Hintergrundkommunikationsprogramme*)
-Auslesen_Waagen();
-Auslesen_Modbus();
-ModbusRTU_COM();
-ModbusRTU_EL();
+
 //Temperatur();
 Schwerpunkt_Eismasse();
-
+	Auslesen_Waagen();
+	Auslesen_Modbus();
+	ModbusRTU_COM();
+	ModbusRTU_EL();
 
 
 CASE SM.Status OF
 	
 
 Initialisieren: //Parameter und Standardwerte aus Datenbank lesen und übergeben
-
+	
+	IF bLeseStoffwerte THEN 
 	DB_Lesen_r134a();				//Liest die Stoffwerte von dem Kältemittel R134a ein
-	DB_Lesen_Enthalpie_r134a();
+	DB_Lesen_Enthalpie_r134a();		//Liest die Enthalpien abhängig von der Temperatur und dem Druck von dem Kältemittel R134a ein
+	END_IF
 	DB_Lesen_Komponenten();		
 	DB_Lesen_PID();
 
-		IF 	DB_Lesen_r134a.Busy_Lesen = FALSE 			//Abgeschlossen = TRUE 
-		AND DB_Lesen_Enthalpie_r134a.Busy_Lesen = FALSE //Abgeschlossen = TRUE
-		AND DB_Lesen_Komponenten.Busy_Lesen = FALSE		//Abgeschlossen = TRUE
-		AND DB_Lesen_PID.Busy_Lesen = FALSE				//Abgeschlossen = TRUE
-		AND SM.bFehler=FALSE THEN	
+		IF 	DB_Lesen_r134a.Busy_Lesen = FALSE 			//DB eingelesen =  TRUE 
+		AND DB_Lesen_Enthalpie_r134a.Busy_Lesen = FALSE //DB eingelesen =  TRUE 
+		AND DB_Lesen_Komponenten.Busy_Lesen = FALSE		//DB eingelesen =  TRUE 
+		AND DB_Lesen_PID.Busy_Lesen = FALSE				//DB eingelesen =  TRUE 
+// !!!		AND WAAGEN.bWaagenVorbelastet = TRUE 				// Waagen sind vorbelastet und Offset ist ermittelt & aktiviert
+// !!!		AND Auslesen_Waagen.bGetOffset_Abgeschlossen = TRUE // Offset-Ermittlung der Waagen erfolgreich abgeschlossen
+		AND SM.bFehler=FALSE 								// TRUE, wenn ein DB-Einlesevorgang nicht erfolgreich abgeschlossen wurde
+		THEN	
+				bLeseStoffwerte:= FALSE;
 
 		//======nächster Modus====		
 				SM.Status:= Lesen; //Initialisation abgeschlossen
-		END_IF
+
+	END_IF
 	SM.bNeuInitialisieren:=FALSE;
 	
 Lesen: //Input von Klemmen Lesen und in native Werte umrechen
 
-(*Prüfen ob neu initialisiert werden muss*)
 	Temperatur();
-	
+	(*Hintergrundkommunikationsprogramme*)
+
 
 (*SM wird entweder auf Kühlen- oder einen der drei Abtau-Modi gestellt*)
 	IF bKuehlen THEN 	
@@ -59,7 +71,9 @@ Lesen: //Input von Klemmen Lesen und in native Werte umrechen
 	END_IF 
 	
 //Abtau-Modus wird gewählt		
-	IF SM.bAbtauen_elektrisch THEN				
+	IF SM.bAbtauen_elektrisch THEN	
+				SM.bAbtauen 					:= TRUE;
+				SM.bKuehlen						:= FALSE;			
 				SM.bAbtauen_Heissgas_oben 		:= FALSE;
 				SM.bAbtauen_Heissgas_unten 		:= FALSE;
 				SM.bManuellerModus				:= FALSE;
@@ -70,6 +84,8 @@ Lesen: //Input von Klemmen Lesen und in native Werte umrechen
 		END_IF
 		
 		IF SM.bAbtauen_Heissgas_oben THEN
+				SM.bAbtauen 					:= TRUE;
+				SM.bKuehlen						:=FALSE;
 				SM.bAbtauen_elektrisch			:=FALSE;
 				SM.bAbtauen_Heissgas_unten 		:=FALSE;
 				SM.bManuellerModus				:=FALSE;
@@ -80,6 +96,8 @@ Lesen: //Input von Klemmen Lesen und in native Werte umrechen
 		END_IF
 		
 		IF SM.bAbtauen_Heissgas_unten THEN
+				SM.bAbtauen 					:= TRUE;
+				SM.bKuehlen						:=FALSE;
 				SM.bAbtauen_elektrisch			:=FALSE;
 				SM.bAbtauen_Heissgas_oben 		:=FALSE;
 				SM.bManuellerModus				:=FALSE;
@@ -171,6 +189,7 @@ Anlagenschutz: //Anlagenschutzsysteme überschreiben ggf. Anweisungen
 Schreiben:		//Native Werte werden zurückgerechnet und an Klemmen übergeben
 
 	Temperatur();
+	SchreibeSollwerte();
 	
 	//======nächster Modus====			
 		SM.Status:=Lesen;

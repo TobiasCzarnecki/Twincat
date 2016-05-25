@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4019.2">
   <POU Name="ModbusRTU_COM" Id="{69b407b8-16ef-438c-8d44-4b6ab31a34dd}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM ModbusRTU_COM
 
@@ -14,14 +14,13 @@ Die Kommunikation verläuft in einer CASE-Struktur.*)
 
 VAR
 (*
-
 _________________________________________________________	
-Drucksensoren	|					|
+Drucksensoren	|	Position im RI	|	Modbus-Adresse
 PT_KP_in		|	1				|	4
 PT_KP_out		|	2				|	5
 PT_VF_in		|	2‘ 				|	6
 PT_VF_out		|	3‘ 				|	7
-PT_vor_EV 		|	3 (innerhalb KK)|	8 xx NO RESPONSE
+PT_vor_EV 		|	3 (innerhalb KK)|	8 
 PT_vor_EV_rev 	|	3 (außerhalb KK)|	9
 PT_VD_in		|	4				|	10
 PT_VD_out		|	1‘ 				|	11
@@ -29,20 +28,15 @@ __________________________________________________________
 Massenstromsensor
 MSS 1			|	3				|	12 
 *)
-
-(*Dieses Programm basiert auf einer CASE-Struktur. Im regulären Betrieb werden 
-	die Slaves nur gelesen(bzw. Sollwert beim EV). 
-	AB state:=31 fängt der Konfigartionsteil an.*)	
+	
 	state: INT;
 
 (*Variablen für die Modbus-Befehle*)
-	 ModbusAdresse: BYTE := 3;
-	// modbusTimeout: TIME := T#50MS;
-	 modbusData_PT: ARRAY[0..100] OF DWORD;		//hier werden die Daten von den Drucksensoren gespeichert
-	 modbusData_MSS: ARRAY[0..100] OF DWORD;		//hier werden die Daten von dem Massenstromsensor MSS1 gespeichert
-	// modbusData_EV:	 ARRAY[0..100] OF BYTE;  
-
- 	
+	 ModbusAdresse: 	BYTE := 3;
+	 modbusData_PT: 	ARRAY[0..12] OF DWORD;		//hier werden die Daten von den Drucksensoren gespeichert
+	 
+(*Abfrageregister vom MassenstromSensor*)
+	AbfrageRegs_MSS:ARRAY[1..5] OF INT := [30000,30002,30004,30006,30008]; 	
 
 	
 (*Variablen für Error- und Successzähler der Modbus-Komunikation *)
@@ -51,7 +45,7 @@ MSS 1			|	3				|	12
 	LastModbusError: 	ST_ModbusErrorDiagnostics;
 	CounterError: 		DINT;
 	CounterSuccess: 	DINT;
-	
+	counter: 			INT := 1;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -59,14 +53,6 @@ END_VAR
 		
 IF 	bConfigPT THEN 
 	Status_Modbus := ConfigPT;
-END_IF
-
-IF bConfigEV THEN 
-	Status_Modbus := ConfigEV;
-END_IF
-
-IF bConfigMSS THEN
-	Status_Modbus := ConfigMSS;
 END_IF
 
 
@@ -82,7 +68,7 @@ CASE state OF
 
 		
 		ModbusAdresse := ModbusAdresse + 1;		//Laufvariable für die ModbusAdressen der Slaves. Zunächst nur Drucksensoren.
-		IF ModbusAdresse > 13 THEN		//alle Drucksensoren werden ausgelesen
+		IF ModbusAdresse >= 13 THEN				//alle PTs und der Massenstromsensor werden ausgelesen
 			ModbusAdresse := 4;
 		END_IF
 		
@@ -120,12 +106,8 @@ CASE state OF
 	END_IF
 	
 	
-2:	(* Lese Massenstromsensor-Registers aus*)	
-		
-	IF ModbusAdresse=12 THEN									//Adresse vom Massenstromsensor ist 12
-	
-	(*Messdaten vom Massenstromsensor werden ausgelesen
-			Folgende Messdaten werden ausgelesen:
+2:	(* Lese Massenstromsensor-Registers aus*)		
+	(*	Folgende Messdaten werden ausgelesen:
 			
 				   Messgröße		|	Einheit	|	Register-Adressen
 				____________________|___________|_____________________   
@@ -134,13 +116,14 @@ CASE state OF
 				3) Massenstrom		|	[kg/s]	|	30004-2 Regs
 				4) Temperatur		|	[K]		|	30006-2 Regs
 				5) Dichte			|	[kg/m³]	|	30008-2 Regs			->ingesamt 10 Regs
-		*)
-	MODBUS.myModbus.ReadInputRegs(
-		UnitID:= ModbusAdresse,
- 		Quantity:= 2,								//zehn Register werden ausgelesen
- 		MBAddr:= 30000,								
- 		cbLength:= SIZEOF(modbusData_MSS[0]),		
- 		pMemoryAddr:= ADR(modbusData_MSS[0]),		//Daten werden in für MSS DATA-ARRAY geschrieben
+		*) 
+	IF ModbusAdresse=12 THEN	
+		myModbus.ReadInputRegs(
+		UnitID:= 12,
+ 		Quantity:= 2,							
+ 		MBAddr:= INT_TO_WORD(AbfrageRegs_MSS[counter]),								
+ 		cbLength:= SIZEOF(MSS.Data[counter]),		
+ 		pMemoryAddr:= ADR(MSS.Data[counter]),	 
   		Execute:= TRUE,
   		Timeout:= modbusTimeout,
   		Busy => isModbusBusy,
@@ -148,60 +131,24 @@ CASE state OF
   		ErrorId => modbusErrorId
   		(*cbRead parameter)*));
 	
-		IF NOT isModbusBusy THEN
-				MODBUS.myModbus.ReadRegs(Execute:= FALSE);
-			IF MODBUS.myModbus.Error THEN
-				state := 0;
-			ELSE
-				state :=state + 1 ;	
-			END_IF
-		END_IF
-	ELSE
-		state := state +1;		
-	END_IF
-	
-3: 	(*Aktuelle Regs/Coils etc. von den E-Ventilen werden ausgelesen*)
-  
-		IF ModbusAdresse=2 OR ModbusAdresse=3 THEN						//Abfrage ob ModbusAdresse-Nummer gleich einem EVentil entspricht
-		
-			MODBUS.myModbus.ReadInputRegs(
-			UnitID:= ModbusAdresse,
- 			Quantity:= ,								//zehn Register werden ausgelesen
- 			MBAddr:= ,								
- 			cbLength:= SIZEOF(modbusData_MSS[0]),		
- 			pMemoryAddr:= ADR(modbusData_MSS[0]),		//Daten werden in für MSS DATA-ARRAY geschrieben
-  			Execute:= TRUE,
-  			Timeout:= modbusTimeout,
-  			Busy => isModbusBusy,
-  			Error => isModbusError,
-  			ErrorId => modbusErrorId
-  			(*cbRead parameter)*));
-	
-		IF NOT isModbusBusy THEN
-				MODBUS.myModbus.ReadRegs(Execute:= FALSE);
-			IF myModbus.Error THEN
-				state := 0;
-			ELSE
-				state :=0;							//Ohne Fehler wird nun auf state=10 gesprungen
-			END_IF
-		END_IF
-			ELSE 
-			state:= 0;
-		END_IF
-
+			IF isModbusBusy = FALSE AND counter<=5 THEN
+				myModbus.ReadInputRegs(Execute:= FALSE);
+				counter:= counter +1;
+			END_IF	
+			
+			IF isModbusBusy = FALSE AND counter>5 THEN
+				myModbus.ReadInputRegs(Execute:= FALSE);
+				counter:=1;
+				state:= 0;
+			END_IF	
+	ELSE 
+		state:= 0;
+	END_IF	
 END_CASE	
 
 ConfigPT:
 	
 	ConfigDrucksensor(); 		//Programm für Konfigurierung von Keller-Drucksensoren
-
-ConfigEV: 
-
-	
-ConfigMSS:
-	
-	ConfigMassenstromsensor();	//Programm für Konfigurierung von MFC400-Drucksensoren
-
 
 END_CASE 
 

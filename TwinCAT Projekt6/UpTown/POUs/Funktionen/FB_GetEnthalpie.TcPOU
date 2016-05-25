@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4019.2">
+  <POU Name="FB_GetEnthalpie" Id="{f2673976-9030-408c-9c57-5d507dad5a01}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_GetEnthalpie
+(*Berechnet aus einer Temperatur und Druck die zugehörige Enthalpie, Sättigungsgrad x, Verdamofungstemperatur T_v. h= f(p,T)*)
+
+VAR_INPUT
+	In_Temperatur : REAL;	
+	In_Druck: REAL;
+END_VAR
+VAR_OUTPUT
+	h: REAL;		// kJ/kg; Ergebnis der interpolierten Enthalpie h an der jeweiligen Stelle.
+	x: REAL;			// Sättigungsgehalt des Kältemittels. x=1-> Überhitzer Dampf, x=0 -> 
+	Zustand : STRING;
+	T_v: REAL;
+END_VAR
+VAR
+
+	Vapor: BOOL;
+	Liquid: BOOL;
+	Nassdampf: BOOL;
+	
+	LowLimit_p: REAL := 1;		//untere Grenze sind 1 bar. 
+	HighLimit_p: REAL := 15;	//obere Grenze sind 15 bar. 
+	iLowLimit_p: INT;			// iLowLimit_p= LowLimit_p*10. Um die Drücke direkt als Arrayplatz verwendet werden können
+	iHighLimit_p: INT;
+	
+	Delta_p : REAL;				 // Delta_p= HighLimit_p - LowLimit_p
+	Schrittweite_p: REAL := 0.5; // In der Datenbank sind Daten hinterlegt mit der Schrittweite 1 bar !Reduzieren auf 0.1 bar!
+	
+	LowLimit_T: INT := -20;// Interpolations-zähler LowLimit
+	HighLimit_T: INT := 100;
+	Delta_T : REAL;	
+	Schrittweite_T :INT := 1; 	// In der Datenbank sind Daten hinterlegt mit der Schrittweite 1 °C	
+	
+	Verdampfungstemperatur: REAL; 
+	Enthalpie: ARRAY[-20..100] OF REAL;
+	Enthalpie_T: ARRAY[10..150] OF REAL; // Hier werden alle Enthalpien von 1..15bar bei der gerade vorhandenden Temperatur interpoliert
+	counter: INT;	
+
+	T_Saturation: REAL;
+	h_l: REAL;
+	h_v: REAL;
+	delta_h: REAL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[(*Druck-Intervalle werden bestimmt*)
+	LowLimit_p	:= 	STRING_TO_INT(LREAL_TO_FMTSTR(in:=In_Druck, iPrecision:= 1, bRound := FALSE)); 
+	IF In_Druck - STRING_TO_REAL(LREAL_TO_FMTSTR(in:=In_Druck, iPrecision:= 0, bRound := FALSE))> Schrittweite_p THEN 
+		LowLimit_p:= LowLimit_p + Schrittweite_p;
+	END_IF
+	HighLimit_p	:= 	LowLimit_p + Schrittweite_p ;
+	
+(*Für die Interpolation verwendeten Grenzen für den Druck*)
+	iLowLimit_p := 	REAL_TO_INT (LowLimit_p*10);
+	iHighLimit_p := REAL_TO_INT (HighLimit_p*10);
+	Delta_p		:= 	In_Druck- LowLimit_p;
+
+
+(*Temperatur-Intervalle werden bestimmt*)
+	LowLimit_T 	:= STRING_TO_INT(LREAL_TO_FMTSTR(in:=In_Temperatur, iPrecision:= 1, bRound := FALSE));
+	HighLimit_T	:= LowLimit_T + Schrittweite_T;
+	Delta_T		:= In_Temperatur - LowLimit_T;
+
+(*h= f(T,p) wird mittels Array reduziert auf h= f(p). *)
+	FOR counter:= 10 TO 150 BY REAL_TO_INT(Schrittweite_p*10) DO 
+	Enthalpie_T[counter]:=Enthalpie_r134a[LowLimit_T].h[counter]+ Delta_T/Schrittweite_T*(Enthalpie_r134a[HighLimit_T].h[counter]-Enthalpie_r134a[LowLimit_T].h[counter]); 
+	END_FOR
+
+(*h= f(p) wird ausgerechnet bzw interpoliert*)
+	h:= Enthalpie_T[iLowLimit_p]+ Delta_p/Schrittweite_p * (Enthalpie_T[REAL_TO_INT(iHighLimit_p)]- Enthalpie_T[REAL_TO_INT(iLowLimit_p)]);
+
+(*Verdampfungsenthalpie(h''-h'=f(p)) und Verdampfungstemperatur(T= f(p)) wird ermittelt*)
+	delta_h := r134a[iLowLimit_p].Verdampfungsenthalpie + Delta_p / Schrittweite_p * (r134a[iHighLimit_p].Verdampfungsenthalpie-r134a[iLowLimit_p].Verdampfungsenthalpie) ; // h''-h'=delta_h
+	T_v	      := r134a[iLowLimit_p].Temperatur + Delta_p / Schrittweite_p * (r134a[iHighLimit_p].Temperatur-r134a[iLowLimit_p].Temperatur) ;	// Verdampfungstemperatur; T= f(p)
+	h_l			 		  := r134a[iLowLimit_p].Enthalpie_l + Delta_p / Schrittweite_p * (r134a[iHighLimit_p].Enthalpie_l-r134a[iLowLimit_p].Enthalpie_l) ;//h', die Enthalpie auf der Siedelinie der "Glocke"
+	h_v				      := r134a[iLowLimit_p].Enthalpie_v + Delta_p / Schrittweite_p * (r134a[iHighLimit_p].Enthalpie_v-r134a[iLowLimit_p].Enthalpie_v) ; // h'', die Enthalpie auf der Taulinie der "Glocke"
+
+(*Bestimmen ob der Zustandspunkt "gasförmig", "flüssig" oder sich im "Nassdampfgebiet" befindet. Entscheidend ist der größte Enthalpiewert vom gasförmigen r134a innerhalb 1..15 bar & -20..100°C*)	
+
+//Gasförmig
+IF h>h_v THEN 
+	Vapor := TRUE;
+	Zustand:= 'Überhitzter Dampf';
+	x:=1;
+	ELSE
+	Vapor := FALSE;	
+END_IF
+
+//Nassdampf
+IF h<h_v AND h>h_l THEN 
+	Nassdampf := TRUE;
+	Zustand:= 'Nassdampf';
+	x:= (h-h_l)/ delta_h;
+	ELSE
+	Nassdampf := FALSE;
+END_IF
+
+//Flüssig
+IF h< h_l THEN
+	Liquid := TRUE;
+	Zustand:= 'flüssig';
+	x:=0;
+	ELSE
+	Liquid := FALSE;
+END_IF
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

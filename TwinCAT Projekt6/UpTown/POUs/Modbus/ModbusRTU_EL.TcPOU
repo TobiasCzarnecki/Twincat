@@ -3,7 +3,7 @@
   <POU Name="ModbusRTU_EL" Id="{98159f27-7da7-4f3a-9d45-35bf24bd6264}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM ModbusRTU_EL
 VAR
-(*Modbus wird deklariert*)
+(*Modbus für Klemme EL6021 wird deklariert*)
 	ModbusEL6021:		ModbusRtuMaster_KL6x22B;	
 	modbusTimeout_EL:	TIME := T#300MS;
 	isModbusBusy_EL:	BOOL;
@@ -38,38 +38,6 @@ END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[
-CASE state OF
-	
-0:
-	ModbusEL6021.ReadInputRegs(Execute:= FALSE);
-	state:=1;
-1:	
-	ModbusEL6021.ReadInputRegs(
-		UnitID:= 12,
- 		Quantity:= 2,							
- 		MBAddr:= 30006,								
- 		cbLength:= SIZEOF(TestMSS[0]),		
- 		pMemoryAddr:= ADR(TestMSS[0]),	 
-  		Execute:= TRUE,
-  		Timeout:= modbusTimeout_EL,
-  		Busy => isModbusBusy_EL,
-  		Error => isModbusError_EL,
-  		ErrorId => modbusErrorId_EL
-  		(*cbRead parameter)*));
-	
-		
-		
-		IF NOT isModbusBusy_EL THEN
-				ModbusEL6021.ReadInputRegs(Execute:= FALSE);
-			IF ModbusEL6021.Error THEN
-				state:= 0;
-			ELSE
-				state := 1;	
-			END_IF
-		END_IF
-END_CASE
-
-(* 
 CASE state OF
 
 0: (*Initialisierung von Modbus*)
@@ -124,7 +92,7 @@ CASE state OF
   		Error => isModbusError_EL,
   		ErrorId => modbusErrorId_EL
   		(*cbRead parameter)*));
-
+		
 		IF NOT isModbusBusy_EL THEN
 				ModbusEL6021.ReadCoils(Execute:= FALSE);
 			IF ModbusEL6021.Error THEN
@@ -256,7 +224,6 @@ IF EV_rev.SetAktKuhlleistung THEN
 		state:= 0;
 END_IF	
 END_CASE
-*)
 
 FtrigBusy(CLK:=ModbusEL6021.BUSY );
 (*zählt fehlgeschlagene und erfolgreiche Komunikationsschritte*)

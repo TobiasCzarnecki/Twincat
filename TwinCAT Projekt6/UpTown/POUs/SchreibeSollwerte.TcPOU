@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4019.2">
+  <POU Name="SchreibeSollwerte" Id="{22df7958-a872-4ced-8935-f8d6650b596d}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM SchreibeSollwerte
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[CASE SM.Status OF
+	
+	Lesen:
+	
+	
+	Schreiben:
+	
+	//Stellsignal Veflüssiger Ventilator
+		Soll_VF_Ventilator.INT_VAR_Output:=FB_Nativ_zu_SPS_lin(output:=Soll_VF_Ventilator);
+
+	//Stellsignal Kompressor
+		Soll_KP.INT_VAR_Output:= FB_Nativ_zu_SPS_lin(output:=Soll_KP);
+	
+END_CASE]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

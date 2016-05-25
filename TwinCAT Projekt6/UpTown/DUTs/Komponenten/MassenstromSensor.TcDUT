@@ -4,14 +4,15 @@
     <Declaration><![CDATA[TYPE MassenstromSensor :
 STRUCT
 	ModbusAdresse:			BYTE := 12;
-	Data: 					ARRAY[0..1] OF DWORD;	(*hier werden die abgefragen Register hineingeschrieben*)
-	Startfeld_ModbusData: 	INT ; 
+	Data: 					ARRAY[0..10] OF DWORD;	(*hier werden die abgefragen Register hineingeschrieben*)
 	
 //------hier sind die Messwerte deklariert, die vom Massenstromsensor per Modbus erfragt werden	
-	rMassenstrom: 					REAL; 					(*angegeben in kg/h*)
-	rDruck: 						REAL;					(*in Bar*)
-	rDichte: 						REAL;					(*kg/m³*)
-	rTemp:							REAL;					(*angegeben in °C*)
+	rFliessgeschwindigkeit:  		REAL; 					(*[m/s]*)
+	rVolumenstrom: 					REAL; 					(*[m³/s]*)
+	rMassenstrom: 					REAL; 					(*[kg/s]*)
+	rTemp:							REAL;					(*[°C]*)
+	rDichte: 						REAL;					(*[kg/m³]*)
+	
 	
 	bFliessrichtung:				BOOL;					(*TRUE bei normaler Fließrichtung, FALSE bei Strömungsumkehrung*)
 

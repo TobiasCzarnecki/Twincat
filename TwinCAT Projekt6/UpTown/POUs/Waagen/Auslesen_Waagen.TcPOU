@@ -9,19 +9,23 @@
 VAR
 	fb_WaageAuslesen : ARRAY[1..6] OF FB_GewichtAuslesen;
 	counter: INT;
-	
 	myOffset: REAL;
 	
-	//Variablen für Offset-Ermittlung 
+(*Variablen für Offset-Ermittlung *)
 	Timer: TON;
 	Trigger:  ARRAY[1..4] OF SH_1;
 	GetOffset:ARRAY[1..4] OF FT_AVG;;
 	bGetOffset: 		BOOL;
+	
+(*WaagenVorbelastung & Ventilator muss vor jeder Messung neu ermittelt werden. Erst wenn diese erfolgreich
+	abgeschlossen sind startet der Vereisungsvorgang*)
 		bGetOffset_WaagenVorbelastung: 	BOOL;
-		bGetOffset_Ventilator: 		BOOL;
-		bGetOffset_Kaltemittel_g: 	BOOL;
-		bGetOffset_Kaltemittel_l: 	BOOL;
-		bGetOffset_Abgeschlossen: 	BOOL;
+				   bWaagenVorbelatung_Abgeschlossen : BOOL := FALSE;
+		bGetOffset_Ventilator: 			BOOL;
+				   bVentilaror_Abgeschlossen : BOOL := FALSE;
+		bGetOffset_Kaltemittel_g: 		BOOL;
+		bGetOffset_Kaltemittel_l: 		BOOL;
+		bGetOffset_Abgeschlossen: 		BOOL;
 		
 
 END_VAR
@@ -40,7 +44,7 @@ FOR counter:= 1 TO 6 DO
 END_FOR
 
 
-//	Waagen 1..4 werden falls nötig mit einem OFFSET korrigiert. zB durch Laufen der Ventilatoren
+(*	Waagen 1..4 werden falls nötig mit einem OFFSET korrigiert. zB durch Laufen der Ventilatoren*)
 FOR counter:= 1 TO 4 DO 
 	Waage_Offset[counter] := OFFSET(
 	X:= Waage[counter].rGewicht, 
@@ -75,6 +79,7 @@ END_IF
 			Trigger[counter](in:= Waage[counter].rGewicht, PT:= T#1S, out=> , Trig=> );
 			GetOffset[counter](IN:= Trigger[counter].out, E:= Trigger[counter].Trig, N:= 30, RST:= , AVG=>Offset_WaagenVorbelastung[counter] );	
 		END_FOR
+		bWaagenVorbelastet:= TRUE; // Offset wird nun von den Rohwerten abgezogen
 	END_IF
 
 

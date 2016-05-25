@@ -1,21 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4019.2">
   <GVL Name="WAAGEN" Id="{b3918417-cf86-461b-91bf-a9f8bbcc176a}">
     <Declaration><![CDATA[VAR_GLOBAL
 	
 (*Variablen für den Betrieb der Waagen unter dem Verdampfer in der Klimakammer.
  Die Waagen dienen zur Bestimmung von der Eismenge im Wärmetauscher des Verdampfers *)
- 
 		Summe_Eis: 			REAL;
 
 (* Auf das tatsächlich Gewicht zurückgerechneter Wert der Waagen
- k-Werte wurde mittels Kalibrierung für mehrere Fälle ermittelt *)
-			
-		bWaagenVorbelastet: 	BOOL; 
- 		Waage_k : 		ARRAY[1..6] OF REAL;			// Waage_k[i] = Waage_Offset[i] / k[i]
- 		Waage_Offset : 	ARRAY[1..6] OF REAL;			//Alle mit Offset korrigierten Waagenwerte zusammen in einem Array
-		Waage_roh	: 	ARRAY[1..6] OF REAL;
- 		Waage : 		ARRAY [1..6] OF WAAGE_VAR;		//Variablen Deklarirung von den Waagen. Siehe unter DUTs.
+ k-Werte wurde mittels Kalibrierung für mehrere Fälle ermittelt *)	
+		bWaagenVorbelastet: 	BOOL := FALSE; 
+ 		Waage_k : 				ARRAY [1..6] OF REAL;			// Waage_k[i] = Waage_Offset[i] / k[i]
+ 		Waage_Offset : 			ARRAY [1..6] OF REAL;			//Alle mit Offset korrigierten Waagenwerte zusammen in einem Array
+		Waage_roh:	 			ARRAY [1..6] OF REAL;
+ 		Waage : 				ARRAY [1..6] OF WAAGE_VAR;		//Variablen Deklarirung von den Waagen. Siehe unter DUTs.
 		
 (*Zwischenspeicher für ein- und ausgehende Werte von Waagen*)
 		RxBuffer: ARRAY [1..6] OF ComBuffer;
@@ -28,7 +26,7 @@ END_VAR
 
 
 VAR_GLOBAL PERSISTENT
-	(*Hier werden die Kalibrierungs-Daten gespeichert. Persistente Variablen bleiben auch nach erneuter Kompilierung bzw. Reset erhalten*)
+	(*Hier werden die Kalibrierungs-Daten gespeichert. Persistente Variablen bleiben auch nach erneuter Kompilierung bzw. Reset der SPS erhalten*)
 	k_alleDaten :	ARRAY[1..2] OF k_Daten;	
 END_VAR
 ]]></Declaration>

@@ -8,3 +8,13 @@ E:\Twincat\GUI UpTown\GUI UpTown\obj\Debug\GUI UpTown.vbproj.GenerateResource.Ca
 E:\Twincat\GUI UpTown\GUI UpTown\obj\Debug\GUI UpTown.exe
 E:\Twincat\GUI UpTown\GUI UpTown\obj\Debug\GUI UpTown.xml
 E:\Twincat\GUI UpTown\GUI UpTown\obj\Debug\GUI UpTown.pdb
+E:\Twincat\GUI UpTown\GUI UpTown\bin\Debug\EBC_ADS_Bib.dll
+E:\Twincat\GUI UpTown\GUI UpTown\bin\Debug\TwinCAT.Ads.dll
+E:\Twincat\GUI UpTown\GUI UpTown\bin\Debug\TwinCAT.Scope2.View.Control.dll
+E:\Twincat\GUI UpTown\GUI UpTown\bin\Debug\TwinCAT.Scope2.Charting.ChartingBase.dll
+E:\Twincat\GUI UpTown\GUI UpTown\bin\Debug\TwinCAT.Scope2.ScopeClient.dll
+E:\Twincat\GUI UpTown\GUI UpTown\bin\Debug\TwinCAT.Scope2.Export.Diadem.dll
+E:\Twincat\GUI UpTown\GUI UpTown\bin\Debug\TwinCAT.Scope2.Charting.ChartControlLib_DX.dll
+E:\Twincat\GUI UpTown\GUI UpTown\bin\Debug\TwinCAT.Scope2.Charting.ChartControlLib_GDI.dll
+E:\Twincat\GUI UpTown\GUI UpTown\bin\Debug\EBC_ADS_Bib.pdb
+E:\Twincat\GUI UpTown\GUI UpTown\bin\Debug\TwinCAT.Ads.xml

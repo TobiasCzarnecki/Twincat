@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <project xmlns="http://www.plcopen.org/xml/tc6_0200">
-  <fileHeader companyName="Beckhoff Automation GmbH" productName="TF6420 Database Server Query Analyser" productVersion="1.0.0.0" creationDateTime="2016-05-17T16:57:53" />
-  <contentHeader name="Untitled1" modificationDateTime="2016-05-17T16:57:53">
+  <fileHeader companyName="Beckhoff Automation GmbH" productName="TF6420 Database Server Query Analyser" productVersion="1.0.0.0" creationDateTime="2016-05-19T13:49:34" />
+  <contentHeader name="Untitled1" modificationDateTime="2016-05-19T13:49:34">
     <coordinateInfo>
       <fbd>
         <scaling x="1" y="1" />
@@ -44,7 +44,17 @@
                 <string length="45" />
               </type>
             </variable>
+            <variable name="h1_5">
+              <type>
+                <string length="45" />
+              </type>
+            </variable>
             <variable name="h2">
+              <type>
+                <string length="45" />
+              </type>
+            </variable>
+            <variable name="h2_5">
               <type>
                 <string length="45" />
               </type>
@@ -54,7 +64,17 @@
                 <string length="45" />
               </type>
             </variable>
+            <variable name="h3_5">
+              <type>
+                <string length="45" />
+              </type>
+            </variable>
             <variable name="h4">
+              <type>
+                <string length="45" />
+              </type>
+            </variable>
+            <variable name="h4_5">
               <type>
                 <string length="45" />
               </type>
@@ -64,7 +84,17 @@
                 <string length="45" />
               </type>
             </variable>
+            <variable name="h5_5">
+              <type>
+                <string length="45" />
+              </type>
+            </variable>
             <variable name="h6">
+              <type>
+                <string length="45" />
+              </type>
+            </variable>
+            <variable name="h6_5">
               <type>
                 <string length="45" />
               </type>
@@ -74,7 +104,17 @@
                 <string length="45" />
               </type>
             </variable>
+            <variable name="h7_5">
+              <type>
+                <string length="45" />
+              </type>
+            </variable>
             <variable name="h8">
+              <type>
+                <string length="45" />
+              </type>
+            </variable>
+            <variable name="h8_5">
               <type>
                 <string length="45" />
               </type>
@@ -84,7 +124,17 @@
                 <string length="45" />
               </type>
             </variable>
+            <variable name="h9_5">
+              <type>
+                <string length="45" />
+              </type>
+            </variable>
             <variable name="h10">
+              <type>
+                <string length="45" />
+              </type>
+            </variable>
+            <variable name="h10_5">
               <type>
                 <string length="45" />
               </type>
@@ -94,7 +144,17 @@
                 <string length="45" />
               </type>
             </variable>
+            <variable name="h11_5">
+              <type>
+                <string length="45" />
+              </type>
+            </variable>
             <variable name="h12">
+              <type>
+                <string length="45" />
+              </type>
+            </variable>
+            <variable name="h12_5">
               <type>
                 <string length="45" />
               </type>
@@ -104,7 +164,17 @@
                 <string length="45" />
               </type>
             </variable>
+            <variable name="h13_5">
+              <type>
+                <string length="45" />
+              </type>
+            </variable>
             <variable name="h14">
+              <type>
+                <string length="45" />
+              </type>
+            </variable>
+            <variable name="h14_5">
               <type>
                 <string length="45" />
               </type>

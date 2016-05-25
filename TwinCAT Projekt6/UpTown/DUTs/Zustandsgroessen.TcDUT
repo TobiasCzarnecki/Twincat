@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4019.2">
+  <DUT Name="Zustandsgroessen" Id="{dcdbbf7c-e1ba-4d2b-ab39-08bd16a93913}">
+    <Declaration><![CDATA[TYPE Zustandsgroessen :
+	(*Beschreibt alle wichtigen Zustandsparameter ein*)
+STRUCT
+	h_in: 	REAL;		// [kJ/kg]; spezifische Enthalpie am Eingang der Komponente
+	h_out: 	REAL; 		// [kJ/kg]; spezifische Enthalpie am Ausgang der Komponente
+	T_in: 	REAL;		// [°C]; Eintrittstemperatur
+	T_out: 	REAL;		// [°C]; Austrittstemperatur
+	T_v: 	REAL;		// [°C]; Verdampfungstemperatur 	
+	p_in :	REAL;		// [bar]; Eintrittsdruck
+	P_out: 	REAL;		// [bar]; Austrittsdurck
+	H	: 	REAL; 		// [W]   ; billanzierte Enthalpie über die Komponente. H= m*(h_out- h_in). 
+	H_sum: 	REAL;		// [Ws]	 ; summierte Energie 
+	x_in: 		REAL; 	// [-] 	  ; {0..1} Sättigungsgrad im Nassfampfgebiet
+	x_out: 		REAL; 	// [-] 	  ; {0..1} Sättigungsgrad im Nassfampfgebiet
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

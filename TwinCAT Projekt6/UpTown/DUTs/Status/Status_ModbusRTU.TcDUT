@@ -1,8 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4019.2">
   <DUT Name="Status_ModbusRTU" Id="{67b55078-28ad-48b5-ba23-2eb7cd7fc8cc}">
-    <Declaration><![CDATA[TYPE Status_ModbusRTU : (Aktiv, ConfigPT, ConfigEV, ConfigMSS);
+    <Declaration><![CDATA[TYPE Status_ModbusRTU : (Aktiv, ConfigPT);
 END_TYPE
+
+(*Der ModbusRTU ist in Betrieb "Aktiv" und liest die Slaves aus.
+	Bei der Installation eines neuen Slaves im Modbus, muss dieser konfiguriet werden.
+	Expansionsventil und Massenstromsensor können am Gerät manuell eingestellt werden-*)
 ]]></Declaration>
   </DUT>
 </TcPlcObject>

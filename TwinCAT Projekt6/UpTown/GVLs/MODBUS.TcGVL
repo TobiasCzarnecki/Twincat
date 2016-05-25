@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4019.2">
   <GVL Name="MODBUS" Id="{6e972123-b21b-429a-94ba-7a72977f60c8}">
     <Declaration><![CDATA[VAR_GLOBAL
 (*Status-Maschine wird *)
@@ -13,16 +13,11 @@
 	modbusErrorId: 	MODBUS_ERRORS;			//Fehlertyp des Komunikationsfehlers	
 	modbusTimeout: 	TIME := T#300MS;
 	
-(*bei Konfigurierung der Slaves(Adressierung, Baurate usw. ) muss Variable 
-  auf TRUE gesetzen werden.*) 
+(*bei Konfigurierung der Slaves(Adressierung, Baurate usw. ) muss Variable auf TRUE gesetzen werden.*) 
 	bConfigPT:				BOOL; 		
 		bConfigPT_setadresse: 	BOOL;
 		bConfigPT_setUART: 		BOOL;
-	bConfigEV: 				BOOL;
-	bConfigMSS: 			BOOL;
 	
-	
-//-----MODBUS RTU über Klemme EL6021 -------------------------------------------------
 
 
 

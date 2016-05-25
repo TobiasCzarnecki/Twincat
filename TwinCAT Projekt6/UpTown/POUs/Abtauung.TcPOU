@@ -30,9 +30,11 @@ Abtauen:
 	Timer_Abtaudauer(IN:=TRUE, PT:= T#1H);
 	
 	IF bAbtauModusAbbrechen THEN 
-		bAbtauen_elektrisch:=FALSE;
-		bAbtauen_Heissgas_oben:=FALSE;
-		bAbtauen_Heissgas_unten:=FALSE;
+		bKuehlen 				:= TRUE;
+		bAbtauen				:=FALSE;
+		bAbtauen_elektrisch		:=FALSE;
+		bAbtauen_Heissgas_oben	:=FALSE;
+		bAbtauen_Heissgas_unten	:=FALSE;
 		Timer_Abtaudauer(IN:= FALSE);
 	(*nächster Status*)
 		SM.Status := Anlagenschutz;
@@ -50,7 +52,8 @@ CASE state OF
 		PID_KP.Aktiv:= TRUE;
 		
 	(*Pump-Down wird durchgeführt bis der Druck vor dem KP kleiner als 1,4 Bar ist*)	
-		IF PT_KP_in.rDruck< 1.4 THEN  
+		IF PT_KP_in.rDruck< 1.4 THEN 
+			EV.SetAktKuhlleistung:= TRUE; 
 			EV.SollAktKuhlleistung:= 100;
 			
 			state:= 1;

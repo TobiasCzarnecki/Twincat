@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4019.2">
+  <POU Name="FB_Nativ_zu_SPS_lin" Id="{2c9904f9-41b2-4295-91f2-e12d6206ceb6}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION FB_Nativ_zu_SPS_lin : int
+VAR_INPUT
+	output:output_var;
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[FB_Nativ_zu_SPS_lin:=  real_to_int((output.REAL_VAR-output.REAL_PARA_C)/output.REAL_PARA_M);]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

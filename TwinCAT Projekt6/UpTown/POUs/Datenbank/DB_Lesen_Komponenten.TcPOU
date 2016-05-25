@@ -50,8 +50,8 @@ IF Abgeschlossen = FALSE THEN
 				nRecordCount:=nRecordCount-1, 
 				pDestAddr:= ADR(a), 
 				cbRecordArraySize:= SIZEOF(a), 
-				bExecute:= 	TRUE,//timer1.Q, 
-				tTimeout:= T#5S, 
+				bExecute:= 	TRUE, //timer1.Q, 
+				tTimeout:= T#15S, 
 				bBusy=> Busy_Lesen, 
 				bError=> SM.bFehler, 
 				nErrID=> Lesen_nErrID , 
@@ -168,6 +168,7 @@ IF Abgeschlossen = FALSE THEN
 		//timer1(IN:= FALSE);
 		FB_DB_Lese_Komponenten(bExecute:= FALSE);
 		Abgeschlossen := TRUE;
+		//timer1(IN:=FALSE);
 	END_IF
 	END_IF
 

@@ -7,7 +7,7 @@ VAR
 	DbArray_Enthalpie_r134a: ARRAY[0..200] OF ST_DB_Enthalpie_r134a;	
 
 	FbDbLesen: FB_DBRecordArraySelect;
-	sSelectString: STRING(800):= 'SELECT `id`, `timestamp`, `Temperatur`, `h1`, `h2`, `h3`,`h4`, `h5`, `h6`, `h7`,`h8`, `h9`, `h10`, `h11`,`h12`,`h13`,`h14`,`h15` FROM `enthalpie_r134a`';
+	sSelectString: STRING(800):= 'SELECT * FROM enthalpie_r134a';
 	nRecIndex: UDINT;
 	bStartStopSelect: BOOL;
 	bBusySelect: BOOL;
@@ -32,7 +32,7 @@ END_VAR
 END_IF
 
 //=========================================================================================	
-//Dampftafel auslesen		
+//Die Enthalpiewerte von r134a werden abhängig vom Druck und Temperatur auslesen		
 
 IF Abgeschlossen = FALSE THEN 
 	FbDbLesen(
@@ -45,7 +45,7 @@ IF Abgeschlossen = FALSE THEN
 				pDestAddr:= ADR(DbArray_Enthalpie_r134a), 
 				cbRecordArraySize:= SIZEOF(DbArray_Enthalpie_r134a), 
 				bExecute:= TRUE, 
-				tTimeout:= T#5S, 
+				tTimeout:= T#15S,
 				bBusy=> Busy_Lesen, 
 				bError=> SM.bFehler, 
 				nErrID=> ErrorId, 
@@ -56,22 +56,39 @@ IF Abgeschlossen = FALSE THEN
 	IF nRecordCount>0 THEN
 		
 		FOR counter:=0 TO nRecordCount-1 BY 1 DO
-			Enthalpie_r134a[counter].Temperatur :=			STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].Temperatur));
-			Enthalpie_r134a[counter].h1 :=		STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].h1));
-			Enthalpie_r134a[counter].h2 :=		STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].h2));
-			Enthalpie_r134a[counter].h3 :=		STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].h3));
-			Enthalpie_r134a[counter].h4	:=		STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].h4));
-			Enthalpie_r134a[counter].h5 :=		STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].h5));
-			Enthalpie_r134a[counter].h6	:=		STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].h6));
-			Enthalpie_r134a[counter].h7 :=		STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].h7));
-			Enthalpie_r134a[counter].h8	:=		STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].h8));
-			Enthalpie_r134a[counter].h9 :=		STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].h9));
-			Enthalpie_r134a[counter].h10:=		STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].h10));
-			Enthalpie_r134a[counter].h11:=		STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].h11));
-			Enthalpie_r134a[counter].h12:=		STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].h12));
-			Enthalpie_r134a[counter].h13:=		STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].h13));
-			Enthalpie_r134a[counter].h14:=		STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].h14));
-			Enthalpie_r134a[counter].h15:=		STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].h15));
+		
+		(*Eintragen der Enthalpiewerte in das Array*)
+			Enthalpie_r134a[counter-20].Temperatur :=	STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].Temperatur));
+			Enthalpie_r134a[counter-20].h[10] :=		STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].h1));
+			Enthalpie_r134a[counter-20].h[15] :=		STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].h1_5));
+			Enthalpie_r134a[counter-20].h[20] :=		STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].h2));
+			Enthalpie_r134a[counter-20].h[25] :=		STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].h2_5));
+			Enthalpie_r134a[counter-20].h[30] :=		STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].h3));
+			Enthalpie_r134a[counter-20].h[35] :=		STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].h3_5));
+			Enthalpie_r134a[counter-20].h[40] :=		STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].h4));
+			Enthalpie_r134a[counter-20].h[45] :=		STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].h4_5));
+			Enthalpie_r134a[counter-20].h[50] :=		STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].h5));
+			Enthalpie_r134a[counter-20].h[55] :=		STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].h5_5));
+			Enthalpie_r134a[counter-20].h[60] :=		STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].h6));
+			Enthalpie_r134a[counter-20].h[65] :=		STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].h6_5));
+			Enthalpie_r134a[counter-20].h[70] :=		STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].h7));
+			Enthalpie_r134a[counter-20].h[75] :=		STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].h7_5));
+			Enthalpie_r134a[counter-20].h[80] :=		STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].h8));
+			Enthalpie_r134a[counter-20].h[85] :=		STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].h8_5));
+			Enthalpie_r134a[counter-20].h[90] :=		STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].h9));
+			Enthalpie_r134a[counter-20].h[95] :=		STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].h9_5));
+			Enthalpie_r134a[counter-20].h[100]:=		STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].h10));
+			Enthalpie_r134a[counter-20].h[105]:=		STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].h10_5));
+			Enthalpie_r134a[counter-20].h[110]:=		STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].h11));
+			Enthalpie_r134a[counter-20].h[115]:=		STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].h11_5));
+			Enthalpie_r134a[counter-20].h[120]:=		STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].h12));
+			Enthalpie_r134a[counter-20].h[125]:=		STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].h12_5));
+			Enthalpie_r134a[counter-20].h[130]:=		STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].h13));
+			Enthalpie_r134a[counter-20].h[135]:=		STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].h13_5));
+			Enthalpie_r134a[counter-20].h[140]:=		STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].h14));
+			Enthalpie_r134a[counter-20].h[145]:=		STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].h14_5));
+			Enthalpie_r134a[counter-20].h[150]:=		STRING_TO_REAL(PunktErsetztKomma(DbArray_Enthalpie_r134a[counter].h15));
+
 		END_FOR
 	END_IF
 	

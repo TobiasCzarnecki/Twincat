@@ -9,29 +9,27 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[(*Reglerausgänge den Output_VAR zuordnen*)
+      <ST><![CDATA[(*Stellgrößen werden zugewiesen*)
+PID_KP.x:= PT_VD_out.rDruck;				 //PT_KP_in.rDruck; !KP_in Druck funktioniert erst ab < 3 Bar!
+PID_VF_Ventilator.x:= PT_VF_out.rDruck;
 
-	PID_VF_Ventilator.y := 			Soll_VF_Ventilator.REAL_VAR;
-	PID_VD_defrost_Ventilator.y:= 	Soll_VD_defrost_Ventilator.REAL_VAR;
-
-	
 
 (*Regler für die Drehzahl des Kompressors*)
 IF PID_KP.Aktiv THEN	
 fb_pid_KP( 
-	ACT:= PID_KP.x, //PT.rDruck 
-	SET:= PID_KP.w, //3.5 [bar]
+	ACT:= PID_KP.x, 				//PT.rDruck 
+	SET:= PID_KP.w, 				//3.5 [bar]
 	SUP:= PID_KP.Einschalttoleranz, 
 	OFS:= PID_KP.Offset, 
 	M_I:= PID_KP.ManuellerWert, 
 	MAN:= PID_KP.ManuellerModus, 
 	RST:= PID_KP.Restart, 
 	KP:= PID_KP.Kp, 
-	TN:= PID_KP.Kp/ PID_KP.I, 
+	TN:= 2000, //PID_KP.Kp/ PID_KP.I, 
 	TV:= PID_KP.D/ PID_KP.Kp, 
-	LL:= Soll_KP.REAL_PARA_minWert,//PID_KP.LimitUnten, 
-	LH:= Soll_KP.REAL_PARA_maxWert,//PID_KP.LimitOben, 
-	Y=> PID_KP.y, //4..20mA Kompressor_drehzahl
+	LL:= Soll_KP.REAL_PARA_minWert,	//PID_KP.LimitUnten, 
+	LH:= Soll_KP.REAL_PARA_maxWert,	//PID_KP.LimitOben, 
+	Y=> PID_KP.y, 					//4..20mA Kompressor_drehzahl
 	DIFF=> PID_KP.e, 
 	LIM=> PID_KP.LimitErreicht);
 ELSE 
@@ -43,7 +41,7 @@ END_IF
 IF PID_VF_Ventilator.Aktiv THEN	
 fb_pid_VF( 
 	ACT:= PID_VF_Ventilator.x, 
-	SET:= PID_VF_Ventilator.w, 
+	SET:= VF.T_v - PID_VF_Ventilator.w, // dem Druck entsprechende Verdampfungstemperatur "T_v" minus X Kelvin, garantiert flüssiges Kältemittel im VF-Ausgang
 	SUP:= PID_VF_Ventilator.Einschalttoleranz, 
 	OFS:= PID_VF_Ventilator.Offset, 
 	M_I:= PID_VF_Ventilator.ManuellerWert, 
@@ -60,6 +58,9 @@ fb_pid_VF(
 ELSE 
 	PID_VF_Ventilator.y := 0; // Rergler ist ausgeschaltenen und sendet 0 mA.
 END_IF
+	Soll_VF_Ventilator.REAL_VAR:= PID_VF_Ventilator.y ;
+
+(*!!! Noch nicht impementiert. Verdampfer_defrost wird über Schütz 1K3 direkt mit konstanten 230V versorgt!!
 
 (*Regler für den Ventilator vom Verdampfer außerhalb der Klimakammer in der Abtauphase*)
 IF PID_VD_defrost_Ventilator.Aktiv THEN	
@@ -82,7 +83,9 @@ fb_pid_VD_defrost(
 ELSE 
 	PID_VD_defrost_Ventilator.y := 0; // Rergler ist ausgeschaltenen und sendet 0 mA ODER 0 V.
 END_IF
-
+	Soll_VD_defrost_Ventilator.REAL_VAR:= PID_VD_defrost_Ventilator.y;	
+	
+*)
 ]]></ST>
     </Implementation>
   </POU>

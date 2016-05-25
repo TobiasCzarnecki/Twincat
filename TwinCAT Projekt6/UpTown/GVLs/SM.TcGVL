@@ -3,13 +3,15 @@
   <GVL Name="SM" Id="{bc6b87a2-3fc4-4d1b-b930-7e7397c0fd58}">
     <Declaration><![CDATA[VAR_GLOBAL
 	Status : Status_KK:= Lesen;//Initialisieren;
-	
+	bLeseStoffwerte: BOOL := FALSE;							// nur auf TRUE setzen, wenn sich die Daten aus der Datenbank geändert bzw. angepasst worden sind
 	bLesen:							BOOL:=TRUE;		
 	bNeuInitialisieren:				BOOL:=TRUE;
 			bWaagenKalibrierung:			BOOL:=FALSE;
 	bKuehlen:						BOOL:=TRUE;				//
 			bVollautomatikModbus: 			BOOL:= TRUE;
 			bManuellerModus:				BOOL:=FALSE;
+			bBeendenKuehlen: 				BOOL:= FALSE;
+			bPumpDownAbgeschlossen:			BOOL:= FALSE;
 	bAbtauen: 						BOOL;
 			bAbtauen_elektrisch:			BOOL:=FALSE;
 			bAbtauen_Heissgas_oben:			BOOL:=FALSE;
@@ -18,6 +20,9 @@
 	bAnlagenschutzModus:			BOOL:=TRUE;
 	bFehler:						BOOL:=FALSE;
 	bLeerlauf:						BOOL:=FALSE;	
+	
+	Soll_DruckPumpDown: 					REAL:= 1.4;
+	Soll_Betriebsdruck: 					REAL:= 2;
 	
 	NetID:T_amsnetid;
 	

@@ -3,22 +3,8 @@
   <DUT Name="Enthalpie_r134a" Id="{9533a512-bc92-4e22-b706-843a041a1680}">
     <Declaration><![CDATA[TYPE Enthalpie_r134a :
 STRUCT
-	Temperatur: REAL;	//°C
-	h1:			REAL; 	//kJ/kg
-	h2:			REAL; 	//kJ/kg
-	h3: 		REAL; 	//kJ/kg
-	h4: 		REAL; 	//kJ/kg
-	h5: 		REAL; 	//kJ/kg
-	h6: 		REAL; 	//kJ/kg
-	h7:			REAL; 	//kJ/kg
-	h8: 		REAL; 	//kJ/kg
-	h9: 		REAL; 	//kJ/kg
-	h10:	 	REAL; 	//kJ/kg
-	h11:		REAL; 	//kJ/kg
-	h12:		REAL; 	//kJ/kg
-	h13:	 	REAL; 	//kJ/kg
-	h14: 		REAL; 	//kJ/kg
-	h15: 		REAL; 	//kJ/kg
+	Temperatur: REAL;			//°C
+	h: ARRAY[10..150] OF REAL;	//kJ/kg; die Arrayfelder entsprechen dem Druck geteilt durch 10 zB. 1.5 Bar = [15].
 END_STRUCT
 END_TYPE
 ]]></Declaration>

@@ -3,11 +3,12 @@
   <POU Name="DB_Lesen_r134a" Id="{b1198883-6aca-44a0-aac7-11dc7d9340c3}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM DB_Lesen_r134a
 VAR
-	
+	(*Stoffwerte vom Kältemittel r134a werden aus mySQL auslesen*)
+
 	DbArray_r134a: ARRAY[0..200] OF ST_DB_r134a;	
 
 	FbDbLesen: FB_DBRecordArraySelect;
-	sSelectString: STRING(800):= 'SELECT * FROM r134a';//`id`, `timestamp`,`Druck`, `Temperatur`, `Dichte_l`, `Dichte_v`, `Enthalpie_l`,`Enthalpie_v`, `cp_l`, `cp_v`, `Verdampfungsenthalpie`
+	sSelectString: STRING(800):= 'SELECT * FROM r134a';
 	nRecIndex: UDINT;
 	bStartStopSelect: BOOL;
 	bBusySelect: BOOL;
@@ -30,8 +31,7 @@ END_VAR
 	Abgeschlossen := FALSE;
 END_IF
 
-//=========================================================================================	
-//Dampftafel auslesen		
+	
 IF Abgeschlossen = FALSE THEN
 	FbDbLesen(
 				sNetID:=, 
@@ -43,7 +43,7 @@ IF Abgeschlossen = FALSE THEN
 				pDestAddr:= ADR(DbArray_r134a), 
 				cbRecordArraySize:= SIZEOF(DbArray_r134a), 
 				bExecute:= TRUE, 
-				tTimeout:= T#5S, 
+				tTimeout:= T#15S, 
 				bBusy=> Busy_Lesen, 
 				bError=> SM.bFehler, 
 				nErrID=> ErrorId, 
@@ -53,15 +53,15 @@ IF Abgeschlossen = FALSE THEN
 	IF nRecordCount>0 THEN
 		
 		FOR counter:=0 TO nRecordCount-1 BY 1 DO
-			r134a[counter].Temperatur :=			STRING_TO_REAL(PunktErsetztKomma(DbArray_r134a[counter].Temperatur));
-			r134a[counter].Druck :=					STRING_TO_REAL(PunktErsetztKomma(DbArray_r134a[counter].Druck));
-			r134a[counter].Dichte_l :=				STRING_TO_REAL(PunktErsetztKomma(DbArray_r134a[counter].Dichte_l));
-			r134a[counter].Dichte_v :=				STRING_TO_REAL(PunktErsetztKomma(DbArray_r134a[counter].Dichte_v));
-			r134a[counter].Enthalpie_l:=			STRING_TO_REAL(PunktErsetztKomma(DbArray_r134a[counter].Enthalpie_l));
-			r134a[counter].Enthalpie_v :=			STRING_TO_REAL(PunktErsetztKomma(DbArray_r134a[counter].Enthalpie_v));
-			r134a[counter].cp_l:=					STRING_TO_REAL(PunktErsetztKomma(DbArray_r134a[counter].cp_l));
-			r134a[counter].cp_v :=					STRING_TO_REAL(PunktErsetztKomma(DbArray_r134a[counter].cp_v));
-			r134a[counter].Verdampfungsenthalpie:=	STRING_TO_REAL(PunktErsetztKomma(DbArray_r134a[counter].Verdampfungsenthalpie));
+			r134a[counter+1].Temperatur :=			STRING_TO_REAL(PunktErsetztKomma(DbArray_r134a[counter].Temperatur));
+			r134a[counter+1].Druck :=					STRING_TO_REAL(PunktErsetztKomma(DbArray_r134a[counter].Druck));
+			r134a[counter+1].Dichte_l :=				STRING_TO_REAL(PunktErsetztKomma(DbArray_r134a[counter].Dichte_l));
+			r134a[counter+1].Dichte_v :=				STRING_TO_REAL(PunktErsetztKomma(DbArray_r134a[counter].Dichte_v));
+			r134a[counter+1].Enthalpie_l:=			STRING_TO_REAL(PunktErsetztKomma(DbArray_r134a[counter].Enthalpie_l));
+			r134a[counter+1].Enthalpie_v :=			STRING_TO_REAL(PunktErsetztKomma(DbArray_r134a[counter].Enthalpie_v));
+			r134a[counter+1].cp_l:=					STRING_TO_REAL(PunktErsetztKomma(DbArray_r134a[counter].cp_l));
+			r134a[counter+1].cp_v :=					STRING_TO_REAL(PunktErsetztKomma(DbArray_r134a[counter].cp_v));
+			r134a[counter+1].Verdampfungsenthalpie:=	STRING_TO_REAL(PunktErsetztKomma(DbArray_r134a[counter].Verdampfungsenthalpie));
 		END_FOR
 	END_IF
 	

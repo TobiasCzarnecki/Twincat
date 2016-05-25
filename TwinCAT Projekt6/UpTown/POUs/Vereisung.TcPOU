@@ -2,15 +2,24 @@
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4019.2">
   <POU Name="Vereisung" Id="{c06eee5f-b84b-4826-8ee5-3ea1b679b266}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM Vereisung
+(*Ablaufprogram für die Vereisung des Verdampfers. Beim ABBRUCH des Vorgangs bzw. ABSCHALTEN wird ein PumpDown vollzogen.  *)
 VAR
 	fb_Schuetzstellung: FB_Schuetzstellung;
+
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[(*Starte Timer zur Vereisung*)	
+      <ST><![CDATA[(*Vereisung wird abgebrochen. Die Kälteanlage führt einen PumpDown durch, um das Kältemittel im flüssigen Zustand in den 
+	Sammler zu führen.*)
+IF bBeendenKuehlen THEN 
+		fb_Schuetzstellung(myStatus := PumpDown);
+ELSE 
+
+(*Starte Timer zur Vereisung*)	
 	IF NOT TimerVereisung.IN THEN
 	TimerVereisung(IN:= TRUE, PT:= T#1H);
 	END_IF
+	
 	
 (*Die Schütze 1K3 und 1K5 werden durch bKühlen geschaltet:
 					-Magnetventile 1Y5,1Y6 werden geschlossen 
@@ -23,6 +32,7 @@ END_VAR
 		EV.SollAktKuhlleistung:= 100; 
 	END_IF
 		
+
 	
 (*Abtauung wird begonnen wenn Zeit des Timers abgelaufen ist*)
 	IF TimerVereisung.Q THEN
@@ -34,6 +44,8 @@ END_VAR
 		SM.bKuehlen := FALSE;
 		SM.bAbtauen := TRUE;			
 	END_IF
+END_IF	
+
 ]]></ST>
     </Implementation>
   </POU>

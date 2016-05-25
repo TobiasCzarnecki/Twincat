@@ -14,6 +14,11 @@ END_VAR
       <ST><![CDATA[CASE  myStatus OF
 
 KuehlenUnten:
+	(*Falls verheriger Status PUMPDOWN war, werden die Kühl-Sollwerte aus der Datenbank lesen *)
+	IF bPumpDownAbgeschlossen THEN
+		bNeuInitialisieren:= TRUE;
+	END_IF
+	
 	(*Schütze werden geschaltet*)
 		Schuetz_1K3 := TRUE;
 		Schuetz_1K4 := FALSE;
@@ -25,8 +30,14 @@ KuehlenUnten:
 	(*Expansionsventil wird aktiviert und auf 100% gestellt. Komunikation erfolgt über Modbus_EL*)
 		EV.SetAktKuhlleistung := TRUE;
 		EV.SollAktKuhlleistung:= 100;
-		
+	
+	(*Kompressor PID-Regler wird eingestellt*)
+		PID_KP.w := Soll_Betriebsdruck;						//Kompressor wird bei 1.5 Bar ausgeschaltet
+
 PumpDown:
+	(*Bool-Variablen werden gesetzt*)
+	bPumpDownAbgeschlossen:= FALSE;
+	
 	(*Schütze werden geschaltet*)
 		Schuetz_1K3 := TRUE;
 		Schuetz_1K4 := FALSE;
@@ -38,6 +49,12 @@ PumpDown:
 	(*Expansionsventil wird aktiviert und auf 0% gestellt. Komunikation erfolgt über Modbus_EL*)
 		EV.SetAktKuhlleistung := TRUE;
 		EV.SollAktKuhlleistung:= 0;
+		
+	(*Kompressor PID-Regler wird eingestellt*)
+		PID_KP.w := Soll_DruckPumpDown;						//Kompressor wird bei 1.5 Bar ausgeschaltet
+		IF PID_KP.x <= Soll_DruckPumpDown THEN 
+			bPumpDownAbgeschlossen := TRUE;		//SPS oder KÄLTEMASCHINE kann ausgeschaltet werden
+		END_IF
 		
 AbtauenOben:
 	(*Schütze werden geschaltet*)

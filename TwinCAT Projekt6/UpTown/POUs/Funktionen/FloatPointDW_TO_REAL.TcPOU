@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4019.2">
+  <POU Name="FloatPointDW_TO_REAL" Id="{51537f96-5706-4b8b-ab31-57744be240ee}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION FloatPointDW_TO_REAL : REAL
+(*Diese Funktions rechnet 32 bit FLOAT-Werte in einen REAL-Wert um und gibt diesen wieder aus.*)
+VAR_INPUT
+	in : DWORD;
+END_VAR
+VAR
+	BinString : STRING;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[(*DWORD wird in einen Binären 32bit String umgewandelt*) 
+BinString:= DWORD_TO_BINSTR(in,32);
+ 
+ (*Binärstring wird in eine REAL Variable umgerechnet*)
+ FloatPointDW_TO_REAL:= BINSTRING_TO_REAL(myBinString:= BinString);]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

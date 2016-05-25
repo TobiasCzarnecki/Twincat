@@ -19,7 +19,7 @@ D:REAL:=0;		//Differentierender Anteil
 Ta:REAL:=0;		//Taktzeit
 
 w:REAL:=0;		//Sollwert
-x:REAL:=0;		//Stellgröße
+x:REAL;//:=0;	//Stellgröße
 y:REAL:=0;		//Ausgang
 
 e:REAL:=0;		//Fehler

@@ -89,6 +89,9 @@
       <SubType>Code</SubType>
       <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
     </Compile>
+    <Compile Include="DUTs\Zustandsgroessen.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="GVLs\GVL.TcGVL">
       <SubType>Code</SubType>
       <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
@@ -120,15 +123,15 @@
       <SubType>Code</SubType>
       <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
     </Compile>
+    <Compile Include="POUs\Datenbank\DB_Lesen_Enthalpie_r134a.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\Datenbank\DB_Lesen_Komponenten.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\Datenbank\DB_Lesen_PID.TcPOU">
       <SubType>Code</SubType>
       <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
-    </Compile>
-    <Compile Include="POUs\Datenbank\DB_Lesen_Enthalpie_r134a.TcPOU">
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\Datenbank\DB_Lesen_Stoffwerte_Wasser.TcPOU">
       <SubType>Code</SubType>
@@ -138,9 +141,15 @@
       <SubType>Code</SubType>
       <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
     </Compile>
+    <Compile Include="POUs\EnthalpieBerechnen.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\Funktionen\BINSTRING_TO_REAL.TcPOU">
       <SubType>Code</SubType>
       <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
+    </Compile>
+    <Compile Include="POUs\Funktionen\CTLR_PID_Negativ.TcPOU">
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\Funktionen\DWORD_TO_BINSTRING.TcPOU">
       <SubType>Code</SubType>
@@ -165,6 +174,9 @@
       <SubType>Code</SubType>
       <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
     </Compile>
+    <Compile Include="POUs\Funktionen\FB_Nativ_zu_SPS_lin.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\Funktionen\FB_PT1.TcPOU">
       <SubType>Code</SubType>
       <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
@@ -172,9 +184,18 @@
     <Compile Include="POUs\Funktionen\FB_Schuetzstellung.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="POUs\Funktionen\FB_SPS_zu_Nativ_INPUT_VAR.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\Funktionen\FB_SPS_zu_Nativ_lin.TcPOU">
       <SubType>Code</SubType>
       <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
+    </Compile>
+    <Compile Include="POUs\Funktionen\FloatPointDW_TO_REAL.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Funktionen\FB_GetEnthalpie.TcPOU">
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\Funktionen\PunktErsetztKomma.TcPOU">
       <SubType>Code</SubType>
@@ -210,6 +231,9 @@
       <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
     </Compile>
     <Compile Include="POUs\Regelung.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\SchreibeSollwerte.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\Vereisung.TcPOU">

@@ -2,17 +2,20 @@
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4019.2">
   <GVL Name="GVL" Id="{c411875a-406b-4962-9769-e54fbe539288}">
     <Declaration><![CDATA[VAR_GLOBAL
-
-(*Hier sind alle Heizelemente deklariert.*)
-
-
-		ElektHeizrack1 : 		OUTPUT_VAR;		// regelt ein Packet aus 10 Heizstaebe im Verdampfer
-		ElektHeizrack2 : 		OUTPUT_VAR;	 	// regelt ein Packet aus 10 Heizstaebe im Verdampfer
-		//ElektHeizrack3 : 		OUTPUT_VAR;		// !noch nicht im Verdampfer verbaut!
-		//ElektHeizrack4 : 		OUTPUT_VAR;		// !noch nicht im Verdampfer verbaut!
-		//ElektHeizrack5 : 		OUTPUT_VAR;		// !noch nicht im Verdampfer verbaut!
-		ElektHeizrack_Boden: 	OUTPUT_VAR;  	//liegt in der Wanne des Verdampfers, besteht aus 3 Heizstaeben
-
+(*ExpansionsVentile werden deklariert*)
+		EV :	 	ExpansionsVentil; //Dieses Expansionsventil regelt im Normalbetrieb den Verdampfungsdruck und -temperatur
+		EV_rev: 	ExpansionsVentil; //Im Falle einer Strömungsumkehrung wird über dieses Expansionsventil in den Verdampfer außerhalb der KlimaKammer eingespritzt
+		
+(*Zustände der Kältekreiskomponenten: Verdampfer, Verflüssiger, Kompressor, Expansionsventil*)
+		VD : 			Zustandsgroessen;
+		VD_rev: 		Zustandsgroessen;
+		KP : 			Zustandsgroessen;
+		VF : 			Zustandsgroessen;
+		VD_defrost : 	Zustandsgroessen;
+		
+(*Hier ist der Massenstromsensor deklariert*)
+		MSS: MassenstromSensor;
+		
 (*Hier sind die Stellsignale für die Ausgangsklemmen deklariert.*)
 
 		Soll_KP: 						OUTPUT_VAR;
@@ -53,18 +56,24 @@
 		Temp_vor_EV_rev:			INPUT_VAR; // Pos 3: T-Sensor vor dem Expansionsventil IV4,bei Strömungsumkehrung (reverse)
 
 		Temp_VD_Surface_gemittelt : REAL;
-	
-(*ExpansionsVentile werden deklariert*)
-		EV :	 	ExpansionsVentil; //Dieses Expansionsventil regelt im Normalbetrieb den Verdampfungsdruck und -temperatur
-		EV_rev: 	ExpansionsVentil; //Im Falle einer Strömungsumkehrung wird über dieses Expansionsventil in den Verdampfer außerhalb der KlimaKammer eingespritzt
-		
-	
+
+(*Hier sind alle Heizelemente deklariert.*)
+
+		ElektHeizrack1 : 		OUTPUT_VAR;		// regelt ein Packet aus 10 Heizstaebe im Verdampfer
+		ElektHeizrack2 : 		OUTPUT_VAR;	 	// regelt ein Packet aus 10 Heizstaebe im Verdampfer
+		//ElektHeizrack3 : 		OUTPUT_VAR;		// !noch nicht im Verdampfer verbaut!
+		//ElektHeizrack4 : 		OUTPUT_VAR;		// !noch nicht im Verdampfer verbaut!
+		//ElektHeizrack5 : 		OUTPUT_VAR;		// !noch nicht im Verdampfer verbaut!
+		ElektHeizrack_Boden: 	OUTPUT_VAR;  	//liegt in der Wanne des Verdampfers, besteht aus 3 Heizstaeben
+
 END_VAR
 
 VAR_GLOBAL PERSISTENT
-(*Speicherorte für benötigte Stoffwerte*)		
-		r134a:	ARRAY[0..200] OF Stoffwerte;
-		Enthalpie_r134a : ARRAY[0..200] OF Enthalpie_r134a;
+(*Speicherorte für benötigte Stoffwerte. Persistent Variablen sind auch nach Kompilieren und/ oder 
+	Neustarten der SPS noch auf dem Arbeitsspeicher des Host-PC´s vorhanden. Die müssen also nicht
+	zwangsweise neu eingelesen oder ermittelt werden *)		
+		r134a:	ARRAY[1..200] OF Stoffwerte;
+		Enthalpie_r134a : ARRAY[-20..100] OF Enthalpie_r134a;
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>
