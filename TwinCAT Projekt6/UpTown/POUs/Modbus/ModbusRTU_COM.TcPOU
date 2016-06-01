@@ -38,6 +38,9 @@ MSS 1			|	3				|	12
 (*Abfrageregister vom MassenstromSensor*)
 	AbfrageRegs_MSS:ARRAY[1..5] OF INT := [30000,30002,30004,30006,30008]; 	
 
+(*Abfrageregister vom MassenstromSensor*)
+	AbfrageRegs_PT:WORD := 2; 	
+	LaengeRegs: BYTE:= 2;
 	
 (*Variablen für Error- und Successzähler der Modbus-Komunikation *)
 	FtrigBusy:			F_TRIG;
@@ -46,15 +49,19 @@ MSS 1			|	3				|	12
 	CounterError: 		DINT;
 	CounterSuccess: 	DINT;
 	counter: 			INT := 1;
+	Teststring: T_MaxString;
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[(*Falls ein Slave konfiguriert werden soll bConfig__ auf TRUE setzen*)
+      <ST><![CDATA[(*Falls ein Slave konfiguriert werden soll bConfigPT auf TRUE setzen*)
 		
 IF 	bConfigPT THEN 
 	Status_Modbus := ConfigPT;
+
 END_IF
 
+
+Teststring:= DWORD_TO_BINSTR(modbusData_PT[4],32);
 
 CASE Status_Modbus OF
 	
@@ -82,8 +89,8 @@ CASE state OF
 	 MODBUS.myModbus.ReadRegs (* Reads data from a connected slave. *)
  		(
  		 UnitID:= ModbusAdresse,
- 		 Quantity:= 2,								//zwei Register werden ausgelesen
- 		 MBAddr:= 2,								//P1 wird bei Adresse 2 ausgelesen, TOB1 bei Adresse 8
+ 		 Quantity:= LaengeRegs,								//zwei Register werden ausgelesen
+ 		 MBAddr:= AbfrageRegs_PT,								//P1 wird bei Adresse 2 ausgelesen, TOB1 bei Adresse 8
  		 cbLength:= SIZEOF(modbusData_PT[ModbusAdresse]),		
  		 pMemoryAddr:= ADR(modbusData_PT[ModbusAdresse]),		//Empfangene Daten werden in DWORD in modbusData geschrieben.
   		Execute:= TRUE,
@@ -104,6 +111,7 @@ CASE state OF
 		ELSE 
 		state := state + 1;
 	END_IF
+	
 	
 	
 2:	(* Lese Massenstromsensor-Registers aus*)		

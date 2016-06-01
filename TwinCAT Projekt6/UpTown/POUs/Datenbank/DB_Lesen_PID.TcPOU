@@ -5,7 +5,7 @@
 VAR
 	  
    FB_DB_Schliesse_PID:FB_DBConnectionClose;
- 	a: ARRAY[0..100] OF ST_DB_PID;
+ 	a: ARRAY[0..5] OF ST_DB_PID;
 
 	myPID: PID;
 

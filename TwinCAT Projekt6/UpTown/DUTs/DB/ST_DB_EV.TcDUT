@@ -6,12 +6,12 @@ STRUCT
 	id: DINT;
 	Timestamp: DT;			
 	Name: STRING(45);		
-	IstDruck: REAL;			//bar
+	IstDruck: REAL;			//Bar
 	IstTemp: REAL;			//°C
 	SaugTemp: REAL;			//°C
 	VerdampfTemp: REAL;		//°C
-	VerdampfDruck: REAL;	//bar
-	UberhitzungTemp: REAL;	//°C
+	VerdampfDruck: REAL;	//Bar
+	UberhitzungTemp: REAL;	//K
 	VentilOffnung: REAL;	//%
 	RegelSollwert: REAL;	//K
 	Ventilposition: REAL;	//0..9999

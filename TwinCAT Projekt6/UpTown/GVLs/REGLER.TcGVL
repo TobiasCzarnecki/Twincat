@@ -6,6 +6,13 @@
 	PID_KP:							PID;
 	PID_VF_Ventilator:				PID;
 	PID_VD_defrost_Ventilator:		PID;
+	
+	Ist_VF_Unterkuhlung: REAL;
+	
+	bKP_TolleranzErreicht: BOOL:= FALSE;		
+	bVF_TolleranzErreicht: BOOL:= FALSE;
+	bEV_TolleranzErreicht: BOOL:= FALSE;
+	
 	//PID_VD_Ventilator_Drehzahl:	PID; // !zurzeit noch keine Regelung für die zwei Ventilatoren am VD installiert!
 	
 	VD_Ventilator_ON AT  %Q*:	 	BOOL:= FALSE;   // Im RI-Fließbild Bezeichnung: 1W1

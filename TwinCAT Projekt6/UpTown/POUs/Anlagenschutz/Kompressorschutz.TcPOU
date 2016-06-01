@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4019.2">
+  <POU Name="Kompressorschutz" Id="{be64ea78-35a0-44e0-95ee-e8e33ab46875}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Kompressorschutz
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[(*Kompressor läuft langsam an, um möglichen Tropfenschlag zu verhindern. Überhitzungstemperatur im 
+  Expansionsventil wird überprüft*)
+
+//im KühlenModus   
+IF bKuehlen = TRUE THEN 
+  IF EV.UberhitzungTemp < 4  THEN
+	  Soll_KP.REAL_VAR := 0;
+	  bAnlagenschutzAktiv:= TRUE;
+	  ELSE
+	  bAnlagenschutzAktiv:= FALSE;
+  END_IF
+END_IF
+  
+//im AbtauModus  
+IF bAbtauen THEN
+  IF EV_rev.UberhitzungTemp < 4 
+	 THEN
+	  Soll_KP.REAL_VAR := 0;	  
+	  bAnlagenschutzAktiv:= TRUE;
+	  ELSE
+	  bAnlagenschutzAktiv:= FALSE;
+  END_IF
+END_IF]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

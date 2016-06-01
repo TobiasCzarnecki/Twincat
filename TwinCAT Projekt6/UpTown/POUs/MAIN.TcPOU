@@ -4,7 +4,7 @@
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
 	GetEnthalpie :FB_GetEnthalpie;
-	Test :REAL;
+	Test :STRING;
 	xTest: REAL;
 	sTest: STRING;
 	timer: TON;
@@ -13,7 +13,7 @@ END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[EnthalpieBerechnen();
-	
+Test:= DWORD_TO_BINSTR(4294901762,8);
 (*Prüfen ob neu initialisiert werden muss*)
 IF SM.bNeuInitialisieren THEN 		
 	SM.Status:= Initialisieren;
@@ -181,6 +181,9 @@ Abtauen: //Der Verdampfer wird abgetaut. Über GVL wird der Abtaumodus ausgewäh
 		SM.Status:=Anlagenschutz;
 		
 Anlagenschutz: //Anlagenschutzsysteme überschreiben ggf. Anweisungen
+	Kompressorschutz();
+	
+	
 
 	//======nächster Modus====					
 		SM.Status:=Schreiben;

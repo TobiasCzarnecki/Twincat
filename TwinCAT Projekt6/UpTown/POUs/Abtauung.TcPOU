@@ -7,7 +7,7 @@ VAR
 	Timer :TOF;
 	Timer_Abtaudauer :TON;
 	Timer_HeizungAbtauwanne: TON;
-	fb_Schuetzstellung : FB_Schuetzstellung;
+
 
 	P_el_Rack :ARRAY[1..5] OF  REAL := [500,1000,1500,2000,2200];  	//Elektrische Leistung in Watt
 	P_el_Boden:ARRAY[1..5] OF  REAL := [500,1000,1500,2000,2025];	//Elektrische Leistung in Watt
@@ -50,9 +50,10 @@ CASE state OF
 	
 	(*Kompressor wird angeschaltet*)	
 		PID_KP.Aktiv:= TRUE;
+
 		
 	(*Pump-Down wird durchgeführt bis der Druck vor dem KP kleiner als 1,4 Bar ist*)	
-		IF PT_KP_in.rDruck< 1.4 THEN 
+		IF PT_VD_out.rDruck< 1.0 THEN  //PT_KP_in.rDruck< 1.0 THEN !!Ist noch nicht ansprechbar!!
 			EV.SetAktKuhlleistung:= TRUE; 
 			EV.SollAktKuhlleistung:= 100;
 			

@@ -3,9 +3,10 @@
   <POU Name="Regelung" Id="{05ac8433-e45f-42f3-8c7e-64a31f93e4f5}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM Regelung
 VAR
-	fb_pid_KP : 		CTRL_PID;
-	fb_pid_VF : 		CTRL_PID;
-	fb_pid_VD_defrost : CTRL_PID;
+	fb_pid_KP : 					CTRL_PID;
+	fb_pid_VF : 					CTRL_PID;
+	fb_pid_VD_defrost :				CTRL_PID;
+	bVF_defrost_TolleranzErreicht: 	BOOL;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -25,7 +26,7 @@ fb_pid_KP(
 	MAN:= PID_KP.ManuellerModus, 
 	RST:= PID_KP.Restart, 
 	KP:= PID_KP.Kp, 
-	TN:= 2000, //PID_KP.Kp/ PID_KP.I, 
+	TN:= PID_KP.Kp/ PID_KP.I, //2000, 
 	TV:= PID_KP.D/ PID_KP.Kp, 
 	LL:= Soll_KP.REAL_PARA_minWert,	//PID_KP.LimitUnten, 
 	LH:= Soll_KP.REAL_PARA_maxWert,	//PID_KP.LimitOben, 
@@ -36,12 +37,20 @@ ELSE
 	PID_KP.y := 0; // Regler ist ausgeschalten und sendet 0 mA
 END_IF
 	Soll_KP.REAL_VAR	 := 		PID_KP.y;	
+	
+	IF PID_KP.e / PID_KP.w < 0.05 AND -0.05 < PID_KP.e / PID_KP.w THEN 
+		bKP_TolleranzErreicht := TRUE;
+		ELSE
+		bKP_TolleranzErreicht := FALSE;	
+	END_IF
 		
 (*Regler für den Ventilator vom Verflüssiger*)	
+Ist_VF_Unterkuhlung := VF.T_v - Temp_VF_out.REAL_VAR;
+
 IF PID_VF_Ventilator.Aktiv THEN	
 fb_pid_VF( 
-	ACT:= PID_VF_Ventilator.x, 
-	SET:= VF.T_v - PID_VF_Ventilator.w, // dem Druck entsprechende Verdampfungstemperatur "T_v" minus X Kelvin, garantiert flüssiges Kältemittel im VF-Ausgang
+	ACT:= Ist_VF_Unterkuhlung, 
+	SET:= PID_VF_Ventilator.w, // dem Druck entsprechende Verdampfungstemperatur "T_v" minus X Kelvin, garantiert flüssiges Kältemittel im VF-Ausgang
 	SUP:= PID_VF_Ventilator.Einschalttoleranz, 
 	OFS:= PID_VF_Ventilator.Offset, 
 	M_I:= PID_VF_Ventilator.ManuellerWert, 
@@ -59,6 +68,12 @@ ELSE
 	PID_VF_Ventilator.y := 0; // Rergler ist ausgeschaltenen und sendet 0 mA.
 END_IF
 	Soll_VF_Ventilator.REAL_VAR:= PID_VF_Ventilator.y ;
+	
+	IF  PID_VF_Ventilator.e / PID_VF_Ventilator.w < 0.05 AND -0.05 < PID_VF_Ventilator.e / PID_VF_Ventilator.w THEN 
+		bVF_TolleranzErreicht := TRUE;
+		ELSE
+		bVF_TolleranzErreicht := FALSE;		
+	END_IF
 
 (*!!! Noch nicht impementiert. Verdampfer_defrost wird über Schütz 1K3 direkt mit konstanten 230V versorgt!!
 
@@ -85,6 +100,11 @@ ELSE
 END_IF
 	Soll_VD_defrost_Ventilator.REAL_VAR:= PID_VD_defrost_Ventilator.y;	
 	
+	IF PID_VD_defrost_Ventilator.e / PID_VD_defrost_Ventilator.w < 0.05 THEN 
+		bVF_defrost_TolleranzErreicht := TRUE;
+		ELSE
+		bVF_defrost_TolleranzErreicht := FALSE;		
+	END_IF
 *)
 ]]></ST>
     </Implementation>

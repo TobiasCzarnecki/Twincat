@@ -31,8 +31,8 @@ KuehlenUnten:
 		EV.SetAktKuhlleistung := TRUE;
 		EV.SollAktKuhlleistung:= 100;
 	
-	(*Kompressor PID-Regler wird eingestellt*)
-		PID_KP.w := Soll_Betriebsdruck;						//Kompressor wird bei 1.5 Bar ausgeschaltet
+	//(*Kompressor PID-Regler wird eingestellt*)
+	//	PID_KP.w := Soll_Betriebsdruck;						//Kompressor wird bei 1.5 Bar ausgeschaltet
 
 PumpDown:
 	(*Bool-Variablen werden gesetzt*)
@@ -51,9 +51,10 @@ PumpDown:
 		EV.SollAktKuhlleistung:= 0;
 		
 	(*Kompressor PID-Regler wird eingestellt*)
-		PID_KP.w := Soll_DruckPumpDown;						//Kompressor wird bei 1.5 Bar ausgeschaltet
+		PID_KP.w := 0.5;						//Kompressor wird bei 1.5 Bar ausgeschaltet
 		IF PID_KP.x <= Soll_DruckPumpDown THEN 
 			bPumpDownAbgeschlossen := TRUE;		//SPS oder KÄLTEMASCHINE kann ausgeschaltet werden
+			PID_KP.Aktiv:= FALSE;				//Kompressor wird ausgeschaltet
 		END_IF
 		
 AbtauenOben:

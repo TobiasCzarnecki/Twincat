@@ -10,14 +10,15 @@
 	bKuehlen:						BOOL:=TRUE;				//
 			bVollautomatikModbus: 			BOOL:= TRUE;
 			bManuellerModus:				BOOL:=FALSE;
-			bBeendenKuehlen: 				BOOL:= FALSE;
 			bPumpDownAbgeschlossen:			BOOL:= FALSE;
+			bKuehlenAbbrechen: 				BOOL:= FALSE;
 	bAbtauen: 						BOOL;
 			bAbtauen_elektrisch:			BOOL:=FALSE;
 			bAbtauen_Heissgas_oben:			BOOL:=FALSE;
 			bAbtauen_Heissgas_unten:		BOOL:=FALSE;
 			bAbtauModusAbbrechen:			BOOL:=FALSE;
 	bAnlagenschutzModus:			BOOL:=TRUE;
+	bAnlagenschutzAktiv:			BOOL:=FALSE;
 	bFehler:						BOOL:=FALSE;
 	bLeerlauf:						BOOL:=FALSE;	
 	
@@ -26,6 +27,7 @@
 	
 	NetID:T_amsnetid;
 	
+	fb_Schuetzstellung: FB_Schuetzstellung;
 	Abtaumethode : Modus_Abtauen; 
 	Starte_DB : TON;
 	//Status_MagnetVentil: Status_MV:= Normalbetrieb;

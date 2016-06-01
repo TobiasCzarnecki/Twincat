@@ -123,6 +123,9 @@
       <SubType>Code</SubType>
       <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
     </Compile>
+    <Compile Include="POUs\Anlagenschutz\Kompressorschutz.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\Datenbank\DB_Lesen_Enthalpie_r134a.TcPOU">
       <SubType>Code</SubType>
     </Compile>
@@ -306,6 +309,7 @@
     <Folder Include="POUs\Modbus" />
     <Folder Include="POUs\Funktionen" />
     <Folder Include="POUs\Datenbank" />
+    <Folder Include="POUs\Anlagenschutz" />
     <Folder Include="POUs\Testprogramme" />
     <Folder Include="POUs\Waagen" />
     <Folder Include="VISUs" />

@@ -7,6 +7,7 @@
 		EV_rev: 	ExpansionsVentil; //Im Falle einer Strömungsumkehrung wird über dieses Expansionsventil in den Verdampfer außerhalb der KlimaKammer eingespritzt
 		
 (*Zustände der Kältekreiskomponenten: Verdampfer, Verflüssiger, Kompressor, Expansionsventil*)
+		EV_in:			Zustandsgroessen;
 		VD : 			Zustandsgroessen;
 		VD_rev: 		Zustandsgroessen;
 		KP : 			Zustandsgroessen;

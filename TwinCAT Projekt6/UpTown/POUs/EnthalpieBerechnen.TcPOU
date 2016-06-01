@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4019.2">
+  <POU Name="EnthalpieBerechnen" Id="{3788d104-5631-416f-81ee-1ba642f8c124}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM EnthalpieBerechnen 
+(*Funktion zur Berechnung der jeweiligen Enthalpie an den jeweiligen Zustandspunkte.
+  Falls sich der Zustandspunkt im Nassdampfgebiet befindet, wird die Beladung x ausgerechnet. *)
+
+VAR
+	EV_enthalpie:									FB_GetEnthalpie;
+	VD_in_Enthalpie, VD_out_Enthalpie   	:	    FB_GetEnthalpie;					// Verdampfer
+	VD_rev_in_Enthalpie, VD_rev_out_Enthalpie : 	FB_GetEnthalpie;
+	VF_in_Enthalpie, VF_out_Enthalpie	: 			FB_GetEnthalpie;					// Verflüssiger
+	KP_in_Enthalpie, KP_out_Enthalpie	:			FB_GetEnthalpie;					// Kompressor
+	VD_defrost_in_Enthalpie, VD_defrost_out_Enthalpie   : FB_GetEnthalpie;				// Verdampfer während des Abtauvorganges mittels Prozessumkehrung
+	//EV_Enthalpie, EV_rev_Enthalpie	 					: FB_GetEnthalpie;			// Expansionsventil
+	
+	VD_H_Integral, VF_H_Integral, KP_H_Integral,VD_defrost_H_Integral  : INTEGRATE;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+(*Komponenten werden billanziert*)
+//======================================================================================
+
+(*Verdampfer: h_in & h_out*)
+	VD.h_in:= EV_in.h; //isenthalpe Entspannung
+	
+	VD_in_Enthalpie(In_Druck:= PT_VD_in.rDruck, In_Temperatur:=Temp_VD_in.REAL_VAR);//, h=>VD.h_in, x=>VD.x_in, Zustand=> );
+	VD_out_Enthalpie(In_Druck:= PT_VD_out.rDruck, In_Temperatur:=Temp_VD_in_rev.REAL_VAR, h=>VD.h_out, x=>VD.x_out, Zustand=> );
+
+(*Verdampfer in der Klimakammer beim Abtauen: h_in & h_out*)
+	VD_rev_in_Enthalpie(In_Druck:= PT_VD_out.rDruck, In_Temperatur:=Temp_VD_in_rev.REAL_VAR, h=>VD_rev.h_in, x=>VD_rev.x_in, Zustand=> );
+	VD_rev_out_Enthalpie(In_Druck:= PT_VD_in.rDruck, In_Temperatur:=Temp_VD_out_rev.REAL_VAR, h=>VD_rev.h_out, x=>VD_rev.x_out, Zustand=> );
+	
+(*Verflüssiger: h_in & h_out*)
+	VF_in_Enthalpie(In_Druck:= PT_VF_in.rDruck, In_Temperatur:=Temp_VF_in.REAL_VAR, h=>VF.h_in, x=>VF.x_in, Zustand=> );
+	VF_out_Enthalpie(In_Druck:= PT_VF_out.rDruck, In_Temperatur:=Temp_VF_out.REAL_VAR,T_v=>VF.T_v, h=>VF.h_out, x=>VF.x_out, Zustand=> );
+
+(*Kompressor: h_in & h_out*)
+	KP_in_Enthalpie(In_Druck:= PT_KP_in.rDruck, In_Temperatur:=Temp_KP_in.REAL_VAR, h=>KP.h_in, x=>KP.x_in, Zustand=> );
+	KP_out_Enthalpie(In_Druck:= PT_KP_out.rDruck, In_Temperatur:=Temp_KP_out.REAL_VAR, h=>KP.h_out, x=>KP.x_out, Zustand=> );
+
+(*Verflüssiger_defrost: h_in & h_out*)	
+	VD_defrost_in_Enthalpie(In_Druck:= PT_VF_out.rDruck, In_Temperatur:=Temp_VD_defrost_in.REAL_VAR, h=>VD_defrost.h_in, x=>VD_defrost.x_in, Zustand=> );
+	VD_defrost_out_Enthalpie(In_Druck:= PT_VF_in.rDruck, In_Temperatur:=Temp_VD_defrost_out.REAL_VAR, h=>VD_defrost.h_out, x=>VD_defrost.x_out, Zustand=> );
+
+(*Expansionsventil*)
+	EV_enthalpie(In_Druck:= PT_VF_out.rDruck,In_Temperatur:= Temp_vor_EV.REAL_VAR, h=>EV_in.h_in, x=> EV_in.x_in );
+	
+	
+(*Totaler Enthalpiestrom wird berechnet*)
+	VD.H := 		MSS.rMassenstrom *( VD.h_out-VD.h_in)* 1000;
+	VF.H := 		MSS.rMassenstrom *( VF.h_out-VF.h_in)* 1000;
+	KP.H := 		MSS.rMassenstrom *( KP.h_out-KP.h_in)* 1000;
+	VD_defrost.H := MSS.rMassenstrom *( VD_defrost.h_out-VD_defrost.h_in)* 1000;
+
+(*Die Energiemengen werden bestimmt*)	
+	VD_H_Integral(X:=VD.H, Y:= VD.H_sum);
+	VF_H_Integral(X:=VF.H, Y:= VF.H_sum);
+	KP_H_Integral(X:=KP.H, Y:= KP.H_sum);
+	VD_defrost_H_Integral(X:=VD_defrost.H, Y:= VD_defrost.H_sum);
+		
+(*Drücke werden zugeordnet*)
+	VD.p_in:= PT_VD_in.rDruck;
+	VD.P_out:=PT_VD_out.rDruck;
+ 	VF.p_in:= PT_VF_in.rDruck;
+	VF.P_out:=PT_VF_out.rDruck;
+	KP.p_in:= PT_KP_in.rDruck;
+	KP.P_out:=PT_KP_out.rDruck;
+	VD_defrost.p_in:= PT_VF_out.rDruck;
+	VD_defrost.P_out:=PT_VF_in.rDruck;
+	
+(*Temperaturen werden zugeordnet*)
+	VD.T_in:= 	Temp_VD_in.REAL_VAR;
+	VD.T_out:= 	Temp_VD_out.REAL_VAR;
+	VF.T_in:= 	Temp_VF_in.REAL_VAR;
+	VF.T_out:= 	Temp_VF_out.REAL_VAR;
+	KP.T_in:= 	Temp_KP_in.REAL_VAR;
+	KP.T_out:= 	Temp_KP_out.REAL_VAR;
+ 	VD_defrost.T_in := Temp_VD_defrost_in.REAL_VAR;
+	VD_defrost.T_out:= Temp_VD_defrost_out.REAL_VAR;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
