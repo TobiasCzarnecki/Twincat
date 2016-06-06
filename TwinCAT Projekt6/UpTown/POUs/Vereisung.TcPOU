@@ -5,21 +5,13 @@
 (*Ablaufprogram für die Vereisung des Verdampfers. Beim ABBRUCH des Vorgangs bzw. ABSCHALTEN wird ein PumpDown vollzogen.  *)
 VAR
 
-
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[(*Vereisung wird abgebrochen. Die Kälteanlage führt einen PumpDown durch, um das Kältemittel im flüssigen Zustand in den 
-	Sammler zu führen.*)
-IF bKuehlenAbbrechen THEN 
-		fb_Schuetzstellung(myStatus := PumpDown);
-ELSE 
-
-(*Starte Timer zur Vereisung*)	
+      <ST><![CDATA[(*Starte Timer zur Vereisung*)	
 	IF NOT TimerVereisung.IN THEN
 	TimerVereisung(IN:= TRUE, PT:= T#1H);
 	END_IF
-	
 	
 (*Die Schütze 1K3 und 1K5 werden durch bKühlen geschaltet:
 					-Magnetventile 1Y5,1Y6 werden geschlossen 
@@ -28,23 +20,21 @@ ELSE
  		
 	IF SM.bKuehlen THEN 
 		fb_Schuetzstellung(myStatus := KuehlenUnten);
-		EV.SetAktKuhlleistung := TRUE;
-		EV.SollAktKuhlleistung:= 100; 
+		EV.SetKuhlleistung := TRUE;
+		EV.SollKuhlleistung:= 100; 
 	END_IF
-	
-
 	
 (*Abtauung wird begonnen wenn Zeit des Timers abgelaufen ist*)
 	IF TimerVereisung.Q THEN
 		TimerVereisung.IN := FALSE;			//Reset vom Vereisungstimer
-		bVereisungAbgeschlossen:= TRUE;		//Der Verdampfer ist nun vereist
-		bAbtauenNotwendig:= TRUE;
-
-	// Status-Maschine Bool-variablen werden auf TRUE bzw. FALSE gesetzt
-		SM.bKuehlen := FALSE;
-		SM.bAbtauen := TRUE;			
+		Mitteilung:= 'Die Vereisungszeit ist abgeschlossen';
+		
+		(*Nach der Vereisung wird ein PumpDown durchgeführt*)
+		SM.bPumpDown := TRUE; 
+		
+		(* Status-Maschine Bool-variablen werden auf TRUE bzw. FALSE gesetzt*)
+		SM.bKuehlen := FALSE;		
 	END_IF
-END_IF	
 
 ]]></ST>
     </Implementation>

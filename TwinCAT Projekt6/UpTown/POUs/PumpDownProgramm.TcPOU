@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4019.2">
+  <POU Name="PumpDownProgramm" Id="{6f105f69-9598-4667-a3f9-d4c4a9e74e4d}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM PumpDownProgramm
+VAR
+
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[(*Schütze, EV werden für PumpDown Modus geschaltet*)
+ 	IF bPumpDown THEN 	
+	bPumpDown_rev := FALSE;
+	fb_Schuetzstellung(myStatus:= PumpDown);
+	
+	(*Pump-Down wird durchgeführt bis der Druck vor dem KP kleiner als 1,4 Bar ist*)	
+		IF   PT_KP_out.rDruck < Soll_PumpDownDruck THEN  			//!!Ist noch nicht ansprechbar!!
+			bPumpDown := FALSE;
+			bPumpDownAbgeschlossen:= TRUE;
+		END_IF
+	END_IF
+
+(*Schütze, EV_rev werden für PumpDown_rev Modus geschaltet*)
+	IF bPumpDown_rev THEN 
+	bPumpDown := FALSE;	
+	fb_Schuetzstellung(myStatus:= PumpDown_rev);
+	
+	(*Pump-Down wird durchgeführt bis der Druck vor dem KP kleiner als 1,4 Bar ist*)	
+		IF  PT_KP_out.rDruck < Soll_PumpDownDruck THEN  			//!!Ist noch nicht ansprechbar!!
+			bPumpDown_rev := FALSE;
+			bPumpDown_revAbgeschlossen:= TRUE;
+		END_IF
+	END_IF
+	
+(*Kompressor wird angeschaltet*)	
+	KP_ON		:= TRUE;	
+	PID_KP.Aktiv:= TRUE;
+		
+
+			
+		
+		
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

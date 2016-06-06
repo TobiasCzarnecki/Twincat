@@ -3,27 +3,48 @@
   <GVL Name="REGLER" Id="{7b35d618-5e5e-4991-ac01-e7c1902fedd9}">
     <Declaration><![CDATA[VAR_GLOBAL
 (*Liste der zu regelnden Komponentem im Kältekreislauf *)
+	(*Timer für die Vereisungszeit wird deklariert*)
+	TimerVereisung: 			TON; 
+
+(*PID-Regler Deklaration*)
 	PID_KP:							PID;
 	PID_VF_Ventilator:				PID;
-	PID_VD_defrost_Ventilator:		PID;
+	PID_VD_defrost_Ventilator: 		PID; // !! Zurzeit nur über Digitales Ausgangssignal an- bzw. ausgeschaltet!!
 	
-	Ist_VF_Unterkuhlung: REAL;
-	
+(*Variablen für die Regelung*)	
 	bKP_TolleranzErreicht: BOOL:= FALSE;		
 	bVF_TolleranzErreicht: BOOL:= FALSE;
 	bEV_TolleranzErreicht: BOOL:= FALSE;
+	Ist_VF_Unterkuhlung:			REAL;
+	Soll_PumpDownDruck: 			REAL := 1.5;
 	
-	//PID_VD_Ventilator_Drehzahl:	PID; // !zurzeit noch keine Regelung für die zwei Ventilatoren am VD installiert!
+(*Digitale Ausgangsignale*)	
+	VD_Ventilator_ON AT  %Q*:	 		BOOL:= FALSE;   // Im RI-Fließbild Bezeichnung: 1W1
+	VD_defrost_Ventilator_ON AT %Q*: 	BOOL:= FALSE;	// Im RI-Fließbild Bezeichnung: 1W3
+	ElektrischeHeizung_ON AT %Q*: 		BOOL:= FALSE;
+	KP_ON AT %Q*: 						BOOL:= FALSE; 	// Im RI-Fließbild Bezeichnung: 1V1 
 	
-	VD_Ventilator_ON AT  %Q*:	 	BOOL:= FALSE;   // Im RI-Fließbild Bezeichnung: 1W1
-	//VierWegeVentil_Abtauen: 		BOOL:= FALSE;	// Im RI-Fließbild Bezeichnung: 1V4
+(*Schütze werden geschaltet*)
+	Schuetz_1K3 AT %Q*:					BOOL:= FALSE;	
+	Schuetz_1K4 AT %Q*:					BOOL:= FALSE;
+	Schuetz_1K5	AT %Q*:					BOOL:= FALSE;
+	Schuetz_1K7	AT %Q*:					BOOL:= FALSE;
+	fb_Schuetzstellung: 				FB_Schuetzstellung;
+	
 
-(*Digitale Ausgänge für de Schütze 1K3..1K5*)
-	Schuetz_1K3 AT %Q*:	BOOL:= FALSE;
-	Schuetz_1K4 AT %Q*:	BOOL:= FALSE;
-	Schuetz_1K5	AT %Q*:	BOOL:= FALSE;
+(*Elektrische Heizung*)
+	Heizstufe: 			REAL;				//[V], 0..10 V DC,  Aktuelle elektrische Leistung = Heizstufe
+	P_el_Rack1: 		REAL;				//[W] Aktuelle elektrische Leistung		
+	P_el_Rack2: 		REAL;				//[W] Aktuelle elektrische Leistung				
+	P_el_Boden: 		REAL;				//[W] Aktuelle elektrische Leistung
 	
+	P_el_Rack_max:  	REAL := 2200;  		//[W] Maximale elektrische Leistung
+	P_el_Boden_max:  	REAL := 2025;		//[W] Maximale elektrische Leistung
+	P_el_Heizung_ges:	REAL ;				//[W] Insgesamte Abtauleistung
 	
+(*Kältemittel im Verdampfer*)
+	VD_Kaltemittel_g: BOOL; //Agregatzustand vom Kältemittel im Verdampfer
+	VD_Kaltemittel_l: BOOL; //Agregatzustand vom Kältemittel im Verdampfer
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

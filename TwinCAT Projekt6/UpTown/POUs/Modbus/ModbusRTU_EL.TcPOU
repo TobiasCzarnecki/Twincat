@@ -107,13 +107,13 @@ CASE state OF
 
 		END_IF
 3: (*Schreibt Akt_Kühlleistung Coil auf die Expansionsventile*)
-IF EV.SetAktKuhlleistung THEN 	
+IF EV.SetKuhlleistung THEN 	
 	ModbusEL6021.WriteSingleRegister(
 		UnitID:= 2,
  		Quantity:= 1,								
  		MBAddr:= 134,								
- 		cbLength:= SIZEOF(EV.SollAktKuhlleistung),		
- 		pMemoryAddr:= ADR(EV.SollAktKuhlleistung),		//Daten werden in für EV DATA-ARRAY geschrieben
+ 		cbLength:= SIZEOF(EV.SollKuhlleistung),		
+ 		pMemoryAddr:= ADR(EV.SollKuhlleistung),		//Daten werden in für EV DATA-ARRAY geschrieben
   		Execute:= TRUE,
   		Timeout:= modbusTimeout_EL,
   		Busy => isModbusBusy_EL,
@@ -123,7 +123,7 @@ IF EV.SetAktKuhlleistung THEN
 
 		IF NOT isModbusBusy_EL THEN
 				ModbusEL6021.WriteSingleRegister(Execute:= FALSE);
-				EV.SetAktKuhlleistung := FALSE;
+				EV.SetKuhlleistung := FALSE;
 			IF ModbusEL6021.Error THEN
 				state := 0;
 			ELSE
@@ -197,13 +197,13 @@ END_IF
 
 6: (*Schreibt Akt_Kühlleistung Coil auf die Expansionsventile*)
 
-IF EV_rev.SetAktKuhlleistung THEN 	
+IF EV_rev.SetKuhlleistung THEN 	
 	ModbusEL6021.WriteSingleRegister(
 		UnitID:= 2,
  		Quantity:= 1,								
  		MBAddr:= 134,								
- 		cbLength:= SIZEOF(EV_rev.SollAktKuhlleistung),		
- 		pMemoryAddr:= ADR(EV_rev.SollAktKuhlleistung),		//Daten werden in für EV DATA-ARRAY geschrieben
+ 		cbLength:= SIZEOF(EV_rev.SollKuhlleistung),		
+ 		pMemoryAddr:= ADR(EV_rev.SollKuhlleistung),		//Daten werden in für EV DATA-ARRAY geschrieben
   		Execute:= TRUE,
   		Timeout:= modbusTimeout_EL,
   		Busy => isModbusBusy_EL,
@@ -213,7 +213,7 @@ IF EV_rev.SetAktKuhlleistung THEN
 
 		IF NOT isModbusBusy_EL THEN
 				ModbusEL6021.WriteSingleRegister(Execute:= FALSE);
-				EV_rev.SetAktKuhlleistung := FALSE;
+				EV_rev.SetKuhlleistung := FALSE;
 			IF ModbusEL6021.Error THEN
 				state := 0;
 			ELSE

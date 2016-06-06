@@ -14,11 +14,16 @@ END_VAR
 	Schreiben:
 	
 	//Stellsignal Veflüssiger Ventilator
-		Soll_VF_Ventilator.INT_VAR_Output:=FB_Nativ_zu_SPS_lin(output:=Soll_VF_Ventilator);
+		Soll_VF_Ventilator.INT_VAR_Output:=	FB_Nativ_zu_SPS_lin(output:=Soll_VF_Ventilator);
 
 	//Stellsignal Kompressor
-		Soll_KP.INT_VAR_Output:= FB_Nativ_zu_SPS_lin(output:=Soll_KP);
+		Soll_KP.INT_VAR_Output:= 			FB_Nativ_zu_SPS_lin(output:=Soll_KP);
 	
+	//Stellsignal elektrische Heizung
+		Soll_ElektHeizrack1.INT_VAR_Output		:= FB_Nativ_zu_SPS_lin(output:= Soll_ElektHeizrack1);
+		Soll_ElektHeizrack2.INT_VAR_Output		:= FB_Nativ_zu_SPS_lin(output:= Soll_ElektHeizrack2);
+		Soll_ElektHeizrack_Boden.INT_VAR_Output := FB_Nativ_zu_SPS_lin(output:= Soll_ElektHeizrack_Boden);
+		
 END_CASE]]></ST>
     </Implementation>
   </POU>

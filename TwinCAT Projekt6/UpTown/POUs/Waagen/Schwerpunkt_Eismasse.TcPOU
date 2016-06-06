@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4019.2">
   <POU Name="Schwerpunkt_Eismasse" Id="{435a4698-bf4e-4530-9411-3a8d988b1d27}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM Schwerpunkt_Eismasse
 VAR
@@ -52,7 +52,7 @@ CASE state OF
 
 0: 	
 	
-	IF bWaagenKalibrierung THEN 
+	IF WaagenKalibrierungFertig = FALSE THEN 
 	state:= 10;
 	ELSE 
 	state:=1;
@@ -123,8 +123,9 @@ CASE state OF
 
 10:	ConfigWaage();
 	
-	IF ConfigWaage.bKalibrierungAbgeschlossen THEN 
+	IF WaagenKalibrierungFertig THEN 
 	state:= 0;
+	//bWaagenKalibrierung:= FALSE;
 	END_IF
 	
 END_CASE]]></ST>

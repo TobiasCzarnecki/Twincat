@@ -2,35 +2,43 @@
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4019.2">
   <GVL Name="SM" Id="{bc6b87a2-3fc4-4d1b-b930-7e7397c0fd58}">
     <Declaration><![CDATA[VAR_GLOBAL
-	Status : Status_KK:= Lesen;//Initialisieren;
-	bLeseStoffwerte: BOOL := FALSE;							// nur auf TRUE setzen, wenn sich die Daten aus der Datenbank geändert bzw. angepasst worden sind
-	bLesen:							BOOL:=TRUE;		
-	bNeuInitialisieren:				BOOL:=TRUE;
-			bWaagenKalibrierung:			BOOL:=FALSE;
-	bKuehlen:						BOOL:=TRUE;				//
-			bVollautomatikModbus: 			BOOL:= TRUE;
-			bManuellerModus:				BOOL:=FALSE;
-			bPumpDownAbgeschlossen:			BOOL:= FALSE;
-			bKuehlenAbbrechen: 				BOOL:= FALSE;
-	bAbtauen: 						BOOL;
-			bAbtauen_elektrisch:			BOOL:=FALSE;
-			bAbtauen_Heissgas_oben:			BOOL:=FALSE;
-			bAbtauen_Heissgas_unten:		BOOL:=FALSE;
-			bAbtauModusAbbrechen:			BOOL:=FALSE;
-	bAnlagenschutzModus:			BOOL:=TRUE;
-	bAnlagenschutzAktiv:			BOOL:=FALSE;
-	bFehler:						BOOL:=FALSE;
-	bLeerlauf:						BOOL:=FALSE;	
+	Mitteilung: STRING; // hier werden Meldungen reingeschrieben
 	
-	Soll_DruckPumpDown: 					REAL:= 1.4;
-	Soll_Betriebsdruck: 					REAL:= 2;
+	Status : Status_KK:= Lesen;//Initialisieren;
+	
+	bNeuInitialisieren:				BOOL:=TRUE;
+	bDBFehler: 						BOOL:= FALSE;
+	bLeseStoffwerte: 				BOOL:=FALSE;				// nur auf TRUE setzen, wenn sich die Daten aus der Datenbank geändert bzw. angepasst worden sind	
+	
+	WaagenKalibrierungFertig: BOOL:= FALSE;
+	
+	bKuehlen:					BOOL:=TRUE;			
+		bVollautomatikModus: 		BOOL:= TRUE;
+		bManuellerModus:			BOOL:=FALSE;
+		bKuehlenAbbrechen:	 		BOOL:= FALSE;	
+	
+	bAbtauen:					BOOL:=FALSE;			
+		bAbtauen_elektrisch:		BOOL:=FALSE;
+		bAbtauen_Heissgas_oben:		BOOL:=FALSE;
+		bAbtauen_Heissgas_unten:	BOOL:=FALSE;
+		bAbtauenAbbrechen: 			BOOL:= FALSE;
+	bAbtauenAbgeschlossen: 		BOOL:=FALSE;
+
+	bLeerlauf:						BOOL:=FALSE;
+	
+	bPumpDown: 						BOOL:=FALSE;
+	bPumpDown_rev:					BOOL:=FALSE;
+	bPumpDownAbgeschlossen:			BOOL:=FALSE;
+	bPumpDown_revAbgeschlossen:		BOOL:=FALSE;
+	
+	bAnlagenschutzModus:			BOOL:=TRUE;
+	WarnungAnlagenschutz:			BOOL:=FALSE;
+	bFehler:						BOOL:=FALSE;
+	
+
 	
 	NetID:T_amsnetid;
-	
-	fb_Schuetzstellung: FB_Schuetzstellung;
-	Abtaumethode : Modus_Abtauen; 
-	Starte_DB : TON;
-	//Status_MagnetVentil: Status_MV:= Normalbetrieb;
+	//Abtaumethode : Modus_Abtauen; 
 
 END_VAR]]></Declaration>
   </GVL>

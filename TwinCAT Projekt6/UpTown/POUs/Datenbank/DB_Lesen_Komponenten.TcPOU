@@ -53,7 +53,7 @@ IF Abgeschlossen = FALSE THEN
 				bExecute:= 	TRUE, //timer1.Q, 
 				tTimeout:= T#15S, 
 				bBusy=> Busy_Lesen, 
-				bError=> SM.bFehler, 
+				bError=> SM.bDBFehler, 
 				nErrID=> Lesen_nErrID , 
 				sSQLState=> stSQLStateSelect, 
 				nRecords=> nRecordCount); 
@@ -134,13 +134,13 @@ IF Abgeschlossen = FALSE THEN
 	//=========================================================================================	
 	//Stellsignal Elektrische Heizracks
 			IF a[counter].symbolname = 'GVL.ElektHeizrack1' THEN
-				GVL.ElektHeizrack1:=myOutputVar;
+				GVL.Soll_ElektHeizrack1:=myOutputVar;
 			END_IF		
 			IF a[counter].symbolname = 'GVL.ElektHeizrack2' THEN
-				GVL.ElektHeizrack2:=myOutputVar;
+				GVL.Soll_ElektHeizrack2:=myOutputVar;
 			END_IF	
 			IF a[counter].symbolname = 'GVL.ElektHeizrack_Boden' THEN
-				GVL.ElektHeizrack_Boden:=myOutputVar;
+				GVL.Soll_ElektHeizrack_Boden:=myOutputVar;
 			END_IF	
 		
 	//=========================================================================================	
@@ -161,7 +161,7 @@ IF Abgeschlossen = FALSE THEN
 			
 			END_FOR		
 	ELSE
-		 SM.bFehler:=TRUE;
+		 SM.bDBFehler:=TRUE;
 	END_IF
 	
 	IF Busy_Lesen=FALSE AND nRecordCount>0  THEN

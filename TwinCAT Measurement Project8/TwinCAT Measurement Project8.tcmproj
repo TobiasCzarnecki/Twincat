@@ -7,7 +7,10 @@
     <RootNamespace>TwinCAT Measurement Project8</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="Scope YT Project.tcscope">
+    <Content Include="2D-Schwerpunkt.tcscope">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Messtechnik.tcscope">
       <SubType>Content</SubType>
     </Content>
   </ItemGroup>

@@ -13,8 +13,8 @@ STRUCT
 //---Speicherorte für die empfangenen/zu sendenden Modbusdaten
   	modbusData: 			ARRAY[1..10] OF WORD;
 	modbusDataCoils: 		ARRAY[1..4] OF BOOL; 
-	SetAktKuhlleistung: 	BOOL:= FALSE;
-	SollAktKuhlleistung: 	WORD:= 50; 
+	SetKuhlleistung: 		BOOL:= FALSE;
+	SollKuhlleistung: 		WORD:= 50; 
 	
 //
 END_STRUCT

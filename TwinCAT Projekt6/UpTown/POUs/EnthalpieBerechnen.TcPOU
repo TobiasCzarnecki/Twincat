@@ -69,6 +69,7 @@ END_VAR
 	KP.P_out:=PT_KP_out.rDruck;
 	VD_defrost.p_in:= PT_VF_out.rDruck;
 	VD_defrost.P_out:=PT_VF_in.rDruck;
+	EV_in.p_in:= PT_vor_EV.rDruck;
 	
 (*Temperaturen werden zugeordnet*)
 	VD.T_in:= 	Temp_VD_in.REAL_VAR;
@@ -78,7 +79,8 @@ END_VAR
 	KP.T_in:= 	Temp_KP_in.REAL_VAR;
 	KP.T_out:= 	Temp_KP_out.REAL_VAR;
  	VD_defrost.T_in := Temp_VD_defrost_in.REAL_VAR;
-	VD_defrost.T_out:= Temp_VD_defrost_out.REAL_VAR;]]></ST>
+	VD_defrost.T_out:= Temp_VD_defrost_out.REAL_VAR;
+	EV_in.T_in:= Temp_vor_EV.REAL_VAR;]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>

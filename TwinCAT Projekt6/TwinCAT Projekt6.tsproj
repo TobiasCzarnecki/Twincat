@@ -175,6 +175,7 @@
 			<Licenses>
 				<Target>
 					<ManualSelect>{4989A799-AEEA-4FEE-88EF-666B99EEFB45}</ManualSelect>
+					<ManualSelect>{3DDCAB25-BF0E-412C-A721-DC77C1B8099C}</ManualSelect>
 				</Target>
 			</Licenses>
 			<Tasks>
@@ -194,88 +195,11 @@
 					<Vars VarGrpType="1">
 						<Name>PlcTask Inputs</Name>
 						<Var>
-							<Name>Auslesen_Waagen.fb_WaageAuslesen[1].myWaage.EL6002_in</Name>
+							<Name>DB_Lesen_Komponenten.myInputVar.INT_VAR_Input</Name>
 							<Comment>
-								<![CDATA[ wird mit COM TxPDO Status verknüpft und mit COM TxPDO Data Inxx multiverknüpft]]>
+								<![CDATA[Input von Klemme (z.B. 2100)]]>
 							</Comment>
-							<Type GUID="{27C33280-DA01-45C5-AA9F-7B198D734670}" Namespace="TC2_SERIALCOM">EL6inData22B</Type>
-						</Var>
-						<Var>
-							<Name>Auslesen_Waagen.fb_WaageAuslesen[1].Waage.EL6002_in</Name>
-							<Comment>
-								<![CDATA[ wird mit COM TxPDO Status verknüpft und mit COM TxPDO Data Inxx multiverknüpft]]>
-							</Comment>
-							<Type GUID="{27C33280-DA01-45C5-AA9F-7B198D734670}" Namespace="TC2_SERIALCOM">EL6inData22B</Type>
-						</Var>
-						<Var>
-							<Name>Auslesen_Waagen.fb_WaageAuslesen[2].myWaage.EL6002_in</Name>
-							<Comment>
-								<![CDATA[ wird mit COM TxPDO Status verknüpft und mit COM TxPDO Data Inxx multiverknüpft]]>
-							</Comment>
-							<Type GUID="{27C33280-DA01-45C5-AA9F-7B198D734670}" Namespace="TC2_SERIALCOM">EL6inData22B</Type>
-						</Var>
-						<Var>
-							<Name>Auslesen_Waagen.fb_WaageAuslesen[2].Waage.EL6002_in</Name>
-							<Comment>
-								<![CDATA[ wird mit COM TxPDO Status verknüpft und mit COM TxPDO Data Inxx multiverknüpft]]>
-							</Comment>
-							<Type GUID="{27C33280-DA01-45C5-AA9F-7B198D734670}" Namespace="TC2_SERIALCOM">EL6inData22B</Type>
-						</Var>
-						<Var>
-							<Name>Auslesen_Waagen.fb_WaageAuslesen[3].myWaage.EL6002_in</Name>
-							<Comment>
-								<![CDATA[ wird mit COM TxPDO Status verknüpft und mit COM TxPDO Data Inxx multiverknüpft]]>
-							</Comment>
-							<Type GUID="{27C33280-DA01-45C5-AA9F-7B198D734670}" Namespace="TC2_SERIALCOM">EL6inData22B</Type>
-						</Var>
-						<Var>
-							<Name>Auslesen_Waagen.fb_WaageAuslesen[3].Waage.EL6002_in</Name>
-							<Comment>
-								<![CDATA[ wird mit COM TxPDO Status verknüpft und mit COM TxPDO Data Inxx multiverknüpft]]>
-							</Comment>
-							<Type GUID="{27C33280-DA01-45C5-AA9F-7B198D734670}" Namespace="TC2_SERIALCOM">EL6inData22B</Type>
-						</Var>
-						<Var>
-							<Name>Auslesen_Waagen.fb_WaageAuslesen[4].myWaage.EL6002_in</Name>
-							<Comment>
-								<![CDATA[ wird mit COM TxPDO Status verknüpft und mit COM TxPDO Data Inxx multiverknüpft]]>
-							</Comment>
-							<Type GUID="{27C33280-DA01-45C5-AA9F-7B198D734670}" Namespace="TC2_SERIALCOM">EL6inData22B</Type>
-						</Var>
-						<Var>
-							<Name>Auslesen_Waagen.fb_WaageAuslesen[4].Waage.EL6002_in</Name>
-							<Comment>
-								<![CDATA[ wird mit COM TxPDO Status verknüpft und mit COM TxPDO Data Inxx multiverknüpft]]>
-							</Comment>
-							<Type GUID="{27C33280-DA01-45C5-AA9F-7B198D734670}" Namespace="TC2_SERIALCOM">EL6inData22B</Type>
-						</Var>
-						<Var>
-							<Name>Auslesen_Waagen.fb_WaageAuslesen[5].myWaage.EL6002_in</Name>
-							<Comment>
-								<![CDATA[ wird mit COM TxPDO Status verknüpft und mit COM TxPDO Data Inxx multiverknüpft]]>
-							</Comment>
-							<Type GUID="{27C33280-DA01-45C5-AA9F-7B198D734670}" Namespace="TC2_SERIALCOM">EL6inData22B</Type>
-						</Var>
-						<Var>
-							<Name>Auslesen_Waagen.fb_WaageAuslesen[5].Waage.EL6002_in</Name>
-							<Comment>
-								<![CDATA[ wird mit COM TxPDO Status verknüpft und mit COM TxPDO Data Inxx multiverknüpft]]>
-							</Comment>
-							<Type GUID="{27C33280-DA01-45C5-AA9F-7B198D734670}" Namespace="TC2_SERIALCOM">EL6inData22B</Type>
-						</Var>
-						<Var>
-							<Name>Auslesen_Waagen.fb_WaageAuslesen[6].myWaage.EL6002_in</Name>
-							<Comment>
-								<![CDATA[ wird mit COM TxPDO Status verknüpft und mit COM TxPDO Data Inxx multiverknüpft]]>
-							</Comment>
-							<Type GUID="{27C33280-DA01-45C5-AA9F-7B198D734670}" Namespace="TC2_SERIALCOM">EL6inData22B</Type>
-						</Var>
-						<Var>
-							<Name>Auslesen_Waagen.fb_WaageAuslesen[6].Waage.EL6002_in</Name>
-							<Comment>
-								<![CDATA[ wird mit COM TxPDO Status verknüpft und mit COM TxPDO Data Inxx multiverknüpft]]>
-							</Comment>
-							<Type GUID="{27C33280-DA01-45C5-AA9F-7B198D734670}" Namespace="TC2_SERIALCOM">EL6inData22B</Type>
+							<Type>INT</Type>
 						</Var>
 						<Var>
 							<Name>Schwerpunkt_Eismasse.fb_kIstBerechnung1.myWaage.EL6002_in</Name>
@@ -334,15 +258,92 @@
 							<Type GUID="{27C33280-DA01-45C5-AA9F-7B198D734670}" Namespace="TC2_SERIALCOM">EL6inData22B</Type>
 						</Var>
 						<Var>
-							<Name>ModbusRTU_EL.ModbusEL6021.InData</Name>
-							<Type GUID="{538CDA93-23E7-4C62-BBAB-BF84E9C05940}" Namespace="TC2_MODBUSRTU">MB_KL6inData22B</Type>
+							<Name>Lesen_Waagen.fb_WaageAuslesen[1].myWaage.EL6002_in</Name>
+							<Comment>
+								<![CDATA[ wird mit COM TxPDO Status verknüpft und mit COM TxPDO Data Inxx multiverknüpft]]>
+							</Comment>
+							<Type GUID="{27C33280-DA01-45C5-AA9F-7B198D734670}" Namespace="TC2_SERIALCOM">EL6inData22B</Type>
 						</Var>
 						<Var>
-							<Name>DB_Lesen_Komponenten.myInputVar.INT_VAR_Input</Name>
+							<Name>Lesen_Waagen.fb_WaageAuslesen[1].Waage.EL6002_in</Name>
 							<Comment>
-								<![CDATA[Input von Klemme (z.B. 2100)]]>
+								<![CDATA[ wird mit COM TxPDO Status verknüpft und mit COM TxPDO Data Inxx multiverknüpft]]>
 							</Comment>
-							<Type>INT</Type>
+							<Type GUID="{27C33280-DA01-45C5-AA9F-7B198D734670}" Namespace="TC2_SERIALCOM">EL6inData22B</Type>
+						</Var>
+						<Var>
+							<Name>Lesen_Waagen.fb_WaageAuslesen[2].myWaage.EL6002_in</Name>
+							<Comment>
+								<![CDATA[ wird mit COM TxPDO Status verknüpft und mit COM TxPDO Data Inxx multiverknüpft]]>
+							</Comment>
+							<Type GUID="{27C33280-DA01-45C5-AA9F-7B198D734670}" Namespace="TC2_SERIALCOM">EL6inData22B</Type>
+						</Var>
+						<Var>
+							<Name>Lesen_Waagen.fb_WaageAuslesen[2].Waage.EL6002_in</Name>
+							<Comment>
+								<![CDATA[ wird mit COM TxPDO Status verknüpft und mit COM TxPDO Data Inxx multiverknüpft]]>
+							</Comment>
+							<Type GUID="{27C33280-DA01-45C5-AA9F-7B198D734670}" Namespace="TC2_SERIALCOM">EL6inData22B</Type>
+						</Var>
+						<Var>
+							<Name>Lesen_Waagen.fb_WaageAuslesen[3].myWaage.EL6002_in</Name>
+							<Comment>
+								<![CDATA[ wird mit COM TxPDO Status verknüpft und mit COM TxPDO Data Inxx multiverknüpft]]>
+							</Comment>
+							<Type GUID="{27C33280-DA01-45C5-AA9F-7B198D734670}" Namespace="TC2_SERIALCOM">EL6inData22B</Type>
+						</Var>
+						<Var>
+							<Name>Lesen_Waagen.fb_WaageAuslesen[3].Waage.EL6002_in</Name>
+							<Comment>
+								<![CDATA[ wird mit COM TxPDO Status verknüpft und mit COM TxPDO Data Inxx multiverknüpft]]>
+							</Comment>
+							<Type GUID="{27C33280-DA01-45C5-AA9F-7B198D734670}" Namespace="TC2_SERIALCOM">EL6inData22B</Type>
+						</Var>
+						<Var>
+							<Name>Lesen_Waagen.fb_WaageAuslesen[4].myWaage.EL6002_in</Name>
+							<Comment>
+								<![CDATA[ wird mit COM TxPDO Status verknüpft und mit COM TxPDO Data Inxx multiverknüpft]]>
+							</Comment>
+							<Type GUID="{27C33280-DA01-45C5-AA9F-7B198D734670}" Namespace="TC2_SERIALCOM">EL6inData22B</Type>
+						</Var>
+						<Var>
+							<Name>Lesen_Waagen.fb_WaageAuslesen[4].Waage.EL6002_in</Name>
+							<Comment>
+								<![CDATA[ wird mit COM TxPDO Status verknüpft und mit COM TxPDO Data Inxx multiverknüpft]]>
+							</Comment>
+							<Type GUID="{27C33280-DA01-45C5-AA9F-7B198D734670}" Namespace="TC2_SERIALCOM">EL6inData22B</Type>
+						</Var>
+						<Var>
+							<Name>Lesen_Waagen.fb_WaageAuslesen[5].myWaage.EL6002_in</Name>
+							<Comment>
+								<![CDATA[ wird mit COM TxPDO Status verknüpft und mit COM TxPDO Data Inxx multiverknüpft]]>
+							</Comment>
+							<Type GUID="{27C33280-DA01-45C5-AA9F-7B198D734670}" Namespace="TC2_SERIALCOM">EL6inData22B</Type>
+						</Var>
+						<Var>
+							<Name>Lesen_Waagen.fb_WaageAuslesen[5].Waage.EL6002_in</Name>
+							<Comment>
+								<![CDATA[ wird mit COM TxPDO Status verknüpft und mit COM TxPDO Data Inxx multiverknüpft]]>
+							</Comment>
+							<Type GUID="{27C33280-DA01-45C5-AA9F-7B198D734670}" Namespace="TC2_SERIALCOM">EL6inData22B</Type>
+						</Var>
+						<Var>
+							<Name>Lesen_Waagen.fb_WaageAuslesen[6].myWaage.EL6002_in</Name>
+							<Comment>
+								<![CDATA[ wird mit COM TxPDO Status verknüpft und mit COM TxPDO Data Inxx multiverknüpft]]>
+							</Comment>
+							<Type GUID="{27C33280-DA01-45C5-AA9F-7B198D734670}" Namespace="TC2_SERIALCOM">EL6inData22B</Type>
+						</Var>
+						<Var>
+							<Name>Lesen_Waagen.fb_WaageAuslesen[6].Waage.EL6002_in</Name>
+							<Comment>
+								<![CDATA[ wird mit COM TxPDO Status verknüpft und mit COM TxPDO Data Inxx multiverknüpft]]>
+							</Comment>
+							<Type GUID="{27C33280-DA01-45C5-AA9F-7B198D734670}" Namespace="TC2_SERIALCOM">EL6inData22B</Type>
+						</Var>
+						<Var>
+							<Name>ModbusRTU_EL.ModbusEL6021.InData</Name>
+							<Type GUID="{538CDA93-23E7-4C62-BBAB-BF84E9C05940}" Namespace="TC2_MODBUSRTU">MB_KL6inData22B</Type>
 						</Var>
 						<Var>
 							<Name>GVL.Temp_VD_in.INT_VAR_Input</Name>
@@ -506,88 +507,11 @@
 					<Vars VarGrpType="2">
 						<Name>PlcTask Outputs</Name>
 						<Var>
-							<Name>Auslesen_Waagen.fb_WaageAuslesen[1].myWaage.EL6002_out</Name>
+							<Name>DB_Lesen_Komponenten.myOutputVar.INT_VAR_Output</Name>
 							<Comment>
-								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
+								<![CDATA[Output an Klemme (z.B. 2100)]]>
 							</Comment>
-							<Type GUID="{80F174B3-65D6-4F54-A59E-41537B2903AF}" Namespace="TC2_SERIALCOM">EL6outData22B</Type>
-						</Var>
-						<Var>
-							<Name>Auslesen_Waagen.fb_WaageAuslesen[1].Waage.EL6002_out</Name>
-							<Comment>
-								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
-							</Comment>
-							<Type GUID="{80F174B3-65D6-4F54-A59E-41537B2903AF}" Namespace="TC2_SERIALCOM">EL6outData22B</Type>
-						</Var>
-						<Var>
-							<Name>Auslesen_Waagen.fb_WaageAuslesen[2].myWaage.EL6002_out</Name>
-							<Comment>
-								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
-							</Comment>
-							<Type GUID="{80F174B3-65D6-4F54-A59E-41537B2903AF}" Namespace="TC2_SERIALCOM">EL6outData22B</Type>
-						</Var>
-						<Var>
-							<Name>Auslesen_Waagen.fb_WaageAuslesen[2].Waage.EL6002_out</Name>
-							<Comment>
-								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
-							</Comment>
-							<Type GUID="{80F174B3-65D6-4F54-A59E-41537B2903AF}" Namespace="TC2_SERIALCOM">EL6outData22B</Type>
-						</Var>
-						<Var>
-							<Name>Auslesen_Waagen.fb_WaageAuslesen[3].myWaage.EL6002_out</Name>
-							<Comment>
-								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
-							</Comment>
-							<Type GUID="{80F174B3-65D6-4F54-A59E-41537B2903AF}" Namespace="TC2_SERIALCOM">EL6outData22B</Type>
-						</Var>
-						<Var>
-							<Name>Auslesen_Waagen.fb_WaageAuslesen[3].Waage.EL6002_out</Name>
-							<Comment>
-								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
-							</Comment>
-							<Type GUID="{80F174B3-65D6-4F54-A59E-41537B2903AF}" Namespace="TC2_SERIALCOM">EL6outData22B</Type>
-						</Var>
-						<Var>
-							<Name>Auslesen_Waagen.fb_WaageAuslesen[4].myWaage.EL6002_out</Name>
-							<Comment>
-								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
-							</Comment>
-							<Type GUID="{80F174B3-65D6-4F54-A59E-41537B2903AF}" Namespace="TC2_SERIALCOM">EL6outData22B</Type>
-						</Var>
-						<Var>
-							<Name>Auslesen_Waagen.fb_WaageAuslesen[4].Waage.EL6002_out</Name>
-							<Comment>
-								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
-							</Comment>
-							<Type GUID="{80F174B3-65D6-4F54-A59E-41537B2903AF}" Namespace="TC2_SERIALCOM">EL6outData22B</Type>
-						</Var>
-						<Var>
-							<Name>Auslesen_Waagen.fb_WaageAuslesen[5].myWaage.EL6002_out</Name>
-							<Comment>
-								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
-							</Comment>
-							<Type GUID="{80F174B3-65D6-4F54-A59E-41537B2903AF}" Namespace="TC2_SERIALCOM">EL6outData22B</Type>
-						</Var>
-						<Var>
-							<Name>Auslesen_Waagen.fb_WaageAuslesen[5].Waage.EL6002_out</Name>
-							<Comment>
-								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
-							</Comment>
-							<Type GUID="{80F174B3-65D6-4F54-A59E-41537B2903AF}" Namespace="TC2_SERIALCOM">EL6outData22B</Type>
-						</Var>
-						<Var>
-							<Name>Auslesen_Waagen.fb_WaageAuslesen[6].myWaage.EL6002_out</Name>
-							<Comment>
-								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
-							</Comment>
-							<Type GUID="{80F174B3-65D6-4F54-A59E-41537B2903AF}" Namespace="TC2_SERIALCOM">EL6outData22B</Type>
-						</Var>
-						<Var>
-							<Name>Auslesen_Waagen.fb_WaageAuslesen[6].Waage.EL6002_out</Name>
-							<Comment>
-								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
-							</Comment>
-							<Type GUID="{80F174B3-65D6-4F54-A59E-41537B2903AF}" Namespace="TC2_SERIALCOM">EL6outData22B</Type>
+							<Type>INT</Type>
 						</Var>
 						<Var>
 							<Name>Schwerpunkt_Eismasse.fb_kIstBerechnung1.myWaage.EL6002_out</Name>
@@ -646,15 +570,92 @@
 							<Type GUID="{80F174B3-65D6-4F54-A59E-41537B2903AF}" Namespace="TC2_SERIALCOM">EL6outData22B</Type>
 						</Var>
 						<Var>
-							<Name>ModbusRTU_EL.ModbusEL6021.OutData</Name>
-							<Type GUID="{04405905-6E87-449F-8042-88A5E8BAAF33}" Namespace="TC2_MODBUSRTU">MB_KL6outData22B</Type>
+							<Name>Lesen_Waagen.fb_WaageAuslesen[1].myWaage.EL6002_out</Name>
+							<Comment>
+								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
+							</Comment>
+							<Type GUID="{80F174B3-65D6-4F54-A59E-41537B2903AF}" Namespace="TC2_SERIALCOM">EL6outData22B</Type>
 						</Var>
 						<Var>
-							<Name>DB_Lesen_Komponenten.myOutputVar.INT_VAR_Output</Name>
+							<Name>Lesen_Waagen.fb_WaageAuslesen[1].Waage.EL6002_out</Name>
 							<Comment>
-								<![CDATA[Output an Klemme (z.B. 2100)]]>
+								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
 							</Comment>
-							<Type>INT</Type>
+							<Type GUID="{80F174B3-65D6-4F54-A59E-41537B2903AF}" Namespace="TC2_SERIALCOM">EL6outData22B</Type>
+						</Var>
+						<Var>
+							<Name>Lesen_Waagen.fb_WaageAuslesen[2].myWaage.EL6002_out</Name>
+							<Comment>
+								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
+							</Comment>
+							<Type GUID="{80F174B3-65D6-4F54-A59E-41537B2903AF}" Namespace="TC2_SERIALCOM">EL6outData22B</Type>
+						</Var>
+						<Var>
+							<Name>Lesen_Waagen.fb_WaageAuslesen[2].Waage.EL6002_out</Name>
+							<Comment>
+								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
+							</Comment>
+							<Type GUID="{80F174B3-65D6-4F54-A59E-41537B2903AF}" Namespace="TC2_SERIALCOM">EL6outData22B</Type>
+						</Var>
+						<Var>
+							<Name>Lesen_Waagen.fb_WaageAuslesen[3].myWaage.EL6002_out</Name>
+							<Comment>
+								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
+							</Comment>
+							<Type GUID="{80F174B3-65D6-4F54-A59E-41537B2903AF}" Namespace="TC2_SERIALCOM">EL6outData22B</Type>
+						</Var>
+						<Var>
+							<Name>Lesen_Waagen.fb_WaageAuslesen[3].Waage.EL6002_out</Name>
+							<Comment>
+								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
+							</Comment>
+							<Type GUID="{80F174B3-65D6-4F54-A59E-41537B2903AF}" Namespace="TC2_SERIALCOM">EL6outData22B</Type>
+						</Var>
+						<Var>
+							<Name>Lesen_Waagen.fb_WaageAuslesen[4].myWaage.EL6002_out</Name>
+							<Comment>
+								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
+							</Comment>
+							<Type GUID="{80F174B3-65D6-4F54-A59E-41537B2903AF}" Namespace="TC2_SERIALCOM">EL6outData22B</Type>
+						</Var>
+						<Var>
+							<Name>Lesen_Waagen.fb_WaageAuslesen[4].Waage.EL6002_out</Name>
+							<Comment>
+								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
+							</Comment>
+							<Type GUID="{80F174B3-65D6-4F54-A59E-41537B2903AF}" Namespace="TC2_SERIALCOM">EL6outData22B</Type>
+						</Var>
+						<Var>
+							<Name>Lesen_Waagen.fb_WaageAuslesen[5].myWaage.EL6002_out</Name>
+							<Comment>
+								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
+							</Comment>
+							<Type GUID="{80F174B3-65D6-4F54-A59E-41537B2903AF}" Namespace="TC2_SERIALCOM">EL6outData22B</Type>
+						</Var>
+						<Var>
+							<Name>Lesen_Waagen.fb_WaageAuslesen[5].Waage.EL6002_out</Name>
+							<Comment>
+								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
+							</Comment>
+							<Type GUID="{80F174B3-65D6-4F54-A59E-41537B2903AF}" Namespace="TC2_SERIALCOM">EL6outData22B</Type>
+						</Var>
+						<Var>
+							<Name>Lesen_Waagen.fb_WaageAuslesen[6].myWaage.EL6002_out</Name>
+							<Comment>
+								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
+							</Comment>
+							<Type GUID="{80F174B3-65D6-4F54-A59E-41537B2903AF}" Namespace="TC2_SERIALCOM">EL6outData22B</Type>
+						</Var>
+						<Var>
+							<Name>Lesen_Waagen.fb_WaageAuslesen[6].Waage.EL6002_out</Name>
+							<Comment>
+								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
+							</Comment>
+							<Type GUID="{80F174B3-65D6-4F54-A59E-41537B2903AF}" Namespace="TC2_SERIALCOM">EL6outData22B</Type>
+						</Var>
+						<Var>
+							<Name>ModbusRTU_EL.ModbusEL6021.OutData</Name>
+							<Type GUID="{04405905-6E87-449F-8042-88A5E8BAAF33}" Namespace="TC2_MODBUSRTU">MB_KL6outData22B</Type>
 						</Var>
 						<Var>
 							<Name>GVL.Soll_KP.INT_VAR_Output</Name>
@@ -678,21 +679,21 @@
 							<Type>INT</Type>
 						</Var>
 						<Var>
-							<Name>GVL.ElektHeizrack1.INT_VAR_Output</Name>
+							<Name>GVL.Soll_ElektHeizrack1.INT_VAR_Output</Name>
 							<Comment>
 								<![CDATA[Output an Klemme (z.B. 2100)]]>
 							</Comment>
 							<Type>INT</Type>
 						</Var>
 						<Var>
-							<Name>GVL.ElektHeizrack2.INT_VAR_Output</Name>
+							<Name>GVL.Soll_ElektHeizrack2.INT_VAR_Output</Name>
 							<Comment>
 								<![CDATA[Output an Klemme (z.B. 2100)]]>
 							</Comment>
 							<Type>INT</Type>
 						</Var>
 						<Var>
-							<Name>GVL.ElektHeizrack_Boden.INT_VAR_Output</Name>
+							<Name>GVL.Soll_ElektHeizrack_Boden.INT_VAR_Output</Name>
 							<Comment>
 								<![CDATA[Output an Klemme (z.B. 2100)]]>
 							</Comment>
@@ -710,10 +711,27 @@
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
+							<Name>REGLER.VD_defrost_Ventilator_ON</Name>
+							<Comment>
+								<![CDATA[ Im RI-Fließbild Bezeichnung: 1W3]]>
+							</Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>REGLER.ElektrischeHeizung_ON</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>REGLER.KP_ON</Name>
+							<Comment>
+								<![CDATA[ Im RI-Fließbild Bezeichnung: 1V1 ]]>
+							</Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
 							<Name>REGLER.Schuetz_1K3</Name>
 							<Comment>
-								<![CDATA[VierWegeVentil_Abtauen: 		BOOL:= FALSE;	// Im RI-Fließbild Bezeichnung: 1V4
-Digitale Ausgänge für de Schütze 1K3..1K5]]>
+								<![CDATA[Schütze werden geschaltet]]>
 							</Comment>
 							<Type>BOOL</Type>
 						</Var>
@@ -766,6 +784,13 @@ Digitale Ausgänge für de Schütze 1K3..1K5]]>
 								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
 							</Comment>
 							<Type GUID="{80F174B3-65D6-4F54-A59E-41537B2903AF}" Namespace="TC2_SERIALCOM">EL6outData22B</Type>
+						</Var>
+					</Vars>
+					<Vars VarGrpType="2">
+						<Name>SerialComTask Outputs</Name>
+						<Var>
+							<Name>REGLER.Schuetz_1K7</Name>
+							<Type>BOOL</Type>
 						</Var>
 					</Vars>
 					<UnrestoredVarLinks ImportTime="2016-01-28T16:06:34">
@@ -1035,17 +1060,17 @@ Digitale Ausgänge für de Schütze 1K3..1K5]]>
 							<DcMode>53796e6368726f6e0000000000000000534d2d53796e6368726f6e000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</DcMode>
 							<DcMode>4443000000000000000000000000000044432d53796e6368726f6e0000000000000000000000000000000000000000000000000000000000a0860100000000070100000000000000000000000000000000000000000000000000000000000000</DcMode>
 							<Pdo Name="AO Outputs Channel 1" Index="#x1600" InOut="1" Flags="#x0011" SyncMan="2">
-								<Entry Name="GVL.ElektHeizrack1.INT_VAR_Output" Index="#x7000" Sub="#x11" Flags="#x00020000">
+								<Entry Name="GVL.Soll_ElektHeizrack1.INT_VAR_Output" Index="#x7000" Sub="#x11" Flags="#x00020000">
 									<Type>INT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="AO Outputs Channel 2" Index="#x1601" InOut="1" Flags="#x0011" SyncMan="2">
-								<Entry Name="GVL.ElektHeizrack2.INT_VAR_Output" Index="#x7010" Sub="#x11" Flags="#x00020000">
+								<Entry Name="GVL.Soll_ElektHeizrack2.INT_VAR_Output" Index="#x7010" Sub="#x11" Flags="#x00020000">
 									<Type>INT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="AO Outputs Channel 3" Index="#x1602" InOut="1" Flags="#x0011" SyncMan="2">
-								<Entry Name="GVL.ElektHeizrack_Boden.INT_VAR_Output" Index="#x7020" Sub="#x11" Flags="#x00020000">
+								<Entry Name="GVL.Soll_ElektHeizrack_Boden.INT_VAR_Output" Index="#x7020" Sub="#x11" Flags="#x00020000">
 									<Type>INT</Type>
 								</Entry>
 							</Pdo>
@@ -1810,22 +1835,22 @@ Bit1: Value bigger/equal Limit2]]>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 4" Index="#x1603" InOut="1" Flags="#x0011" SyncMan="0">
-								<Entry Name="Output" Index="#x7030" Sub="#x01">
+								<Entry Name="REGLER.VD_Ventilator_ON" Index="#x7030" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 5" Index="#x1604" InOut="1" Flags="#x0011" SyncMan="0">
-								<Entry Name="Output" Index="#x7040" Sub="#x01">
+								<Entry Name="REGLER.ElektrischeHeizung_ON" Index="#x7040" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 6" Index="#x1605" InOut="1" Flags="#x0011" SyncMan="0">
-								<Entry Name="Output" Index="#x7050" Sub="#x01">
+								<Entry Name="REGLER.VD_defrost_Ventilator_ON" Index="#x7050" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 7" Index="#x1606" InOut="1" Flags="#x0011" SyncMan="0">
-								<Entry Name="Output" Index="#x7060" Sub="#x01">
+								<Entry Name="REGLER.KP_ON" Index="#x7060" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
@@ -4733,9 +4758,9 @@ Bit1: Value bigger/equal Limit2]]>
 		<MappingInfo Identifier="{00000000-0011-0101-1000-010130000403}" Id="#x03070010"/>
 		<OwnerA Name="TIPC^UpTown^UpTown Instance">
 			<OwnerB Name="TIID^CX 9020 (EtherCAT)^E-Bus Klemme (EK1200)^Analoge Ausgänge 0..10 V (EL4008)">
-				<Link VarA="PlcTask Outputs^GVL.ElektHeizrack1.INT_VAR_Output" VarB="AO Outputs Channel 1^GVL.ElektHeizrack1.INT_VAR_Output"/>
-				<Link VarA="PlcTask Outputs^GVL.ElektHeizrack2.INT_VAR_Output" VarB="AO Outputs Channel 2^GVL.ElektHeizrack2.INT_VAR_Output"/>
-				<Link VarA="PlcTask Outputs^GVL.ElektHeizrack_Boden.INT_VAR_Output" VarB="AO Outputs Channel 3^GVL.ElektHeizrack_Boden.INT_VAR_Output"/>
+				<Link VarA="PlcTask Outputs^GVL.Soll_ElektHeizrack1.INT_VAR_Output" VarB="AO Outputs Channel 1^GVL.Soll_ElektHeizrack1.INT_VAR_Output"/>
+				<Link VarA="PlcTask Outputs^GVL.Soll_ElektHeizrack2.INT_VAR_Output" VarB="AO Outputs Channel 2^GVL.Soll_ElektHeizrack2.INT_VAR_Output"/>
+				<Link VarA="PlcTask Outputs^GVL.Soll_ElektHeizrack_Boden.INT_VAR_Output" VarB="AO Outputs Channel 3^GVL.Soll_ElektHeizrack_Boden.INT_VAR_Output"/>
 			</OwnerB>
 			<OwnerB Name="TIID^CX 9020 (EtherCAT)^E-Bus Klemme (EK1200)^Analoge Ausgänge 4..20 mA (EL4024)">
 				<Link VarA="PlcTask Outputs^GVL.Soll_KP.INT_VAR_Output" VarB="AO Outputs Channel 1^GVL.Soll_KP.INT_VAR_Output"/>
@@ -4743,9 +4768,13 @@ Bit1: Value bigger/equal Limit2]]>
 				<Link VarA="PlcTask Outputs^GVL.Soll_VF_Ventilator.INT_VAR_Output" VarB="AO Outputs Channel 2^GVL.Soll_VF_Ventilator.INT_VAR_Output"/>
 			</OwnerB>
 			<OwnerB Name="TIID^CX 9020 (EtherCAT)^E-Bus Klemme (EK1200)^Digitale Ausgänge 24 V DC (EL2809)">
+				<Link VarA="PlcTask Outputs^REGLER.ElektrischeHeizung_ON" VarB="Channel 5^REGLER.ElektrischeHeizung_ON"/>
+				<Link VarA="PlcTask Outputs^REGLER.KP_ON" VarB="Channel 7^REGLER.KP_ON"/>
 				<Link VarA="PlcTask Outputs^REGLER.Schuetz_1K3" VarB="Channel 1^KM.Schuetz_1K3"/>
 				<Link VarA="PlcTask Outputs^REGLER.Schuetz_1K4" VarB="Channel 2^KM.Schuetz_1K4"/>
 				<Link VarA="PlcTask Outputs^REGLER.Schuetz_1K5" VarB="Channel 3^KM.Schuetz_1K5"/>
+				<Link VarA="PlcTask Outputs^REGLER.VD_Ventilator_ON" VarB="Channel 4^REGLER.VD_Ventilator_ON"/>
+				<Link VarA="PlcTask Outputs^REGLER.VD_defrost_Ventilator_ON" VarB="Channel 6^REGLER.VD_defrost_Ventilator_ON"/>
 			</OwnerB>
 			<OwnerB Name="TIID^CX 9020 (EtherCAT)^E-Bus Klemme (EK1200)^RS 232-Klemme 1  (EL6002)">
 				<Link VarA="PlcTask Inputs^WAAGEN.Waage[1].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 0" Size="8" OffsA="16"/>

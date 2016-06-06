@@ -61,8 +61,6 @@ IF 	bConfigPT THEN
 END_IF
 
 
-Teststring:= DWORD_TO_BINSTR(modbusData_PT[4],32);
-
 CASE Status_Modbus OF
 	
 Aktiv: 

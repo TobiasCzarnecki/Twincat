@@ -11,30 +11,93 @@ Public Class Form1
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
 
-
+        'Verflüssiger Einganspunkt wird errechnet
         Try
-            Me.Label_VF_out = SetLabel(Me.Anzeige_VF_out_Druck.Wert, Me.Anzeige_VF_out_Enthalpie.Wert, Me.Label_VF_out)
+            Me.Label_VF_in = SetLabel(Me.Anzeige_VF_in_Enthalpie.Wert, Me.Anzeige_VF_in_Druck.Wert, Me.Label_VF_in)
         Catch ex As Exception
+            Me.Label_VF_in = SetLabel(0, 0, Me.Label_VF_in)
         End Try
 
+        'Verflüssiger Ausgangspunkt wird errechnet
+        Try
+            Me.Label_VF_out = SetLabel(Me.Anzeige_VF_out_Enthalpie.Wert, Me.Anzeige_VF_out_Druck.Wert, Me.Label_VF_out)
+        Catch ex As Exception
+            Me.Label_VF_out = SetLabel(0, 0, Me.Label_VF_out)
+        End Try
+
+        'Verdampfer Eingangspunkt wird errechnet
+        Try
+            Me.Label_VD_in = SetLabel(Me.Anzeige_VD_in_Enthalpie.Wert, Me.Anzeige_VD_in_Druck.Wert, Me.Label_VD_in)
+        Catch ex As Exception
+            Me.Label_VD_in = SetLabel(0, 0, Me.Label_VD_in)
+        End Try
+
+        'Verdampfer Ausgangspunkt wird errechnet
+        Try
+            Me.Label_VD_out = SetLabel(Me.Anzeige_VD_out_Enthalpie.Wert, Me.Anzeige_VD_out_Druck.Wert, Me.Label_VD_out)
+        Catch ex As Exception
+            Me.Label_VD_out = SetLabel(0, 0, Me.Label_VD_out)
+        End Try
+
+        'Kompressor Eingangspunkt wird errechnet
+        Try
+            Me.Label_KP_in = SetLabel(Me.Anzeige_KP_in_Enthalpie.Wert, Me.Anzeige_KP_in_Druck.Wert, Me.Label_KP_in)
+        Catch ex As Exception
+            Me.Label_KP_in = SetLabel(0, 0, Me.Label_KP_in)
+        End Try
+
+        'Kompressor Ausgangspunkt wird errechnet
+        Try
+            Me.Label_KP_out = SetLabel(Me.Anzeige_KP_out_Enthalpie.Wert, Me.Anzeige_KP_out_Druck.Wert, Me.Label_KP_out)
+        Catch ex As Exception
+            Me.Label_KP_out = SetLabel(0, 0, Me.Label_KP_out)
+        End Try
+
+        'ExpansionsVentil Eingangspunkt wird errechnet
+        Try
+            Me.Label_EV_in = SetLabel(Me.Anzeige_EV_in_Enthalpie.Wert, Me.Anzeige_EV_in_Druck.Wert, Me.Label_EV_in)
+        Catch ex As Exception
+            Me.Label_EV_in = SetLabel(0, 0, Me.Label_EV_in)
+        End Try
     End Sub
 
+    'Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick
+    'Dim Farbe As New Color(Color.Transparent)
+
+    'Dim myPen As New Pen(Color.Magenta)
+    '   myPen.StartCap = Drawing2D.LineCap.DiamondAnchor
+    '  myPen.EndCap = Drawing2D.LineCap.ArrowAnchor
+    ' myPen.Width = 2
+    '    Me.PictureBox2.CreateGraphics.DrawLine(myPen, Me.Label_KP_in.Location.X, Me.Label_KP_in.Location.Y, Me.Label_KP_out.Location.X, Me.Label_KP_out.Location.Y)
+    '   Me.PictureBox2.CreateGraphics.DrawLine(myPen, Me.Label_KP_out.Location.X, Me.Label_KP_out.Location.Y, Me.Label_VF_in.Location.X, Me.Label_VF_in.Location.Y)
+    '  Me.PictureBox2.CreateGraphics.DrawLine(myPen, Me.Label_VF_in.Location.X, Me.Label_VF_in.Location.Y, Me.Label_VF_out.Location.X, Me.Label_VF_out.Location.Y)
+    ' Me.PictureBox2.CreateGraphics.DrawLine(myPen, Me.Label_VF_out.Location.X, Me.Label_VF_out.Location.Y, Me.Label_EV_in.Location.X, Me.Label_EV_in.Location.Y)
+    '   Me.PictureBox2.CreateGraphics.DrawLine(myPen, Me.Label_EV_in.Location.X, Me.Label_EV_in.Location.Y, Me.Label_VD_in.Location.X, Me.Label_VD_in.Location.Y)
+    '  Me.PictureBox2.CreateGraphics.DrawLine(myPen, Me.Label_VD_in.Location.X, Me.Label_VD_in.Location.Y, Me.Label_VD_out.Location.X, Me.Label_VD_out.Location.Y)
+    ' Me.PictureBox2.CreateGraphics.DrawLine(myPen, Me.Label_VD_out.Location.X, Me.Label_VD_out.Location.Y, Me.Label_KP_in.Location.X, Me.Label_KP_in.Location.Y)
+
+    '    PictureBox2.Graphics.Clear()
 
 
-    Private Function SetLabel(ByVal Druck As Decimal, Enthalpie As Decimal, ByVal MyLabel As Label)
+
+    'End Sub
+
+
+    Private Function SetLabel(ByVal Enthalpie As Decimal, Druck As Decimal, ByVal MyLabel As Label)
         Dim p As New System.Drawing.Point
-     
-        p.X = 264 + (Enthalpie - 140) / (500 - 140) * (1362 - 264)
+
+        p.X = nullpunkt.Location.X + (Enthalpie - 140) / (500 - 140) * (h_high.Location.X - nullpunkt.Location.X)
+
 
 
         If 0.5 < Druck And Druck < 1 Then
-            p.Y = CInt(735 - Math.Log10(Druck) / (Math.Log10(1) - Math.Log10(0.5)) * (735 - 633))
-        End If
-        If 1 < Druck And Druck < 10 Then
-            p.Y = 650 - Math.Log10(Druck) / (Math.Log10(10) - Math.Log10(1)) * (650 - 314)
-        End If
-        If 10 < Druck And Druck < 20 Then
-            p.Y = 307 - Math.Log10(Druck) / (Math.Log10(20) - Math.Log10(10)) * (307 - 205)
+            p.Y = nullpunkt.Location.Y - Math.Log10(Druck) / (Math.Log10(1) - Math.Log10(0.5)) * (nullpunkt.Location.Y - p_1bar.Location.Y)
+        ElseIf 1 < Druck And Druck < 10 Then
+            p.Y = p_1bar.Location.Y - Math.Log10(Druck) / (Math.Log10(10) - Math.Log10(1)) * (p_1bar.Location.Y - p_10bar.Location.Y)
+        ElseIf 10 < Druck And Druck < 20 Then
+            p.Y = p_10bar.Location.Y - Math.Log10(Druck) / (Math.Log10(20) - Math.Log10(10)) * (p_10bar.Location.Y - p_20bar.Location.Y)
+        Else
+            p.Y = nullpunkt.Location.Y
         End If
 
         MyLabel.Location = p
@@ -45,14 +108,27 @@ Public Class Form1
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles Me.Load
         Me.Timer1.Start()
+        Me.Timer2.Start()
+    End Sub
+
+    Private Sub TextBox25_TextChanged(sender As Object, e As EventArgs)
 
     End Sub
 
-    Protected Overridable Sub Paint(e As PaintEventArgs)
-        ' Call the base class
-        MyBase.OnPaint(e)
+    Private Sub TextBox27_TextChanged(sender As Object, e As EventArgs)
 
-        ' Do your painting
-        e.Graphics.DrawLine(Pens.Azure, 10, 10, 20, 20)
+    End Sub
+
+    Private Sub CheckboxEingabe14_Load(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub Led10_Load(sender As Object, e As EventArgs)
+
+    End Sub
+
+ 
+    Private Sub CheckboxEingabe1_Wert_Changed(sender As Object, e As EventArgs) Handles CheckboxEingabe1.Wert_Changed
+
     End Sub
 End Class

@@ -7,67 +7,43 @@ VAR
 	Timer :TOF;
 	Timer_Abtaudauer :TON;
 	Timer_HeizungAbtauwanne: TON;
-
-
-	P_el_Rack :ARRAY[1..5] OF  REAL := [500,1000,1500,2000,2200];  	//Elektrische Leistung in Watt
-	P_el_Boden:ARRAY[1..5] OF  REAL := [500,1000,1500,2000,2025];	//Elektrische Leistung in Watt
-	Heizstufe: INT := 2;											// [%] , beträgt zwischen 0..100% der Maximalen elektrischen Leistung
 	
 	StartAbtauwanneHeizung : TIME := T#5M; 
-	state: INT:= 0;
+	state: INT:= 1;
+
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[(*Gemittelte Temperatur auf der Oberflächentemperatur auf dem Verdampfer*)
-	Temp_VD_Surface_gemittelt := 0.25*(Temp_VD_surface1.REAL_VAR+Temp_VD_surface2.REAL_VAR+Temp_VD_surface3.REAL_VAR+Temp_VD_surface4.REAL_VAR);
-	
-CASE  SM.Status OF	
-
-	
-Abtauen:	
-	(*Ablaufstruktur bei einer elektrischen Abtauung des Verdampfers*)
+      <ST><![CDATA[(*Ablaufstruktur bei einer elektrischen Abtauung des Verdampfers*)
 	
 	Timer_Abtaudauer(IN:=TRUE, PT:= T#1H);
 	
-	IF bAbtauModusAbbrechen THEN 
-		bKuehlen 				:= TRUE;
-		bAbtauen				:=FALSE;
+	IF bAbtauenAbbrechen = TRUE THEN 
+		bLeerlauf				:=TRUE;
+		bKuehlen 				:=FALSE;
 		bAbtauen_elektrisch		:=FALSE;
 		bAbtauen_Heissgas_oben	:=FALSE;
 		bAbtauen_Heissgas_unten	:=FALSE;
 		Timer_Abtaudauer(IN:= FALSE);
 	(*nächster Status*)
-		SM.Status := Anlagenschutz;
+		SM.Status := Leerlauf;
+		ELSE 
+		bLeerlauf :=FALSE; 
 	END_IF
 
 CASE state OF
 	
-0:	
-		bAbtauenAbgeschlossen := FALSE;
-		
-	(*Schütze, EV werden für PumpDown Modus geschaltet*)
- 		fb_Schuetzstellung(myStatus:= PumpDown);
-	
-	(*Kompressor wird angeschaltet*)	
-		PID_KP.Aktiv:= TRUE;
-
-		
-	(*Pump-Down wird durchgeführt bis der Druck vor dem KP kleiner als 1,4 Bar ist*)	
-		IF PT_VD_out.rDruck< 1.0 THEN  //PT_KP_in.rDruck< 1.0 THEN !!Ist noch nicht ansprechbar!!
-			EV.SetAktKuhlleistung:= TRUE; 
-			EV.SollAktKuhlleistung:= 100;
-			
-			state:= 1;
-		END_IF
 		
 1: 
-	(*Regler werden ausgeschaltet*)
-		//PID_VD_Ventilator.Aktiv := FALSE;
-		VD_Ventilator_ON:= 					FALSE;
-		PID_KP.Aktiv:= 						FALSE;
-		PID_VF_Ventilator.Aktiv :=		 	FALSE;
-		PID_VD_defrost_Ventilator.Aktiv := 	FALSE;
+	bAbtauenAbgeschlossen := FALSE;
 	
+	(*Regler werden ausgeschaltet*)
+	
+		PID_KP.Aktiv:= 					FALSE;
+		PID_VF_Ventilator.Aktiv :=		FALSE;
+		VD_Ventilator_ON:= 				FALSE;
+		VD_defrost_Ventilator_ON := 	FALSE;
+		KP_ON:= 						FALSE;
 	(*Nächster State wird je nach Abtau-Modus ausgewählt*)	
 		IF bAbtauen_elektrisch THEN
 		state:= 2;
@@ -83,33 +59,44 @@ CASE state OF
 		
 		IF NOT bAbtauen_elektrisch AND NOT bAbtauen_Heissgas_oben AND NOT bAbtauen_Heissgas_unten THEN
 		AbtauFehler := TRUE;
-		state:= 0;
+		state:= 1;
 		ELSE 
 		AbtauFehler := FALSE;
 		END_IF
 			
 2:	
 	(*Elektrische Heizung wird eingeschaltet*)
-		//Regler aktivieren
+		ElektrischeHeizung_ON := TRUE;								// Schütz wird geschaletet und Heizung kann nun geregelt werden
 		Timer_HeizungAbtauwanne(In:= TRUE, PT:= StartAbtauwanneHeizung);
 		
-		ElektHeizrack1.REAL_VAR:= 		P_el_Rack[Heizstufe];
-		ElektHeizrack2.REAL_VAR:= 		P_el_Rack[Heizstufe];
-		
+		(*Ausgewählte Heizleistung für Bodenheizung und Heizracks*)
+		//Regler aktivieren
+			Soll_ElektHeizrack1.REAL_VAR := 	 Heizstufe;
+			Soll_ElektHeizrack2.REAL_VAR := 	 Heizstufe;
 		IF Timer_HeizungAbtauwanne.Q THEN
-		ElektHeizrack_Boden.REAL_VAR:= 	P_el_Boden[Heizstufe];
+			Soll_ElektHeizrack_Boden.REAL_VAR := Heizstufe;
 		END_IF
+
+		(*Berechnet die tatsächliche Leistung*)
+			P_el_Boden:= Heizstufe/10	*P_el_Boden_max;
+			P_el_Rack1:= Heizstufe/10	*P_el_Rack_max;
+			P_el_Rack2:= Heizstufe/10	*P_el_Rack_max;	
+
+		(*Gesamte Heizleistung wird berechnet*)
+			P_el_Heizung_ges:= P_el_Boden + P_el_Rack1 + P_el_Rack2;
+
 	
 	(*Überprüfung ob Oberflächentemperatur auf dem Verdampfer größer als 10°C ist*)
 	(*Elektrische Heizung wird ausgeschaltet*)
 
 		IF 	Temp_VD_Surface_gemittelt > 10 THEN
-			Timer_HeizungAbtauwanne(In:= FALSE);  //Reset Timer
-			ElektHeizrack1.REAL_VAR := 		0;		// Ausschalten der Heizung
-			ElektHeizrack2.REAL_VAR := 		0;		// Ausschalten der Heizung
-			ElektHeizrack_Boden.REAL_VAR := 0;		// Ausschalten der Heizung
-	
-			state:= 20;	
+			ElektrischeHeizung_ON := FALSE;
+			Timer_HeizungAbtauwanne(In:= FALSE);  		//Reset Timer
+			Soll_ElektHeizrack1.REAL_VAR := 	0;		// Ausschalten der Heizung
+			Soll_ElektHeizrack2.REAL_VAR := 	0;		// Ausschalten der Heizung
+			Soll_ElektHeizrack_Boden.REAL_VAR :=0;		// Ausschalten der Heizung
+			
+			state:= 10;	
 		END_IF
 
 
@@ -137,58 +124,59 @@ CASE state OF
 
 9: 	
 	(*Kompressor und Ventilator vom VD_defrost werden eingeschaltet*)		
-		PID_KP.Aktiv := TRUE;
-		PID_VD_defrost_Ventilator.Aktiv := TRUE;
+		KP_ON:= 					TRUE;
+		PID_KP.Aktiv :=				TRUE;
+		VD_defrost_Ventilator_ON := TRUE;
 		
 		IF Temp_VD_Surface_gemittelt > 10 THEN			
-			PID_KP.Aktiv := FALSE;
-			PID_VD_defrost_Ventilator.Aktiv := FALSE;
-			state:= 20;
+			KP_ON:= 					FALSE;
+			PID_KP.Aktiv := 			FALSE;
+			VD_defrost_Ventilator_ON := FALSE;
+			state:= 10;
 		END_IF
-20: 
+10: 
 	(*Starte Timer. Timer läuft 10 Minuten*)
 		Timer(IN:= TRUE, PT:= T#10M);
 	
 		IF Timer.Q THEN
-			state:= 21;
+			state:= 11;
 			Timer(IN:= FALSE);
 		END_IF
 	
-21: 	
+11: 	
 	(*Schalte Schütze auf Kühlen*)
 		fb_Schuetzstellung(myStatus:= KuehlenUnten);
 	
 	(*Kompressor wird eingeschaltet*)
+		KP_ON		:= TRUE;
 		PID_KP.Aktiv:= TRUE;
 		
 	(*Überprüfung ob Oberflächentemperatur auf dem Verdampfer kleiner als 0°C ist*)	
 		IF Temp_VD_Surface_gemittelt< 0 THEN
 			VD_Ventilator_ON:= TRUE;
-			state:=22;
+			state:=12;
 		END_IF
 		
-22: 	
+12: 	
 	(*Abtau-Vorgang ist abgeschlossen. State-Maschine: Abtauen->FALSE. Kuehlen-> TRUE. *)	
+		Mitteilung:= 				'Abtau-Vorgang wurde erfolgreich abgeschlossen';
 		bAbtauenAbgeschlossen := 	TRUE;
 		bAbtauen_elektrisch:= 		FALSE;
 		bAbtauen_Heissgas_oben:= 	FALSE;
 		bAbtauen_Heissgas_unten:= 	FALSE;
-		
-	(*Bool-Variablen für Status-Maschine*)
-		bKuehlen:= TRUE;
-		bAbtauen:= FALSE;	
 	
+	(*Anlage wird abgepumpt*)
+		 bPumpDown_rev := TRUE;
+		
 	(*Gestoppte Zeit für den Abtauzyklus wird auf Null gesetzt*)
 		Timer_Abtaudauer(IN:= FALSE);
 	
 	(*Reset von State auf Null*)
 		state:= 0;
-		
-	//======nächster Modus====		
-		SM.Status := Anlagenschutz;
+	
 		
 END_CASE
-END_CASE
+
 
 ]]></ST>
     </Implementation>

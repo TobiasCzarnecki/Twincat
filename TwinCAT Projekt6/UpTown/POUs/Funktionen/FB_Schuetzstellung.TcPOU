@@ -14,30 +14,25 @@ END_VAR
       <ST><![CDATA[CASE  myStatus OF
 
 KuehlenUnten:
-	(*Falls verheriger Status PUMPDOWN war, werden die Kühl-Sollwerte aus der Datenbank lesen *)
-	IF bPumpDownAbgeschlossen THEN
-		bNeuInitialisieren:= TRUE;
-	END_IF
-	
 	(*Schütze werden geschaltet*)
 		Schuetz_1K3 := TRUE;
 		Schuetz_1K4 := FALSE;
 		Schuetz_1K5 := TRUE;
 
 	(*Falls Komponente ON ist wird sie auf TRUE gesetzt*)	
-		VD_Ventilator_ON			:= TRUE;  
+		VD_Ventilator_ON			:= TRUE; 
+		VD_defrost_Ventilator_ON	:= FALSE;
+		ElektrischeHeizung_ON		:= FALSE; 
 		
 	(*Expansionsventil wird aktiviert und auf 100% gestellt. Komunikation erfolgt über Modbus_EL*)
-		EV.SetAktKuhlleistung := TRUE;
-		EV.SollAktKuhlleistung:= 100;
+		EV.SetKuhlleistung := TRUE;
+		EV.SollKuhlleistung:= 100;
+		
+	(*Expansionsventil für die Abtauung wird auf 100% zurückgestellt. Kann verändert werden, um Kälteleistung bzw. Abtaleistung zu variieren*)	
+		EV_rev.SetKuhlleistung := TRUE;
+		EV_rev.SollKuhlleistung:= 100;
 	
-	//(*Kompressor PID-Regler wird eingestellt*)
-	//	PID_KP.w := Soll_Betriebsdruck;						//Kompressor wird bei 1.5 Bar ausgeschaltet
-
 PumpDown:
-	(*Bool-Variablen werden gesetzt*)
-	bPumpDownAbgeschlossen:= FALSE;
-	
 	(*Schütze werden geschaltet*)
 		Schuetz_1K3 := TRUE;
 		Schuetz_1K4 := FALSE;
@@ -45,15 +40,40 @@ PumpDown:
 		
 	(*Falls Komponente ON ist wird sie auf TRUE gesetzt*)	
 		VD_Ventilator_ON			:= TRUE;  
+		VD_defrost_Ventilator_ON	:= FALSE;
+		ElektrischeHeizung_ON		:= FALSE; 
 		
-	(*Expansionsventil wird aktiviert und auf 0% gestellt. Komunikation erfolgt über Modbus_EL*)
-		EV.SetAktKuhlleistung := TRUE;
-		EV.SollAktKuhlleistung:= 0;
+	(*Expansionsventil wird auf 0% gestellt. Komunikation erfolgt über Modbus_EL*)
+		EV.SetKuhlleistung := TRUE;
+		EV.SollKuhlleistung:= 0;
 		
 	(*Kompressor PID-Regler wird eingestellt*)
-		PID_KP.w := 0.5;						//Kompressor wird bei 1.5 Bar ausgeschaltet
-		IF PID_KP.x <= Soll_DruckPumpDown THEN 
-			bPumpDownAbgeschlossen := TRUE;		//SPS oder KÄLTEMASCHINE kann ausgeschaltet werden
+		PID_KP.w := Soll_PumpDownDruck;						//Kompressor wird bei 1.5 Bar ausgeschaltet
+		IF PID_KP.x <= PT_VD_out.rDruck THEN //??? PT_KP_in.rDruck THEN 
+			bPumpDown:= 	TRUE;		//SPS oder KÄLTEMASCHINE kann ausgeschaltet werden
+			PID_KP.Aktiv:= FALSE;				//Kompressor wird ausgeschaltet
+		END_IF
+		
+PumpDown_rev:	
+	(*Schütze werden geschaltet*)
+		Schuetz_1K3 := FALSE;
+		Schuetz_1K4 := TRUE;
+		Schuetz_1K5 := FALSE;
+		
+		
+	(*Falls Komponente ON ist wird sie auf TRUE gesetzt*)	
+		VD_Ventilator_ON			:= FALSE;  
+		VD_defrost_Ventilator_ON	:= TRUE;
+		ElektrischeHeizung_ON		:= FALSE; 
+		
+	(*Expansionsventil wird auf 0% gestellt. Komunikation erfolgt über Modbus_EL*)
+		EV_rev.SetKuhlleistung := TRUE;
+		EV_rev.SollKuhlleistung:= 0;
+		
+	(*Kompressor PID-Regler wird eingestellt*)
+		PID_KP.w := Soll_PumpDownDruck;						//Kompressor wird bei 1.5 Bar ausgeschaltet
+		IF PID_KP.x <= PT_VD_out.rDruck THEN//PT_KP_in.rDruck THEN 
+			bPumpDown_rev := TRUE;		//SPS oder KÄLTEMASCHINE kann ausgeschaltet werden
 			PID_KP.Aktiv:= FALSE;				//Kompressor wird ausgeschaltet
 		END_IF
 		
@@ -65,6 +85,8 @@ AbtauenOben:
 		
 	(*Falls Komponente ON ist wird sie auf TRUE gesetzt*)	
 		VD_Ventilator_ON			:= FALSE;  
+		VD_defrost_Ventilator_ON	:= TRUE;
+		ElektrischeHeizung_ON		:= FALSE; 
 	
 AbtauenUnten:
 	(*Schütze werden geschaltet*)
@@ -74,6 +96,8 @@ AbtauenUnten:
 
 	(*Falls Komponente ON ist wird sie auf TRUE gesetzt*)	
 		VD_Ventilator_ON			:= FALSE;  
+		VD_defrost_Ventilator_ON	:= TRUE;
+		ElektrischeHeizung_ON		:= FALSE; 
 		
 AbtauenElektrisch: 
 	(*Schütze werden geschaltet*)
@@ -83,10 +107,12 @@ AbtauenElektrisch:
 
 	(*Falls Komponente ON ist wird sie auf TRUE gesetzt*)	
 		VD_Ventilator_ON			:= FALSE;  
+		VD_defrost_Ventilator_ON	:= FALSE;
+		ElektrischeHeizung_ON		:= TRUE; 
 		
 	(*Expansionsventil wird aktiviert und auf 0% gestellt. Komunikation erfolgt über Modbus_EL*)
-		EV.SetAktKuhlleistung := 	TRUE;
-		EV.SollAktKuhlleistung:= 	0;
+		EV.SetKuhlleistung := 	TRUE;
+		EV.SollKuhlleistung:= 	0;
 	
 
 END_CASE

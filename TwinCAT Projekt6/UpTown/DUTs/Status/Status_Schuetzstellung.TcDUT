@@ -5,6 +5,7 @@
 (
 		KuehlenUnten,
 		PumpDown,
+		PumpDown_rev,
 		AbtauenOben,
 		AbtauenUnten,
 		AbtauenElektrisch

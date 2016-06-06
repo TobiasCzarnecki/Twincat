@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4019.2">
+  <POU Name="Sonstiges" Id="{cc0bcf9e-9996-4d08-a70f-af1d41b66b10}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Sonstiges
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[(*Eingabewerte von Soll_Heizungswerte werden begrenzt, damit sie zwischen 0..10 V liegen*)
+	Soll_ElektHeizrack1.REAL_VAR := 	  LIMIT(Soll_ElektHeizrack1.REAL_PARA_minWert ,Heizstufe,Soll_ElektHeizrack1.REAL_PARA_maxWert);
+	Soll_ElektHeizrack2.REAL_VAR := 	  LIMIT(Soll_ElektHeizrack2.REAL_PARA_minWert,Heizstufe,Soll_ElektHeizrack2.REAL_PARA_maxWert);
+	Soll_ElektHeizrack_Boden.REAL_VAR :=  LIMIT(Soll_ElektHeizrack_Boden.REAL_PARA_minWert,Heizstufe,Soll_ElektHeizrack_Boden.REAL_PARA_maxWert);
+	
+(*Überhitzungsschutz für Verdampfer.*)
+	IF Temp_VD_Surface_gemittelt > 80 THEN 
+		bAbtauen_elektrisch := FALSE;
+		bAbtauen_Heissgas_oben:= FALSE;
+		bAbtauen_Heissgas_unten:=FALSE;
+		WarnungAnlagenschutz	 := TRUE;
+	END_IF
+	]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

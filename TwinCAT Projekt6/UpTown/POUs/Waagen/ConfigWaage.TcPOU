@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4018.5">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4019.2">
   <POU Name="ConfigWaage" Id="{d4d09f66-48a2-4467-990b-a6bdbad30313}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM ConfigWaage 
 
@@ -7,18 +7,18 @@ VAR
 //========================================================================================
 //Manuelle Variablen
 	ManuellOK: 			BOOL;			// Durch  USER auf TRUE gesetzt, wenn Prüfgewicht umgehangen ist und alles OK
-	NachstePosition: 	BOOL;
+	BereitNachstePosition: 	BOOL;
 	PositionKalibrierGewicht : INT :=1; 			//Immer an Position 1 anfangen bei der Kalibrierung
 	Kalibriergewicht : 	ARRAY[1..2] OF REAL := [5753.3,7500]; //später als Global deklarieren, angegeben in Gramm
 	
 
 //========================================================================================
-	timer_Einschwing: TON;		//Einschwingzeit wird definiert
+	timer_Einschwingen: TON;		//Einschwingzeit wird definiert
 	timer_Messen	: TON;		//Messzeit wird definiert
 	
 	bEinschwingvorgang_vorbei: 	BOOL;
-	bKalibrierungAbgeschlossen: BOOL;
 	
+	WaageKalibriert: ARRAY[1..4] OF BOOL;
 	
 	
 	WertMitteln: 	ARRAY[1..4] OF FT_AVG;
@@ -35,15 +35,15 @@ END_VAR]]></Declaration>
 CASE state OF
 
 0: (*Einschwingvorgang wird abgewartet*)
-	
-	timer_Einschwing(IN:= TRUE, PT:= T#120S ); // der Timer wird gestartet, damit sich das Wägesystem einschwingen kann
-	
-	IF timer_Einschwing.Q AND ManuellOK THEN 
-		timer_Einschwing(IN :=FALSE); 
+	BereitNachstePosition:= FALSE;
+	IF ManuellOK THEN 
+	timer_Einschwingen(IN:= TRUE, PT:= T#120S ); // der Timer wird gestartet, damit sich das Wägesystem einschwingen kann
+	IF timer_Einschwingen.Q  THEN 
+		timer_Einschwingen(IN :=FALSE); 
 		ManuellOK := FALSE;
 		state:=1;
 	END_IF
-
+	END_IF
 	
 1: (*Kalibrierungsdaten werden aufgenommen und über einen FIlter gemittelt*)
 	
@@ -55,10 +55,10 @@ CASE state OF
 	Trigger[counter](in:= FilterIn[counter], PT:= T#1S, out=> , Trig=> );
 	END_FOR
 
-	WertMitteln[1](IN:= Trigger[1].out, E:= Trigger[1].Trig, N:= 30, RST:= NachstePosition, AVG=>k_werte[1] );	
-	WertMitteln[2](IN:= Trigger[2].out, E:= Trigger[2].Trig, N:= 30, RST:= NachstePosition, AVG=>k_werte[2] );	
-	WertMitteln[3](IN:= Trigger[3].out, E:= Trigger[3].Trig, N:= 30, RST:= NachstePosition, AVG=>k_werte[3] );	
-	WertMitteln[4](IN:= Trigger[4].out, E:= Trigger[4].Trig, N:= 30, RST:= NachstePosition, AVG=>k_werte[4] );	
+	WertMitteln[1](IN:= Trigger[1].out, E:= Trigger[1].Trig, N:= 30, RST:= BereitNachstePosition, AVG=>k_werte[1] );	
+	WertMitteln[2](IN:= Trigger[2].out, E:= Trigger[2].Trig, N:= 30, RST:= BereitNachstePosition, AVG=>k_werte[2] );	
+	WertMitteln[3](IN:= Trigger[3].out, E:= Trigger[3].Trig, N:= 30, RST:= BereitNachstePosition, AVG=>k_werte[3] );	
+	WertMitteln[4](IN:= Trigger[4].out, E:= Trigger[4].Trig, N:= 30, RST:= BereitNachstePosition, AVG=>k_werte[4] );	
 	
 	IF timer_Messen.Q THEN 
 		state :=2;
@@ -75,15 +75,17 @@ CASE state OF
 	state:= 3;
 
 3:	
-	IF NachstePosition THEN 
+	WaageKalibriert[PositionKalibrierGewicht]:=TRUE;
+	BereitNachstePosition:= TRUE;
+	IF ManuellOK THEN //NachstePosition THEN 
 	state:= 0;
-	NachstePosition:= FALSE;
-	bKalibrierungAbgeschlossen:= FALSE;
+
+	WaagenKalibrierungFertig:= FALSE;
 	PositionKalibrierGewicht:= PositionKalibrierGewicht + 1; 
 		IF PositionKalibrierGewicht > 4 THEN 
 			PositionKalibrierGewicht:= 1;
-			bKalibrierungAbgeschlossen:= TRUE; 
-			bWaagenKalibrierung := FALSE;
+			WaagenKalibrierungFertig:= TRUE; 
+		//	bWaagenKalibrierung := FALSE;
 		END_IF
 	END_IF
 

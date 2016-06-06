@@ -7,9 +7,6 @@
     <PouCall>
       <Name>Hintergrund</Name>
     </PouCall>
-    <PouCall>
-      <Name>Auslesen_Waagen</Name>
-    </PouCall>
     <TaskFBGuid>{5720aef6-f38a-4721-ba3a-d8421cbd47bb}</TaskFBGuid>
     <Fb_init>{05ddfe51-c841-43e1-b853-dd16d4451119}</Fb_init>
     <Fb_exit>{f379ea2b-37bd-4ee3-855a-cf643700df5a}</Fb_exit>

@@ -3,38 +3,24 @@
   <POU Name="MAIN" Id="{7650379b-af73-431c-a084-bfa6692fa016}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
-	GetEnthalpie :FB_GetEnthalpie;
-	Test :STRING;
-	xTest: REAL;
-	sTest: STRING;
 	timer: TON;
+
+
 END_VAR
 
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[EnthalpieBerechnen();
-Test:= DWORD_TO_BINSTR(4294901762,8);
-(*Prüfen ob neu initialisiert werden muss*)
-IF SM.bNeuInitialisieren THEN 		
+      <ST><![CDATA[IF SM.bNeuInitialisieren THEN 	(*Prüfen ob neu initialisiert werden muss*)	
 	SM.Status:= Initialisieren;
 END_IF
 
 
-
-
-//Temperatur();
-Schwerpunkt_Eismasse();
-	Auslesen_Waagen();
-	Auslesen_Modbus();
-	ModbusRTU_COM();
-	ModbusRTU_EL();
-
-
+(*Status-Maschine wird durchlaufen*)
 CASE SM.Status OF
 	
-
 Initialisieren: //Parameter und Standardwerte aus Datenbank lesen und übergeben
 	
+	(* Datenbanken werden eingelesen*)
 	IF bLeseStoffwerte THEN 
 	DB_Lesen_r134a();				//Liest die Stoffwerte von dem Kältemittel R134a ein
 	DB_Lesen_Enthalpie_r134a();		//Liest die Enthalpien abhängig von der Temperatur und dem Druck von dem Kältemittel R134a ein
@@ -42,124 +28,161 @@ Initialisieren: //Parameter und Standardwerte aus Datenbank lesen und übergeben
 	DB_Lesen_Komponenten();		
 	DB_Lesen_PID();
 
-		IF 	DB_Lesen_r134a.Busy_Lesen = FALSE 			//DB eingelesen =  TRUE 
-		AND DB_Lesen_Enthalpie_r134a.Busy_Lesen = FALSE //DB eingelesen =  TRUE 
-		AND DB_Lesen_Komponenten.Busy_Lesen = FALSE		//DB eingelesen =  TRUE 
-		AND DB_Lesen_PID.Busy_Lesen = FALSE				//DB eingelesen =  TRUE 
-// !!!		AND WAAGEN.bWaagenVorbelastet = TRUE 				// Waagen sind vorbelastet und Offset ist ermittelt & aktiviert
-// !!!		AND Auslesen_Waagen.bGetOffset_Abgeschlossen = TRUE // Offset-Ermittlung der Waagen erfolgreich abgeschlossen
-		AND SM.bFehler=FALSE 								// TRUE, wenn ein DB-Einlesevorgang nicht erfolgreich abgeschlossen wurde
+	//======nächster Modus====
+		IF 	DB_Lesen_r134a.Busy_Lesen = FALSE 				//DB eingelesen =  TRUE 
+		AND DB_Lesen_Enthalpie_r134a.Busy_Lesen = FALSE	 	//DB eingelesen =  TRUE 
+		AND DB_Lesen_Komponenten.Busy_Lesen = FALSE			//DB eingelesen =  TRUE 
+		AND DB_Lesen_PID.Busy_Lesen = FALSE					//DB eingelesen =  TRUE 
+// !!!	AND WaagenKalibrierungFertig = TRUE					//Waagen sind kalibriert
+// !!!	AND WAAGEN.bWaagenVorbelastet = TRUE 				//Waagen sind vorbelastet und Offset ist ermittelt & aktiviert
+// !!!	AND Lesen_Waagen.bGetOffset_Abgeschlossen = TRUE 	//Offset-Ermittlung der Waagen erfolgreich abgeschlossen
+		AND SM.bDBFehler=FALSE 								//TRUE, wenn ein DB-Einlesevorgang nicht erfolgreich abgeschlossen wurde
 		THEN	
-				bLeseStoffwerte:= FALSE;
-
-		//======nächster Modus====		
-				SM.Status:= Lesen; //Initialisation abgeschlossen
-
-	END_IF
+			bLeseStoffwerte:= FALSE;		
+			SM.Status:= Lesen; //Initialisation abgeschlossen
+		END_IF
+		
 	SM.bNeuInitialisieren:=FALSE;
 	
+
 Lesen: //Input von Klemmen Lesen und in native Werte umrechen
 
 	Temperatur();
-	(*Hintergrundkommunikationsprogramme*)
+	EnthalpieBerechnen();
 
-
-(*SM wird entweder auf Kühlen- oder einen der drei Abtau-Modi gestellt*)
-	IF bKuehlen THEN 	
-	//======nächster Modus====	
-		SM.Status:=Kuehlen; //Regelbetrieb
-	END_IF 
+(*Waagenprogramme*)
+	Schwerpunkt_Eismasse();
 	
-//Abtau-Modus wird gewählt		
-	IF SM.bAbtauen_elektrisch THEN	
-				SM.bAbtauen 					:= TRUE;
-				SM.bKuehlen						:= FALSE;			
-				SM.bAbtauen_Heissgas_oben 		:= FALSE;
-				SM.bAbtauen_Heissgas_unten 		:= FALSE;
-				SM.bManuellerModus				:= FALSE;
+(*Komunikationsprogramme*)
+	Lesen_Waagen();		//Wandelt die empfangenen Daten von den Waagen um 
+	Lesen_Modbus();		//Wandelt die empfangenen Daten aus dem Modbus um
+	ModbusRTU_COM();
+	ModbusRTU_EL();
+	
+		//======Kühl-Modus====
+		IF bKuehlen THEN 
+			bLeerlauf := FALSE;
+			SM.Status:=Kuehlen; //Regelbetrieb		
+				IF bAbtauen THEN 
+				bKuehlen := FALSE;
+				bVollautomatikModus:= FALSE;
+				SM.Status:=Abtauen;
+				END_IF
+		END_IF 
+
+	
+(*Abtauen-Modus wird ausgewählt*)
+
+	//======Elektrisch abtauen====	
+		IF SM.bAbtauen_elektrisch THEN	
+			SM.bAbtauen						:= TRUE;
+			SM.bLeerlauf					:= FALSE;
+			SM.bKuehlen						:=FALSE;
+			SM.bManuellerModus				:=FALSE;
+			SM.bAbtauen_Heissgas_oben 		:=FALSE;
+			SM.bAbtauen_Heissgas_unten 		:=FALSE;
+			bAnlagenschutzModus:=TRUE;		
 			
-			bAnlagenschutzModus:=TRUE;
-		//======nächster Modus====			
-			SM.Status := Abtauen;
+			SM.Status:=Abtauen;
 		END_IF
 		
+	//======Heißgas Oben Abtauen======	
 		IF SM.bAbtauen_Heissgas_oben THEN
-				SM.bAbtauen 					:= TRUE;
-				SM.bKuehlen						:=FALSE;
-				SM.bAbtauen_elektrisch			:=FALSE;
-				SM.bAbtauen_Heissgas_unten 		:=FALSE;
-				SM.bManuellerModus				:=FALSE;
-	
+			SM.bAbtauen						:= TRUE;
+			SM.bLeerlauf					:= FALSE;
+			SM.bKuehlen						:=FALSE;
+			SM.bManuellerModus				:=FALSE;
+			SM.bAbtauen_elektrisch			:=FALSE;
+			SM.bAbtauen_Heissgas_unten 		:=FALSE;
 			bAnlagenschutzModus:=TRUE;
-		//======nächster Modus====			
-			SM.Status := Abtauen;
+		
+			SM.Status:=Abtauen;
 		END_IF
 		
+	//======Heißgas Unten Abtauen======	
 		IF SM.bAbtauen_Heissgas_unten THEN
-				SM.bAbtauen 					:= TRUE;
-				SM.bKuehlen						:=FALSE;
-				SM.bAbtauen_elektrisch			:=FALSE;
-				SM.bAbtauen_Heissgas_oben 		:=FALSE;
-				SM.bManuellerModus				:=FALSE;
-			
-			bAnlagenschutzModus:=TRUE;
-			
-		//======nächster Modus====			
-			SM.Status := Abtauen;
+			SM.bAbtauen						:= TRUE;
+			SM.bLeerlauf					:=FALSE;
+			SM.bKuehlen						:=FALSE;
+			SM.bManuellerModus				:=FALSE;
+			SM.bAbtauen_elektrisch			:=FALSE;
+			SM.bAbtauen_Heissgas_oben 		:=FALSE;
+			bAnlagenschutzModus:=TRUE;	
+	
+			SM.Status:=Abtauen;
 		END_IF
-	
-	IF NOT bKuehlen AND NOT bAbtauen_Heissgas_unten AND NOT bAbtauen_Heissgas_oben AND NOT bAbtauen_elektrisch THEN 
-		SM.bFehler:= TRUE;
+
 		
-		//======nächster Modus====	
-			SM.Status := Lesen;
-	END_IF
+	//======PumpDown- Modus======
+		IF  bPumpDown = TRUE OR bPumpDown_rev = TRUE THEN 
+		SM.Status := AnlagenPumpdown; 
+		END_IF	
 	
+	//======Leerlauf Modus======	
+		 IF bKuehlen = FALSE AND bAbtauen_elektrisch = FALSE AND bAbtauen_Heissgas_oben = FALSE AND bAbtauen_Heissgas_unten = FALSE // kein Modus ist ausgewählt
+		 OR bAbtauenAbgeschlossen = TRUE																							// ABtauen abgeschlossen
+		 OR bLeerlauf= TRUE																											// User entscheidet auf Leerlauf
+			THEN 
+			 SM.Status := Leerlauf;
+		 END_IF
+	 
+	 
+
 				
 Kuehlen:	// Der Verdampfer vereist. Der Timer "TimerVereisung" bestimmt die Zeit der Vereisung.
-
+		
 		//======nächster Modus====
+			bVollautomatikModus := TRUE;
 			SM.Status:=Vollautomatik;  // Es wird automatisch in den Vollautomatik-Modus gewechselt, falls bManuellerModus-> FALSE ist
-
+			
 			IF SM.bManuellerModus THEN
-				SM.bVollautomatikModbus			:= FALSE;
-				SM.bAbtauen_Heissgas_oben 		:= FALSE;
-				SM.bAbtauen_Heissgas_unten 		:= FALSE;
-				SM.bAbtauen_elektrisch			:= FALSE;	
+				bVollautomatikModus := FALSE;
 				
 		//======nächster Modus====
 			SM.Status:=Manuell;	
 			END_IF
+		
+		//======Kühl-Modus Abbruch====
+			IF bKuehlenAbbrechen THEN 
+				bKuehlen := FALSE;
+				bVollautomatikModus:= FALSE;
+				bManuellerModus := FALSE;
+				bLeerlauf := TRUE;
+			END_IF
 	
-			
 Vollautomatik:	// Alle Regler sind Aktiv und regeln auf Normalbetrieb
 				
-	 	SM.bVollautomatikModbus 			:= TRUE;
 		SM.bManuellerModus					:=FALSE;
-
-	(*Schütze werden geschaltet. Timer wird auf 1 Stunde gestellt. *)
-	Vereisung();
 	
-	(*Regler aktivieren *)
+	(*Schütze werden geschaltet. Timer wird auf 1 Stunde gestellt. *)
+		Vereisung();
+		Regelung();
+		
+	(*Regler aktivieren bzw. deaktivieren*)
+		KP_ON:= 							TRUE;
 		VD_Ventilator_ON := 				TRUE;
 		PID_KP.Aktiv:= 						TRUE;
 		PID_VF_Ventilator.Aktiv:= 			TRUE;
-		PID_VD_defrost_Ventilator.Aktiv:= 	FALSE;
-		Regelung();
+		VD_defrost_Ventilator_ON:= 			FALSE;
+		ElektrischeHeizung_ON:= 			FALSE;
 		
 	//======nächster Modus====					
 		SM.Status:=Anlagenschutz;
 			
+		
 Manuell: // Regler müssen manuell auf Aktiv umgestellt werden
 
 	(*Schütze werden geschaltet. Timer wird auf 1 Stunde gestellt. *)
-	Vereisung();
+		Vereisung();
 	
 	(*Regler müssen manuell aktiviert werden *)
+		KP_ON:= 							FALSE;
 		VD_Ventilator_ON := 				FALSE;
 		PID_KP.Aktiv:= 						FALSE;
 		PID_VF_Ventilator.Aktiv:= 			FALSE;
-		PID_VD_defrost_Ventilator.Aktiv:= 	FALSE;
+		
+		VD_defrost_Ventilator_ON:= 			FALSE;
+		ElektrischeHeizung_ON:= 			FALSE;
 		Regelung();
 	
 	//======nächster Modus====	
@@ -168,22 +191,77 @@ Manuell: // Regler müssen manuell auf Aktiv umgestellt werden
 			ELSE
 			SM.Status:=Schreiben;
 		END_IF
-	
 		
 
-Abtauen: //Der Verdampfer wird abgetaut. Über GVL wird der Abtaumodus ausgewählt	
+Abtauen: (*Der Verdampfer wird abgetaut. Über GVL wird der Abtaumodus ausgewählt*)	
 	
-	(*Regler werden im Programm Abtauen() aktiviert und deaktiviert*)
+	IF  bPumpDownAbgeschlossen = TRUE THEN  	(*Regler werden im Programm Abtauen() aktiviert und deaktiviert*)
 	Abtauung();
 	Regelung();
+	END_IF
+
+	//======PUMPDOWN Modus====		
+	IF  bPumpDownAbgeschlossen = FALSE THEN  // PUMPDOWN erforderlich für Abtau-Modus
+			bPumpDown := TRUE;
+			SM.Status := AnlagenPumpdown;	
+  	ELSE
+	//======nächster Modus====		
+			SM.Status := Anlagenschutz;
+	END_IF
 	
-	//======nächster Modus====					
-		SM.Status:=Anlagenschutz;
+	//======Abtau-Modus wird agebrochen====	
+	IF bAbtauenAbbrechen THEN 
+		SM.bAbtauen := FALSE;
+		SM.bAbtauen_elektrisch			:=FALSE;
+		SM.bAbtauen_Heissgas_oben 		:=FALSE;
+		SM.bAbtauen_Heissgas_unten		:=FALSE;
 		
+		SM.Status := Leerlauf;
+	END_IF
+
+	
+AnlagenPumpDown: //Anlage wird abgepumpt. Kältemittel wird in den Sammler gedrückt
+
+	PumpDownProgramm();
+	
+	IF 	bPumpDown= FALSE AND bPumpDown_rev= FALSE THEN
+		bNeuInitialisieren:= TRUE;  (*Soll-Regelwerte aus der Datenbank lesen *)
+	END_IF
+	
+	//======nächster Modus====	
+			SM.Status:= Anlagenschutz;
+			
+	//======Leerlauf-Modus====	
+	IF bPumpDownAbgeschlossen OR bPumpDown_revAbgeschlossen THEN  	
+			SM.Status:=Leerlauf; //Anlage wird in den Leerlauf versetzt
+	END_IF	
+
+	
+Leerlauf: (* Anlage ist im Leerlauf.  1) Kühlen oder Abtauen wurde ABGEBROCHEN, 
+										3) Anlagenschutz hat die Anlage in den Status Leerlauf versetzt*)
+	bLeerlauf := TRUE;
+	Regelung();
+	
+	//PumpDOWN wird abgebrochen falls nötig
+	bPumpDown	:= FALSE;
+	bPumpDown_rev:= FALSE;
+										
+	//Regler deaktivieren und Freigabe ausschalten
+	KP_ON:= 					FALSE;
+	VD_Ventilator_ON:= 			FALSE;
+	VD_defrost_Ventilator_ON:=  FALSE;
+	PID_KP.Aktiv := 			FALSE;
+	PID_VF_Ventilator.Aktiv:=	FALSE;
+
+	//======nächster Modus====	
+	bAnlagenschutzModus:=TRUE;		
+	SM.Status:=Anlagenschutz;
+
+			
 Anlagenschutz: //Anlagenschutzsysteme überschreiben ggf. Anweisungen
+	
 	Kompressorschutz();
-	
-	
+	Sonstiges();
 
 	//======nächster Modus====					
 		SM.Status:=Schreiben;
@@ -196,9 +274,8 @@ Schreiben:		//Native Werte werden zurückgerechnet und an Klemmen übergeben
 	
 	//======nächster Modus====			
 		SM.Status:=Lesen;
-
 ELSE
-	SM.bFehler := TRUE;
+	SM.bFehler:= TRUE;
 END_CASE
 
 ]]></ST>

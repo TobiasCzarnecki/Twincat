@@ -48,7 +48,7 @@ END_IF
 				bExecute:= start_Lesen, 
 				tTimeout:= T#5S, 
 				bBusy=> Busy_Lesen, 
-				bError=> SM.bFehler, 
+				bError=> SM.bDBFehler, 
 				nErrID=> , 
 				sSQLState=> stSQLStateSelect, 
 				nRecords=> nRecordCount); 

@@ -13,20 +13,20 @@ END_VAR
 IF bKuehlen = TRUE THEN 
   IF EV.UberhitzungTemp < 4  THEN
 	  Soll_KP.REAL_VAR := 0;
-	  bAnlagenschutzAktiv:= TRUE;
+	  WarnungAnlagenschutz:= TRUE;
 	  ELSE
-	  bAnlagenschutzAktiv:= FALSE;
+	  WarnungAnlagenschutz:= FALSE;
   END_IF
 END_IF
   
 //im AbtauModus  
-IF bAbtauen THEN
+IF bAbtauen_Heissgas_oben OR bAbtauen_Heissgas_unten THEN
   IF EV_rev.UberhitzungTemp < 4 
 	 THEN
 	  Soll_KP.REAL_VAR := 0;	  
-	  bAnlagenschutzAktiv:= TRUE;
+	  WarnungAnlagenschutz:= TRUE;
 	  ELSE
-	  bAnlagenschutzAktiv:= FALSE;
+	  WarnungAnlagenschutz:= FALSE;
   END_IF
 END_IF]]></ST>
     </Implementation>

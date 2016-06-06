@@ -7,6 +7,8 @@ VAR
 	fb_pid_VF : 					CTRL_PID;
 	fb_pid_VD_defrost :				CTRL_PID;
 	bVF_defrost_TolleranzErreicht: 	BOOL;
+	Verzogerungsglied				: FT_PT1;
+	Ist_VF_Unterkuhlung_PT1 :		REAL;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -24,7 +26,7 @@ fb_pid_KP(
 	OFS:= PID_KP.Offset, 
 	M_I:= PID_KP.ManuellerWert, 
 	MAN:= PID_KP.ManuellerModus, 
-	RST:= PID_KP.Restart, 
+	RST:= bNeuInitialisieren,//PID_KP.Restart, 
 	KP:= PID_KP.Kp, 
 	TN:= PID_KP.Kp/ PID_KP.I, //2000, 
 	TV:= PID_KP.D/ PID_KP.Kp, 
@@ -46,16 +48,17 @@ END_IF
 		
 (*Regler für den Ventilator vom Verflüssiger*)	
 Ist_VF_Unterkuhlung := VF.T_v - Temp_VF_out.REAL_VAR;
+Verzogerungsglied(In:=Ist_VF_Unterkuhlung, T:=T#30S, K:=1, out=>Ist_VF_Unterkuhlung_PT1);
 
 IF PID_VF_Ventilator.Aktiv THEN	
 fb_pid_VF( 
-	ACT:= Ist_VF_Unterkuhlung, 
+	ACT:= Ist_VF_Unterkuhlung_PT1, 
 	SET:= PID_VF_Ventilator.w, // dem Druck entsprechende Verdampfungstemperatur "T_v" minus X Kelvin, garantiert flüssiges Kältemittel im VF-Ausgang
 	SUP:= PID_VF_Ventilator.Einschalttoleranz, 
 	OFS:= PID_VF_Ventilator.Offset, 
 	M_I:= PID_VF_Ventilator.ManuellerWert, 
 	MAN:= PID_VF_Ventilator.ManuellerModus, 
-	RST:= PID_VF_Ventilator.Restart, 
+	RST:= bNeuInitialisieren,//PID_VF_Ventilator.Restart, 
 	KP:= PID_VF_Ventilator.Kp, 
 	TN:= PID_VF_Ventilator.Kp/ PID_VF_Ventilator.I, 
 	TV:= PID_VF_Ventilator.D/ PID_VF_Ventilator.Kp, 

@@ -96,10 +96,6 @@
       <SubType>Code</SubType>
       <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
     </Compile>
-    <Compile Include="GVLs\KM.TcGVL">
-      <SubType>Code</SubType>
-      <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
-    </Compile>
     <Compile Include="GVLs\MODBUS.TcGVL">
       <SubType>Code</SubType>
       <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
@@ -122,6 +118,9 @@
     <Compile Include="POUs\Abtauung.TcPOU">
       <SubType>Code</SubType>
       <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
+    </Compile>
+    <Compile Include="POUs\Anlagenschutz\Sonstiges.TcPOU">
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\Anlagenschutz\Kompressorschutz.TcPOU">
       <SubType>Code</SubType>
@@ -213,7 +212,7 @@
     <Compile Include="POUs\MAIN.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="POUs\Modbus\Auslesen_Modbus.TcPOU">
+    <Compile Include="POUs\Modbus\Lesen_Modbus.TcPOU">
       <SubType>Code</SubType>
       <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
     </Compile>
@@ -232,6 +231,9 @@
     <Compile Include="POUs\Modbus\ModbusRTU_EL.TcPOU">
       <SubType>Code</SubType>
       <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
+    </Compile>
+    <Compile Include="POUs\PumpDownProgramm.TcPOU">
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\Regelung.TcPOU">
       <SubType>Code</SubType>
@@ -291,7 +293,7 @@
       <SubType>Code</SubType>
       <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
     </Compile>
-    <Compile Include="POUs\Waagen\Auslesen_Waagen.TcPOU">
+    <Compile Include="POUs\Waagen\Lesen_Waagen.TcPOU">
       <SubType>Code</SubType>
       <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
     </Compile>
