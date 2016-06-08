@@ -52,7 +52,9 @@
 		Temp_VD_surface1: 			INPUT_VAR; //T-Sensor auf Wärmeübertrager im Verdampfer in der Klimakammer	
 		Temp_VD_surface2: 			INPUT_VAR; //T-Sensor auf Wärmeübertrager im Verdampfer in der Klimakammer	
 		Temp_VD_surface3: 			INPUT_VAR; //T-Sensor auf Wärmeübertrager im Verdampfer in der Klimakammer	
-		Temp_VD_surface4: 			INPUT_VAR; //T-Sensor auf Wärmeübertrager im Verdampfer in der Klimakammer	
+		Temp_VD_surface4: 			INPUT_VAR; //T-Sensor auf Wärmeübertrager im Verdampfer in der Klimakammer
+		Temp_VD_surface5: 			INPUT_VAR; //T-Sensor auf Wärmeübertrager im Verdampfer in der Klimakammer	
+		Temp_VD_surface6: 			INPUT_VAR; //T-Sensor auf Wärmeübertrager im Verdampfer in der Klimakammer	
 		Temp_VF_in:					INPUT_VAR; // Pos 2': T-Sensor vor Verflüssiger    
 		Temp_VF_out: 				INPUT_VAR; // Pos 3': T-Sensor nach Verflüssiger		
 		Temp_VD_defrost_in:			INPUT_VAR; // Pos 3A': T-Sensor vor Verdampfer außerhalb der Klimakammer

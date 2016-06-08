@@ -10,7 +10,16 @@
     <Content Include="2D-Schwerpunkt.tcscope">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Messtechnik.tcscope">
+    <Content Include="Regelung.tcscope">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Oberflächentemperatur.tcscope">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Wägesystem.tcscope">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Temperaturverläufe.tcscope">
       <SubType>Content</SubType>
     </Content>
   </ItemGroup>

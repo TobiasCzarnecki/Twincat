@@ -3,17 +3,17 @@
   <GVL Name="SM" Id="{bc6b87a2-3fc4-4d1b-b930-7e7397c0fd58}">
     <Declaration><![CDATA[VAR_GLOBAL
 	Mitteilung: STRING; // hier werden Meldungen reingeschrieben
+
 	
 	Status : Status_KK:= Lesen;//Initialisieren;
-	
+
 	bNeuInitialisieren:				BOOL:=TRUE;
-	bDBFehler: 						BOOL:= FALSE;
-	bLeseStoffwerte: 				BOOL:=FALSE;				// nur auf TRUE setzen, wenn sich die Daten aus der Datenbank geändert bzw. angepasst worden sind	
+		bDBFehler: 						BOOL:=FALSE;
+		bLeseStoffwerte: 				BOOL:=FALSE;				// nur auf TRUE setzen, wenn sich die Daten aus der Datenbank geändert bzw. angepasst worden sind	
+
 	
-	WaagenKalibrierungFertig: BOOL:= FALSE;
-	
-	bKuehlen:					BOOL:=TRUE;			
-		bVollautomatikModus: 		BOOL:= TRUE;
+	bKuehlen:					BOOL:=FALSE;			
+		bVollautomatikModus: 		BOOL:= FALSE;
 		bManuellerModus:			BOOL:=FALSE;
 		bKuehlenAbbrechen:	 		BOOL:= FALSE;	
 	
@@ -22,9 +22,9 @@
 		bAbtauen_Heissgas_oben:		BOOL:=FALSE;
 		bAbtauen_Heissgas_unten:	BOOL:=FALSE;
 		bAbtauenAbbrechen: 			BOOL:= FALSE;
-	bAbtauenAbgeschlossen: 		BOOL:=FALSE;
+		bAbtauenAbgeschlossen: 		BOOL:=FALSE;
 
-	bLeerlauf:						BOOL:=FALSE;
+	bLeerlauf:						BOOL:=TRUE;
 	
 	bPumpDown: 						BOOL:=FALSE;
 	bPumpDown_rev:					BOOL:=FALSE;
@@ -32,7 +32,8 @@
 	bPumpDown_revAbgeschlossen:		BOOL:=FALSE;
 	
 	bAnlagenschutzModus:			BOOL:=TRUE;
-	WarnungAnlagenschutz:			BOOL:=FALSE;
+		WarnungAnlagenschutz:			BOOL:=FALSE;
+		
 	bFehler:						BOOL:=FALSE;
 	
 

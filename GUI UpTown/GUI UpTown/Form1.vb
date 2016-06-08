@@ -1,6 +1,6 @@
 ﻿
 Public Class Form1
-
+    Private Zeit As Integer
     ' Public Shared Function Math.Log10(d As Double) As Double
     Private Sub Form1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         Dim result As MsgBoxResult = MsgBox("Wollen Sie das Programm wirklich beenden?", MsgBoxStyle.YesNo, "Beenden")
@@ -111,24 +111,45 @@ Public Class Form1
         Me.Timer2.Start()
     End Sub
 
-    Private Sub TextBox25_TextChanged(sender As Object, e As EventArgs)
-
+    Private Sub CheckboxEingabe_Kuhlen_Wert_Changed(sender As Object, e As EventArgs) Handles CheckboxEingabe_Kuhlen.Wert_Changed, GroupBox2.EnabledChanged
+        GroupBox2.Enabled = CheckboxEingabe_Kuhlen.Wert
+    End Sub
+    Private Sub CheckboxEingabe_Abtauen_Wert_Changed(sender As Object, e As EventArgs) Handles CheckboxEingabe_Kuhlen.Wert_Changed, GroupBox3.EnabledChanged, CheckboxEingabe_Abtauen.Wert_Changed
+        GroupBox3.Enabled = CheckboxEingabe_Abtauen.Wert
+    End Sub
+    Private Sub CheckboxEingabe9_Wert_Changed(sender As Object, e As EventArgs) Handles CheckboxEingabe9.Wert_Changed, TextBox54.EnabledChanged, DropdownEingabe1.EnabledChanged
+        DropdownEingabe1.Enabled = CheckboxEingabe9.Wert
     End Sub
 
-    Private Sub TextBox27_TextChanged(sender As Object, e As EventArgs)
+    'Private Sub Timer3_Tick(sender As Object, e As EventArgs) Handles Timer3.Tick
+    '    Zeit = Zeit + 1
+    '    Button1.Text = Zeit
+    'End Sub
 
+    Private Sub Button1_Click(sender As Object, e As EventArgs)
+        If Timer3.Enabled = True Then
+            Timer3.Stop()
+
+        Else
+            Zeit = 0
+            Timer3.Interval = 1000
+            Timer3.Start()
+
+        End If
     End Sub
 
-    Private Sub CheckboxEingabe14_Load(sender As Object, e As EventArgs)
+
+
+    Private Sub Led19_Load(sender As Object, e As EventArgs) Handles Led19.Load
 
     End Sub
-
-    Private Sub Led10_Load(sender As Object, e As EventArgs)
+    Private Sub Led17_Load(sender As Object, e As EventArgs) Handles Led17.Load
 
     End Sub
+    Private Sub Led16_Load(sender As Object, e As EventArgs) Handles Led16.Load
 
- 
-    Private Sub CheckboxEingabe1_Wert_Changed(sender As Object, e As EventArgs) Handles CheckboxEingabe1.Wert_Changed
+    End Sub
+    Private Sub Led18_Load(sender As Object, e As EventArgs) Handles Led18.Load
 
     End Sub
 End Class

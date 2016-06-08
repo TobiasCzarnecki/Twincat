@@ -16,9 +16,24 @@ END_VAR
 		bAbtauen_elektrisch := FALSE;
 		bAbtauen_Heissgas_oben:= FALSE;
 		bAbtauen_Heissgas_unten:=FALSE;
+		Mitteilung:= 'Überhitzungsschutz vom Verdampfer ist aktiviert worden';
 		WarnungAnlagenschutz	 := TRUE;
 	END_IF
-	]]></ST>
+	
+(*Waagenschutz. Waagen sind nur bis 10 kg belastbar. Weitere Belastungen könnten zu Beschädigungen der Waagen führen.
+  In diesem Fall wird abgetaut und der Verdampfer vom Eis befreit. Die Waagen werden entlastet. *)
+  
+  IF Waage_roh[1]> 10000 OR Waage_roh[2] >10000 OR Waage_roh[3] >10000 OR Waage_roh[4] >10000 OR Waage_roh[5] >10000 Waage_roh[6] >10000 THEN 
+	  WarnungAnlagenschutz	 := TRUE;
+	  Mitteilung := 'Waagenschutz ist aktiviert worden'; 
+	  
+	  bAbtauen := TRUE;
+	  bAbtauen_elektrisch:= TRUE;
+	  
+	  //Vereisungsprozess wird abgebrochen
+	  bKuehlenAbbrechen := TRUE;
+	  
+  END_IF]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>

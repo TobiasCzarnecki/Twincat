@@ -63,7 +63,7 @@ Partial Class Form1
         Me.TextBox33 = New System.Windows.Forms.TextBox()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
-        Me.Led8 = New EBC_ADS_Bib.LED()
+        Me.Led32 = New EBC_ADS_Bib.LED()
         Me.DezimalAnzeige18 = New EBC_ADS_Bib.DezimalAnzeige()
         Me.DezimalAnzeige17 = New EBC_ADS_Bib.DezimalAnzeige()
         Me.DezimalAnzeige16 = New EBC_ADS_Bib.DezimalAnzeige()
@@ -81,7 +81,6 @@ Partial Class Form1
         Me.SollWertEingabe5 = New EBC_ADS_Bib.SollWertEingabe()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Led3 = New EBC_ADS_Bib.LED()
         Me.Led5 = New EBC_ADS_Bib.LED()
         Me.SollWertEingabe2 = New EBC_ADS_Bib.SollWertEingabe()
         Me.DezimalAnzeige11 = New EBC_ADS_Bib.DezimalAnzeige()
@@ -112,13 +111,43 @@ Partial Class Form1
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
-        Me.CheckboxEingabe12 = New EBC_ADS_Bib.CheckboxEingabe()
+        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
+        Me.CheckboxEingabe9 = New EBC_ADS_Bib.CheckboxEingabe()
+        Me.TextBox53 = New System.Windows.Forms.TextBox()
+        Me.Led39 = New EBC_ADS_Bib.LED()
+        Me.Led38 = New EBC_ADS_Bib.LED()
+        Me.TextBox52 = New System.Windows.Forms.TextBox()
+        Me.TextBox51 = New System.Windows.Forms.TextBox()
+        Me.TextBox50 = New System.Windows.Forms.TextBox()
+        Me.Led36 = New EBC_ADS_Bib.LED()
+        Me.Led37 = New EBC_ADS_Bib.LED()
+        Me.Led35 = New EBC_ADS_Bib.LED()
+        Me.Led34 = New EBC_ADS_Bib.LED()
+        Me.Led33 = New EBC_ADS_Bib.LED()
+        Me.TextBox49 = New System.Windows.Forms.TextBox()
+        Me.TextBox48 = New System.Windows.Forms.TextBox()
+        Me.TextBox47 = New System.Windows.Forms.TextBox()
+        Me.TextBox39 = New System.Windows.Forms.TextBox()
+        Me.TextBox38 = New System.Windows.Forms.TextBox()
+        Me.CheckboxEingabe4 = New EBC_ADS_Bib.CheckboxEingabe()
+        Me.CheckboxEingabe3 = New EBC_ADS_Bib.CheckboxEingabe()
+        Me.Led31 = New EBC_ADS_Bib.LED()
+        Me.Led30 = New EBC_ADS_Bib.LED()
         Me.AdS_Verbindung1 = New EBC_ADS_Bib.ADS_Verbindung()
         Me.CheckboxEingabe8 = New EBC_ADS_Bib.CheckboxEingabe()
-        Me.CheckboxEingabe6 = New EBC_ADS_Bib.CheckboxEingabe()
-        Me.CheckboxEingabe7 = New EBC_ADS_Bib.CheckboxEingabe()
-        Me.CheckboxEingabe5 = New EBC_ADS_Bib.CheckboxEingabe()
-        Me.CheckboxEingabe1 = New EBC_ADS_Bib.CheckboxEingabe()
+        Me.CheckboxEingabe_Abtauen = New EBC_ADS_Bib.CheckboxEingabe()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.DropdownEingabe1 = New EBC_ADS_Bib.DropdownEingabe()
+        Me.CheckboxEingabe21 = New EBC_ADS_Bib.CheckboxEingabe()
+        Me.CheckboxEingabe_KuhlenAbbrechen = New EBC_ADS_Bib.CheckboxEingabe()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.CheckboxEingabe2 = New EBC_ADS_Bib.CheckboxEingabe()
+        Me.CheckboxEingabe28 = New EBC_ADS_Bib.CheckboxEingabe()
+        Me.CheckboxEingabe29 = New EBC_ADS_Bib.CheckboxEingabe()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.CheckboxEingabe_ManuellerModus = New EBC_ADS_Bib.CheckboxEingabe()
+        Me.CheckboxEingabe_Vollautomatik = New EBC_ADS_Bib.CheckboxEingabe()
+        Me.CheckboxEingabe_Kuhlen = New EBC_ADS_Bib.CheckboxEingabe()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.DezimalAnzeige19 = New EBC_ADS_Bib.DezimalAnzeige()
         Me.DezimalAnzeige20 = New EBC_ADS_Bib.DezimalAnzeige()
@@ -169,8 +198,6 @@ Partial Class Form1
         Me.nullpunkt = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
-        Me.TextBox29 = New System.Windows.Forms.TextBox()
-        Me.TextBox30 = New System.Windows.Forms.TextBox()
         Me.Temperatursensor19 = New EBC_ADS_Bib.Temperatursensor()
         Me.Temperatursensor20 = New EBC_ADS_Bib.Temperatursensor()
         Me.TextBox28 = New System.Windows.Forms.TextBox()
@@ -183,15 +210,8 @@ Partial Class Form1
         Me.Led7 = New EBC_ADS_Bib.LED()
         Me.CheckboxEingabe13 = New EBC_ADS_Bib.CheckboxEingabe()
         Me.TextBox20 = New System.Windows.Forms.TextBox()
-        Me.Led9 = New EBC_ADS_Bib.LED()
-        Me.CheckboxEingabe14 = New EBC_ADS_Bib.CheckboxEingabe()
-        Me.TextBox21 = New System.Windows.Forms.TextBox()
         Me.Led10 = New EBC_ADS_Bib.LED()
         Me.TextBox22 = New System.Windows.Forms.TextBox()
-        Me.DezimalAnzeige22 = New EBC_ADS_Bib.DezimalAnzeige()
-        Me.TextBox23 = New System.Windows.Forms.TextBox()
-        Me.TextBox24 = New System.Windows.Forms.TextBox()
-        Me.DezimalAnzeige23 = New EBC_ADS_Bib.DezimalAnzeige()
         Me.Led16 = New EBC_ADS_Bib.LED()
         Me.Led17 = New EBC_ADS_Bib.LED()
         Me.Led18 = New EBC_ADS_Bib.LED()
@@ -199,24 +219,17 @@ Partial Class Form1
         Me.CheckboxEingabe15 = New EBC_ADS_Bib.CheckboxEingabe()
         Me.TabPage7 = New System.Windows.Forms.TabPage()
         Me.Led20 = New EBC_ADS_Bib.LED()
-        Me.Led21 = New EBC_ADS_Bib.LED()
         Me.CheckboxEingabe16 = New EBC_ADS_Bib.CheckboxEingabe()
         Me.TextBox25 = New System.Windows.Forms.TextBox()
         Me.TextBox26 = New System.Windows.Forms.TextBox()
         Me.CheckboxEingabe18 = New EBC_ADS_Bib.CheckboxEingabe()
         Me.TabPage8 = New System.Windows.Forms.TabPage()
-        Me.Led22 = New EBC_ADS_Bib.LED()
         Me.CheckboxEingabe19 = New EBC_ADS_Bib.CheckboxEingabe()
         Me.TextBox27 = New System.Windows.Forms.TextBox()
         Me.CheckboxEingabe20 = New EBC_ADS_Bib.CheckboxEingabe()
         Me.Led23 = New EBC_ADS_Bib.LED()
         Me.TabPage9 = New System.Windows.Forms.TabPage()
-        Me.DezimalAnzeige29 = New EBC_ADS_Bib.DezimalAnzeige()
-        Me.DezimalAnzeige30 = New EBC_ADS_Bib.DezimalAnzeige()
         Me.DezimalAnzeige31 = New EBC_ADS_Bib.DezimalAnzeige()
-        Me.DezimalAnzeige32 = New EBC_ADS_Bib.DezimalAnzeige()
-        Me.DezimalAnzeige26 = New EBC_ADS_Bib.DezimalAnzeige()
-        Me.DezimalAnzeige25 = New EBC_ADS_Bib.DezimalAnzeige()
         Me.DezimalAnzeige24 = New EBC_ADS_Bib.DezimalAnzeige()
         Me.TextBox31 = New System.Windows.Forms.TextBox()
         Me.TextBox32 = New System.Windows.Forms.TextBox()
@@ -224,26 +237,38 @@ Partial Class Form1
         Me.TextBox36 = New System.Windows.Forms.TextBox()
         Me.TextBox37 = New System.Windows.Forms.TextBox()
         Me.DezimalAnzeige34 = New EBC_ADS_Bib.DezimalAnzeige()
-        Me.DezimalAnzeige35 = New EBC_ADS_Bib.DezimalAnzeige()
-        Me.Temperatursensor16 = New EBC_ADS_Bib.Temperatursensor()
         Me.Temperatursensor17 = New EBC_ADS_Bib.Temperatursensor()
         Me.Temperatursensor18 = New EBC_ADS_Bib.Temperatursensor()
-        Me.Temperatursensor14 = New EBC_ADS_Bib.Temperatursensor()
         Me.Temperatursensor12 = New EBC_ADS_Bib.Temperatursensor()
         Me.Temperatursensor11 = New EBC_ADS_Bib.Temperatursensor()
-        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.TabPage10 = New System.Windows.Forms.TabPage()
         Me.Messwert = New EBC_ADS_Bib.ScopeView()
-        Me.CheckboxEingabe21 = New EBC_ADS_Bib.CheckboxEingabe()
-        Me.CheckboxEingabe28 = New EBC_ADS_Bib.CheckboxEingabe()
-        Me.CheckboxEingabe29 = New EBC_ADS_Bib.CheckboxEingabe()
-        Me.CheckboxEingabe2 = New EBC_ADS_Bib.CheckboxEingabe()
-        Me.Led30 = New EBC_ADS_Bib.LED()
-        Me.Led31 = New EBC_ADS_Bib.LED()
+        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
+        Me.Timer3 = New System.Windows.Forms.Timer(Me.components)
+        Me.TextBox54 = New System.Windows.Forms.TextBox()
+        Me.DezimalAnzeige36 = New EBC_ADS_Bib.DezimalAnzeige()
+        Me.DezimalAnzeige37 = New EBC_ADS_Bib.DezimalAnzeige()
+        Me.DezimalAnzeige38 = New EBC_ADS_Bib.DezimalAnzeige()
+        Me.DezimalAnzeige25 = New EBC_ADS_Bib.DezimalAnzeige()
+        Me.DezimalAnzeige26 = New EBC_ADS_Bib.DezimalAnzeige()
+        Me.DezimalAnzeige29 = New EBC_ADS_Bib.DezimalAnzeige()
+        Me.DezimalAnzeige23 = New EBC_ADS_Bib.DezimalAnzeige()
+        Me.Led8 = New EBC_ADS_Bib.LED()
+        Me.Led9 = New EBC_ADS_Bib.LED()
+        Me.TextBox21 = New System.Windows.Forms.TextBox()
+        Me.TextBox23 = New System.Windows.Forms.TextBox()
+        Me.DezimalAnzeige22 = New EBC_ADS_Bib.DezimalAnzeige()
+        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
+        Me.DezimalAnzeige30 = New EBC_ADS_Bib.DezimalAnzeige()
+        Me.DezimalAnzeige32 = New EBC_ADS_Bib.DezimalAnzeige()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage2.SuspendLayout()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox1.SuspendLayout()
+        Me.GroupBox3.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
         Me.TabPage3.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage5.SuspendLayout()
@@ -253,8 +278,8 @@ Partial Class Form1
         Me.TabPage6.SuspendLayout()
         Me.TabPage7.SuspendLayout()
         Me.TabPage8.SuspendLayout()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage10.SuspendLayout()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Timer1
@@ -726,12 +751,12 @@ Partial Class Form1
         Me.TabControl1.Location = New System.Drawing.Point(0, 0)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(1634, 1086)
+        Me.TabControl1.Size = New System.Drawing.Size(1634, 1045)
         Me.TabControl1.TabIndex = 135
         '
         'TabPage1
         '
-        Me.TabPage1.Controls.Add(Me.Led8)
+        Me.TabPage1.Controls.Add(Me.Led32)
         Me.TabPage1.Controls.Add(Me.DezimalAnzeige18)
         Me.TabPage1.Controls.Add(Me.DezimalAnzeige17)
         Me.TabPage1.Controls.Add(Me.DezimalAnzeige16)
@@ -749,7 +774,6 @@ Partial Class Form1
         Me.TabPage1.Controls.Add(Me.SollWertEingabe5)
         Me.TabPage1.Controls.Add(Me.TextBox2)
         Me.TabPage1.Controls.Add(Me.TextBox1)
-        Me.TabPage1.Controls.Add(Me.Led3)
         Me.TabPage1.Controls.Add(Me.Led5)
         Me.TabPage1.Controls.Add(Me.SollWertEingabe2)
         Me.TabPage1.Controls.Add(Me.DezimalAnzeige11)
@@ -782,27 +806,27 @@ Partial Class Form1
         Me.TabPage1.Location = New System.Drawing.Point(4, 25)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(1626, 1057)
+        Me.TabPage1.Size = New System.Drawing.Size(1626, 1016)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "RI-Fließbild"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
-        'Led8
+        'Led32
         '
-        Me.Led8.Aktuallisierungsrate = 1000
-        Me.Led8.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.Led8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.Led8.FarbeFalse = System.Drawing.Color.Lime
-        Me.Led8.FarbeTrue = System.Drawing.Color.Red
-        Me.Led8.Location = New System.Drawing.Point(1293, 65)
-        Me.Led8.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.Led8.Name = "Led8"
-        Me.Led8.Size = New System.Drawing.Size(166, 29)
-        Me.Led8.Symbolname = "SM.bAnlagenschutzAktiv"
-        Me.Led8.TabIndex = 130
-        Me.Led8.TextFalse = "Anlagenschutz Inaktiv."
-        Me.Led8.TextTrue = "Anlagenschutz AKTIV"
-        Me.Led8.Wert = True
+        Me.Led32.Aktuallisierungsrate = 1000
+        Me.Led32.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.Led32.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Led32.FarbeFalse = System.Drawing.Color.LightGray
+        Me.Led32.FarbeTrue = System.Drawing.Color.Lime
+        Me.Led32.Location = New System.Drawing.Point(1356, 276)
+        Me.Led32.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Led32.Name = "Led32"
+        Me.Led32.Size = New System.Drawing.Size(57, 29)
+        Me.Led32.Symbolname = "REGLER.KP_ON"
+        Me.Led32.TabIndex = 131
+        Me.Led32.TextFalse = "KP aus"
+        Me.Led32.TextTrue = "KP an"
+        Me.Led32.Wert = True
         '
         'DezimalAnzeige18
         '
@@ -1012,23 +1036,6 @@ Partial Class Form1
         Me.TextBox1.TabIndex = 106
         Me.TextBox1.Text = "Soll_Saugdruck"
         '
-        'Led3
-        '
-        Me.Led3.Aktuallisierungsrate = 1000
-        Me.Led3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.Led3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.Led3.FarbeFalse = System.Drawing.Color.Lime
-        Me.Led3.FarbeTrue = System.Drawing.Color.Red
-        Me.Led3.Location = New System.Drawing.Point(1291, 28)
-        Me.Led3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.Led3.Name = "Led3"
-        Me.Led3.Size = New System.Drawing.Size(166, 29)
-        Me.Led3.Symbolname = "SM.bFehler"
-        Me.Led3.TabIndex = 105
-        Me.Led3.TextFalse = "Alles OK."
-        Me.Led3.TextTrue = "Status Maschine Fehler"
-        Me.Led3.Wert = True
-        '
         'Led5
         '
         Me.Led5.Aktuallisierungsrate = 1000
@@ -1039,12 +1046,12 @@ Partial Class Form1
         Me.Led5.Location = New System.Drawing.Point(1109, 65)
         Me.Led5.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Led5.Name = "Led5"
-        Me.Led5.Size = New System.Drawing.Size(176, 29)
+        Me.Led5.Size = New System.Drawing.Size(349, 29)
         Me.Led5.Symbolname = "SM.bAbtauen"
         Me.Led5.TabIndex = 104
         Me.Led5.TextFalse = "Nicht Abtauen"
         Me.Led5.TextTrue = "Abtauen"
-        Me.Led5.Wert = True
+        Me.Led5.Wert = False
         '
         'SollWertEingabe2
         '
@@ -1086,7 +1093,7 @@ Partial Class Form1
         Me.DezimalAnzeige2.BackColor = System.Drawing.Color.White
         Me.DezimalAnzeige2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.DezimalAnzeige2.Einheit = "mA"
-        Me.DezimalAnzeige2.Location = New System.Drawing.Point(1221, 279)
+        Me.DezimalAnzeige2.Location = New System.Drawing.Point(1218, 276)
         Me.DezimalAnzeige2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.DezimalAnzeige2.Name = "DezimalAnzeige2"
         Me.DezimalAnzeige2.Size = New System.Drawing.Size(55, 26)
@@ -1278,12 +1285,12 @@ Partial Class Form1
         Me.Led1.Location = New System.Drawing.Point(1109, 28)
         Me.Led1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Led1.Name = "Led1"
-        Me.Led1.Size = New System.Drawing.Size(176, 29)
+        Me.Led1.Size = New System.Drawing.Size(349, 29)
         Me.Led1.Symbolname = "SM.bKuehlen"
         Me.Led1.TabIndex = 87
         Me.Led1.TextFalse = "Nicht Kühlen"
         Me.Led1.TextTrue = "Kühlen"
-        Me.Led1.Wert = True
+        Me.Led1.Wert = False
         '
         'Temperatursensor9
         '
@@ -1456,7 +1463,7 @@ Partial Class Form1
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
         Me.PictureBox1.Location = New System.Drawing.Point(3, 3)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(1620, 1051)
+        Me.PictureBox1.Size = New System.Drawing.Size(1620, 1010)
         Me.PictureBox1.TabIndex = 84
         Me.PictureBox1.TabStop = False
         '
@@ -1471,127 +1478,592 @@ Partial Class Form1
         '
         'TabPage2
         '
-        Me.TabPage2.Controls.Add(Me.Led31)
-        Me.TabPage2.Controls.Add(Me.Led30)
-        Me.TabPage2.Controls.Add(Me.CheckboxEingabe2)
-        Me.TabPage2.Controls.Add(Me.CheckboxEingabe21)
-        Me.TabPage2.Controls.Add(Me.CheckboxEingabe28)
-        Me.TabPage2.Controls.Add(Me.CheckboxEingabe29)
-        Me.TabPage2.Controls.Add(Me.CheckboxEingabe12)
+        Me.TabPage2.Controls.Add(Me.PictureBox4)
+        Me.TabPage2.Controls.Add(Me.CheckboxEingabe9)
+        Me.TabPage2.Controls.Add(Me.TextBox53)
+        Me.TabPage2.Controls.Add(Me.Led39)
+        Me.TabPage2.Controls.Add(Me.Led38)
+        Me.TabPage2.Controls.Add(Me.TextBox52)
+        Me.TabPage2.Controls.Add(Me.TextBox51)
+        Me.TabPage2.Controls.Add(Me.TextBox50)
+        Me.TabPage2.Controls.Add(Me.Led36)
+        Me.TabPage2.Controls.Add(Me.Led37)
+        Me.TabPage2.Controls.Add(Me.Led35)
+        Me.TabPage2.Controls.Add(Me.Led34)
+        Me.TabPage2.Controls.Add(Me.Led33)
+        Me.TabPage2.Controls.Add(Me.TextBox49)
+        Me.TabPage2.Controls.Add(Me.TextBox48)
+        Me.TabPage2.Controls.Add(Me.TextBox47)
+        Me.TabPage2.Controls.Add(Me.TextBox39)
+        Me.TabPage2.Controls.Add(Me.TextBox38)
         Me.TabPage2.Controls.Add(Me.AdS_Verbindung1)
-        Me.TabPage2.Controls.Add(Me.CheckboxEingabe8)
-        Me.TabPage2.Controls.Add(Me.CheckboxEingabe6)
-        Me.TabPage2.Controls.Add(Me.CheckboxEingabe7)
-        Me.TabPage2.Controls.Add(Me.CheckboxEingabe5)
-        Me.TabPage2.Controls.Add(Me.CheckboxEingabe1)
+        Me.TabPage2.Controls.Add(Me.GroupBox1)
+        Me.TabPage2.Font = New System.Drawing.Font("Times New Roman", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TabPage2.Location = New System.Drawing.Point(4, 25)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(1626, 1057)
+        Me.TabPage2.Size = New System.Drawing.Size(1626, 1016)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Status Maschine"
         Me.TabPage2.UseVisualStyleBackColor = True
         '
-        'CheckboxEingabe12
+        'PictureBox4
         '
-        Me.CheckboxEingabe12.Aktuallisierungsrate = 1000
-        Me.CheckboxEingabe12.Displaytext = "Kühlen abbrechen"
-        Me.CheckboxEingabe12.Hinweis = Nothing
-        Me.CheckboxEingabe12.Location = New System.Drawing.Point(1203, 308)
-        Me.CheckboxEingabe12.manuellerModus = True
-        Me.CheckboxEingabe12.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.CheckboxEingabe12.Name = "CheckboxEingabe12"
-        Me.CheckboxEingabe12.Size = New System.Drawing.Size(200, 33)
-        Me.CheckboxEingabe12.SollWertNeu = False
-        Me.CheckboxEingabe12.Symbolname = "SM.bKuehlenAbbrechen"
-        Me.CheckboxEingabe12.TabIndex = 134
-        Me.CheckboxEingabe12.Wert = False
+        Me.PictureBox4.Image = CType(resources.GetObject("PictureBox4.Image"), System.Drawing.Image)
+        Me.PictureBox4.Location = New System.Drawing.Point(603, 45)
+        Me.PictureBox4.Name = "PictureBox4"
+        Me.PictureBox4.Size = New System.Drawing.Size(563, 790)
+        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox4.TabIndex = 163
+        Me.PictureBox4.TabStop = False
+        '
+        'CheckboxEingabe9
+        '
+        Me.CheckboxEingabe9.Aktuallisierungsrate = 1000
+        Me.CheckboxEingabe9.BackColor = System.Drawing.SystemColors.AppWorkspace
+        Me.CheckboxEingabe9.Displaytext = "Automatik-Zyklus"
+        Me.CheckboxEingabe9.Font = New System.Drawing.Font("Times New Roman", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CheckboxEingabe9.Hinweis = Nothing
+        Me.CheckboxEingabe9.Location = New System.Drawing.Point(1272, 87)
+        Me.CheckboxEingabe9.manuellerModus = True
+        Me.CheckboxEingabe9.Margin = New System.Windows.Forms.Padding(4)
+        Me.CheckboxEingabe9.Name = "CheckboxEingabe9"
+        Me.CheckboxEingabe9.Size = New System.Drawing.Size(187, 37)
+        Me.CheckboxEingabe9.SollWertNeu = False
+        Me.CheckboxEingabe9.Symbolname = "REGLER.AutomatikZyklusEin"
+        Me.CheckboxEingabe9.TabIndex = 160
+        Me.CheckboxEingabe9.Wert = False
+        '
+        'TextBox53
+        '
+        Me.TextBox53.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox53.Location = New System.Drawing.Point(72, 232)
+        Me.TextBox53.Name = "TextBox53"
+        Me.TextBox53.Size = New System.Drawing.Size(131, 30)
+        Me.TextBox53.TabIndex = 159
+        Me.TextBox53.Text = "Abtau-Modus"
+        '
+        'Led39
+        '
+        Me.Led39.Aktuallisierungsrate = 1000
+        Me.Led39.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.Led39.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Led39.FarbeFalse = System.Drawing.Color.LightGray
+        Me.Led39.FarbeTrue = System.Drawing.Color.Lime
+        Me.Led39.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Led39.Location = New System.Drawing.Point(416, 304)
+        Me.Led39.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.Led39.Name = "Led39"
+        Me.Led39.Size = New System.Drawing.Size(136, 30)
+        Me.Led39.Symbolname = "SM.bAbtauen_Heissgas_unten"
+        Me.Led39.TabIndex = 158
+        Me.Led39.TextFalse = "AUS"
+        Me.Led39.TextTrue = "AN"
+        Me.Led39.Wert = True
+        '
+        'Led38
+        '
+        Me.Led38.Aktuallisierungsrate = 1000
+        Me.Led38.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.Led38.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Led38.FarbeFalse = System.Drawing.Color.LightGray
+        Me.Led38.FarbeTrue = System.Drawing.Color.Lime
+        Me.Led38.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Led38.Location = New System.Drawing.Point(416, 268)
+        Me.Led38.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.Led38.Name = "Led38"
+        Me.Led38.Size = New System.Drawing.Size(136, 30)
+        Me.Led38.Symbolname = "SM.bAbtauen_Heissgas_oben"
+        Me.Led38.TabIndex = 157
+        Me.Led38.TextFalse = "AUS"
+        Me.Led38.TextTrue = "AN"
+        Me.Led38.Wert = True
+        '
+        'TextBox52
+        '
+        Me.TextBox52.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox52.Location = New System.Drawing.Point(229, 304)
+        Me.TextBox52.Name = "TextBox52"
+        Me.TextBox52.Size = New System.Drawing.Size(173, 30)
+        Me.TextBox52.TabIndex = 156
+        Me.TextBox52.Text = "Heißgas Unten:"
+        '
+        'TextBox51
+        '
+        Me.TextBox51.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox51.Location = New System.Drawing.Point(229, 268)
+        Me.TextBox51.Name = "TextBox51"
+        Me.TextBox51.Size = New System.Drawing.Size(173, 30)
+        Me.TextBox51.TabIndex = 155
+        Me.TextBox51.Text = "Heißgas Oben:"
+        '
+        'TextBox50
+        '
+        Me.TextBox50.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox50.Location = New System.Drawing.Point(72, 103)
+        Me.TextBox50.Name = "TextBox50"
+        Me.TextBox50.Size = New System.Drawing.Size(131, 30)
+        Me.TextBox50.TabIndex = 154
+        Me.TextBox50.Text = "Ventilatoren:"
+        '
+        'Led36
+        '
+        Me.Led36.Aktuallisierungsrate = 1000
+        Me.Led36.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.Led36.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Led36.FarbeFalse = System.Drawing.Color.LightGray
+        Me.Led36.FarbeTrue = System.Drawing.Color.Lime
+        Me.Led36.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Led36.Location = New System.Drawing.Point(416, 176)
+        Me.Led36.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.Led36.Name = "Led36"
+        Me.Led36.Size = New System.Drawing.Size(136, 30)
+        Me.Led36.Symbolname = "REGLER.VD_defrost_Ventilator_ON"
+        Me.Led36.TabIndex = 153
+        Me.Led36.TextFalse = "AUS"
+        Me.Led36.TextTrue = "AN"
+        Me.Led36.Wert = True
+        '
+        'Led37
+        '
+        Me.Led37.Aktuallisierungsrate = 1000
+        Me.Led37.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.Led37.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Led37.FarbeFalse = System.Drawing.Color.LightGray
+        Me.Led37.FarbeTrue = System.Drawing.Color.Lime
+        Me.Led37.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Led37.Location = New System.Drawing.Point(416, 232)
+        Me.Led37.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.Led37.Name = "Led37"
+        Me.Led37.Size = New System.Drawing.Size(136, 30)
+        Me.Led37.Symbolname = "REGLER.ElektrischeHeizung_ON"
+        Me.Led37.TabIndex = 152
+        Me.Led37.TextFalse = "AUS"
+        Me.Led37.TextTrue = "AN"
+        Me.Led37.Wert = True
+        '
+        'Led35
+        '
+        Me.Led35.Aktuallisierungsrate = 1000
+        Me.Led35.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.Led35.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Led35.FarbeFalse = System.Drawing.Color.LightGray
+        Me.Led35.FarbeTrue = System.Drawing.Color.Lime
+        Me.Led35.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Led35.Location = New System.Drawing.Point(416, 140)
+        Me.Led35.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.Led35.Name = "Led35"
+        Me.Led35.Size = New System.Drawing.Size(136, 30)
+        Me.Led35.Symbolname = "REGLER.VD_Ventilator_ON"
+        Me.Led35.TabIndex = 151
+        Me.Led35.TextFalse = "AUS"
+        Me.Led35.TextTrue = "AN"
+        Me.Led35.Wert = True
+        '
+        'Led34
+        '
+        Me.Led34.Aktuallisierungsrate = 1000
+        Me.Led34.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.Led34.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Led34.FarbeFalse = System.Drawing.Color.LightGray
+        Me.Led34.FarbeTrue = System.Drawing.Color.Lime
+        Me.Led34.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Led34.Location = New System.Drawing.Point(416, 103)
+        Me.Led34.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.Led34.Name = "Led34"
+        Me.Led34.Size = New System.Drawing.Size(136, 30)
+        Me.Led34.Symbolname = "REGLER.Schuetz_1K5"
+        Me.Led34.TabIndex = 150
+        Me.Led34.TextFalse = "AUS"
+        Me.Led34.TextTrue = "AN"
+        Me.Led34.Wert = True
+        '
+        'Led33
+        '
+        Me.Led33.Aktuallisierungsrate = 1000
+        Me.Led33.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.Led33.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Led33.FarbeFalse = System.Drawing.Color.LightGray
+        Me.Led33.FarbeTrue = System.Drawing.Color.Lime
+        Me.Led33.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Led33.Location = New System.Drawing.Point(416, 45)
+        Me.Led33.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.Led33.Name = "Led33"
+        Me.Led33.Size = New System.Drawing.Size(136, 30)
+        Me.Led33.Symbolname = "REGLER.KP_ON"
+        Me.Led33.TabIndex = 149
+        Me.Led33.TextFalse = "AUS"
+        Me.Led33.TextTrue = "AN"
+        Me.Led33.Wert = True
+        '
+        'TextBox49
+        '
+        Me.TextBox49.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox49.Location = New System.Drawing.Point(229, 232)
+        Me.TextBox49.Name = "TextBox49"
+        Me.TextBox49.Size = New System.Drawing.Size(173, 30)
+        Me.TextBox49.TabIndex = 148
+        Me.TextBox49.Text = "Elektrische Heizung:"
+        '
+        'TextBox48
+        '
+        Me.TextBox48.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox48.Location = New System.Drawing.Point(229, 176)
+        Me.TextBox48.Name = "TextBox48"
+        Me.TextBox48.Size = New System.Drawing.Size(173, 30)
+        Me.TextBox48.TabIndex = 147
+        Me.TextBox48.Text = "Abtau-Verdampfer:"
+        '
+        'TextBox47
+        '
+        Me.TextBox47.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox47.Location = New System.Drawing.Point(229, 103)
+        Me.TextBox47.Name = "TextBox47"
+        Me.TextBox47.Size = New System.Drawing.Size(173, 30)
+        Me.TextBox47.TabIndex = 146
+        Me.TextBox47.Text = "Verflüssiger:"
+        '
+        'TextBox39
+        '
+        Me.TextBox39.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox39.Location = New System.Drawing.Point(229, 45)
+        Me.TextBox39.Name = "TextBox39"
+        Me.TextBox39.Size = New System.Drawing.Size(173, 30)
+        Me.TextBox39.TabIndex = 145
+        Me.TextBox39.Text = "Kompressor:"
+        '
+        'TextBox38
+        '
+        Me.TextBox38.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox38.Location = New System.Drawing.Point(229, 140)
+        Me.TextBox38.Name = "TextBox38"
+        Me.TextBox38.Size = New System.Drawing.Size(173, 30)
+        Me.TextBox38.TabIndex = 144
+        Me.TextBox38.Text = "Verdampfer:"
+        '
+        'CheckboxEingabe4
+        '
+        Me.CheckboxEingabe4.Aktuallisierungsrate = 1000
+        Me.CheckboxEingabe4.BackColor = System.Drawing.SystemColors.AppWorkspace
+        Me.CheckboxEingabe4.Displaytext = "PumpDown_rev durchführen"
+        Me.CheckboxEingabe4.Font = New System.Drawing.Font("Times New Roman", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CheckboxEingabe4.Hinweis = Nothing
+        Me.CheckboxEingabe4.Location = New System.Drawing.Point(38, 633)
+        Me.CheckboxEingabe4.manuellerModus = True
+        Me.CheckboxEingabe4.Margin = New System.Windows.Forms.Padding(4)
+        Me.CheckboxEingabe4.Name = "CheckboxEingabe4"
+        Me.CheckboxEingabe4.Size = New System.Drawing.Size(278, 37)
+        Me.CheckboxEingabe4.SollWertNeu = False
+        Me.CheckboxEingabe4.Symbolname = "SM.bPumpDown_rev"
+        Me.CheckboxEingabe4.TabIndex = 143
+        Me.CheckboxEingabe4.Wert = False
+        '
+        'CheckboxEingabe3
+        '
+        Me.CheckboxEingabe3.Aktuallisierungsrate = 1000
+        Me.CheckboxEingabe3.BackColor = System.Drawing.SystemColors.AppWorkspace
+        Me.CheckboxEingabe3.Displaytext = "PumpDown durchführen"
+        Me.CheckboxEingabe3.Font = New System.Drawing.Font("Times New Roman", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CheckboxEingabe3.Hinweis = Nothing
+        Me.CheckboxEingabe3.Location = New System.Drawing.Point(38, 587)
+        Me.CheckboxEingabe3.manuellerModus = True
+        Me.CheckboxEingabe3.Margin = New System.Windows.Forms.Padding(4)
+        Me.CheckboxEingabe3.Name = "CheckboxEingabe3"
+        Me.CheckboxEingabe3.Size = New System.Drawing.Size(225, 37)
+        Me.CheckboxEingabe3.SollWertNeu = False
+        Me.CheckboxEingabe3.Symbolname = "SM.bPumpDown"
+        Me.CheckboxEingabe3.TabIndex = 142
+        Me.CheckboxEingabe3.Wert = False
+        '
+        'Led31
+        '
+        Me.Led31.Aktuallisierungsrate = 1000
+        Me.Led31.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.Led31.FarbeFalse = System.Drawing.Color.Gray
+        Me.Led31.FarbeTrue = System.Drawing.Color.Yellow
+        Me.Led31.Font = New System.Drawing.Font("Times New Roman", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Led31.Location = New System.Drawing.Point(38, 722)
+        Me.Led31.Margin = New System.Windows.Forms.Padding(4)
+        Me.Led31.Name = "Led31"
+        Me.Led31.Size = New System.Drawing.Size(283, 34)
+        Me.Led31.Symbolname = "SM.bLeerlauf"
+        Me.Led31.TabIndex = 141
+        Me.Led31.TextFalse = Nothing
+        Me.Led31.TextTrue = "Anlage befindet sich im Leerlauf"
+        Me.Led31.Wert = True
+        '
+        'Led30
+        '
+        Me.Led30.Aktuallisierungsrate = 1000
+        Me.Led30.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.Led30.FarbeFalse = System.Drawing.Color.Gray
+        Me.Led30.FarbeTrue = System.Drawing.Color.Yellow
+        Me.Led30.Font = New System.Drawing.Font("Times New Roman", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Led30.Location = New System.Drawing.Point(38, 679)
+        Me.Led30.Margin = New System.Windows.Forms.Padding(4)
+        Me.Led30.Name = "Led30"
+        Me.Led30.Size = New System.Drawing.Size(283, 34)
+        Me.Led30.Symbolname = "SM.bPumpDown"
+        Me.Led30.TabIndex = 140
+        Me.Led30.TextFalse = Nothing
+        Me.Led30.TextTrue = "PumpDown wird durchgeführt"
+        Me.Led30.Wert = True
         '
         'AdS_Verbindung1
         '
         Me.AdS_Verbindung1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.AdS_Verbindung1.Location = New System.Drawing.Point(1171, 66)
-        Me.AdS_Verbindung1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.AdS_Verbindung1.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.AdS_Verbindung1.Location = New System.Drawing.Point(72, 45)
+        Me.AdS_Verbindung1.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.AdS_Verbindung1.Name = "AdS_Verbindung1"
         Me.AdS_Verbindung1.NetID = "5.33.15.132.1.1"
         Me.AdS_Verbindung1.Port = 851
-        Me.AdS_Verbindung1.Size = New System.Drawing.Size(101, 36)
+        Me.AdS_Verbindung1.Size = New System.Drawing.Size(138, 49)
         Me.AdS_Verbindung1.TabIndex = 76
         '
         'CheckboxEingabe8
         '
         Me.CheckboxEingabe8.Aktuallisierungsrate = 1000
+        Me.CheckboxEingabe8.BackColor = System.Drawing.SystemColors.AppWorkspace
         Me.CheckboxEingabe8.Displaytext = "Neuinitialisieren"
+        Me.CheckboxEingabe8.Font = New System.Drawing.Font("Times New Roman", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CheckboxEingabe8.Hinweis = Nothing
-        Me.CheckboxEingabe8.Location = New System.Drawing.Point(1171, 145)
+        Me.CheckboxEingabe8.Location = New System.Drawing.Point(38, 127)
         Me.CheckboxEingabe8.manuellerModus = True
-        Me.CheckboxEingabe8.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.CheckboxEingabe8.Margin = New System.Windows.Forms.Padding(4)
         Me.CheckboxEingabe8.Name = "CheckboxEingabe8"
-        Me.CheckboxEingabe8.Size = New System.Drawing.Size(200, 33)
-        Me.CheckboxEingabe8.SollWertNeu = True
+        Me.CheckboxEingabe8.Size = New System.Drawing.Size(225, 37)
+        Me.CheckboxEingabe8.SollWertNeu = False
         Me.CheckboxEingabe8.Symbolname = "SM.bNeuInitialisieren"
         Me.CheckboxEingabe8.TabIndex = 18
         Me.CheckboxEingabe8.Wert = False
         '
-        'CheckboxEingabe6
+        'CheckboxEingabe_Abtauen
         '
-        Me.CheckboxEingabe6.Aktuallisierungsrate = 1000
-        Me.CheckboxEingabe6.Displaytext = "Manueller Modus"
-        Me.CheckboxEingabe6.Hinweis = "Regler werden manuell angesteuert"
-        Me.CheckboxEingabe6.Location = New System.Drawing.Point(1203, 268)
-        Me.CheckboxEingabe6.manuellerModus = True
-        Me.CheckboxEingabe6.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.CheckboxEingabe6.Name = "CheckboxEingabe6"
-        Me.CheckboxEingabe6.Size = New System.Drawing.Size(200, 33)
-        Me.CheckboxEingabe6.SollWertNeu = False
-        Me.CheckboxEingabe6.Symbolname = "SM.bManuellerModus"
-        Me.CheckboxEingabe6.TabIndex = 17
-        Me.CheckboxEingabe6.Wert = False
+        Me.CheckboxEingabe_Abtauen.Aktuallisierungsrate = 1000
+        Me.CheckboxEingabe_Abtauen.BackColor = System.Drawing.Color.IndianRed
+        Me.CheckboxEingabe_Abtauen.Displaytext = "Abtauen"
+        Me.CheckboxEingabe_Abtauen.Font = New System.Drawing.Font("Times New Roman", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CheckboxEingabe_Abtauen.Hinweis = Nothing
+        Me.CheckboxEingabe_Abtauen.Location = New System.Drawing.Point(38, 363)
+        Me.CheckboxEingabe_Abtauen.manuellerModus = True
+        Me.CheckboxEingabe_Abtauen.Margin = New System.Windows.Forms.Padding(4)
+        Me.CheckboxEingabe_Abtauen.Name = "CheckboxEingabe_Abtauen"
+        Me.CheckboxEingabe_Abtauen.Size = New System.Drawing.Size(283, 37)
+        Me.CheckboxEingabe_Abtauen.SollWertNeu = False
+        Me.CheckboxEingabe_Abtauen.Symbolname = "SM.bAbtauen"
+        Me.CheckboxEingabe_Abtauen.TabIndex = 11
+        Me.CheckboxEingabe_Abtauen.Wert = False
         '
-        'CheckboxEingabe7
+        'GroupBox1
         '
-        Me.CheckboxEingabe7.Aktuallisierungsrate = 1000
-        Me.CheckboxEingabe7.Displaytext = "Vollautomatik"
-        Me.CheckboxEingabe7.Hinweis = Nothing
-        Me.CheckboxEingabe7.Location = New System.Drawing.Point(1203, 227)
-        Me.CheckboxEingabe7.manuellerModus = True
-        Me.CheckboxEingabe7.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.CheckboxEingabe7.Name = "CheckboxEingabe7"
-        Me.CheckboxEingabe7.Size = New System.Drawing.Size(200, 33)
-        Me.CheckboxEingabe7.SollWertNeu = True
-        Me.CheckboxEingabe7.Symbolname = "SM.bVollautomatikModus"
-        Me.CheckboxEingabe7.TabIndex = 16
-        Me.CheckboxEingabe7.Wert = True
+        Me.GroupBox1.BackColor = System.Drawing.SystemColors.AppWorkspace
+        Me.GroupBox1.Controls.Add(Me.TextBox54)
+        Me.GroupBox1.Controls.Add(Me.DropdownEingabe1)
+        Me.GroupBox1.Controls.Add(Me.CheckboxEingabe21)
+        Me.GroupBox1.Controls.Add(Me.CheckboxEingabe_KuhlenAbbrechen)
+        Me.GroupBox1.Controls.Add(Me.GroupBox3)
+        Me.GroupBox1.Controls.Add(Me.GroupBox2)
+        Me.GroupBox1.Controls.Add(Me.CheckboxEingabe_Kuhlen)
+        Me.GroupBox1.Controls.Add(Me.CheckboxEingabe8)
+        Me.GroupBox1.Controls.Add(Me.CheckboxEingabe_Abtauen)
+        Me.GroupBox1.Controls.Add(Me.Led30)
+        Me.GroupBox1.Controls.Add(Me.Led31)
+        Me.GroupBox1.Controls.Add(Me.CheckboxEingabe3)
+        Me.GroupBox1.Controls.Add(Me.CheckboxEingabe4)
+        Me.GroupBox1.Font = New System.Drawing.Font("Times New Roman", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.GroupBox1.Location = New System.Drawing.Point(1234, 45)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(353, 790)
+        Me.GroupBox1.TabIndex = 162
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Status-Maschine:"
         '
-        'CheckboxEingabe5
+        'DropdownEingabe1
         '
-        Me.CheckboxEingabe5.Aktuallisierungsrate = 1000
-        Me.CheckboxEingabe5.Displaytext = "Kühlen"
-        Me.CheckboxEingabe5.Hinweis = Nothing
-        Me.CheckboxEingabe5.Location = New System.Drawing.Point(1171, 186)
-        Me.CheckboxEingabe5.manuellerModus = True
-        Me.CheckboxEingabe5.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.CheckboxEingabe5.Name = "CheckboxEingabe5"
-        Me.CheckboxEingabe5.Size = New System.Drawing.Size(200, 33)
-        Me.CheckboxEingabe5.SollWertNeu = True
-        Me.CheckboxEingabe5.Symbolname = "SM.bKuehlen"
-        Me.CheckboxEingabe5.TabIndex = 15
-        Me.CheckboxEingabe5.Wert = True
+        Me.DropdownEingabe1.Aktuallisierungsrate = 1000
+        Me.DropdownEingabe1.AllowDrop = True
+        Me.DropdownEingabe1.BackColor = System.Drawing.SystemColors.AppWorkspace
+        Me.DropdownEingabe1.Enabled = False
+        Me.DropdownEingabe1.Hinweis = Nothing
+        Me.DropdownEingabe1.Location = New System.Drawing.Point(179, 86)
+        Me.DropdownEingabe1.manuellerModus = True
+        Me.DropdownEingabe1.Margin = New System.Windows.Forms.Padding(5)
+        Me.DropdownEingabe1.MaximumSize = New System.Drawing.Size(1500, 32)
+        Me.DropdownEingabe1.MinimumSize = New System.Drawing.Size(0, 32)
+        Me.DropdownEingabe1.Name = "DropdownEingabe1"
+        Me.DropdownEingabe1.Size = New System.Drawing.Size(137, 32)
+        Me.DropdownEingabe1.SollWertNeu = False
+        Me.DropdownEingabe1.Symbolname = "REGLER.AutomatikAbtauModus"
+        Me.DropdownEingabe1.TabIndex = 165
+        Me.DropdownEingabe1.Wert = 2
+        Me.DropdownEingabe1.Werteliste = "Nicht Ausgewählt|Abtauen_elektrisch|Abtauen_Heissgas_oben|Abtauen_Heissgas_unten"
         '
-        'CheckboxEingabe1
+        'CheckboxEingabe21
         '
-        Me.CheckboxEingabe1.Aktuallisierungsrate = 1000
-        Me.CheckboxEingabe1.Displaytext = "Abtauen"
-        Me.CheckboxEingabe1.Hinweis = Nothing
-        Me.CheckboxEingabe1.Location = New System.Drawing.Point(1171, 349)
-        Me.CheckboxEingabe1.manuellerModus = True
-        Me.CheckboxEingabe1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.CheckboxEingabe1.Name = "CheckboxEingabe1"
-        Me.CheckboxEingabe1.Size = New System.Drawing.Size(200, 33)
-        Me.CheckboxEingabe1.SollWertNeu = False
-        Me.CheckboxEingabe1.Symbolname = "SM.bAbtauen"
-        Me.CheckboxEingabe1.TabIndex = 11
-        Me.CheckboxEingabe1.Wert = False
+        Me.CheckboxEingabe21.Aktuallisierungsrate = 1000
+        Me.CheckboxEingabe21.BackColor = System.Drawing.Color.IndianRed
+        Me.CheckboxEingabe21.Displaytext = "Abtauen abbrechen"
+        Me.CheckboxEingabe21.Font = New System.Drawing.Font("Times New Roman", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CheckboxEingabe21.Hinweis = Nothing
+        Me.CheckboxEingabe21.Location = New System.Drawing.Point(38, 528)
+        Me.CheckboxEingabe21.manuellerModus = True
+        Me.CheckboxEingabe21.Margin = New System.Windows.Forms.Padding(4)
+        Me.CheckboxEingabe21.Name = "CheckboxEingabe21"
+        Me.CheckboxEingabe21.Size = New System.Drawing.Size(283, 37)
+        Me.CheckboxEingabe21.SollWertNeu = False
+        Me.CheckboxEingabe21.Symbolname = "SM.bAbtauenAbbrechen"
+        Me.CheckboxEingabe21.TabIndex = 165
+        Me.CheckboxEingabe21.Wert = False
+        '
+        'CheckboxEingabe_KuhlenAbbrechen
+        '
+        Me.CheckboxEingabe_KuhlenAbbrechen.Aktuallisierungsrate = 1000
+        Me.CheckboxEingabe_KuhlenAbbrechen.BackColor = System.Drawing.SystemColors.Highlight
+        Me.CheckboxEingabe_KuhlenAbbrechen.Displaytext = "Kühlen abbrechen"
+        Me.CheckboxEingabe_KuhlenAbbrechen.Font = New System.Drawing.Font("Times New Roman", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CheckboxEingabe_KuhlenAbbrechen.Hinweis = Nothing
+        Me.CheckboxEingabe_KuhlenAbbrechen.Location = New System.Drawing.Point(38, 292)
+        Me.CheckboxEingabe_KuhlenAbbrechen.manuellerModus = True
+        Me.CheckboxEingabe_KuhlenAbbrechen.Margin = New System.Windows.Forms.Padding(4)
+        Me.CheckboxEingabe_KuhlenAbbrechen.Name = "CheckboxEingabe_KuhlenAbbrechen"
+        Me.CheckboxEingabe_KuhlenAbbrechen.Size = New System.Drawing.Size(283, 37)
+        Me.CheckboxEingabe_KuhlenAbbrechen.SollWertNeu = False
+        Me.CheckboxEingabe_KuhlenAbbrechen.Symbolname = "SM.bKuehlenAbbrechen"
+        Me.CheckboxEingabe_KuhlenAbbrechen.TabIndex = 138
+        Me.CheckboxEingabe_KuhlenAbbrechen.Wert = False
+        '
+        'GroupBox3
+        '
+        Me.GroupBox3.BackColor = System.Drawing.Color.IndianRed
+        Me.GroupBox3.Controls.Add(Me.CheckboxEingabe2)
+        Me.GroupBox3.Controls.Add(Me.CheckboxEingabe28)
+        Me.GroupBox3.Controls.Add(Me.CheckboxEingabe29)
+        Me.GroupBox3.Enabled = False
+        Me.GroupBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.GroupBox3.Location = New System.Drawing.Point(38, 385)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(283, 144)
+        Me.GroupBox3.TabIndex = 164
+        Me.GroupBox3.TabStop = False
+        '
+        'CheckboxEingabe2
+        '
+        Me.CheckboxEingabe2.Aktuallisierungsrate = 1000
+        Me.CheckboxEingabe2.BackColor = System.Drawing.Color.IndianRed
+        Me.CheckboxEingabe2.Displaytext = "Heißgas Unten"
+        Me.CheckboxEingabe2.Font = New System.Drawing.Font("Times New Roman", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CheckboxEingabe2.Hinweis = "Regler werden manuell angesteuert"
+        Me.CheckboxEingabe2.Location = New System.Drawing.Point(29, 104)
+        Me.CheckboxEingabe2.manuellerModus = True
+        Me.CheckboxEingabe2.Margin = New System.Windows.Forms.Padding(4)
+        Me.CheckboxEingabe2.Name = "CheckboxEingabe2"
+        Me.CheckboxEingabe2.Size = New System.Drawing.Size(225, 37)
+        Me.CheckboxEingabe2.SollWertNeu = False
+        Me.CheckboxEingabe2.Symbolname = "SM.bAbtauen_Heissgas_unten"
+        Me.CheckboxEingabe2.TabIndex = 139
+        Me.CheckboxEingabe2.Wert = False
+        '
+        'CheckboxEingabe28
+        '
+        Me.CheckboxEingabe28.Aktuallisierungsrate = 1000
+        Me.CheckboxEingabe28.BackColor = System.Drawing.Color.IndianRed
+        Me.CheckboxEingabe28.Displaytext = "Heißgas Oben"
+        Me.CheckboxEingabe28.Font = New System.Drawing.Font("Times New Roman", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CheckboxEingabe28.Hinweis = "Regler werden manuell angesteuert"
+        Me.CheckboxEingabe28.Location = New System.Drawing.Point(29, 59)
+        Me.CheckboxEingabe28.manuellerModus = True
+        Me.CheckboxEingabe28.Margin = New System.Windows.Forms.Padding(4)
+        Me.CheckboxEingabe28.Name = "CheckboxEingabe28"
+        Me.CheckboxEingabe28.Size = New System.Drawing.Size(225, 37)
+        Me.CheckboxEingabe28.SollWertNeu = False
+        Me.CheckboxEingabe28.Symbolname = "SM.bAbtauen_Heissgas_oben"
+        Me.CheckboxEingabe28.TabIndex = 137
+        Me.CheckboxEingabe28.Wert = False
+        '
+        'CheckboxEingabe29
+        '
+        Me.CheckboxEingabe29.Aktuallisierungsrate = 1000
+        Me.CheckboxEingabe29.BackColor = System.Drawing.Color.IndianRed
+        Me.CheckboxEingabe29.Displaytext = "Elektrisch Abtauen"
+        Me.CheckboxEingabe29.Font = New System.Drawing.Font("Times New Roman", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CheckboxEingabe29.Hinweis = Nothing
+        Me.CheckboxEingabe29.Location = New System.Drawing.Point(29, 14)
+        Me.CheckboxEingabe29.manuellerModus = True
+        Me.CheckboxEingabe29.Margin = New System.Windows.Forms.Padding(4)
+        Me.CheckboxEingabe29.Name = "CheckboxEingabe29"
+        Me.CheckboxEingabe29.Size = New System.Drawing.Size(225, 37)
+        Me.CheckboxEingabe29.SollWertNeu = False
+        Me.CheckboxEingabe29.Symbolname = "SM.bAbtauen_elektrisch"
+        Me.CheckboxEingabe29.TabIndex = 136
+        Me.CheckboxEingabe29.Wert = False
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.BackColor = System.Drawing.SystemColors.Highlight
+        Me.GroupBox2.Controls.Add(Me.CheckboxEingabe_ManuellerModus)
+        Me.GroupBox2.Controls.Add(Me.CheckboxEingabe_Vollautomatik)
+        Me.GroupBox2.Enabled = False
+        Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.GroupBox2.Location = New System.Drawing.Point(38, 200)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(283, 93)
+        Me.GroupBox2.TabIndex = 163
+        Me.GroupBox2.TabStop = False
+        '
+        'CheckboxEingabe_ManuellerModus
+        '
+        Me.CheckboxEingabe_ManuellerModus.Aktuallisierungsrate = 1000
+        Me.CheckboxEingabe_ManuellerModus.BackColor = System.Drawing.SystemColors.Highlight
+        Me.CheckboxEingabe_ManuellerModus.Displaytext = "Manueller Modus"
+        Me.CheckboxEingabe_ManuellerModus.Font = New System.Drawing.Font("Times New Roman", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CheckboxEingabe_ManuellerModus.Hinweis = "Regler werden manuell angesteuert"
+        Me.CheckboxEingabe_ManuellerModus.Location = New System.Drawing.Point(29, 54)
+        Me.CheckboxEingabe_ManuellerModus.manuellerModus = True
+        Me.CheckboxEingabe_ManuellerModus.Margin = New System.Windows.Forms.Padding(4)
+        Me.CheckboxEingabe_ManuellerModus.Name = "CheckboxEingabe_ManuellerModus"
+        Me.CheckboxEingabe_ManuellerModus.Size = New System.Drawing.Size(225, 37)
+        Me.CheckboxEingabe_ManuellerModus.SollWertNeu = False
+        Me.CheckboxEingabe_ManuellerModus.Symbolname = "SM.bManuellerModus"
+        Me.CheckboxEingabe_ManuellerModus.TabIndex = 136
+        Me.CheckboxEingabe_ManuellerModus.Wert = False
+        '
+        'CheckboxEingabe_Vollautomatik
+        '
+        Me.CheckboxEingabe_Vollautomatik.Aktuallisierungsrate = 1000
+        Me.CheckboxEingabe_Vollautomatik.BackColor = System.Drawing.SystemColors.Highlight
+        Me.CheckboxEingabe_Vollautomatik.Displaytext = "Vollautomatik"
+        Me.CheckboxEingabe_Vollautomatik.Font = New System.Drawing.Font("Times New Roman", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CheckboxEingabe_Vollautomatik.Hinweis = Nothing
+        Me.CheckboxEingabe_Vollautomatik.Location = New System.Drawing.Point(29, 12)
+        Me.CheckboxEingabe_Vollautomatik.manuellerModus = True
+        Me.CheckboxEingabe_Vollautomatik.Margin = New System.Windows.Forms.Padding(4)
+        Me.CheckboxEingabe_Vollautomatik.Name = "CheckboxEingabe_Vollautomatik"
+        Me.CheckboxEingabe_Vollautomatik.Size = New System.Drawing.Size(225, 37)
+        Me.CheckboxEingabe_Vollautomatik.SollWertNeu = False
+        Me.CheckboxEingabe_Vollautomatik.Symbolname = "SM.bVollautomatikModus"
+        Me.CheckboxEingabe_Vollautomatik.TabIndex = 135
+        Me.CheckboxEingabe_Vollautomatik.Wert = False
+        '
+        'CheckboxEingabe_Kuhlen
+        '
+        Me.CheckboxEingabe_Kuhlen.Aktuallisierungsrate = 1000
+        Me.CheckboxEingabe_Kuhlen.BackColor = System.Drawing.SystemColors.Highlight
+        Me.CheckboxEingabe_Kuhlen.Displaytext = "Kühlen"
+        Me.CheckboxEingabe_Kuhlen.Font = New System.Drawing.Font("Times New Roman", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CheckboxEingabe_Kuhlen.Hinweis = Nothing
+        Me.CheckboxEingabe_Kuhlen.Location = New System.Drawing.Point(38, 172)
+        Me.CheckboxEingabe_Kuhlen.manuellerModus = True
+        Me.CheckboxEingabe_Kuhlen.Margin = New System.Windows.Forms.Padding(4)
+        Me.CheckboxEingabe_Kuhlen.Name = "CheckboxEingabe_Kuhlen"
+        Me.CheckboxEingabe_Kuhlen.Size = New System.Drawing.Size(283, 37)
+        Me.CheckboxEingabe_Kuhlen.SollWertNeu = False
+        Me.CheckboxEingabe_Kuhlen.Symbolname = "SM.bKuehlen"
+        Me.CheckboxEingabe_Kuhlen.TabIndex = 15
+        Me.CheckboxEingabe_Kuhlen.Wert = False
         '
         'TabPage3
         '
@@ -1646,7 +2118,7 @@ Partial Class Form1
         Me.TabPage3.Location = New System.Drawing.Point(4, 25)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(1626, 1057)
+        Me.TabPage3.Size = New System.Drawing.Size(1626, 1016)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "log p, h Diagramm"
         Me.TabPage3.UseVisualStyleBackColor = True
@@ -2220,19 +2692,23 @@ Partial Class Form1
         '
         'TabPage5
         '
-        Me.TabPage5.Controls.Add(Me.TextBox29)
-        Me.TabPage5.Controls.Add(Me.TextBox30)
+        Me.TabPage5.Controls.Add(Me.DezimalAnzeige32)
+        Me.TabPage5.Controls.Add(Me.DezimalAnzeige30)
+        Me.TabPage5.Controls.Add(Me.DezimalAnzeige22)
+        Me.TabPage5.Controls.Add(Me.TextBox23)
+        Me.TabPage5.Controls.Add(Me.TextBox21)
+        Me.TabPage5.Controls.Add(Me.DezimalAnzeige29)
+        Me.TabPage5.Controls.Add(Me.DezimalAnzeige26)
+        Me.TabPage5.Controls.Add(Me.DezimalAnzeige25)
+        Me.TabPage5.Controls.Add(Me.DezimalAnzeige38)
+        Me.TabPage5.Controls.Add(Me.DezimalAnzeige37)
+        Me.TabPage5.Controls.Add(Me.DezimalAnzeige36)
         Me.TabPage5.Controls.Add(Me.Temperatursensor19)
         Me.TabPage5.Controls.Add(Me.Temperatursensor20)
         Me.TabPage5.Controls.Add(Me.TextBox28)
         Me.TabPage5.Controls.Add(Me.DezimalAnzeige33)
         Me.TabPage5.Controls.Add(Me.TabControl4)
-        Me.TabPage5.Controls.Add(Me.DezimalAnzeige29)
-        Me.TabPage5.Controls.Add(Me.DezimalAnzeige30)
         Me.TabPage5.Controls.Add(Me.DezimalAnzeige31)
-        Me.TabPage5.Controls.Add(Me.DezimalAnzeige32)
-        Me.TabPage5.Controls.Add(Me.DezimalAnzeige26)
-        Me.TabPage5.Controls.Add(Me.DezimalAnzeige25)
         Me.TabPage5.Controls.Add(Me.DezimalAnzeige24)
         Me.TabPage5.Controls.Add(Me.TextBox31)
         Me.TabPage5.Controls.Add(Me.TextBox32)
@@ -2240,39 +2716,18 @@ Partial Class Form1
         Me.TabPage5.Controls.Add(Me.TextBox36)
         Me.TabPage5.Controls.Add(Me.TextBox37)
         Me.TabPage5.Controls.Add(Me.DezimalAnzeige34)
-        Me.TabPage5.Controls.Add(Me.DezimalAnzeige35)
-        Me.TabPage5.Controls.Add(Me.Temperatursensor16)
         Me.TabPage5.Controls.Add(Me.Temperatursensor17)
         Me.TabPage5.Controls.Add(Me.Temperatursensor18)
-        Me.TabPage5.Controls.Add(Me.Temperatursensor14)
         Me.TabPage5.Controls.Add(Me.Temperatursensor12)
         Me.TabPage5.Controls.Add(Me.Temperatursensor11)
         Me.TabPage5.Controls.Add(Me.PictureBox3)
         Me.TabPage5.Location = New System.Drawing.Point(4, 25)
         Me.TabPage5.Name = "TabPage5"
         Me.TabPage5.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage5.Size = New System.Drawing.Size(1626, 1057)
+        Me.TabPage5.Size = New System.Drawing.Size(1626, 1016)
         Me.TabPage5.TabIndex = 4
         Me.TabPage5.Text = "Waagenanzeige"
         Me.TabPage5.UseVisualStyleBackColor = True
-        '
-        'TextBox29
-        '
-        Me.TextBox29.AccessibleName = ""
-        Me.TextBox29.Location = New System.Drawing.Point(566, 485)
-        Me.TextBox29.Name = "TextBox29"
-        Me.TextBox29.Size = New System.Drawing.Size(110, 22)
-        Me.TextBox29.TabIndex = 90
-        Me.TextBox29.Text = "Temperatur Aus"
-        '
-        'TextBox30
-        '
-        Me.TextBox30.AccessibleName = ""
-        Me.TextBox30.Location = New System.Drawing.Point(566, 286)
-        Me.TextBox30.Name = "TextBox30"
-        Me.TextBox30.Size = New System.Drawing.Size(110, 22)
-        Me.TextBox30.TabIndex = 89
-        Me.TextBox30.Text = "Temperatur Ein"
         '
         'Temperatursensor19
         '
@@ -2282,10 +2737,10 @@ Partial Class Form1
         Me.Temperatursensor19.Bauform = Nothing
         Me.Temperatursensor19.Hinweis = Nothing
         Me.Temperatursensor19.Klasse = Nothing
-        Me.Temperatursensor19.Location = New System.Drawing.Point(566, 506)
+        Me.Temperatursensor19.Location = New System.Drawing.Point(1056, 639)
         Me.Temperatursensor19.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Temperatursensor19.Name = "Temperatursensor19"
-        Me.Temperatursensor19.Size = New System.Drawing.Size(62, 68)
+        Me.Temperatursensor19.Size = New System.Drawing.Size(62, 73)
         Me.Temperatursensor19.Symbolname = "GVL.Temp_VD_out.REAL_VAR"
         Me.Temperatursensor19.TabIndex = 88
         Me.Temperatursensor19.Temperatur = New Decimal(New Integer() {0, 0, 0, 0})
@@ -2293,25 +2748,27 @@ Partial Class Form1
         'Temperatursensor20
         '
         Me.Temperatursensor20.Aktuallisierungsrate = 1000
-        Me.Temperatursensor20.Ausrichtung = EBC_ADS_Bib.Ausrichtung.Unten
+        Me.Temperatursensor20.Ausrichtung = EBC_ADS_Bib.Ausrichtung.Oben
         Me.Temperatursensor20.BackColor = System.Drawing.Color.White
         Me.Temperatursensor20.Bauform = Nothing
         Me.Temperatursensor20.Hinweis = Nothing
         Me.Temperatursensor20.Klasse = Nothing
-        Me.Temperatursensor20.Location = New System.Drawing.Point(548, 220)
+        Me.Temperatursensor20.Location = New System.Drawing.Point(1056, 573)
         Me.Temperatursensor20.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Temperatursensor20.Name = "Temperatursensor20"
-        Me.Temperatursensor20.Size = New System.Drawing.Size(80, 74)
-        Me.Temperatursensor20.Symbolname = "GVL.Temp_VD_in.REAL_VAR"
+        Me.Temperatursensor20.Size = New System.Drawing.Size(62, 52)
+        Me.Temperatursensor20.Symbolname = " "
         Me.Temperatursensor20.TabIndex = 87
         Me.Temperatursensor20.Temperatur = New Decimal(New Integer() {0, 0, 0, 0})
         '
         'TextBox28
         '
         Me.TextBox28.AccessibleName = ""
-        Me.TextBox28.Location = New System.Drawing.Point(1142, 715)
+        Me.TextBox28.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox28.Location = New System.Drawing.Point(1172, 582)
+        Me.TextBox28.Multiline = True
         Me.TextBox28.Name = "TextBox28"
-        Me.TextBox28.Size = New System.Drawing.Size(131, 22)
+        Me.TextBox28.Size = New System.Drawing.Size(223, 42)
         Me.TextBox28.TabIndex = 53
         Me.TextBox28.Text = "Gesamte Eismenge"
         '
@@ -2319,10 +2776,11 @@ Partial Class Form1
         '
         Me.DezimalAnzeige33.Aktuallisierungsrate = 1000
         Me.DezimalAnzeige33.Einheit = "[g]"
-        Me.DezimalAnzeige33.Location = New System.Drawing.Point(1295, 711)
-        Me.DezimalAnzeige33.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.DezimalAnzeige33.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DezimalAnzeige33.Location = New System.Drawing.Point(1442, 582)
+        Me.DezimalAnzeige33.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.DezimalAnzeige33.Name = "DezimalAnzeige33"
-        Me.DezimalAnzeige33.Size = New System.Drawing.Size(71, 26)
+        Me.DezimalAnzeige33.Size = New System.Drawing.Size(115, 42)
         Me.DezimalAnzeige33.Symbolname = "WAAGEN.Summe_Eis"
         Me.DezimalAnzeige33.TabIndex = 52
         Me.DezimalAnzeige33.Wert = New Decimal(New Integer() {0, 0, 0, 0})
@@ -2334,7 +2792,7 @@ Partial Class Form1
         Me.TabControl4.Location = New System.Drawing.Point(1138, 3)
         Me.TabControl4.Name = "TabControl4"
         Me.TabControl4.SelectedIndex = 0
-        Me.TabControl4.Size = New System.Drawing.Size(502, 705)
+        Me.TabControl4.Size = New System.Drawing.Size(502, 536)
         Me.TabControl4.TabIndex = 51
         '
         'TabPage4
@@ -2342,11 +2800,10 @@ Partial Class Form1
         Me.TabPage4.Controls.Add(Me.TextBox19)
         Me.TabPage4.Controls.Add(Me.TabControl2)
         Me.TabPage4.Controls.Add(Me.CheckboxEingabe20)
-        Me.TabPage4.Controls.Add(Me.Led23)
         Me.TabPage4.Location = New System.Drawing.Point(4, 25)
         Me.TabPage4.Name = "TabPage4"
         Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage4.Size = New System.Drawing.Size(494, 676)
+        Me.TabPage4.Size = New System.Drawing.Size(494, 507)
         Me.TabPage4.TabIndex = 0
         Me.TabPage4.Text = "Anleitung Kalibrierung"
         Me.TabPage4.UseVisualStyleBackColor = True
@@ -2370,22 +2827,17 @@ Partial Class Form1
         Me.TabControl2.Location = New System.Drawing.Point(6, 106)
         Me.TabControl2.Name = "TabControl2"
         Me.TabControl2.SelectedIndex = 0
-        Me.TabControl2.Size = New System.Drawing.Size(489, 484)
+        Me.TabControl2.Size = New System.Drawing.Size(489, 394)
         Me.TabControl2.TabIndex = 53
         '
         'TabPage6
         '
         Me.TabPage6.Controls.Add(Me.Led7)
         Me.TabPage6.Controls.Add(Me.CheckboxEingabe13)
+        Me.TabPage6.Controls.Add(Me.Led23)
         Me.TabPage6.Controls.Add(Me.TextBox20)
-        Me.TabPage6.Controls.Add(Me.Led9)
-        Me.TabPage6.Controls.Add(Me.CheckboxEingabe14)
-        Me.TabPage6.Controls.Add(Me.TextBox21)
         Me.TabPage6.Controls.Add(Me.Led10)
         Me.TabPage6.Controls.Add(Me.TextBox22)
-        Me.TabPage6.Controls.Add(Me.DezimalAnzeige22)
-        Me.TabPage6.Controls.Add(Me.TextBox23)
-        Me.TabPage6.Controls.Add(Me.TextBox24)
         Me.TabPage6.Controls.Add(Me.DezimalAnzeige23)
         Me.TabPage6.Controls.Add(Me.Led16)
         Me.TabPage6.Controls.Add(Me.Led17)
@@ -2395,7 +2847,7 @@ Partial Class Form1
         Me.TabPage6.Location = New System.Drawing.Point(4, 25)
         Me.TabPage6.Name = "TabPage6"
         Me.TabPage6.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage6.Size = New System.Drawing.Size(481, 455)
+        Me.TabPage6.Size = New System.Drawing.Size(481, 365)
         Me.TabPage6.TabIndex = 0
         Me.TabPage6.Text = "(a) Gewichts-Kalibrierung"
         Me.TabPage6.UseVisualStyleBackColor = True
@@ -2405,17 +2857,17 @@ Partial Class Form1
         Me.Led7.Aktuallisierungsrate = 1000
         Me.Led7.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.Led7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Led7.FarbeFalse = System.Drawing.Color.Red
+        Me.Led7.FarbeFalse = System.Drawing.Color.DarkGray
         Me.Led7.FarbeTrue = System.Drawing.Color.Lime
         Me.Led7.Location = New System.Drawing.Point(31, 76)
         Me.Led7.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Led7.Name = "Led7"
         Me.Led7.Size = New System.Drawing.Size(374, 29)
-        Me.Led7.Symbolname = "MAIN.Lesen.Waagen.bWaagenVorbelastung_Abgeschlossen"
+        Me.Led7.Symbolname = "WAAGEN.bTare_Abgeschlossen"
         Me.Led7.TabIndex = 65
-        Me.Led7.TextFalse = "Ermittelt Offset-Daten... Bitte Warten"
+        Me.Led7.TextFalse = " ...Bitte Warten..."
         Me.Led7.TextTrue = "TARE abgeschlossen. Waagen 1..4 auf ""0 g""gesetzt"
-        Me.Led7.Wert = False
+        Me.Led7.Wert = True
         '
         'CheckboxEingabe13
         '
@@ -2428,7 +2880,7 @@ Partial Class Form1
         Me.CheckboxEingabe13.Name = "CheckboxEingabe13"
         Me.CheckboxEingabe13.Size = New System.Drawing.Size(269, 33)
         Me.CheckboxEingabe13.SollWertNeu = False
-        Me.CheckboxEingabe13.Symbolname = "MAIN.Lesen_Waagen.bGetOffset_WaagenVorbelastung"
+        Me.CheckboxEingabe13.Symbolname = "WAAGEN.bTare"
         Me.CheckboxEingabe13.TabIndex = 64
         Me.CheckboxEingabe13.Wert = False
         '
@@ -2442,48 +2894,6 @@ Partial Class Form1
         Me.TextBox20.TabIndex = 63
         Me.TextBox20.Text = "1.Schritt "
         '
-        'Led9
-        '
-        Me.Led9.Aktuallisierungsrate = 1000
-        Me.Led9.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.Led9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Led9.FarbeFalse = System.Drawing.Color.Red
-        Me.Led9.FarbeTrue = System.Drawing.Color.Lime
-        Me.Led9.Location = New System.Drawing.Point(31, 414)
-        Me.Led9.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.Led9.Name = "Led9"
-        Me.Led9.Size = New System.Drawing.Size(374, 29)
-        Me.Led9.Symbolname = "Main.Lesen_Waagen.bGetOffset_Abgeschlossen"
-        Me.Led9.TabIndex = 62
-        Me.Led9.TextFalse = "Ermittelt Offset-Daten... Bitte Warten"
-        Me.Led9.TextTrue = "TARE abgeschlossen. Waagen 1..4 auf ""0 g""gesetzt"
-        Me.Led9.Wert = False
-        '
-        'CheckboxEingabe14
-        '
-        Me.CheckboxEingabe14.Aktuallisierungsrate = 1000
-        Me.CheckboxEingabe14.Displaytext = "TARE-Befehl an Waagen 1..4"
-        Me.CheckboxEingabe14.Hinweis = Nothing
-        Me.CheckboxEingabe14.Location = New System.Drawing.Point(31, 382)
-        Me.CheckboxEingabe14.manuellerModus = True
-        Me.CheckboxEingabe14.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.CheckboxEingabe14.Name = "CheckboxEingabe14"
-        Me.CheckboxEingabe14.Size = New System.Drawing.Size(269, 33)
-        Me.CheckboxEingabe14.SollWertNeu = False
-        Me.CheckboxEingabe14.Symbolname = "Main.Lesen_Waagen.bGetOffset_WaagenVorbelastung"
-        Me.CheckboxEingabe14.TabIndex = 61
-        Me.CheckboxEingabe14.Wert = False
-        '
-        'TextBox21
-        '
-        Me.TextBox21.AccessibleName = ""
-        Me.TextBox21.BackColor = System.Drawing.SystemColors.AppWorkspace
-        Me.TextBox21.Location = New System.Drawing.Point(7, 360)
-        Me.TextBox21.Name = "TextBox21"
-        Me.TextBox21.Size = New System.Drawing.Size(71, 22)
-        Me.TextBox21.TabIndex = 60
-        Me.TextBox21.Text = "3.Schritt"
-        '
         'Led10
         '
         Me.Led10.Aktuallisierungsrate = 1000
@@ -2491,15 +2901,15 @@ Partial Class Form1
         Me.Led10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Led10.FarbeFalse = System.Drawing.Color.Red
         Me.Led10.FarbeTrue = System.Drawing.Color.Lime
-        Me.Led10.Location = New System.Drawing.Point(211, 266)
+        Me.Led10.Location = New System.Drawing.Point(31, 173)
         Me.Led10.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Led10.Name = "Led10"
-        Me.Led10.Size = New System.Drawing.Size(194, 82)
-        Me.Led10.Symbolname = "MAIN.ConfigWaage.BereitNachstePosition"
+        Me.Led10.Size = New System.Drawing.Size(374, 38)
+        Me.Led10.Symbolname = "WAAGEN.BereitNachstePosition"
         Me.Led10.TabIndex = 59
         Me.Led10.TextFalse = "Ermittelt Daten... Bitte Warten"
         Me.Led10.TextTrue = "Messung abgeschlossen. Bereit für nächste Position. "
-        Me.Led10.Wert = False
+        Me.Led10.Wert = True
         '
         'TextBox22
         '
@@ -2511,115 +2921,73 @@ Partial Class Form1
         Me.TextBox22.TabIndex = 58
         Me.TextBox22.Text = "2.Schritt"
         '
-        'DezimalAnzeige22
-        '
-        Me.DezimalAnzeige22.Aktuallisierungsrate = 1000
-        Me.DezimalAnzeige22.Einheit = "s"
-        Me.DezimalAnzeige22.Location = New System.Drawing.Point(327, 211)
-        Me.DezimalAnzeige22.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.DezimalAnzeige22.Name = "DezimalAnzeige22"
-        Me.DezimalAnzeige22.Size = New System.Drawing.Size(78, 22)
-        Me.DezimalAnzeige22.Symbolname = "MAIN.ConfigWaage.timer_Messen.PT"
-        Me.DezimalAnzeige22.TabIndex = 57
-        Me.DezimalAnzeige22.Wert = New Decimal(New Integer() {0, 0, 0, 0})
-        '
-        'TextBox23
-        '
-        Me.TextBox23.AccessibleName = ""
-        Me.TextBox23.Location = New System.Drawing.Point(211, 211)
-        Me.TextBox23.Name = "TextBox23"
-        Me.TextBox23.Size = New System.Drawing.Size(109, 22)
-        Me.TextBox23.TabIndex = 56
-        Me.TextBox23.Text = "Messzeit"
-        '
-        'TextBox24
-        '
-        Me.TextBox24.AccessibleName = ""
-        Me.TextBox24.Location = New System.Drawing.Point(211, 182)
-        Me.TextBox24.Name = "TextBox24"
-        Me.TextBox24.Size = New System.Drawing.Size(109, 22)
-        Me.TextBox24.TabIndex = 55
-        Me.TextBox24.Text = "Einschwingzeit"
-        '
-        'DezimalAnzeige23
-        '
-        Me.DezimalAnzeige23.Aktuallisierungsrate = 1000
-        Me.DezimalAnzeige23.Einheit = "s"
-        Me.DezimalAnzeige23.Location = New System.Drawing.Point(327, 182)
-        Me.DezimalAnzeige23.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.DezimalAnzeige23.Name = "DezimalAnzeige23"
-        Me.DezimalAnzeige23.Size = New System.Drawing.Size(78, 22)
-        Me.DezimalAnzeige23.Symbolname = "MAIN.ConfigWaage.timer_Einschwingen.PT"
-        Me.DezimalAnzeige23.TabIndex = 54
-        Me.DezimalAnzeige23.Wert = New Decimal(New Integer() {0, 0, 0, 0})
-        '
         'Led16
         '
         Me.Led16.Aktuallisierungsrate = 1000
         Me.Led16.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.Led16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Led16.FarbeFalse = System.Drawing.Color.Red
+        Me.Led16.FarbeFalse = System.Drawing.Color.DarkGray
         Me.Led16.FarbeTrue = System.Drawing.Color.Lime
-        Me.Led16.Location = New System.Drawing.Point(31, 311)
+        Me.Led16.Location = New System.Drawing.Point(222, 264)
         Me.Led16.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Led16.Name = "Led16"
-        Me.Led16.Size = New System.Drawing.Size(151, 37)
-        Me.Led16.Symbolname = "MAIN.ConfigWaage.WaageKalibriert[4]"
+        Me.Led16.Size = New System.Drawing.Size(183, 37)
+        Me.Led16.Symbolname = "WAAGEN.WaageKalibriert[4]"
         Me.Led16.TabIndex = 53
         Me.Led16.TextFalse = "Waage 4 noch nicht kalibriert!"
         Me.Led16.TextTrue = "Waage 4 kalibriert"
-        Me.Led16.Wert = False
+        Me.Led16.Wert = True
         '
         'Led17
         '
         Me.Led17.Aktuallisierungsrate = 1000
         Me.Led17.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.Led17.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Led17.FarbeFalse = System.Drawing.Color.Red
+        Me.Led17.FarbeFalse = System.Drawing.Color.DarkGray
         Me.Led17.FarbeTrue = System.Drawing.Color.Lime
-        Me.Led17.Location = New System.Drawing.Point(31, 266)
+        Me.Led17.Location = New System.Drawing.Point(222, 219)
         Me.Led17.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Led17.Name = "Led17"
-        Me.Led17.Size = New System.Drawing.Size(151, 37)
-        Me.Led17.Symbolname = "MAIN.ConfigWaage.WaageKalibriert[3]"
+        Me.Led17.Size = New System.Drawing.Size(183, 37)
+        Me.Led17.Symbolname = "WAAGEN.WaageKalibriert[3]"
         Me.Led17.TabIndex = 52
         Me.Led17.TextFalse = "Waage 3 noch nicht kalibriert!"
         Me.Led17.TextTrue = "Waage 3 kalibriert"
-        Me.Led17.Wert = False
+        Me.Led17.Wert = True
         '
         'Led18
         '
         Me.Led18.Aktuallisierungsrate = 1000
         Me.Led18.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.Led18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Led18.FarbeFalse = System.Drawing.Color.Red
+        Me.Led18.FarbeFalse = System.Drawing.Color.DarkGray
         Me.Led18.FarbeTrue = System.Drawing.Color.Lime
-        Me.Led18.Location = New System.Drawing.Point(31, 219)
+        Me.Led18.Location = New System.Drawing.Point(31, 265)
         Me.Led18.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Led18.Name = "Led18"
-        Me.Led18.Size = New System.Drawing.Size(151, 39)
-        Me.Led18.Symbolname = "MAIN.ConfigWaage.WaageKalibriert[2]"
+        Me.Led18.Size = New System.Drawing.Size(183, 36)
+        Me.Led18.Symbolname = "WAAGEN.WaageKalibriert[2]"
         Me.Led18.TabIndex = 51
         Me.Led18.TextFalse = "Waage 2 noch nicht kalibriert!"
         Me.Led18.TextTrue = "Waage 2 kalibriert"
-        Me.Led18.Wert = False
+        Me.Led18.Wert = True
         '
         'Led19
         '
         Me.Led19.Aktuallisierungsrate = 1000
         Me.Led19.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.Led19.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Led19.FarbeFalse = System.Drawing.Color.Red
+        Me.Led19.FarbeFalse = System.Drawing.Color.DarkGray
         Me.Led19.FarbeTrue = System.Drawing.Color.Lime
-        Me.Led19.Location = New System.Drawing.Point(31, 173)
+        Me.Led19.Location = New System.Drawing.Point(31, 219)
         Me.Led19.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Led19.Name = "Led19"
-        Me.Led19.Size = New System.Drawing.Size(151, 38)
-        Me.Led19.Symbolname = "MAIN.ConfigWaage.WaageKalibriert[1]"
+        Me.Led19.Size = New System.Drawing.Size(183, 38)
+        Me.Led19.Symbolname = "WAAGEN.ConfigWaage.WaageKalibriert[1]"
         Me.Led19.TabIndex = 50
         Me.Led19.TextFalse = "Waage 1 noch nicht kalibriert!"
         Me.Led19.TextTrue = "Waage 1 kalibriert"
-        Me.Led19.Wert = False
+        Me.Led19.Wert = True
         '
         'CheckboxEingabe15
         '
@@ -2632,14 +3000,14 @@ Partial Class Form1
         Me.CheckboxEingabe15.Name = "CheckboxEingabe15"
         Me.CheckboxEingabe15.Size = New System.Drawing.Size(269, 33)
         Me.CheckboxEingabe15.SollWertNeu = False
-        Me.CheckboxEingabe15.Symbolname = "Main.ConfigWaage.ManuellOK"
+        Me.CheckboxEingabe15.Symbolname = "WAAGEN.ManuellOK"
         Me.CheckboxEingabe15.TabIndex = 49
         Me.CheckboxEingabe15.Wert = False
         '
         'TabPage7
         '
+        Me.TabPage7.Controls.Add(Me.Led8)
         Me.TabPage7.Controls.Add(Me.Led20)
-        Me.TabPage7.Controls.Add(Me.Led21)
         Me.TabPage7.Controls.Add(Me.CheckboxEingabe16)
         Me.TabPage7.Controls.Add(Me.TextBox25)
         Me.TabPage7.Controls.Add(Me.TextBox26)
@@ -2647,7 +3015,7 @@ Partial Class Form1
         Me.TabPage7.Location = New System.Drawing.Point(4, 25)
         Me.TabPage7.Name = "TabPage7"
         Me.TabPage7.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage7.Size = New System.Drawing.Size(481, 455)
+        Me.TabPage7.Size = New System.Drawing.Size(481, 365)
         Me.TabPage7.TabIndex = 1
         Me.TabPage7.Text = "(b) Ventilator-Kalibrierung"
         Me.TabPage7.UseVisualStyleBackColor = True
@@ -2657,34 +3025,18 @@ Partial Class Form1
         Me.Led20.Aktuallisierungsrate = 1000
         Me.Led20.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.Led20.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Led20.FarbeFalse = System.Drawing.Color.Red
+        Me.Led20.FarbeFalse = System.Drawing.Color.DarkGray
         Me.Led20.FarbeTrue = System.Drawing.Color.Lime
-        Me.Led20.Location = New System.Drawing.Point(30, 183)
+        Me.Led20.Location = New System.Drawing.Point(30, 173)
         Me.Led20.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Led20.Name = "Led20"
-        Me.Led20.Size = New System.Drawing.Size(374, 29)
-        Me.Led20.Symbolname = "Lesen.Waagen.bVentilator_Abgeschlossen"
+        Me.Led20.Size = New System.Drawing.Size(259, 54)
+        Me.Led20.Symbolname = "WAAGEN.bVentilator_Abgeschlossen"
         Me.Led20.TabIndex = 71
-        Me.Led20.TextFalse = "Ermittelt Offset-Daten... Bitte Warten"
-        Me.Led20.TextTrue = "Ventilator-Kalibrierung abgeschlossen."
-        Me.Led20.Wert = False
-        '
-        'Led21
-        '
-        Me.Led21.Aktuallisierungsrate = 1000
-        Me.Led21.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.Led21.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Led21.FarbeFalse = System.Drawing.Color.Red
-        Me.Led21.FarbeTrue = System.Drawing.Color.Lime
-        Me.Led21.Location = New System.Drawing.Point(30, 76)
-        Me.Led21.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.Led21.Name = "Led21"
-        Me.Led21.Size = New System.Drawing.Size(374, 29)
-        Me.Led21.Symbolname = "Lesen.Waagen.bWaagenVorbelastung_Abgeschlossen"
-        Me.Led21.TabIndex = 70
-        Me.Led21.TextFalse = "Ermittelt Offset-Daten... Bitte Warten"
-        Me.Led21.TextTrue = "TARE abgeschlossen. Waagen 1..4 auf ""0 g""gesetzt"
-        Me.Led21.Wert = True
+        Me.Led20.TextFalse = "...Bitte Warten..."
+        Me.Led20.TextTrue = "Ventilator-Kalibrierung abgeschlossen: (c) Reset-Waagen durchführen"
+        Me.Led20.Visible = False
+        Me.Led20.Wert = True
         '
         'CheckboxEingabe16
         '
@@ -2697,7 +3049,7 @@ Partial Class Form1
         Me.CheckboxEingabe16.Name = "CheckboxEingabe16"
         Me.CheckboxEingabe16.Size = New System.Drawing.Size(269, 33)
         Me.CheckboxEingabe16.SollWertNeu = False
-        Me.CheckboxEingabe16.Symbolname = "Lesen_Waagen.bGetOffset_WaagenVorbelastung"
+        Me.CheckboxEingabe16.Symbolname = "WAAGEN.bTare"
         Me.CheckboxEingabe16.TabIndex = 69
         Me.CheckboxEingabe16.Wert = False
         '
@@ -2732,38 +3084,21 @@ Partial Class Form1
         Me.CheckboxEingabe18.Name = "CheckboxEingabe18"
         Me.CheckboxEingabe18.Size = New System.Drawing.Size(269, 33)
         Me.CheckboxEingabe18.SollWertNeu = False
-        Me.CheckboxEingabe18.Symbolname = "Lesen_Waagen.bGetOffset_Ventilator"
+        Me.CheckboxEingabe18.Symbolname = "WAAGEN.bGetOffset_Ventilator"
         Me.CheckboxEingabe18.TabIndex = 66
         Me.CheckboxEingabe18.Wert = False
         '
         'TabPage8
         '
-        Me.TabPage8.Controls.Add(Me.Led22)
+        Me.TabPage8.Controls.Add(Me.Led9)
         Me.TabPage8.Controls.Add(Me.CheckboxEingabe19)
         Me.TabPage8.Controls.Add(Me.TextBox27)
         Me.TabPage8.Location = New System.Drawing.Point(4, 25)
         Me.TabPage8.Name = "TabPage8"
-        Me.TabPage8.Size = New System.Drawing.Size(481, 455)
+        Me.TabPage8.Size = New System.Drawing.Size(481, 365)
         Me.TabPage8.TabIndex = 2
         Me.TabPage8.Text = "(c) Reset-Waagen"
         Me.TabPage8.UseVisualStyleBackColor = True
-        '
-        'Led22
-        '
-        Me.Led22.Aktuallisierungsrate = 1000
-        Me.Led22.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.Led22.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Led22.FarbeFalse = System.Drawing.Color.Red
-        Me.Led22.FarbeTrue = System.Drawing.Color.Lime
-        Me.Led22.Location = New System.Drawing.Point(27, 74)
-        Me.Led22.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.Led22.Name = "Led22"
-        Me.Led22.Size = New System.Drawing.Size(374, 29)
-        Me.Led22.Symbolname = "Lesen.Waagen.bWaagenVorbelastung_Abgeschlossen"
-        Me.Led22.TabIndex = 47
-        Me.Led22.TextFalse = "Ermittelt Offset-Daten... Bitte Warten"
-        Me.Led22.TextTrue = "TARE abgeschlossen. Waagen 1..4 auf ""0 g""gesetzt"
-        Me.Led22.Wert = True
         '
         'CheckboxEingabe19
         '
@@ -2776,7 +3111,7 @@ Partial Class Form1
         Me.CheckboxEingabe19.Name = "CheckboxEingabe19"
         Me.CheckboxEingabe19.Size = New System.Drawing.Size(269, 33)
         Me.CheckboxEingabe19.SollWertNeu = False
-        Me.CheckboxEingabe19.Symbolname = "Lesen_Waagen.bGetOffset_WaagenVorbelastung"
+        Me.CheckboxEingabe19.Symbolname = "WAAGEN.bTare"
         Me.CheckboxEingabe19.TabIndex = 46
         Me.CheckboxEingabe19.Wert = False
         '
@@ -2813,15 +3148,16 @@ Partial Class Form1
         Me.Led23.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Led23.FarbeFalse = System.Drawing.Color.Red
         Me.Led23.FarbeTrue = System.Drawing.Color.Lime
-        Me.Led23.Location = New System.Drawing.Point(10, 597)
+        Me.Led23.Location = New System.Drawing.Point(84, 309)
         Me.Led23.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Led23.Name = "Led23"
-        Me.Led23.Size = New System.Drawing.Size(481, 54)
-        Me.Led23.Symbolname = "GVL.ConfigWaage.KalibrierungAbgeschlossen"
+        Me.Led23.Size = New System.Drawing.Size(276, 38)
+        Me.Led23.Symbolname = "WAAGEN.WaagenKalibrierungFertig"
         Me.Led23.TabIndex = 51
-        Me.Led23.TextFalse = "Waagen-Kalibrierung notwendig"
-        Me.Led23.TextTrue = "Waagen-Kalibrierung abgeschlossen"
-        Me.Led23.Wert = False
+        Me.Led23.TextFalse = "Gewichts-Kalibrierung notwendig"
+        Me.Led23.TextTrue = "Geewichts-Kalibrierung abgeschlossen:                             (b) Ventilator-" & _
+    "Kalibrierung durchführen"
+        Me.Led23.Wert = True
         '
         'TabPage9
         '
@@ -2833,106 +3169,45 @@ Partial Class Form1
         Me.TabPage9.Text = "Messwerte"
         Me.TabPage9.UseVisualStyleBackColor = True
         '
-        'DezimalAnzeige29
-        '
-        Me.DezimalAnzeige29.Aktuallisierungsrate = 1000
-        Me.DezimalAnzeige29.Einheit = "[g]"
-        Me.DezimalAnzeige29.Location = New System.Drawing.Point(79, 680)
-        Me.DezimalAnzeige29.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.DezimalAnzeige29.Name = "DezimalAnzeige29"
-        Me.DezimalAnzeige29.Size = New System.Drawing.Size(71, 26)
-        Me.DezimalAnzeige29.Symbolname = "GLV.Waage_Offset[1]"
-        Me.DezimalAnzeige29.TabIndex = 43
-        Me.DezimalAnzeige29.Wert = New Decimal(New Integer() {0, 0, 0, 0})
-        '
-        'DezimalAnzeige30
-        '
-        Me.DezimalAnzeige30.Aktuallisierungsrate = 1000
-        Me.DezimalAnzeige30.Einheit = "[g]"
-        Me.DezimalAnzeige30.Location = New System.Drawing.Point(350, 682)
-        Me.DezimalAnzeige30.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.DezimalAnzeige30.Name = "DezimalAnzeige30"
-        Me.DezimalAnzeige30.Size = New System.Drawing.Size(71, 26)
-        Me.DezimalAnzeige30.Symbolname = "GLV.Waage_Offset[2]"
-        Me.DezimalAnzeige30.TabIndex = 42
-        Me.DezimalAnzeige30.Wert = New Decimal(New Integer() {0, 0, 0, 0})
-        '
         'DezimalAnzeige31
         '
         Me.DezimalAnzeige31.Aktuallisierungsrate = 1000
         Me.DezimalAnzeige31.Einheit = "[g]"
-        Me.DezimalAnzeige31.Location = New System.Drawing.Point(80, 368)
+        Me.DezimalAnzeige31.Location = New System.Drawing.Point(52, 415)
         Me.DezimalAnzeige31.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.DezimalAnzeige31.Name = "DezimalAnzeige31"
         Me.DezimalAnzeige31.Size = New System.Drawing.Size(71, 26)
-        Me.DezimalAnzeige31.Symbolname = "GLV.Waage_Offset[4]"
+        Me.DezimalAnzeige31.Symbolname = "WAAGEN.Waage_Offset[4]"
         Me.DezimalAnzeige31.TabIndex = 41
         Me.DezimalAnzeige31.Wert = New Decimal(New Integer() {0, 0, 0, 0})
-        '
-        'DezimalAnzeige32
-        '
-        Me.DezimalAnzeige32.Aktuallisierungsrate = 1000
-        Me.DezimalAnzeige32.Einheit = "[g]"
-        Me.DezimalAnzeige32.Location = New System.Drawing.Point(350, 369)
-        Me.DezimalAnzeige32.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.DezimalAnzeige32.Name = "DezimalAnzeige32"
-        Me.DezimalAnzeige32.Size = New System.Drawing.Size(71, 26)
-        Me.DezimalAnzeige32.Symbolname = "GLV.Waage_Offset[3]"
-        Me.DezimalAnzeige32.TabIndex = 40
-        Me.DezimalAnzeige32.Wert = New Decimal(New Integer() {0, 0, 0, 0})
-        '
-        'DezimalAnzeige26
-        '
-        Me.DezimalAnzeige26.Aktuallisierungsrate = 1000
-        Me.DezimalAnzeige26.BackColor = System.Drawing.Color.DimGray
-        Me.DezimalAnzeige26.Einheit = "[g]"
-        Me.DezimalAnzeige26.Location = New System.Drawing.Point(79, 651)
-        Me.DezimalAnzeige26.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.DezimalAnzeige26.Name = "DezimalAnzeige26"
-        Me.DezimalAnzeige26.Size = New System.Drawing.Size(71, 26)
-        Me.DezimalAnzeige26.Symbolname = "GLV.Waage[1].Masse"
-        Me.DezimalAnzeige26.TabIndex = 16
-        Me.DezimalAnzeige26.Wert = New Decimal(New Integer() {0, 0, 0, 0})
-        '
-        'DezimalAnzeige25
-        '
-        Me.DezimalAnzeige25.Aktuallisierungsrate = 1000
-        Me.DezimalAnzeige25.BackColor = System.Drawing.Color.DimGray
-        Me.DezimalAnzeige25.Einheit = "[g]"
-        Me.DezimalAnzeige25.Location = New System.Drawing.Point(350, 653)
-        Me.DezimalAnzeige25.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.DezimalAnzeige25.Name = "DezimalAnzeige25"
-        Me.DezimalAnzeige25.Size = New System.Drawing.Size(71, 26)
-        Me.DezimalAnzeige25.Symbolname = "GLV.Waage[2].Masse"
-        Me.DezimalAnzeige25.TabIndex = 15
-        Me.DezimalAnzeige25.Wert = New Decimal(New Integer() {0, 0, 0, 0})
         '
         'DezimalAnzeige24
         '
         Me.DezimalAnzeige24.Aktuallisierungsrate = 1000
         Me.DezimalAnzeige24.BackColor = System.Drawing.Color.DimGray
         Me.DezimalAnzeige24.Einheit = "[g]"
-        Me.DezimalAnzeige24.Location = New System.Drawing.Point(80, 340)
+        Me.DezimalAnzeige24.Location = New System.Drawing.Point(53, 387)
         Me.DezimalAnzeige24.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.DezimalAnzeige24.Name = "DezimalAnzeige24"
         Me.DezimalAnzeige24.Size = New System.Drawing.Size(71, 26)
-        Me.DezimalAnzeige24.Symbolname = "GLV.Waage[4].Masse"
+        Me.DezimalAnzeige24.Symbolname = "WAAGEN.Waage_roh[4]"
         Me.DezimalAnzeige24.TabIndex = 14
         Me.DezimalAnzeige24.Wert = New Decimal(New Integer() {0, 0, 0, 0})
         '
         'TextBox31
         '
         Me.TextBox31.AccessibleName = ""
-        Me.TextBox31.Location = New System.Drawing.Point(945, 719)
+        Me.TextBox31.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox31.Location = New System.Drawing.Point(880, 744)
         Me.TextBox31.Name = "TextBox31"
-        Me.TextBox31.Size = New System.Drawing.Size(110, 22)
+        Me.TextBox31.Size = New System.Drawing.Size(144, 30)
         Me.TextBox31.TabIndex = 13
         Me.TextBox31.Text = "Schmelzwasser"
         '
         'TextBox32
         '
         Me.TextBox32.AccessibleName = ""
-        Me.TextBox32.Location = New System.Drawing.Point(350, 723)
+        Me.TextBox32.Location = New System.Drawing.Point(312, 761)
         Me.TextBox32.Name = "TextBox32"
         Me.TextBox32.Size = New System.Drawing.Size(71, 22)
         Me.TextBox32.TabIndex = 12
@@ -2941,7 +3216,7 @@ Partial Class Form1
         'TextBox34
         '
         Me.TextBox34.AccessibleName = ""
-        Me.TextBox34.Location = New System.Drawing.Point(80, 723)
+        Me.TextBox34.Location = New System.Drawing.Point(54, 763)
         Me.TextBox34.Name = "TextBox34"
         Me.TextBox34.Size = New System.Drawing.Size(72, 22)
         Me.TextBox34.TabIndex = 11
@@ -2950,7 +3225,7 @@ Partial Class Form1
         'TextBox36
         '
         Me.TextBox36.AccessibleName = ""
-        Me.TextBox36.Location = New System.Drawing.Point(80, 301)
+        Me.TextBox36.Location = New System.Drawing.Point(53, 348)
         Me.TextBox36.Name = "TextBox36"
         Me.TextBox36.Size = New System.Drawing.Size(72, 22)
         Me.TextBox36.TabIndex = 10
@@ -2959,7 +3234,7 @@ Partial Class Form1
         'TextBox37
         '
         Me.TextBox37.AccessibleName = ""
-        Me.TextBox37.Location = New System.Drawing.Point(350, 301)
+        Me.TextBox37.Location = New System.Drawing.Point(312, 348)
         Me.TextBox37.Name = "TextBox37"
         Me.TextBox37.Size = New System.Drawing.Size(71, 22)
         Me.TextBox37.TabIndex = 9
@@ -2969,132 +3244,78 @@ Partial Class Form1
         '
         Me.DezimalAnzeige34.Aktuallisierungsrate = 1000
         Me.DezimalAnzeige34.Einheit = "[g]"
-        Me.DezimalAnzeige34.Location = New System.Drawing.Point(945, 748)
-        Me.DezimalAnzeige34.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.DezimalAnzeige34.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DezimalAnzeige34.Location = New System.Drawing.Point(1173, 1286)
+        Me.DezimalAnzeige34.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.DezimalAnzeige34.Name = "DezimalAnzeige34"
-        Me.DezimalAnzeige34.Size = New System.Drawing.Size(71, 26)
-        Me.DezimalAnzeige34.Symbolname = "GLV.Waage5.Masse"
+        Me.DezimalAnzeige34.Size = New System.Drawing.Size(106, 41)
+        Me.DezimalAnzeige34.Symbolname = "WAAGEN.Waage_roh[5]"
         Me.DezimalAnzeige34.TabIndex = 8
         Me.DezimalAnzeige34.Wert = New Decimal(New Integer() {0, 0, 0, 0})
         '
-        'DezimalAnzeige35
-        '
-        Me.DezimalAnzeige35.Aktuallisierungsrate = 1000
-        Me.DezimalAnzeige35.BackColor = System.Drawing.Color.DimGray
-        Me.DezimalAnzeige35.Einheit = "[g]"
-        Me.DezimalAnzeige35.Location = New System.Drawing.Point(350, 340)
-        Me.DezimalAnzeige35.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.DezimalAnzeige35.Name = "DezimalAnzeige35"
-        Me.DezimalAnzeige35.Size = New System.Drawing.Size(71, 26)
-        Me.DezimalAnzeige35.Symbolname = "GLV.Waage[3].Masse"
-        Me.DezimalAnzeige35.TabIndex = 7
-        Me.DezimalAnzeige35.Wert = New Decimal(New Integer() {0, 0, 0, 0})
-        '
-        'Temperatursensor16
-        '
-        Me.Temperatursensor16.Aktuallisierungsrate = 0
-        Me.Temperatursensor16.Ausrichtung = EBC_ADS_Bib.Ausrichtung.Rechts
-        Me.Temperatursensor16.BackColor = System.Drawing.Color.Transparent
-        Me.Temperatursensor16.Bauform = Nothing
-        Me.Temperatursensor16.Hinweis = Nothing
-        Me.Temperatursensor16.Klasse = Nothing
-        Me.Temperatursensor16.Location = New System.Drawing.Point(783, 532)
-        Me.Temperatursensor16.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.Temperatursensor16.Name = "Temperatursensor16"
-        Me.Temperatursensor16.Size = New System.Drawing.Size(100, 35)
-        Me.Temperatursensor16.Symbolname = Nothing
-        Me.Temperatursensor16.TabIndex = 6
-        Me.Temperatursensor16.Temperatur = New Decimal(New Integer() {0, 0, 0, 0})
-        '
         'Temperatursensor17
         '
-        Me.Temperatursensor17.Aktuallisierungsrate = 0
-        Me.Temperatursensor17.Ausrichtung = EBC_ADS_Bib.Ausrichtung.Rechts
+        Me.Temperatursensor17.Aktuallisierungsrate = 1000
+        Me.Temperatursensor17.Ausrichtung = EBC_ADS_Bib.Ausrichtung.Unten
         Me.Temperatursensor17.BackColor = System.Drawing.Color.Transparent
         Me.Temperatursensor17.Bauform = Nothing
         Me.Temperatursensor17.Hinweis = Nothing
         Me.Temperatursensor17.Klasse = Nothing
-        Me.Temperatursensor17.Location = New System.Drawing.Point(783, 382)
+        Me.Temperatursensor17.Location = New System.Drawing.Point(860, 552)
         Me.Temperatursensor17.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Temperatursensor17.Name = "Temperatursensor17"
-        Me.Temperatursensor17.Size = New System.Drawing.Size(100, 35)
-        Me.Temperatursensor17.Symbolname = Nothing
+        Me.Temperatursensor17.Size = New System.Drawing.Size(62, 52)
+        Me.Temperatursensor17.Symbolname = "GVL.Temp_VD_surface2.REAL_VAR"
         Me.Temperatursensor17.TabIndex = 5
         Me.Temperatursensor17.Temperatur = New Decimal(New Integer() {0, 0, 0, 0})
         '
         'Temperatursensor18
         '
-        Me.Temperatursensor18.Aktuallisierungsrate = 0
-        Me.Temperatursensor18.Ausrichtung = EBC_ADS_Bib.Ausrichtung.Rechts
+        Me.Temperatursensor18.Aktuallisierungsrate = 1000
+        Me.Temperatursensor18.Ausrichtung = EBC_ADS_Bib.Ausrichtung.Unten
         Me.Temperatursensor18.BackColor = System.Drawing.Color.Transparent
         Me.Temperatursensor18.Bauform = Nothing
         Me.Temperatursensor18.Hinweis = Nothing
         Me.Temperatursensor18.Klasse = Nothing
-        Me.Temperatursensor18.Location = New System.Drawing.Point(783, 228)
+        Me.Temperatursensor18.Location = New System.Drawing.Point(860, 332)
         Me.Temperatursensor18.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Temperatursensor18.Name = "Temperatursensor18"
-        Me.Temperatursensor18.Size = New System.Drawing.Size(100, 35)
-        Me.Temperatursensor18.Symbolname = Nothing
+        Me.Temperatursensor18.Size = New System.Drawing.Size(62, 52)
+        Me.Temperatursensor18.Symbolname = "GVL.Temp_VD_surface5.REAL_VAR"
         Me.Temperatursensor18.TabIndex = 4
         Me.Temperatursensor18.Temperatur = New Decimal(New Integer() {0, 0, 0, 0})
         '
-        'Temperatursensor14
-        '
-        Me.Temperatursensor14.Aktuallisierungsrate = 0
-        Me.Temperatursensor14.Ausrichtung = EBC_ADS_Bib.Ausrichtung.Rechts
-        Me.Temperatursensor14.BackColor = System.Drawing.Color.Transparent
-        Me.Temperatursensor14.Bauform = Nothing
-        Me.Temperatursensor14.Hinweis = Nothing
-        Me.Temperatursensor14.Klasse = Nothing
-        Me.Temperatursensor14.Location = New System.Drawing.Point(945, 532)
-        Me.Temperatursensor14.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.Temperatursensor14.Name = "Temperatursensor14"
-        Me.Temperatursensor14.Size = New System.Drawing.Size(100, 35)
-        Me.Temperatursensor14.Symbolname = Nothing
-        Me.Temperatursensor14.TabIndex = 3
-        Me.Temperatursensor14.Temperatur = New Decimal(New Integer() {0, 0, 0, 0})
-        '
         'Temperatursensor12
         '
-        Me.Temperatursensor12.Aktuallisierungsrate = 0
-        Me.Temperatursensor12.Ausrichtung = EBC_ADS_Bib.Ausrichtung.Rechts
+        Me.Temperatursensor12.Aktuallisierungsrate = 1000
+        Me.Temperatursensor12.Ausrichtung = EBC_ADS_Bib.Ausrichtung.Unten
         Me.Temperatursensor12.BackColor = System.Drawing.Color.Transparent
         Me.Temperatursensor12.Bauform = Nothing
         Me.Temperatursensor12.Hinweis = Nothing
         Me.Temperatursensor12.Klasse = Nothing
-        Me.Temperatursensor12.Location = New System.Drawing.Point(945, 382)
+        Me.Temperatursensor12.Location = New System.Drawing.Point(860, 440)
         Me.Temperatursensor12.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Temperatursensor12.Name = "Temperatursensor12"
-        Me.Temperatursensor12.Size = New System.Drawing.Size(100, 35)
-        Me.Temperatursensor12.Symbolname = Nothing
+        Me.Temperatursensor12.Size = New System.Drawing.Size(62, 52)
+        Me.Temperatursensor12.Symbolname = "GVL.Temp_VD_surface4.REAL_VAR"
         Me.Temperatursensor12.TabIndex = 2
         Me.Temperatursensor12.Temperatur = New Decimal(New Integer() {0, 0, 0, 0})
         '
         'Temperatursensor11
         '
-        Me.Temperatursensor11.Aktuallisierungsrate = 0
-        Me.Temperatursensor11.Ausrichtung = EBC_ADS_Bib.Ausrichtung.Rechts
+        Me.Temperatursensor11.Aktuallisierungsrate = 1000
+        Me.Temperatursensor11.Ausrichtung = EBC_ADS_Bib.Ausrichtung.Unten
         Me.Temperatursensor11.BackColor = System.Drawing.Color.Transparent
         Me.Temperatursensor11.Bauform = Nothing
         Me.Temperatursensor11.Hinweis = Nothing
         Me.Temperatursensor11.Klasse = Nothing
-        Me.Temperatursensor11.Location = New System.Drawing.Point(945, 228)
+        Me.Temperatursensor11.Location = New System.Drawing.Point(860, 226)
         Me.Temperatursensor11.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Temperatursensor11.Name = "Temperatursensor11"
-        Me.Temperatursensor11.Size = New System.Drawing.Size(100, 35)
-        Me.Temperatursensor11.Symbolname = Nothing
+        Me.Temperatursensor11.Size = New System.Drawing.Size(62, 52)
+        Me.Temperatursensor11.Symbolname = "GVL.Temp_VD_surface6.REAL_VAR"
         Me.Temperatursensor11.TabIndex = 1
         Me.Temperatursensor11.Temperatur = New Decimal(New Integer() {0, 0, 0, 0})
-        '
-        'PictureBox3
-        '
-        Me.PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), System.Drawing.Image)
-        Me.PictureBox3.Location = New System.Drawing.Point(0, 0)
-        Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(1132, 815)
-        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox3.TabIndex = 0
-        Me.PictureBox3.TabStop = False
         '
         'TabPage10
         '
@@ -3102,7 +3323,7 @@ Partial Class Form1
         Me.TabPage10.Location = New System.Drawing.Point(4, 25)
         Me.TabPage10.Name = "TabPage10"
         Me.TabPage10.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage10.Size = New System.Drawing.Size(1626, 1057)
+        Me.TabPage10.Size = New System.Drawing.Size(1626, 1016)
         Me.TabPage10.TabIndex = 5
         Me.TabPage10.Text = "Scope"
         Me.TabPage10.UseVisualStyleBackColor = True
@@ -3115,105 +3336,213 @@ Partial Class Form1
         Me.Messwert.Location = New System.Drawing.Point(3, 3)
         Me.Messwert.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Messwert.Name = "Messwert"
-        Me.Messwert.Size = New System.Drawing.Size(1620, 1051)
+        Me.Messwert.Size = New System.Drawing.Size(1620, 1010)
         Me.Messwert.TabIndex = 0
         '
-        'CheckboxEingabe21
+        'TextBox54
         '
-        Me.CheckboxEingabe21.Aktuallisierungsrate = 1000
-        Me.CheckboxEingabe21.Displaytext = "Abtauen abbrechen"
-        Me.CheckboxEingabe21.Hinweis = Nothing
-        Me.CheckboxEingabe21.Location = New System.Drawing.Point(1203, 513)
-        Me.CheckboxEingabe21.manuellerModus = True
-        Me.CheckboxEingabe21.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.CheckboxEingabe21.Name = "CheckboxEingabe21"
-        Me.CheckboxEingabe21.Size = New System.Drawing.Size(200, 33)
-        Me.CheckboxEingabe21.SollWertNeu = False
-        Me.CheckboxEingabe21.Symbolname = "SM.bKAbtauenAbbrechen"
-        Me.CheckboxEingabe21.TabIndex = 138
-        Me.CheckboxEingabe21.Wert = False
+        Me.TextBox54.BackColor = System.Drawing.SystemColors.AppWorkspace
+        Me.TextBox54.Font = New System.Drawing.Font("Times New Roman", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox54.Location = New System.Drawing.Point(52, 86)
+        Me.TextBox54.Name = "TextBox54"
+        Me.TextBox54.Size = New System.Drawing.Size(128, 27)
+        Me.TextBox54.TabIndex = 164
+        Me.TextBox54.Text = "Abtau-Modus"
         '
-        'CheckboxEingabe28
+        'DezimalAnzeige36
         '
-        Me.CheckboxEingabe28.Aktuallisierungsrate = 1000
-        Me.CheckboxEingabe28.Displaytext = "Heißgas Oben"
-        Me.CheckboxEingabe28.Hinweis = "Regler werden manuell angesteuert"
-        Me.CheckboxEingabe28.Location = New System.Drawing.Point(1203, 431)
-        Me.CheckboxEingabe28.manuellerModus = True
-        Me.CheckboxEingabe28.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.CheckboxEingabe28.Name = "CheckboxEingabe28"
-        Me.CheckboxEingabe28.Size = New System.Drawing.Size(200, 33)
-        Me.CheckboxEingabe28.SollWertNeu = False
-        Me.CheckboxEingabe28.Symbolname = "SM.bAbtauen_Heissgas_oben"
-        Me.CheckboxEingabe28.TabIndex = 137
-        Me.CheckboxEingabe28.Wert = False
+        Me.DezimalAnzeige36.Aktuallisierungsrate = 1000
+        Me.DezimalAnzeige36.BackColor = System.Drawing.Color.DimGray
+        Me.DezimalAnzeige36.Einheit = "[g]"
+        Me.DezimalAnzeige36.Location = New System.Drawing.Point(53, 686)
+        Me.DezimalAnzeige36.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.DezimalAnzeige36.Name = "DezimalAnzeige36"
+        Me.DezimalAnzeige36.Size = New System.Drawing.Size(71, 26)
+        Me.DezimalAnzeige36.Symbolname = "WAAGEN.Waage_roh[1]"
+        Me.DezimalAnzeige36.TabIndex = 89
+        Me.DezimalAnzeige36.Wert = New Decimal(New Integer() {0, 0, 0, 0})
         '
-        'CheckboxEingabe29
+        'DezimalAnzeige37
         '
-        Me.CheckboxEingabe29.Aktuallisierungsrate = 1000
-        Me.CheckboxEingabe29.Displaytext = "Elektrisch Abtauen"
-        Me.CheckboxEingabe29.Hinweis = Nothing
-        Me.CheckboxEingabe29.Location = New System.Drawing.Point(1203, 390)
-        Me.CheckboxEingabe29.manuellerModus = True
-        Me.CheckboxEingabe29.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.CheckboxEingabe29.Name = "CheckboxEingabe29"
-        Me.CheckboxEingabe29.Size = New System.Drawing.Size(200, 33)
-        Me.CheckboxEingabe29.SollWertNeu = True
-        Me.CheckboxEingabe29.Symbolname = "SM.bAbtauen_elektrisch"
-        Me.CheckboxEingabe29.TabIndex = 136
-        Me.CheckboxEingabe29.Wert = False
+        Me.DezimalAnzeige37.Aktuallisierungsrate = 1000
+        Me.DezimalAnzeige37.BackColor = System.Drawing.Color.DimGray
+        Me.DezimalAnzeige37.Einheit = "[g]"
+        Me.DezimalAnzeige37.Location = New System.Drawing.Point(315, 387)
+        Me.DezimalAnzeige37.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.DezimalAnzeige37.Name = "DezimalAnzeige37"
+        Me.DezimalAnzeige37.Size = New System.Drawing.Size(71, 26)
+        Me.DezimalAnzeige37.Symbolname = "WAAGEN.Waage_roh[3]"
+        Me.DezimalAnzeige37.TabIndex = 90
+        Me.DezimalAnzeige37.Wert = New Decimal(New Integer() {0, 0, 0, 0})
         '
-        'CheckboxEingabe2
+        'DezimalAnzeige38
         '
-        Me.CheckboxEingabe2.Aktuallisierungsrate = 1000
-        Me.CheckboxEingabe2.Displaytext = "Heißgas Unten"
-        Me.CheckboxEingabe2.Hinweis = "Regler werden manuell angesteuert"
-        Me.CheckboxEingabe2.Location = New System.Drawing.Point(1203, 472)
-        Me.CheckboxEingabe2.manuellerModus = True
-        Me.CheckboxEingabe2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.CheckboxEingabe2.Name = "CheckboxEingabe2"
-        Me.CheckboxEingabe2.Size = New System.Drawing.Size(200, 33)
-        Me.CheckboxEingabe2.SollWertNeu = False
-        Me.CheckboxEingabe2.Symbolname = "SM.bAbtauen_Heissgas_unten"
-        Me.CheckboxEingabe2.TabIndex = 139
-        Me.CheckboxEingabe2.Wert = False
+        Me.DezimalAnzeige38.Aktuallisierungsrate = 1000
+        Me.DezimalAnzeige38.BackColor = System.Drawing.Color.DimGray
+        Me.DezimalAnzeige38.Einheit = "[g]"
+        Me.DezimalAnzeige38.Location = New System.Drawing.Point(315, 686)
+        Me.DezimalAnzeige38.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.DezimalAnzeige38.Name = "DezimalAnzeige38"
+        Me.DezimalAnzeige38.Size = New System.Drawing.Size(71, 26)
+        Me.DezimalAnzeige38.Symbolname = "WAAGEN.Waage_roh[2]"
+        Me.DezimalAnzeige38.TabIndex = 91
+        Me.DezimalAnzeige38.Wert = New Decimal(New Integer() {0, 0, 0, 0})
         '
-        'Led30
+        'DezimalAnzeige25
         '
-        Me.Led30.Aktuallisierungsrate = 1000
-        Me.Led30.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.Led30.FarbeFalse = System.Drawing.Color.Gray
-        Me.Led30.FarbeTrue = System.Drawing.Color.Yellow
-        Me.Led30.Location = New System.Drawing.Point(1171, 554)
-        Me.Led30.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.Led30.Name = "Led30"
-        Me.Led30.Size = New System.Drawing.Size(211, 30)
-        Me.Led30.Symbolname = "SM.bPumpDown"
-        Me.Led30.TabIndex = 140
-        Me.Led30.TextFalse = Nothing
-        Me.Led30.TextTrue = "PumpDown wird durchgeführt"
-        Me.Led30.Wert = True
+        Me.DezimalAnzeige25.Aktuallisierungsrate = 1000
+        Me.DezimalAnzeige25.Einheit = "[g]"
+        Me.DezimalAnzeige25.Location = New System.Drawing.Point(315, 415)
+        Me.DezimalAnzeige25.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.DezimalAnzeige25.Name = "DezimalAnzeige25"
+        Me.DezimalAnzeige25.Size = New System.Drawing.Size(71, 26)
+        Me.DezimalAnzeige25.Symbolname = "WAAGEN.Waage_Offset[3]"
+        Me.DezimalAnzeige25.TabIndex = 92
+        Me.DezimalAnzeige25.Wert = New Decimal(New Integer() {0, 0, 0, 0})
         '
-        'Led31
+        'DezimalAnzeige26
         '
-        Me.Led31.Aktuallisierungsrate = 1000
-        Me.Led31.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.Led31.FarbeFalse = System.Drawing.Color.Gray
-        Me.Led31.FarbeTrue = System.Drawing.Color.Yellow
-        Me.Led31.Location = New System.Drawing.Point(1171, 592)
-        Me.Led31.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.Led31.Name = "Led31"
-        Me.Led31.Size = New System.Drawing.Size(211, 30)
-        Me.Led31.Symbolname = "SM.bLeerlauf"
-        Me.Led31.TabIndex = 141
-        Me.Led31.TextFalse = Nothing
-        Me.Led31.TextTrue = "Anlage befindet sich im Leerlauf"
-        Me.Led31.Wert = True
+        Me.DezimalAnzeige26.Aktuallisierungsrate = 1000
+        Me.DezimalAnzeige26.Einheit = "[g]"
+        Me.DezimalAnzeige26.Location = New System.Drawing.Point(315, 720)
+        Me.DezimalAnzeige26.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.DezimalAnzeige26.Name = "DezimalAnzeige26"
+        Me.DezimalAnzeige26.Size = New System.Drawing.Size(71, 26)
+        Me.DezimalAnzeige26.Symbolname = "WAAGEN.Waage_Offset[2]"
+        Me.DezimalAnzeige26.TabIndex = 93
+        Me.DezimalAnzeige26.Wert = New Decimal(New Integer() {0, 0, 0, 0})
+        '
+        'DezimalAnzeige29
+        '
+        Me.DezimalAnzeige29.Aktuallisierungsrate = 1000
+        Me.DezimalAnzeige29.Einheit = "[g]"
+        Me.DezimalAnzeige29.Location = New System.Drawing.Point(53, 720)
+        Me.DezimalAnzeige29.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.DezimalAnzeige29.Name = "DezimalAnzeige29"
+        Me.DezimalAnzeige29.Size = New System.Drawing.Size(71, 26)
+        Me.DezimalAnzeige29.Symbolname = "WAAGEN.Waage_Offset[1]"
+        Me.DezimalAnzeige29.TabIndex = 94
+        Me.DezimalAnzeige29.Wert = New Decimal(New Integer() {0, 0, 0, 0})
+        '
+        'DezimalAnzeige23
+        '
+        Me.DezimalAnzeige23.Aktuallisierungsrate = 1000
+        Me.DezimalAnzeige23.Einheit = "s"
+        Me.DezimalAnzeige23.Location = New System.Drawing.Point(265, 142)
+        Me.DezimalAnzeige23.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.DezimalAnzeige23.Name = "DezimalAnzeige23"
+        Me.DezimalAnzeige23.Size = New System.Drawing.Size(57, 33)
+        Me.DezimalAnzeige23.Symbolname = "WAAGEN.PositionKalibrierGewicht"
+        Me.DezimalAnzeige23.TabIndex = 54
+        Me.DezimalAnzeige23.Wert = New Decimal(New Integer() {0, 0, 0, 0})
+        '
+        'Led8
+        '
+        Me.Led8.Aktuallisierungsrate = 1000
+        Me.Led8.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.Led8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Led8.FarbeFalse = System.Drawing.Color.DarkGray
+        Me.Led8.FarbeTrue = System.Drawing.Color.Lime
+        Me.Led8.Location = New System.Drawing.Point(30, 76)
+        Me.Led8.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Led8.Name = "Led8"
+        Me.Led8.Size = New System.Drawing.Size(374, 29)
+        Me.Led8.Symbolname = "WAAGEN.bTare_Abgeschlossen"
+        Me.Led8.TabIndex = 72
+        Me.Led8.TextFalse = " ...Bitte Warten..."
+        Me.Led8.TextTrue = "TARE abgeschlossen. Waagen 1..4 auf ""0 g""gesetzt"
+        Me.Led8.Wert = True
+        '
+        'Led9
+        '
+        Me.Led9.Aktuallisierungsrate = 1000
+        Me.Led9.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.Led9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Led9.FarbeFalse = System.Drawing.Color.DarkGray
+        Me.Led9.FarbeTrue = System.Drawing.Color.Lime
+        Me.Led9.Location = New System.Drawing.Point(27, 67)
+        Me.Led9.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Led9.Name = "Led9"
+        Me.Led9.Size = New System.Drawing.Size(374, 29)
+        Me.Led9.Symbolname = "WAAGEN.bTare_Abgeschlossen"
+        Me.Led9.TabIndex = 66
+        Me.Led9.TextFalse = " ...Bitte Warten..."
+        Me.Led9.TextTrue = "TARE abgeschlossen. Initialisierung abgeschlossen. "
+        Me.Led9.Wert = True
+        '
+        'TextBox21
+        '
+        Me.TextBox21.AccessibleName = ""
+        Me.TextBox21.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox21.Location = New System.Drawing.Point(499, 805)
+        Me.TextBox21.Name = "TextBox21"
+        Me.TextBox21.Size = New System.Drawing.Size(222, 30)
+        Me.TextBox21.TabIndex = 95
+        Me.TextBox21.Text = "Verdampfer (Seitenansicht)"
+        '
+        'TextBox23
+        '
+        Me.TextBox23.AccessibleName = ""
+        Me.TextBox23.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox23.Location = New System.Drawing.Point(52, 805)
+        Me.TextBox23.Name = "TextBox23"
+        Me.TextBox23.Size = New System.Drawing.Size(222, 30)
+        Me.TextBox23.TabIndex = 96
+        Me.TextBox23.Text = "Verdampfer (Draufsicht)"
+        '
+        'DezimalAnzeige22
+        '
+        Me.DezimalAnzeige22.Aktuallisierungsrate = 1000
+        Me.DezimalAnzeige22.BackColor = System.Drawing.Color.DimGray
+        Me.DezimalAnzeige22.Einheit = "[g]"
+        Me.DezimalAnzeige22.Location = New System.Drawing.Point(1320, 1220)
+        Me.DezimalAnzeige22.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.DezimalAnzeige22.Name = "DezimalAnzeige22"
+        Me.DezimalAnzeige22.Size = New System.Drawing.Size(106, 41)
+        Me.DezimalAnzeige22.Symbolname = "WAAGEN.Waage_roh[2]"
+        Me.DezimalAnzeige22.TabIndex = 97
+        Me.DezimalAnzeige22.Wert = New Decimal(New Integer() {0, 0, 0, 0})
+        '
+        'PictureBox3
+        '
+        Me.PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), System.Drawing.Image)
+        Me.PictureBox3.Location = New System.Drawing.Point(-7, -98)
+        Me.PictureBox3.Name = "PictureBox3"
+        Me.PictureBox3.Size = New System.Drawing.Size(1110, 1111)
+        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox3.TabIndex = 0
+        Me.PictureBox3.TabStop = False
+        '
+        'DezimalAnzeige30
+        '
+        Me.DezimalAnzeige30.Aktuallisierungsrate = 1000
+        Me.DezimalAnzeige30.BackColor = System.Drawing.Color.DimGray
+        Me.DezimalAnzeige30.Einheit = "[g]"
+        Me.DezimalAnzeige30.Location = New System.Drawing.Point(1320, 1220)
+        Me.DezimalAnzeige30.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.DezimalAnzeige30.Name = "DezimalAnzeige30"
+        Me.DezimalAnzeige30.Size = New System.Drawing.Size(196, 84)
+        Me.DezimalAnzeige30.Symbolname = "WAAGEN.Waage_roh[2]"
+        Me.DezimalAnzeige30.TabIndex = 99
+        Me.DezimalAnzeige30.Wert = New Decimal(New Integer() {0, 0, 0, 0})
+        '
+        'DezimalAnzeige32
+        '
+        Me.DezimalAnzeige32.Aktuallisierungsrate = 1000
+        Me.DezimalAnzeige32.BackColor = System.Drawing.Color.Transparent
+        Me.DezimalAnzeige32.Einheit = "[g]"
+        Me.DezimalAnzeige32.Location = New System.Drawing.Point(880, 781)
+        Me.DezimalAnzeige32.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.DezimalAnzeige32.Name = "DezimalAnzeige32"
+        Me.DezimalAnzeige32.Size = New System.Drawing.Size(71, 26)
+        Me.DezimalAnzeige32.Symbolname = "WAAGEN.Waage_roh[5]"
+        Me.DezimalAnzeige32.TabIndex = 100
+        Me.DezimalAnzeige32.Wert = New Decimal(New Integer() {0, 0, 0, 0})
         '
         'Form1
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
-        Me.ClientSize = New System.Drawing.Size(1634, 1086)
+        Me.ClientSize = New System.Drawing.Size(1634, 1045)
         Me.Controls.Add(Me.TabControl1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Form1"
@@ -3223,6 +3552,12 @@ Partial Class Form1
         Me.TabPage1.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage2.ResumeLayout(False)
+        Me.TabPage2.PerformLayout()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
+        Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox2.ResumeLayout(False)
         Me.TabPage3.ResumeLayout(False)
         Me.TabPage3.PerformLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
@@ -3238,8 +3573,8 @@ Partial Class Form1
         Me.TabPage7.PerformLayout()
         Me.TabPage8.ResumeLayout(False)
         Me.TabPage8.PerformLayout()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage10.ResumeLayout(False)
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -3282,7 +3617,6 @@ Partial Class Form1
     Friend WithEvents TextBox33 As System.Windows.Forms.TextBox
     Friend WithEvents TabControl1 As System.Windows.Forms.TabControl
     Friend WithEvents TabPage1 As System.Windows.Forms.TabPage
-    Friend WithEvents Led8 As EBC_ADS_Bib.LED
     Friend WithEvents DezimalAnzeige18 As EBC_ADS_Bib.DezimalAnzeige
     Friend WithEvents DezimalAnzeige17 As EBC_ADS_Bib.DezimalAnzeige
     Friend WithEvents DezimalAnzeige16 As EBC_ADS_Bib.DezimalAnzeige
@@ -3300,7 +3634,6 @@ Partial Class Form1
     Friend WithEvents SollWertEingabe5 As EBC_ADS_Bib.SollWertEingabe
     Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
     Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
-    Friend WithEvents Led3 As EBC_ADS_Bib.LED
     Friend WithEvents Led5 As EBC_ADS_Bib.LED
     Friend WithEvents SollWertEingabe2 As EBC_ADS_Bib.SollWertEingabe
     Friend WithEvents DezimalAnzeige11 As EBC_ADS_Bib.DezimalAnzeige
@@ -3331,13 +3664,10 @@ Partial Class Form1
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents ListBox1 As System.Windows.Forms.ListBox
     Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
-    Friend WithEvents CheckboxEingabe12 As EBC_ADS_Bib.CheckboxEingabe
     Friend WithEvents AdS_Verbindung1 As EBC_ADS_Bib.ADS_Verbindung
     Friend WithEvents CheckboxEingabe8 As EBC_ADS_Bib.CheckboxEingabe
-    Friend WithEvents CheckboxEingabe6 As EBC_ADS_Bib.CheckboxEingabe
-    Friend WithEvents CheckboxEingabe7 As EBC_ADS_Bib.CheckboxEingabe
-    Friend WithEvents CheckboxEingabe5 As EBC_ADS_Bib.CheckboxEingabe
-    Friend WithEvents CheckboxEingabe1 As EBC_ADS_Bib.CheckboxEingabe
+    Friend WithEvents CheckboxEingabe_Kuhlen As EBC_ADS_Bib.CheckboxEingabe
+    Friend WithEvents CheckboxEingabe_Abtauen As EBC_ADS_Bib.CheckboxEingabe
     Friend WithEvents TabPage3 As System.Windows.Forms.TabPage
     Friend WithEvents DezimalAnzeige19 As EBC_ADS_Bib.DezimalAnzeige
     Friend WithEvents DezimalAnzeige20 As EBC_ADS_Bib.DezimalAnzeige
@@ -3388,8 +3718,6 @@ Partial Class Form1
     Friend WithEvents nullpunkt As System.Windows.Forms.Label
     Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
     Friend WithEvents TabPage5 As System.Windows.Forms.TabPage
-    Friend WithEvents TextBox29 As System.Windows.Forms.TextBox
-    Friend WithEvents TextBox30 As System.Windows.Forms.TextBox
     Friend WithEvents Temperatursensor19 As EBC_ADS_Bib.Temperatursensor
     Friend WithEvents Temperatursensor20 As EBC_ADS_Bib.Temperatursensor
     Friend WithEvents TextBox28 As System.Windows.Forms.TextBox
@@ -3402,15 +3730,8 @@ Partial Class Form1
     Friend WithEvents Led7 As EBC_ADS_Bib.LED
     Friend WithEvents CheckboxEingabe13 As EBC_ADS_Bib.CheckboxEingabe
     Friend WithEvents TextBox20 As System.Windows.Forms.TextBox
-    Friend WithEvents Led9 As EBC_ADS_Bib.LED
-    Friend WithEvents CheckboxEingabe14 As EBC_ADS_Bib.CheckboxEingabe
-    Friend WithEvents TextBox21 As System.Windows.Forms.TextBox
     Friend WithEvents Led10 As EBC_ADS_Bib.LED
     Friend WithEvents TextBox22 As System.Windows.Forms.TextBox
-    Friend WithEvents DezimalAnzeige22 As EBC_ADS_Bib.DezimalAnzeige
-    Friend WithEvents TextBox23 As System.Windows.Forms.TextBox
-    Friend WithEvents TextBox24 As System.Windows.Forms.TextBox
-    Friend WithEvents DezimalAnzeige23 As EBC_ADS_Bib.DezimalAnzeige
     Friend WithEvents Led16 As EBC_ADS_Bib.LED
     Friend WithEvents Led17 As EBC_ADS_Bib.LED
     Friend WithEvents Led18 As EBC_ADS_Bib.LED
@@ -3418,24 +3739,17 @@ Partial Class Form1
     Friend WithEvents CheckboxEingabe15 As EBC_ADS_Bib.CheckboxEingabe
     Friend WithEvents TabPage7 As System.Windows.Forms.TabPage
     Friend WithEvents Led20 As EBC_ADS_Bib.LED
-    Friend WithEvents Led21 As EBC_ADS_Bib.LED
     Friend WithEvents CheckboxEingabe16 As EBC_ADS_Bib.CheckboxEingabe
     Friend WithEvents TextBox25 As System.Windows.Forms.TextBox
     Friend WithEvents TextBox26 As System.Windows.Forms.TextBox
     Friend WithEvents CheckboxEingabe18 As EBC_ADS_Bib.CheckboxEingabe
     Friend WithEvents TabPage8 As System.Windows.Forms.TabPage
-    Friend WithEvents Led22 As EBC_ADS_Bib.LED
     Friend WithEvents CheckboxEingabe19 As EBC_ADS_Bib.CheckboxEingabe
     Friend WithEvents TextBox27 As System.Windows.Forms.TextBox
     Friend WithEvents CheckboxEingabe20 As EBC_ADS_Bib.CheckboxEingabe
     Friend WithEvents Led23 As EBC_ADS_Bib.LED
     Friend WithEvents TabPage9 As System.Windows.Forms.TabPage
-    Friend WithEvents DezimalAnzeige29 As EBC_ADS_Bib.DezimalAnzeige
-    Friend WithEvents DezimalAnzeige30 As EBC_ADS_Bib.DezimalAnzeige
     Friend WithEvents DezimalAnzeige31 As EBC_ADS_Bib.DezimalAnzeige
-    Friend WithEvents DezimalAnzeige32 As EBC_ADS_Bib.DezimalAnzeige
-    Friend WithEvents DezimalAnzeige26 As EBC_ADS_Bib.DezimalAnzeige
-    Friend WithEvents DezimalAnzeige25 As EBC_ADS_Bib.DezimalAnzeige
     Friend WithEvents DezimalAnzeige24 As EBC_ADS_Bib.DezimalAnzeige
     Friend WithEvents TextBox31 As System.Windows.Forms.TextBox
     Friend WithEvents TextBox32 As System.Windows.Forms.TextBox
@@ -3443,21 +3757,63 @@ Partial Class Form1
     Friend WithEvents TextBox36 As System.Windows.Forms.TextBox
     Friend WithEvents TextBox37 As System.Windows.Forms.TextBox
     Friend WithEvents DezimalAnzeige34 As EBC_ADS_Bib.DezimalAnzeige
-    Friend WithEvents DezimalAnzeige35 As EBC_ADS_Bib.DezimalAnzeige
-    Friend WithEvents Temperatursensor16 As EBC_ADS_Bib.Temperatursensor
     Friend WithEvents Temperatursensor17 As EBC_ADS_Bib.Temperatursensor
     Friend WithEvents Temperatursensor18 As EBC_ADS_Bib.Temperatursensor
-    Friend WithEvents Temperatursensor14 As EBC_ADS_Bib.Temperatursensor
     Friend WithEvents Temperatursensor12 As EBC_ADS_Bib.Temperatursensor
     Friend WithEvents Temperatursensor11 As EBC_ADS_Bib.Temperatursensor
-    Friend WithEvents PictureBox3 As System.Windows.Forms.PictureBox
     Friend WithEvents TabPage10 As System.Windows.Forms.TabPage
     Friend WithEvents Messwert As EBC_ADS_Bib.ScopeView
-    Friend WithEvents CheckboxEingabe2 As EBC_ADS_Bib.CheckboxEingabe
-    Friend WithEvents CheckboxEingabe21 As EBC_ADS_Bib.CheckboxEingabe
-    Friend WithEvents CheckboxEingabe28 As EBC_ADS_Bib.CheckboxEingabe
-    Friend WithEvents CheckboxEingabe29 As EBC_ADS_Bib.CheckboxEingabe
     Friend WithEvents Led31 As EBC_ADS_Bib.LED
     Friend WithEvents Led30 As EBC_ADS_Bib.LED
+    Friend WithEvents Led32 As EBC_ADS_Bib.LED
+    Friend WithEvents CheckboxEingabe4 As EBC_ADS_Bib.CheckboxEingabe
+    Friend WithEvents CheckboxEingabe3 As EBC_ADS_Bib.CheckboxEingabe
+    Friend WithEvents TextBox53 As System.Windows.Forms.TextBox
+    Friend WithEvents Led39 As EBC_ADS_Bib.LED
+    Friend WithEvents Led38 As EBC_ADS_Bib.LED
+    Friend WithEvents TextBox52 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox51 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox50 As System.Windows.Forms.TextBox
+    Friend WithEvents Led36 As EBC_ADS_Bib.LED
+    Friend WithEvents Led37 As EBC_ADS_Bib.LED
+    Friend WithEvents Led35 As EBC_ADS_Bib.LED
+    Friend WithEvents Led34 As EBC_ADS_Bib.LED
+    Friend WithEvents Led33 As EBC_ADS_Bib.LED
+    Friend WithEvents TextBox49 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox48 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox47 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox39 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox38 As System.Windows.Forms.TextBox
+    Friend WithEvents PictureBox4 As System.Windows.Forms.PictureBox
+    Friend WithEvents CheckboxEingabe9 As EBC_ADS_Bib.CheckboxEingabe
+    Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
+    Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
+    Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
+    Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
+    Friend WithEvents Timer3 As System.Windows.Forms.Timer
+    Friend WithEvents DropdownEingabe1 As EBC_ADS_Bib.DropdownEingabe
+    Friend WithEvents CheckboxEingabe_ManuellerModus As EBC_ADS_Bib.CheckboxEingabe
+    Friend WithEvents CheckboxEingabe_Vollautomatik As EBC_ADS_Bib.CheckboxEingabe
+    Friend WithEvents CheckboxEingabe2 As EBC_ADS_Bib.CheckboxEingabe
+    Friend WithEvents CheckboxEingabe28 As EBC_ADS_Bib.CheckboxEingabe
+    Friend WithEvents CheckboxEingabe29 As EBC_ADS_Bib.CheckboxEingabe
+    Friend WithEvents CheckboxEingabe21 As EBC_ADS_Bib.CheckboxEingabe
+    Friend WithEvents CheckboxEingabe_KuhlenAbbrechen As EBC_ADS_Bib.CheckboxEingabe
+    Friend WithEvents TextBox54 As System.Windows.Forms.TextBox
+    Friend WithEvents DezimalAnzeige29 As EBC_ADS_Bib.DezimalAnzeige
+    Friend WithEvents DezimalAnzeige26 As EBC_ADS_Bib.DezimalAnzeige
+    Friend WithEvents DezimalAnzeige25 As EBC_ADS_Bib.DezimalAnzeige
+    Friend WithEvents DezimalAnzeige38 As EBC_ADS_Bib.DezimalAnzeige
+    Friend WithEvents DezimalAnzeige37 As EBC_ADS_Bib.DezimalAnzeige
+    Friend WithEvents DezimalAnzeige36 As EBC_ADS_Bib.DezimalAnzeige
+    Friend WithEvents DezimalAnzeige23 As EBC_ADS_Bib.DezimalAnzeige
+    Friend WithEvents Led8 As EBC_ADS_Bib.LED
+    Friend WithEvents Led9 As EBC_ADS_Bib.LED
+    Friend WithEvents DezimalAnzeige22 As EBC_ADS_Bib.DezimalAnzeige
+    Friend WithEvents TextBox23 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox21 As System.Windows.Forms.TextBox
+    Friend WithEvents PictureBox3 As System.Windows.Forms.PictureBox
+    Friend WithEvents DezimalAnzeige32 As EBC_ADS_Bib.DezimalAnzeige
+    Friend WithEvents DezimalAnzeige30 As EBC_ADS_Bib.DezimalAnzeige
 
 End Class

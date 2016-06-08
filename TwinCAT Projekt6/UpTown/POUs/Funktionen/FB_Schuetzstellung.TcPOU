@@ -23,14 +23,19 @@ KuehlenUnten:
 		VD_Ventilator_ON			:= TRUE; 
 		VD_defrost_Ventilator_ON	:= FALSE;
 		ElektrischeHeizung_ON		:= FALSE; 
+		KP_ON						:= TRUE;  
 		
 	(*Expansionsventil wird aktiviert und auf 100% gestellt. Komunikation erfolgt über Modbus_EL*)
+	IF  EV.SollKuhlleistung<> 100 THEN 
 		EV.SetKuhlleistung := TRUE;
 		EV.SollKuhlleistung:= 100;
-		
+	END_IF
+	
 	(*Expansionsventil für die Abtauung wird auf 100% zurückgestellt. Kann verändert werden, um Kälteleistung bzw. Abtaleistung zu variieren*)	
+	IF EV_rev.SollKuhlleistung <> 100 THEN 
 		EV_rev.SetKuhlleistung := TRUE;
 		EV_rev.SollKuhlleistung:= 100;
+	END_IF
 	
 PumpDown:
 	(*Schütze werden geschaltet*)
@@ -39,19 +44,21 @@ PumpDown:
 		Schuetz_1K5 := TRUE;
 		
 	(*Falls Komponente ON ist wird sie auf TRUE gesetzt*)	
-		VD_Ventilator_ON			:= TRUE;  
+		VD_Ventilator_ON			:= FALSE;  //TRUE;
 		VD_defrost_Ventilator_ON	:= FALSE;
-		ElektrischeHeizung_ON		:= FALSE; 
+		ElektrischeHeizung_ON		:= FALSE;
+		KP_ON						:= TRUE;  
 		
 	(*Expansionsventil wird auf 0% gestellt. Komunikation erfolgt über Modbus_EL*)
 		EV.SetKuhlleistung := TRUE;
 		EV.SollKuhlleistung:= 0;
 		
 	(*Kompressor PID-Regler wird eingestellt*)
-		PID_KP.w := Soll_PumpDownDruck;						//Kompressor wird bei 1.5 Bar ausgeschaltet
-		IF PID_KP.x <= PT_VD_out.rDruck THEN //??? PT_KP_in.rDruck THEN 
-			bPumpDown:= 	TRUE;		//SPS oder KÄLTEMASCHINE kann ausgeschaltet werden
-			PID_KP.Aktiv:= FALSE;				//Kompressor wird ausgeschaltet
+		PID_KP.w := Soll_PumpDownDruck;				//Kompressor wird bei 1.5 Bar ausgeschaltet
+		IF PID_KP.x <= PT_VD_out.rDruck THEN 		//??? PT_KP_in.rDruck THEN 
+			bPumpDown	:= 	TRUE;		
+			PID_KP.Aktiv:= FALSE;			 		//Kompressor wird ausgeschaltet
+			KP_ON		:= FALSE;  
 		END_IF
 		
 PumpDown_rev:	
@@ -60,11 +67,11 @@ PumpDown_rev:
 		Schuetz_1K4 := TRUE;
 		Schuetz_1K5 := FALSE;
 		
-		
 	(*Falls Komponente ON ist wird sie auf TRUE gesetzt*)	
 		VD_Ventilator_ON			:= FALSE;  
-		VD_defrost_Ventilator_ON	:= TRUE;
+		VD_defrost_Ventilator_ON	:= FALSE; //TRUE;
 		ElektrischeHeizung_ON		:= FALSE; 
+		KP_ON						:= TRUE; 
 		
 	(*Expansionsventil wird auf 0% gestellt. Komunikation erfolgt über Modbus_EL*)
 		EV_rev.SetKuhlleistung := TRUE;
@@ -72,9 +79,9 @@ PumpDown_rev:
 		
 	(*Kompressor PID-Regler wird eingestellt*)
 		PID_KP.w := Soll_PumpDownDruck;						//Kompressor wird bei 1.5 Bar ausgeschaltet
-		IF PID_KP.x <= PT_VD_out.rDruck THEN//PT_KP_in.rDruck THEN 
-			bPumpDown_rev := TRUE;		//SPS oder KÄLTEMASCHINE kann ausgeschaltet werden
-			PID_KP.Aktiv:= FALSE;				//Kompressor wird ausgeschaltet
+		IF PID_KP.x <= PT_VD_out.rDruck THEN				//PT_KP_in.rDruck THEN 
+			bPumpDown_rev := TRUE;		
+			PID_KP.Aktiv:= FALSE;							//Kompressor wird ausgeschaltet
 		END_IF
 		
 AbtauenOben:
@@ -87,6 +94,7 @@ AbtauenOben:
 		VD_Ventilator_ON			:= FALSE;  
 		VD_defrost_Ventilator_ON	:= TRUE;
 		ElektrischeHeizung_ON		:= FALSE; 
+		KP_ON						:= TRUE; 
 	
 AbtauenUnten:
 	(*Schütze werden geschaltet*)
@@ -94,10 +102,11 @@ AbtauenUnten:
 		Schuetz_1K4 := FALSE;
 		Schuetz_1K5 := FALSE;
 
-	(*Falls Komponente ON ist wird sie auf TRUE gesetzt*)	
+	(*Komponente werden de- und aktiviert*)	
 		VD_Ventilator_ON			:= FALSE;  
 		VD_defrost_Ventilator_ON	:= TRUE;
-		ElektrischeHeizung_ON		:= FALSE; 
+		ElektrischeHeizung_ON		:= FALSE;
+		KP_ON						:= TRUE; 
 		
 AbtauenElektrisch: 
 	(*Schütze werden geschaltet*)
@@ -109,6 +118,7 @@ AbtauenElektrisch:
 		VD_Ventilator_ON			:= FALSE;  
 		VD_defrost_Ventilator_ON	:= FALSE;
 		ElektrischeHeizung_ON		:= TRUE; 
+		KP_ON						:= FALSE;
 		
 	(*Expansionsventil wird aktiviert und auf 0% gestellt. Komunikation erfolgt über Modbus_EL*)
 		EV.SetKuhlleistung := 	TRUE;

@@ -10,7 +10,7 @@ END_VAR
     <Implementation>
       <ST><![CDATA[(*Starte Timer zur Vereisung*)	
 	IF NOT TimerVereisung.IN THEN
-	TimerVereisung(IN:= TRUE, PT:= T#1H);
+	TimerVereisung(IN:= TRUE, PT:= Vereisungszeit);
 	END_IF
 	
 (*Die Schütze 1K3 und 1K5 werden durch bKühlen geschaltet:
@@ -20,8 +20,6 @@ END_VAR
  		
 	IF SM.bKuehlen THEN 
 		fb_Schuetzstellung(myStatus := KuehlenUnten);
-		EV.SetKuhlleistung := TRUE;
-		EV.SollKuhlleistung:= 100; 
 	END_IF
 	
 (*Abtauung wird begonnen wenn Zeit des Timers abgelaufen ist*)
@@ -33,7 +31,22 @@ END_VAR
 		SM.bPumpDown := TRUE; 
 		
 		(* Status-Maschine Bool-variablen werden auf TRUE bzw. FALSE gesetzt*)
-		SM.bKuehlen := FALSE;		
+		SM.bKuehlen := FALSE;	
+
+		IF AutomatikZyklusEin THEN 
+				bAbtauen := TRUE; 
+				CASE  AutomatikAbtauModus OF 
+						NichtAusgewahlt: 
+							Mitteilung := 'Kein Automatik-Abtaumodus ausgewählt!';
+						Abtauen_elektrisch:
+							bAbtauen_elektrisch := TRUE;
+						Abtauen_Heissgas_oben:
+							bAbtauen_Heissgas_oben:= TRUE;
+						Abtauen_Heissgas_unten:
+							bAbtauen_Heissgas_unten := TRUE;
+				END_CASE
+				
+		END_IF	
 	END_IF
 
 ]]></ST>

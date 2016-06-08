@@ -13,7 +13,7 @@ END_VAR
 	fb_Schuetzstellung(myStatus:= PumpDown);
 	
 	(*Pump-Down wird durchgeführt bis der Druck vor dem KP kleiner als 1,4 Bar ist*)	
-		IF   PT_KP_out.rDruck < Soll_PumpDownDruck THEN  			//!!Ist noch nicht ansprechbar!!
+		IF   PT_VD_out.rDruck < Soll_PumpDownDruck THEN  			//!!Ist noch nicht ansprechbar!!
 			bPumpDown := FALSE;
 			bPumpDownAbgeschlossen:= TRUE;
 		END_IF

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ScopeViewSerializable>
+  <Version>1.0.0.4</Version>
+  <Title>Messtechnik1</Title>
+  <LayoutString>&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;Layout /&gt;</LayoutString>
+  <Operating>
+    <RecordTime>36000000000</RecordTime>
+    <DataFileName>C:\temp</DataFileName>
+    <RunMode>ClientStart</RunMode>
+    <StopMode>AutoStop</StopMode>
+    <ServerUseFileStore>true</ServerUseFileStore>
+    <Comment></Comment>
+    <ScopeStopAutoSave>
+      <UseAutoSave>false</UseAutoSave>
+      <AutoSavePath>
+      </AutoSavePath>
+      <FileNameMask>{SCOPE}_AutoSave_{HH_mm_ss}</FileNameMask>
+    </ScopeStopAutoSave>
+    <RestartRecord>false</RestartRecord>
+  </Operating>
+  <Charts />
+  <TriggerModule>
+    <TriggerGroups />
+  </TriggerModule>
+  <SortPriority>-1</SortPriority>
+  <ViewDetailLevel>Default</ViewDetailLevel>
+</ScopeViewSerializable>

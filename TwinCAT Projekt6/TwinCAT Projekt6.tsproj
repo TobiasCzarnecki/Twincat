@@ -402,6 +402,20 @@
 							<Type>INT</Type>
 						</Var>
 						<Var>
+							<Name>GVL.Temp_VD_surface5.INT_VAR_Input</Name>
+							<Comment>
+								<![CDATA[Input von Klemme (z.B. 2100)]]>
+							</Comment>
+							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.Temp_VD_surface6.INT_VAR_Input</Name>
+							<Comment>
+								<![CDATA[Input von Klemme (z.B. 2100)]]>
+							</Comment>
+							<Type>INT</Type>
+						</Var>
+						<Var>
 							<Name>GVL.Temp_VF_in.INT_VAR_Input</Name>
 							<Comment>
 								<![CDATA[Input von Klemme (z.B. 2100)]]>
@@ -704,46 +718,6 @@
 							<Type GUID="{2952907C-3283-4F8E-99B3-C7A6D58D1211}" Namespace="TC2_MODBUSRTU">MB_PcComOutData</Type>
 						</Var>
 						<Var>
-							<Name>REGLER.VD_Ventilator_ON</Name>
-							<Comment>
-								<![CDATA[ Im RI-Fließbild Bezeichnung: 1W1]]>
-							</Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>REGLER.VD_defrost_Ventilator_ON</Name>
-							<Comment>
-								<![CDATA[ Im RI-Fließbild Bezeichnung: 1W3]]>
-							</Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>REGLER.ElektrischeHeizung_ON</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>REGLER.KP_ON</Name>
-							<Comment>
-								<![CDATA[ Im RI-Fließbild Bezeichnung: 1V1 ]]>
-							</Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>REGLER.Schuetz_1K3</Name>
-							<Comment>
-								<![CDATA[Schütze werden geschaltet]]>
-							</Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>REGLER.Schuetz_1K4</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>REGLER.Schuetz_1K5</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
 							<Name>WAAGEN.Waage[1].EL6002_out</Name>
 							<Comment>
 								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
@@ -784,6 +758,46 @@
 								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
 							</Comment>
 							<Type GUID="{80F174B3-65D6-4F54-A59E-41537B2903AF}" Namespace="TC2_SERIALCOM">EL6outData22B</Type>
+						</Var>
+						<Var>
+							<Name>REGLER.VD_Ventilator_ON</Name>
+							<Comment>
+								<![CDATA[ Im RI-Fließbild Bezeichnung: 1W1]]>
+							</Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>REGLER.VD_defrost_Ventilator_ON</Name>
+							<Comment>
+								<![CDATA[ Im RI-Fließbild Bezeichnung: 1W3]]>
+							</Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>REGLER.ElektrischeHeizung_ON</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>REGLER.KP_ON</Name>
+							<Comment>
+								<![CDATA[ Im RI-Fließbild Bezeichnung: 1V1 ]]>
+							</Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>REGLER.Schuetz_1K3</Name>
+							<Comment>
+								<![CDATA[Schütze werden geschaltet]]>
+							</Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>REGLER.Schuetz_1K4</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>REGLER.Schuetz_1K5</Name>
+							<Type>BOOL</Type>
 						</Var>
 					</Vars>
 					<Vars VarGrpType="2">
@@ -1049,7 +1063,7 @@
 					<Box BoxType="9099" Id="15">
 						<Name>Analoge Ausgänge 0..10 V (EL4008)</Name>
 						<ImageId>1001</ImageId>
-						<EtherCAT SlaveType="2" PdiType="#x0405" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="3" FoeType="1" VendorId="#x00000002" ProductCode="#x0fa83052" RevisionNo="#x00130000" InfoDataAddr="true" TimeoutMailbox2="2000" CheckRevisionNoType="3" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL4008 8K. Ana. Ausgang 0-10V, 12bit" Desc="EL4008" PortABoxInfo="#x01000002">
+						<EtherCAT SlaveType="2" PdiType="#x0405" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="3" FoeType="1" VendorId="#x00000002" ProductCode="#x0fa83052" RevisionNo="#x00130000" InfoDataAddr="true" InfoDataDcTimes="true" TimeoutMailbox2="2000" CheckRevisionNoType="3" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL4008 8K. Ana. Ausgang 0-10V, 12bit" Desc="EL4008" PortABoxInfo="#x01000002">
 							<SyncMan>001080002600010001000000800080008000001026010000</SyncMan>
 							<SyncMan>801080002200010002000000800080008000801022010000</SyncMan>
 							<SyncMan>001110002400010003000000000000001000001124010000</SyncMan>
@@ -1174,7 +1188,7 @@
 								<Entry Name="Status__TxPDO Toggle" Index="#x1801" Sub="#x09">
 									<Type>BIT</Type>
 								</Entry>
-								<Entry Name="GVL.Temp_VD_out.INT_VAR_Input" Index="#x6010" Sub="#x11" Flags="#x00050000">
+								<Entry Name="GVL.Temp_VD_out.INT_VAR_Input" Index="#x6010" Sub="#x11" Flags="#x00120000">
 									<Type>INT</Type>
 								</Entry>
 							</Pdo>
@@ -1218,7 +1232,7 @@
 								<Entry Name="Status__TxPDO Toggle" Index="#x1800" Sub="#x09">
 									<Type>BIT</Type>
 								</Entry>
-								<Entry Name="GVL.Temp_VD_in_rev.INT_VAR_Input" Index="#x6000" Sub="#x11" Flags="#x00120000">
+								<Entry Name="GVL.Temp_VD_surface2.INT_VAR_Input" Index="#x6000" Sub="#x11" Flags="#x00120000">
 									<Type>INT</Type>
 								</Entry>
 							</Pdo>
@@ -1247,7 +1261,7 @@
 								<Entry Name="Status__TxPDO Toggle" Index="#x1801" Sub="#x09">
 									<Type>BIT</Type>
 								</Entry>
-								<Entry Name="GVL.Temp_VD_out_rev.INT_VAR_Input" Index="#x6010" Sub="#x11" Flags="#x00050000">
+								<Entry Name="GVL.Temp_VD_surface4.INT_VAR_Input" Index="#x6010" Sub="#x11" Flags="#x00050000">
 									<Type>INT</Type>
 								</Entry>
 							</Pdo>
@@ -1291,7 +1305,7 @@
 								<Entry Name="Status__TxPDO Toggle" Index="#x1800" Sub="#x09">
 									<Type>BIT</Type>
 								</Entry>
-								<Entry Name="GVL.Temp_VF_in.INT_VAR_Input" Index="#x6000" Sub="#x11" Flags="#x00050000">
+								<Entry Name="GVL.Temp_VF_in.INT_VAR_Input" Index="#x6000" Sub="#x11" Flags="#x00120000">
 									<Type>INT</Type>
 								</Entry>
 							</Pdo>
@@ -1320,7 +1334,7 @@
 								<Entry Name="Status__TxPDO Toggle" Index="#x1801" Sub="#x09">
 									<Type>BIT</Type>
 								</Entry>
-								<Entry Name="GVL.Temp_VF_out.INT_VAR_Input" Index="#x6010" Sub="#x11" Flags="#x00050000">
+								<Entry Name="GVL.Temp_VF_out.INT_VAR_Input" Index="#x6010" Sub="#x11" Flags="#x00120000">
 									<Type>INT</Type>
 								</Entry>
 							</Pdo>
@@ -1364,7 +1378,7 @@
 								<Entry Name="Status__TxPDO Toggle" Index="#x1800" Sub="#x09">
 									<Type>BIT</Type>
 								</Entry>
-								<Entry Name="GVL.Temp_VD_defrost_in.INT_VAR_Input" Index="#x6000" Sub="#x11" Flags="#x00050000">
+								<Entry Name="GVL.Temp_VD_surface5.INT_VAR_Input" Index="#x6000" Sub="#x11" Flags="#x00120000">
 									<Type>INT</Type>
 								</Entry>
 							</Pdo>
@@ -1393,7 +1407,7 @@
 								<Entry Name="Status__TxPDO Toggle" Index="#x1801" Sub="#x09">
 									<Type>BIT</Type>
 								</Entry>
-								<Entry Name="GVL.Temp_VD_defrost_out.INT_VAR_Input" Index="#x6010" Sub="#x11" Flags="#x00050000">
+								<Entry Name="GVL.Temp_VD_surface6.INT_VAR_Input" Index="#x6010" Sub="#x11" Flags="#x00120000">
 									<Type>INT</Type>
 								</Entry>
 							</Pdo>
@@ -5111,16 +5125,16 @@ Bit1: Value bigger/equal Limit2]]>
 				<Link VarA="PlcTask Inputs^GVL.Temp_VD_out.INT_VAR_Input" VarB="RTD Inputs Channel 2^GVL.Temp_VD_out.INT_VAR_Input"/>
 			</OwnerB>
 			<OwnerB Name="TIID^CX 9020 (EtherCAT)^E-Bus Klemme (EK1200)^Temperaturklemme 2  (EL3202-0020)">
-				<Link VarA="PlcTask Inputs^GVL.Temp_VD_in_rev.INT_VAR_Input" VarB="RTD Inputs Channel 1^GVL.Temp_VD_in_rev.INT_VAR_Input"/>
-				<Link VarA="PlcTask Inputs^GVL.Temp_VD_out_rev.INT_VAR_Input" VarB="RTD Inputs Channel 2^GVL.Temp_VD_out_rev.INT_VAR_Input"/>
+				<Link VarA="PlcTask Inputs^GVL.Temp_VD_surface2.INT_VAR_Input" VarB="RTD Inputs Channel 1^GVL.Temp_VD_surface2.INT_VAR_Input"/>
+				<Link VarA="PlcTask Inputs^GVL.Temp_VD_surface4.INT_VAR_Input" VarB="RTD Inputs Channel 2^GVL.Temp_VD_surface4.INT_VAR_Input"/>
 			</OwnerB>
 			<OwnerB Name="TIID^CX 9020 (EtherCAT)^E-Bus Klemme (EK1200)^Temperaturklemme 3  (EL3202-0020)">
 				<Link VarA="PlcTask Inputs^GVL.Temp_VF_in.INT_VAR_Input" VarB="RTD Inputs Channel 1^GVL.Temp_VF_in.INT_VAR_Input"/>
 				<Link VarA="PlcTask Inputs^GVL.Temp_VF_out.INT_VAR_Input" VarB="RTD Inputs Channel 2^GVL.Temp_VF_out.INT_VAR_Input"/>
 			</OwnerB>
 			<OwnerB Name="TIID^CX 9020 (EtherCAT)^E-Bus Klemme (EK1200)^Temperaturklemme 4  (EL3202-0020)">
-				<Link VarA="PlcTask Inputs^GVL.Temp_VD_defrost_in.INT_VAR_Input" VarB="RTD Inputs Channel 1^GVL.Temp_VD_defrost_in.INT_VAR_Input"/>
-				<Link VarA="PlcTask Inputs^GVL.Temp_VD_defrost_out.INT_VAR_Input" VarB="RTD Inputs Channel 2^GVL.Temp_VD_defrost_out.INT_VAR_Input"/>
+				<Link VarA="PlcTask Inputs^GVL.Temp_VD_surface5.INT_VAR_Input" VarB="RTD Inputs Channel 1^GVL.Temp_VD_surface5.INT_VAR_Input"/>
+				<Link VarA="PlcTask Inputs^GVL.Temp_VD_surface6.INT_VAR_Input" VarB="RTD Inputs Channel 2^GVL.Temp_VD_surface6.INT_VAR_Input"/>
 			</OwnerB>
 			<OwnerB Name="TIID^CX 9020 (EtherCAT)^E-Bus Klemme (EK1200)^Temperaturklemme 5  (EL3202-0020)">
 				<Link VarA="PlcTask Inputs^GVL.Temp_KP_in.INT_VAR_Input" VarB="RTD Inputs Channel 1^GVL.Temp_KP_in.INT_VAR_Input"/>

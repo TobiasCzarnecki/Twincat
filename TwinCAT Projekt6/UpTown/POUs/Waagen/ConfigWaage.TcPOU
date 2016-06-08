@@ -5,21 +5,10 @@
 
 VAR
 //========================================================================================
-//Manuelle Variablen
-	ManuellOK: 			BOOL;			// Durch  USER auf TRUE gesetzt, wenn Prüfgewicht umgehangen ist und alles OK
-	BereitNachstePosition: 	BOOL;
-	PositionKalibrierGewicht : INT :=1; 			//Immer an Position 1 anfangen bei der Kalibrierung
-	Kalibriergewicht : 	ARRAY[1..2] OF REAL := [5753.3,7500]; //später als Global deklarieren, angegeben in Gramm
-	
-
-//========================================================================================
 	timer_Einschwingen: TON;		//Einschwingzeit wird definiert
 	timer_Messen	: TON;		//Messzeit wird definiert
 	
 	bEinschwingvorgang_vorbei: 	BOOL;
-	
-	WaageKalibriert: ARRAY[1..4] OF BOOL;
-	
 	
 	WertMitteln: 	ARRAY[1..4] OF FT_AVG;
 	Trigger :		ARRAY[1..4] OF SH_1;

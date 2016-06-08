@@ -16,7 +16,7 @@
   &lt;/DocumentContainer&gt;
 &lt;/Layout&gt;</LayoutString>
   <Operating>
-    <RecordTime>6000000000</RecordTime>
+    <RecordTime>36000000000</RecordTime>
     <DataFileName>C:\temp</DataFileName>
     <RunMode>ClientStart</RunMode>
     <StopMode>AutoStop</StopMode>
@@ -24,7 +24,7 @@
     <Comment></Comment>
     <ScopeStopAutoSave>
       <UseAutoSave>false</UseAutoSave>
-      <AutoSavePath />
+      <AutoSavePath></AutoSavePath>
       <FileNameMask>{SCOPE}_AutoSave_{HH_mm_ss}</FileNameMask>
     </ScopeStopAutoSave>
     <RestartRecord>false</RestartRecord>
@@ -114,7 +114,7 @@
                 <TargetPort>801</TargetPort>
                 <VariableSize>4</VariableSize>
                 <SymbolName>WAAGEN.xPosition_SP_0</SymbolName>
-                <SymbolComment />
+                <SymbolComment></SymbolComment>
                 <IsSymbolBased>true</IsSymbolBased>
                 <FileHandle>0</FileHandle>
                 <UseLocalServer>true</UseLocalServer>
@@ -165,7 +165,7 @@
                 <MarkSize>3</MarkSize>
                 <TimeShift>0</TimeShift>
                 <ScaleFactor>1</ScaleFactor>
-                <Comment />
+                <Comment></Comment>
                 <AutoMarks>true</AutoMarks>
                 <XOffset>0</XOffset>
                 <XScaleFactor>1</XScaleFactor>
@@ -244,7 +244,7 @@
                 <MarkSize>3</MarkSize>
                 <TimeShift>0</TimeShift>
                 <ScaleFactor>1</ScaleFactor>
-                <Comment />
+                <Comment></Comment>
                 <AutoMarks>true</AutoMarks>
                 <XOffset>0</XOffset>
                 <XScaleFactor>1</XScaleFactor>

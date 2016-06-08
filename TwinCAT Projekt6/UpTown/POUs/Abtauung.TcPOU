@@ -5,7 +5,6 @@
 VAR
 	AbtauFehler : BOOL;
 	Timer :TOF;
-	Timer_Abtaudauer :TON;
 	Timer_HeizungAbtauwanne: TON;
 	
 	StartAbtauwanneHeizung : TIME := T#5M; 
@@ -16,15 +15,16 @@ END_VAR
     <Implementation>
       <ST><![CDATA[(*Ablaufstruktur bei einer elektrischen Abtauung des Verdampfers*)
 	
-	Timer_Abtaudauer(IN:=TRUE, PT:= T#1H);
+	TimerAbtaudauer(IN:=TRUE, PT:= T#1H);
 	
 	IF bAbtauenAbbrechen = TRUE THEN 
 		bLeerlauf				:=TRUE;
 		bKuehlen 				:=FALSE;
+		bAbtauen				:= FALSE;
 		bAbtauen_elektrisch		:=FALSE;
 		bAbtauen_Heissgas_oben	:=FALSE;
 		bAbtauen_Heissgas_unten	:=FALSE;
-		Timer_Abtaudauer(IN:= FALSE);
+		TimerAbtaudauer(IN:= FALSE);
 	(*nächster Status*)
 		SM.Status := Leerlauf;
 		ELSE 
@@ -158,18 +158,36 @@ CASE state OF
 		END_IF
 		
 12: 	
+	(*Anlage wird reverse abgepumpt, falls sie zuvor per Heißgas(oben oder unten) abgetaut wurde*)	
+		IF bAbtauen_Heissgas_oben = TRUE OR bAbtauen_Heissgas_unten = TRUE THEN 
+		 bPumpDown_rev := TRUE;
+		END_IF
+
 	(*Abtau-Vorgang ist abgeschlossen. State-Maschine: Abtauen->FALSE. Kuehlen-> TRUE. *)	
 		Mitteilung:= 				'Abtau-Vorgang wurde erfolgreich abgeschlossen';
 		bAbtauenAbgeschlossen := 	TRUE;
+		bAbtauen			:= 		FALSE;
 		bAbtauen_elektrisch:= 		FALSE;
 		bAbtauen_Heissgas_oben:= 	FALSE;
 		bAbtauen_Heissgas_unten:= 	FALSE;
 	
-	(*Anlage wird abgepumpt*)
-		 bPumpDown_rev := TRUE;
+	(*Kühl-Modus wird aktiviert und gegebenfalls ein PUMPDOWN_rev durchgeführt*)
+		IF AutomatikZyklusEin THEN 
+				bKuehlen:= TRUE;
+				CASE  AutomatikAbtauModus OF 
+						NichtAusgewahlt: 
+							Mitteilung := 'Kein Automatik-Abtaumodus ausgewählt!';
+						Abtauen_elektrisch:
+							bPumpDown_rev := FALSE;
+						Abtauen_Heissgas_oben:
+							bPumpDown_rev:= TRUE;
+						Abtauen_Heissgas_unten:
+							bPumpDown_rev := TRUE;
+				END_CASE
+		END_IF
 		
 	(*Gestoppte Zeit für den Abtauzyklus wird auf Null gesetzt*)
-		Timer_Abtaudauer(IN:= FALSE);
+		TimerAbtaudauer(IN:= FALSE);
 	
 	(*Reset von State auf Null*)
 		state:= 0;

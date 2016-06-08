@@ -15,17 +15,8 @@ VAR
 	Timer,Timer1: TON;
 	Trigger:  ARRAY[1..4] OF SH_1;
 	GetOffset:ARRAY[1..4] OF FT_AVG;;
-	bGetOffset: 		BOOL;
-	
-(*WaagenVorbelastung & Ventilator muss vor jeder Messung neu ermittelt werden. Erst wenn diese erfolgreich
-	abgeschlossen sind startet der Vereisungsvorgang*)
-		bGetOffset_WaagenVorbelastung: 	BOOL;
-				   bWaagenVorbelastung_Abgeschlossen : BOOL := FALSE;
-		bGetOffset_Ventilator: 			BOOL;
-				   bVentilator_Abgeschlossen : BOOL := FALSE;
-		bGetOffset_Kaltemittel_g: 		BOOL;
-		bGetOffset_Kaltemittel_l: 		BOOL;
-		bGetOffset_Abgeschlossen: 		BOOL:= FALSE;
+	bOffset: 		BOOL := FALSE;
+	//bGetOffset: 		BOOL;
 
 END_VAR
 
@@ -47,7 +38,7 @@ END_FOR
 FOR counter:= 1 TO 4 DO 
 	Waage_Offset[counter] := OFFSET(
 	X:= Waage[counter].Masse, 
-	O1:= bWaagenVorbelastet, 				//TRUE sobald die Waagen auf ca. 2 kg vorbelastet sind werden die ermittelten Offsets subtrahiert
+	O1:= bOffset, 				//wird TRUE nach dem ersten TARE-Befehl. Waagen sind wieder bei '0g'
 	O2:= VD_Ventilator_ON, 
 	O3:= VD_Kaltemittel_g, 
 	O4:= VD_Kaltemittel_l, 
@@ -65,20 +56,23 @@ END_FOR
 	
 //Initialisieren: 
 
-IF 	bGetOffset_WaagenVorbelastung 	OR bGetOffset_Ventilator 	 OR bGetOffset_Kaltemittel_g OR	bGetOffset_Kaltemittel_l THEN 
-	bGetOffset:= TRUE;
+IF 	bTare 	OR bGetOffset_Ventilator 	 OR bGetOffset_Kaltemittel_g OR	bGetOffset_Kaltemittel_l THEN 
+	bTare_Abgeschlossen := FALSE;
+	bVentilator_Abgeschlossen:=FALSE;
+	//bGetOffset:= TRUE;
 	Timer(IN:= TRUE, PT:=T#60S , Q=> , ET=> );
-	ELSE 
-	bGetOffset:= FALSE;
+	//ELSE 
+	//bGetOffset:= FALSE;
 END_IF
 
 //Offset wird bestimmt für den Fall, dass die Waagen mit ca. 2000 g vorbelastet sind
-	IF bGetOffset_WaagenVorbelastung THEN 
+	IF bTare THEN 
 		FOR counter:= 1 TO 4 DO 
 			Trigger[counter](in:= Waage[counter].Masse, PT:= T#1S, out=> , Trig=> );
 			GetOffset[counter](IN:= Trigger[counter].out, E:= Trigger[counter].Trig, N:= 30, RST:= , AVG=>Offset_WaagenVorbelastung[counter] );	
 		END_FOR
-		bWaagenVorbelastung_Abgeschlossen:= TRUE; // Offset wird nun von den Rohwerten abgezogen
+		bTare:= FALSE; // Offset wird nun von den Rohwerten abgezogen
+		bOffset:= TRUE;
 	END_IF
 
 
@@ -115,7 +109,7 @@ END_IF
 //Nachdem die Zeit abgelaufen ist, werden die BOOL-Variablen zurückgesetzt
 	IF Timer.Q THEN
 		VD_Ventilator_ON					:= FALSE;
-		bGetOffset_WaagenVorbelastung    	:= FALSE;
+		bTare    							:= FALSE;
 		bGetOffset_Ventilator 				:= FALSE;
 		bGetOffset_Kaltemittel_g			:= FALSE; 
 		bGetOffset_Kaltemittel_l 			:= FALSE;

@@ -20,6 +20,8 @@ END_VAR
 		Temp_VD_surface2.REAL_VAR	:= FB_SPS_zu_Nativ_lin 		(Input := Temp_VD_surface2);
 		Temp_VD_surface3.REAL_VAR	:= FB_SPS_zu_Nativ_lin 		(Input := Temp_VD_surface3);
 		Temp_VD_surface4.REAL_VAR	:= FB_SPS_zu_Nativ_lin 		(Input := Temp_VD_surface4);
+		Temp_VD_surface5.REAL_VAR	:= FB_SPS_zu_Nativ_lin 		(Input := Temp_VD_surface5);
+		Temp_VD_surface6.REAL_VAR	:= FB_SPS_zu_Nativ_lin 		(Input := Temp_VD_surface6);
 				
 		Temp_VF_in.REAL_VAR			:= FB_SPS_zu_Nativ_lin 		(Input := Temp_VF_in);
 		Temp_VF_out.REAL_VAR		:= FB_SPS_zu_Nativ_lin 		(Input := Temp_VF_out);
@@ -34,7 +36,7 @@ END_VAR
 		Temp_vor_EV_rev.REAL_VAR	:= FB_SPS_zu_Nativ_lin 		(Input := Temp_vor_EV_rev);
 	
 		(*Gemittelte Temperatur auf der Oberflächentemperatur auf dem Verdampfer*)
-	Temp_VD_Surface_gemittelt := 0.25*(Temp_VD_surface1.REAL_VAR+Temp_VD_surface2.REAL_VAR+Temp_VD_surface3.REAL_VAR+Temp_VD_surface4.REAL_VAR);
+	Temp_VD_Surface_gemittelt := 0.25*(Temp_VD_surface6.REAL_VAR+Temp_VD_surface5.REAL_VAR+Temp_VD_surface4.REAL_VAR+Temp_VD_surface2.REAL_VAR);
 	
 
 	

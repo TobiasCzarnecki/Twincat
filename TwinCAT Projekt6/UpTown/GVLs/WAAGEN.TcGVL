@@ -9,7 +9,7 @@
 
 (* Auf das tatsächlich Gewicht zurückgerechneter Wert der Waagen
  k-Werte wurde mittels Kalibrierung für mehrere Fälle ermittelt *)	
-		bWaagenVorbelastet: 	BOOL := FALSE; 
+		bWaagenVorbelastet: 	BOOL := FALSE; 					// Waagen 1 bis 4 sind mit 2 kg vorbelastet
  		Waage_k : 				ARRAY [1..6] OF REAL;			// Waage_k[i] = Waage_Offset[i] / k[i]
  		Waage_Offset : 			ARRAY [1..6] OF REAL;			//Alle mit Offset korrigierten Waagenwerte zusammen in einem Array
 		Waage_roh:	 			ARRAY [1..6] OF REAL;
@@ -22,12 +22,33 @@
 (*Schwerpunkt vom Eis*)
 		xPosition_SP_0	:REAL :=0;
 		yPosition_SP_0	:REAL :=0;
+		
+(*WaagenVorbelastung & Ventilator muss vor jeder Messung neu ermittelt werden. Erst wenn diese erfolgreich
+	abgeschlossen sind startet der Vereisungsvorgang*)
+
+		bTare: 							BOOL:= FALSE;
+			bTare_Abgeschlossen : 		BOOL:= FALSE;
+		bGetOffset_Ventilator: 			BOOL;
+			bVentilator_Abgeschlossen : BOOL:= FALSE;
+		bGetOffset_Kaltemittel_g: 		BOOL;
+		bGetOffset_Kaltemittel_l: 		BOOL;
+		bGetOffset_Abgeschlossen: 		BOOL:= FALSE;
+		
+(*Waagen-Kalibrierung*)
+		ManuellOK: 						BOOL:= FALSE;			// Durch  USER auf TRUE gesetzt, wenn Prüfgewicht umgehangen ist und alles OK
+		BereitNachstePosition: 			BOOL:= FALSE;
+		PositionKalibrierGewicht : 		INT :=1; 				//Immer an Position 1 anfangen bei der Kalibrierung
+		Kalibriergewicht:ARRAY[1..2] OF REAL:= [5753.3]; //später als Global deklarieren, angegeben in Gramm
+		WaageKalibriert: ARRAY[1..4] OF BOOL;
+		WaagenKalibrierungFertig: 		BOOL:=FALSE;
 END_VAR
 
 
+
+
 VAR_GLOBAL PERSISTENT
-	(*Hier werden die Kalibrierungs-Daten gespeichert. Persistente Variablen bleiben auch nach erneuter Kompilierung bzw. Reset der SPS erhalten*)
-	k_alleDaten :	ARRAY[1..2] OF k_Daten;	
+(*Hier werden die Kalibrierungs-Daten gespeichert. Persistente Variablen bleiben auch nach erneuter Kompilierung bzw. Reset der SPS erhalten*)
+		k_alleDaten :	ARRAY[1..2] OF k_Daten;	
 END_VAR
 ]]></Declaration>
   </GVL>

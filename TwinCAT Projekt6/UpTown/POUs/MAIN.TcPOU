@@ -5,7 +5,8 @@
 VAR
 	timer: TON;
 
-
+	REALtime: REAL := 12.5;
+	Zeit  : TIME;
 END_VAR
 
 ]]></Declaration>
@@ -14,6 +15,8 @@ END_VAR
 	SM.Status:= Initialisieren;
 END_IF
 
+
+Zeit:= REAL_TO_TIME(REALtime);
 
 (*Status-Maschine wird durchlaufen*)
 CASE SM.Status OF
@@ -59,17 +62,26 @@ Lesen: //Input von Klemmen Lesen und in native Werte umrechen
 	ModbusRTU_COM();
 	ModbusRTU_EL();
 	
-		//======Kühl-Modus====
+	//======Leerlauf-Modus====
+	IF bLeerlauf= TRUE THEN 			// Maschine geht automatisch zunächst in den Leerlauf-Modus
+	SM.Status := Leerlauf;
+	END_IF
+	
+	
+	//======Kühl-Modus====
 		IF bKuehlen THEN 
 			bLeerlauf := FALSE;
+			
 			SM.Status:=Kuehlen; //Regelbetrieb		
-				IF bAbtauen THEN 
-				bKuehlen := FALSE;
-				bVollautomatikModus:= FALSE;
-				SM.Status:=Abtauen;
-				END_IF
 		END_IF 
-
+		
+	//======Abtau-Modus====
+		IF bAbtauen THEN 
+			bKuehlen := FALSE;
+			bVollautomatikModus:= FALSE;
+				
+			SM.Status:=Abtauen;
+		END_IF
 	
 (*Abtauen-Modus wird ausgewählt*)
 
@@ -119,27 +131,36 @@ Lesen: //Input von Klemmen Lesen und in native Werte umrechen
 		END_IF	
 	
 	//======Leerlauf Modus======	
-		 IF bKuehlen = FALSE AND bAbtauen_elektrisch = FALSE AND bAbtauen_Heissgas_oben = FALSE AND bAbtauen_Heissgas_unten = FALSE // kein Modus ist ausgewählt
-		 OR bAbtauenAbgeschlossen = TRUE																							// ABtauen abgeschlossen
-		 OR bLeerlauf= TRUE																											// User entscheidet auf Leerlauf
-			THEN 
-			 SM.Status := Leerlauf;
-		 END_IF
+		IF bKuehlen = FALSE AND bAbtauen_elektrisch = FALSE AND bAbtauen_Heissgas_oben = FALSE AND bAbtauen_Heissgas_unten = FALSE // kein Modus ist ausgewählt
+	//	OR bAbtauenAbgeschlossen = TRUE																							// ABtauen abgeschlossen
+ 		THEN 
+			bLeerlauf := TRUE;
+			
+			SM.Status := Leerlauf;
+		END_IF
 	 
 	 
 
 				
 Kuehlen:	// Der Verdampfer vereist. Der Timer "TimerVereisung" bestimmt die Zeit der Vereisung.
 		
-		//======nächster Modus====
-			bVollautomatikModus := TRUE;
+		//======Vollautomatik-Modus====
+			IF bVollautomatikModus = TRUE THEN 
 			SM.Status:=Vollautomatik;  // Es wird automatisch in den Vollautomatik-Modus gewechselt, falls bManuellerModus-> FALSE ist
+			END_IF
 			
+		//======Manueller-Modus====	
 			IF SM.bManuellerModus THEN
 				bVollautomatikModus := FALSE;
 				
-		//======nächster Modus====
-			SM.Status:=Manuell;	
+				SM.Status:=Manuell;	
+			END_IF
+			
+		//======Vollautomatik-Modus====
+			IF bVollautomatikModus = FALSE AND bManuellerModus = FALSE THEN
+				bVollautomatikModus:= TRUE;
+				
+				SM.Status := Vollautomatik;
 			END_IF
 		
 		//======Kühl-Modus Abbruch====
@@ -148,23 +169,25 @@ Kuehlen:	// Der Verdampfer vereist. Der Timer "TimerVereisung" bestimmt die Zeit
 				bVollautomatikModus:= FALSE;
 				bManuellerModus := FALSE;
 				bLeerlauf := TRUE;
+				bKuehlenAbbrechen := FALSE;
+				
+				SM.Status := Leerlauf;
 			END_IF
+			
+
 	
 Vollautomatik:	// Alle Regler sind Aktiv und regeln auf Normalbetrieb
 				
-		SM.bManuellerModus					:=FALSE;
+		//SM.bManuellerModus					:=FALSE;
 	
 	(*Schütze werden geschaltet. Timer wird auf 1 Stunde gestellt. *)
 		Vereisung();
 		Regelung();
 		
 	(*Regler aktivieren bzw. deaktivieren*)
-		KP_ON:= 							TRUE;
-		VD_Ventilator_ON := 				TRUE;
 		PID_KP.Aktiv:= 						TRUE;
 		PID_VF_Ventilator.Aktiv:= 			TRUE;
-		VD_defrost_Ventilator_ON:= 			FALSE;
-		ElektrischeHeizung_ON:= 			FALSE;
+
 		
 	//======nächster Modus====					
 		SM.Status:=Anlagenschutz;
@@ -176,11 +199,11 @@ Manuell: // Regler müssen manuell auf Aktiv umgestellt werden
 		Vereisung();
 	
 	(*Regler müssen manuell aktiviert werden *)
-		KP_ON:= 							FALSE;
-		VD_Ventilator_ON := 				FALSE;
 		PID_KP.Aktiv:= 						FALSE;
 		PID_VF_Ventilator.Aktiv:= 			FALSE;
 		
+		KP_ON:= 							FALSE;
+		VD_Ventilator_ON := 				FALSE;
 		VD_defrost_Ventilator_ON:= 			FALSE;
 		ElektrischeHeizung_ON:= 			FALSE;
 		Regelung();
@@ -195,29 +218,29 @@ Manuell: // Regler müssen manuell auf Aktiv umgestellt werden
 
 Abtauen: (*Der Verdampfer wird abgetaut. Über GVL wird der Abtaumodus ausgewählt*)	
 	
-	IF  bPumpDownAbgeschlossen = TRUE THEN  	(*Regler werden im Programm Abtauen() aktiviert und deaktiviert*)
-	Abtauung();
-	Regelung();
-	END_IF
-
-	//======PUMPDOWN Modus====		
-	IF  bPumpDownAbgeschlossen = FALSE THEN  // PUMPDOWN erforderlich für Abtau-Modus
+	//======Anlagenschutz-Modus====	
+		IF  bPumpDownAbgeschlossen = TRUE THEN  	(*Regler werden im Programm Abtauen() aktiviert und deaktiviert*)
+			Abtauung();
+			Regelung();		
+			SM.Status := Anlagenschutz;
+		END_IF
+	
+	//======PUMPDOWN-Modus====		
+		IF  bPumpDownAbgeschlossen = FALSE THEN  // PUMPDOWN erforderlich für Abtau-Modus
 			bPumpDown := TRUE;
 			SM.Status := AnlagenPumpdown;	
-  	ELSE
-	//======nächster Modus====		
-			SM.Status := Anlagenschutz;
-	END_IF
+  		END_IF
+
 	
 	//======Abtau-Modus wird agebrochen====	
-	IF bAbtauenAbbrechen THEN 
-		SM.bAbtauen := FALSE;
-		SM.bAbtauen_elektrisch			:=FALSE;
-		SM.bAbtauen_Heissgas_oben 		:=FALSE;
-		SM.bAbtauen_Heissgas_unten		:=FALSE;
-		
-		SM.Status := Leerlauf;
-	END_IF
+		IF bAbtauenAbbrechen THEN 
+			SM.bAbtauen := FALSE;
+			SM.bAbtauen_elektrisch			:=FALSE;
+			SM.bAbtauen_Heissgas_oben 		:=FALSE;
+			SM.bAbtauen_Heissgas_unten		:=FALSE;
+			SM.bAbtauenAbbrechen			:=FALSE;
+			SM.Status := Leerlauf;
+		END_IF
 
 	
 AnlagenPumpDown: //Anlage wird abgepumpt. Kältemittel wird in den Sammler gedrückt
@@ -229,33 +252,33 @@ AnlagenPumpDown: //Anlage wird abgepumpt. Kältemittel wird in den Sammler gedr�
 	END_IF
 	
 	//======nächster Modus====	
-			SM.Status:= Anlagenschutz;
+		SM.Status:= Anlagenschutz;
 			
-	//======Leerlauf-Modus====	
-	IF bPumpDownAbgeschlossen OR bPumpDown_revAbgeschlossen THEN  	
-			SM.Status:=Leerlauf; //Anlage wird in den Leerlauf versetzt
-	END_IF	
-
+		(*//======Leerlauf-Modus====	
+		IF bPumpDownAbgeschlossen OR bPumpDown_revAbgeschlossen THEN  	
+				SM.Status:=Leerlauf; //Anlage wird in den Leerlauf versetzt
+		END_IF	
+		*)
 	
 Leerlauf: (* Anlage ist im Leerlauf.  1) Kühlen oder Abtauen wurde ABGEBROCHEN, 
-										3) Anlagenschutz hat die Anlage in den Status Leerlauf versetzt*)
-	bLeerlauf := TRUE;
+									3) Anlagenschutz hat die Anlage in den Status Leerlauf versetzt*)
+	//bLeerlauf := TRUE;
 	Regelung();
 	
 	//PumpDOWN wird abgebrochen falls nötig
-	bPumpDown	:= FALSE;
-	bPumpDown_rev:= FALSE;
+		bPumpDown	:= FALSE;
+		bPumpDown_rev:= FALSE;
 										
 	//Regler deaktivieren und Freigabe ausschalten
-	KP_ON:= 					FALSE;
-	VD_Ventilator_ON:= 			FALSE;
-	VD_defrost_Ventilator_ON:=  FALSE;
-	PID_KP.Aktiv := 			FALSE;
-	PID_VF_Ventilator.Aktiv:=	FALSE;
+		KP_ON:= 					FALSE;
+		VD_Ventilator_ON:= 			FALSE;
+		VD_defrost_Ventilator_ON:=  FALSE;
+		PID_KP.Aktiv := 			FALSE;
+		PID_VF_Ventilator.Aktiv:=	FALSE;
 
 	//======nächster Modus====	
-	bAnlagenschutzModus:=TRUE;		
-	SM.Status:=Anlagenschutz;
+		bAnlagenschutzModus:=TRUE;		
+		SM.Status:=Anlagenschutz;
 
 			
 Anlagenschutz: //Anlagenschutzsysteme überschreiben ggf. Anweisungen
