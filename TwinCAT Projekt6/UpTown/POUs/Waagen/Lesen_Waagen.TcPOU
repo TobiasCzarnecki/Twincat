@@ -57,12 +57,11 @@ END_FOR
 //Initialisieren: 
 
 IF 	bTare 	OR bGetOffset_Ventilator 	 OR bGetOffset_Kaltemittel_g OR	bGetOffset_Kaltemittel_l THEN 
-	bTare_Abgeschlossen := FALSE;
-	bVentilator_Abgeschlossen:=FALSE;
-	//bGetOffset:= TRUE;
+	bGetOffset_Abgeschlossen	:=FALSE;
+	bTare_Abgeschlossen 		:=FALSE;
+	bVentilator_Abgeschlossen	:=FALSE;
 	Timer(IN:= TRUE, PT:=T#60S , Q=> , ET=> );
-	//ELSE 
-	//bGetOffset:= FALSE;
+	bOffset 					:= FALSE;
 END_IF
 
 //Offset wird bestimmt für den Fall, dass die Waagen mit ca. 2000 g vorbelastet sind
@@ -71,8 +70,7 @@ END_IF
 			Trigger[counter](in:= Waage[counter].Masse, PT:= T#1S, out=> , Trig=> );
 			GetOffset[counter](IN:= Trigger[counter].out, E:= Trigger[counter].Trig, N:= 30, RST:= , AVG=>Offset_WaagenVorbelastung[counter] );	
 		END_FOR
-		bTare:= FALSE; // Offset wird nun von den Rohwerten abgezogen
-		bOffset:= TRUE;
+			bOffset:= TRUE;
 	END_IF
 
 
@@ -110,6 +108,7 @@ END_IF
 	IF Timer.Q THEN
 		VD_Ventilator_ON					:= FALSE;
 		bTare    							:= FALSE;
+		bOffset								:= TRUE;
 		bGetOffset_Ventilator 				:= FALSE;
 		bGetOffset_Kaltemittel_g			:= FALSE; 
 		bGetOffset_Kaltemittel_l 			:= FALSE;

@@ -19,6 +19,10 @@ GUIUpTown
 	<summary>
   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
 </summary>
+</member><member name="P:GUI_UpTown.My.Resources.Resources.RI_Fließbild_GUI4">
+	<summary>
+  Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+</summary>
 </member><member name="T:GUI_UpTown.My.Resources.Resources">
 	<summary>
   Eine stark typisierte Ressourcenklasse zum Suchen von lokalisierten Zeichenfolgen usw.

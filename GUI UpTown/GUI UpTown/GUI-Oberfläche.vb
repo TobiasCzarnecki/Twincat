@@ -113,14 +113,16 @@ Public Class Form1
 
     Private Sub CheckboxEingabe_Kuhlen_Wert_Changed(sender As Object, e As EventArgs) Handles CheckboxEingabe_Kuhlen.Wert_Changed, GroupBox2.EnabledChanged
         GroupBox2.Enabled = CheckboxEingabe_Kuhlen.Wert
+        'TabControl3.Enabled = CheckboxEingabe_Kuhlen.Wert
     End Sub
     Private Sub CheckboxEingabe_Abtauen_Wert_Changed(sender As Object, e As EventArgs) Handles CheckboxEingabe_Kuhlen.Wert_Changed, GroupBox3.EnabledChanged, CheckboxEingabe_Abtauen.Wert_Changed
         GroupBox3.Enabled = CheckboxEingabe_Abtauen.Wert
     End Sub
-    Private Sub CheckboxEingabe9_Wert_Changed(sender As Object, e As EventArgs) Handles CheckboxEingabe9.Wert_Changed, TextBox54.EnabledChanged, DropdownEingabe1.EnabledChanged
-        DropdownEingabe1.Enabled = CheckboxEingabe9.Wert
+    Private Sub CheckboxEingabe9_Wert_Changed(sender As Object, e As EventArgs) Handles CheckboxEingabe9.Wert_Changed, DropdownEingabe1.EnabledChanged, GroupBox4.EnabledChanged
+        SollWertEingabe3.Enabled = CheckboxEingabe9.Wert
+        Label3.Enabled = CheckboxEingabe9.Wert
     End Sub
-
+ 
     'Private Sub Timer3_Tick(sender As Object, e As EventArgs) Handles Timer3.Tick
     '    Zeit = Zeit + 1
     '    Button1.Text = Zeit
@@ -138,18 +140,4 @@ Public Class Form1
         End If
     End Sub
 
-
-
-    Private Sub Led19_Load(sender As Object, e As EventArgs) Handles Led19.Load
-
-    End Sub
-    Private Sub Led17_Load(sender As Object, e As EventArgs) Handles Led17.Load
-
-    End Sub
-    Private Sub Led16_Load(sender As Object, e As EventArgs) Handles Led16.Load
-
-    End Sub
-    Private Sub Led18_Load(sender As Object, e As EventArgs) Handles Led18.Load
-
-    End Sub
 End Class

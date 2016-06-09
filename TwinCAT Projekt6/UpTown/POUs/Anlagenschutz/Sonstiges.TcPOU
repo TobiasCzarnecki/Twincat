@@ -23,7 +23,7 @@ END_VAR
 (*Waagenschutz. Waagen sind nur bis 10 kg belastbar. Weitere Belastungen könnten zu Beschädigungen der Waagen führen.
   In diesem Fall wird abgetaut und der Verdampfer vom Eis befreit. Die Waagen werden entlastet. *)
   
-  IF Waage_roh[1]> 10000 OR Waage_roh[2] >10000 OR Waage_roh[3] >10000 OR Waage_roh[4] >10000 OR Waage_roh[5] >10000 Waage_roh[6] >10000 THEN 
+  IF Waage_roh[1]> 10000 OR Waage_roh[2] >10000 OR Waage_roh[3] >10000 OR Waage_roh[4] >10000 OR Waage_roh[5] >10000 OR Waage_roh[6] >10000 THEN 
 	  WarnungAnlagenschutz	 := TRUE;
 	  Mitteilung := 'Waagenschutz ist aktiviert worden'; 
 	  

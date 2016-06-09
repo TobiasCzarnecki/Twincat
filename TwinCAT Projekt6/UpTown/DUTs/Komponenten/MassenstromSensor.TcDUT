@@ -9,7 +9,7 @@ STRUCT
 //------hier sind die Messwerte deklariert, die vom Massenstromsensor per Modbus erfragt werden	
 	rFliessgeschwindigkeit:  		REAL; 					(*[m/s]*)
 	rVolumenstrom: 					REAL; 					(*[m³/s]*)
-	rMassenstrom: 					REAL; 					(*[kg/s]*)
+	rMassenstrom: 					REAL; 					(*[g/s]*)
 	rTemp:							REAL;					(*[°C]*)
 	rDichte: 						REAL;					(*[kg/m³]*)
 	

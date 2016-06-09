@@ -7,7 +7,11 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[(*Schütze, EV werden für PumpDown Modus geschaltet*)
+      <ST><![CDATA[(*Kompressor wird angeschaltet*)	
+	KP_ON		:= TRUE;	
+	PID_KP.Aktiv:= TRUE;
+		
+(*Schütze, EV werden für PumpDown Modus geschaltet*)
  	IF bPumpDown THEN 	
 	bPumpDown_rev := FALSE;
 	fb_Schuetzstellung(myStatus:= PumpDown);
@@ -16,6 +20,10 @@ END_VAR
 		IF   PT_VD_out.rDruck < Soll_PumpDownDruck THEN  			//!!Ist noch nicht ansprechbar!!
 			bPumpDown := FALSE;
 			bPumpDownAbgeschlossen:= TRUE;
+			
+			(*Kompressor wird ausgeschaltet*)	
+			KP_ON		:= FALSE;	
+			PID_KP.Aktiv:= FALSE;
 		END_IF
 	END_IF
 
@@ -28,13 +36,14 @@ END_VAR
 		IF  PT_KP_out.rDruck < Soll_PumpDownDruck THEN  			//!!Ist noch nicht ansprechbar!!
 			bPumpDown_rev := FALSE;
 			bPumpDown_revAbgeschlossen:= TRUE;
+			
+			(*Kompressor wird ausgeschaltet*)	
+			KP_ON		:= FALSE;	
+			PID_KP.Aktiv:= FALSE;
 		END_IF
 	END_IF
 	
-(*Kompressor wird angeschaltet*)	
-	KP_ON		:= TRUE;	
-	PID_KP.Aktiv:= TRUE;
-		
+
 
 			
 		

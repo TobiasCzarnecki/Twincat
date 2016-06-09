@@ -12,7 +12,12 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[(*Stellgrößen werden zugewiesen*)
+      <ST><![CDATA[(*Soll_zeit für den Automatik-Zyklus Modus wird von Decimal in eine TIME-Variable umgerechnet*)
+	IF AutomatikZyklusEin THEN 
+	Vereisungszeit := REAL_TO_TIME(1000*60*rVereisungszeit);
+	END_IF
+
+(*Stellgrößen werden zugewiesen*)
 PID_KP.x:= PT_VD_out.rDruck;				 //PT_KP_in.rDruck; !KP_in Druck funktioniert erst ab < 3 Bar!
 PID_VF_Ventilator.x:= PT_VF_out.rDruck;
 
@@ -45,10 +50,11 @@ END_IF
 		ELSE
 		bKP_TolleranzErreicht := FALSE;	
 	END_IF
-		
+
+	
 (*Regler für den Ventilator vom Verflüssiger*)	
 Ist_VF_Unterkuhlung := VF.T_v - Temp_VF_out.REAL_VAR;
-Verzogerungsglied(In:=Ist_VF_Unterkuhlung, T:=T#30S, K:=1, out=>Ist_VF_Unterkuhlung_PT1);
+Verzogerungsglied(In:=Ist_VF_Unterkuhlung, T:=T#10S, K:=1, out=>Ist_VF_Unterkuhlung_PT1);
 
 IF PID_VF_Ventilator.Aktiv THEN	
 fb_pid_VF( 

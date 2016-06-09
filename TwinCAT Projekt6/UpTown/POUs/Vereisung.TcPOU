@@ -35,6 +35,7 @@ END_VAR
 
 		IF AutomatikZyklusEin THEN 
 				bAbtauen := TRUE; 
+				bPumpDown_revAbgeschlossen := FALSE;		//damit wieder ein PUMPDOWN rev im nächsten Zyklus durchgeführt werden kann
 				CASE  AutomatikAbtauModus OF 
 						NichtAusgewahlt: 
 							Mitteilung := 'Kein Automatik-Abtaumodus ausgewählt!';

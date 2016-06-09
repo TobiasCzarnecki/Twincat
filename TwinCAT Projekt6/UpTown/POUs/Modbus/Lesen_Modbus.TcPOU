@@ -41,7 +41,7 @@ EV2(inEV:=EV_rev, outEV=> EV_rev);
 (*Daten vom Massestromsensoren werden umgerechnet. FLOAT-Werte werden in REAL umgerechnet*)
 MSS.rFliessgeschwindigkeit	:= FloatPointDW_TO_REAL(MSS.Data[1]);
 MSS.rVolumenstrom			:= FloatPointDW_TO_REAL(MSS.Data[2]);
-MSS.rMassenstrom			:= FloatPointDW_TO_REAL(MSS.Data[3]);
+MSS.rMassenstrom			:= FloatPointDW_TO_REAL(MSS.Data[3])*1000; // wird nun angezeigt in [g/s]
 MSS.rTemp					:= K_TO_C(FloatPointDW_TO_REAL(MSS.Data[4]));
 MSS.rDichte					:= FloatPointDW_TO_REAL(MSS.Data[5]);
 

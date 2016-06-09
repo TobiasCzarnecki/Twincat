@@ -24,6 +24,7 @@ END_VAR
 		bAbtauen_elektrisch		:=FALSE;
 		bAbtauen_Heissgas_oben	:=FALSE;
 		bAbtauen_Heissgas_unten	:=FALSE;
+		bPumpDownAbgeschlossen := FALSE;
 		TimerAbtaudauer(IN:= FALSE);
 	(*nächster Status*)
 		SM.Status := Leerlauf;
@@ -34,7 +35,7 @@ END_VAR
 CASE state OF
 	
 		
-1: 
+0: 
 	bAbtauenAbgeschlossen := FALSE;
 	
 	(*Regler werden ausgeschaltet*)
@@ -46,25 +47,25 @@ CASE state OF
 		KP_ON:= 						FALSE;
 	(*Nächster State wird je nach Abtau-Modus ausgewählt*)	
 		IF bAbtauen_elektrisch THEN
-		state:= 2;
+		state:= 1;
 		END_IF	
 		
 		IF bAbtauen_Heissgas_oben THEN
-		state:= 6;
+		state:= 5;
 		END_IF	
 		
 		IF bAbtauen_Heissgas_unten THEN
-		state:= 6;
+		state:= 5;
 		END_IF	
 		
 		IF NOT bAbtauen_elektrisch AND NOT bAbtauen_Heissgas_oben AND NOT bAbtauen_Heissgas_unten THEN
 		AbtauFehler := TRUE;
-		state:= 1;
+		state:= 0;
 		ELSE 
 		AbtauFehler := FALSE;
 		END_IF
 			
-2:	
+1:	
 	(*Elektrische Heizung wird eingeschaltet*)
 		ElektrischeHeizung_ON := TRUE;								// Schütz wird geschaletet und Heizung kann nun geregelt werden
 		Timer_HeizungAbtauwanne(In:= TRUE, PT:= StartAbtauwanneHeizung);
@@ -96,33 +97,33 @@ CASE state OF
 			Soll_ElektHeizrack2.REAL_VAR := 	0;		// Ausschalten der Heizung
 			Soll_ElektHeizrack_Boden.REAL_VAR :=0;		// Ausschalten der Heizung
 			
-			state:= 10;	
+			state:= 8;	
 		END_IF
 
 
-6:
+5:
 	(*state wird je nach Methode gewählt*)	
 		IF bAbtauen_Heissgas_oben THEN 
-			state:= 7;
+			state:= 6;
 		END_IF
 		
 		IF bAbtauen_Heissgas_unten THEN 
-			state:=8; 
+			state:=7; 
 		END_IF
 		
-7: 	
+6: 	
 	(*Schalte auf Abtauen von Oben*)
 		fb_Schuetzstellung(myStatus:= AbtauenOben);
 		
-		state:= 9;
+		state:= 8;
 	
-8:	
+7:	
 	(*Schalte auf Abtauen von Unten*)
 		fb_Schuetzstellung(myStatus:= AbtauenUnten);
 						
-		state:=9;
+		state:=8;
 
-9: 	
+8: 	
 	(*Kompressor und Ventilator vom VD_defrost werden eingeschaltet*)		
 		KP_ON:= 					TRUE;
 		PID_KP.Aktiv :=				TRUE;
@@ -132,18 +133,19 @@ CASE state OF
 			KP_ON:= 					FALSE;
 			PID_KP.Aktiv := 			FALSE;
 			VD_defrost_Ventilator_ON := FALSE;
-			state:= 10;
+			state:= 9;
+			Timer(IN:=FALSE);
 		END_IF
-10: 
+9: 
 	(*Starte Timer. Timer läuft 10 Minuten*)
 		Timer(IN:= TRUE, PT:= T#10M);
 	
 		IF Timer.Q THEN
-			state:= 11;
+			state:= 10;
 			Timer(IN:= FALSE);
 		END_IF
 	
-11: 	
+10: 	
 	(*Schalte Schütze auf Kühlen*)
 		fb_Schuetzstellung(myStatus:= KuehlenUnten);
 	
@@ -154,10 +156,10 @@ CASE state OF
 	(*Überprüfung ob Oberflächentemperatur auf dem Verdampfer kleiner als 0°C ist*)	
 		IF Temp_VD_Surface_gemittelt< 0 THEN
 			VD_Ventilator_ON:= TRUE;
-			state:=12;
+			state:=11;
 		END_IF
 		
-12: 	
+11: 	
 	(*Anlage wird reverse abgepumpt, falls sie zuvor per Heißgas(oben oder unten) abgetaut wurde*)	
 		IF bAbtauen_Heissgas_oben = TRUE OR bAbtauen_Heissgas_unten = TRUE THEN 
 		 bPumpDown_rev := TRUE;
@@ -170,7 +172,7 @@ CASE state OF
 		bAbtauen_elektrisch:= 		FALSE;
 		bAbtauen_Heissgas_oben:= 	FALSE;
 		bAbtauen_Heissgas_unten:= 	FALSE;
-	
+		bPumpDownAbgeschlossen := 	FALSE;
 	(*Kühl-Modus wird aktiviert und gegebenfalls ein PUMPDOWN_rev durchgeführt*)
 		IF AutomatikZyklusEin THEN 
 				bKuehlen:= TRUE;

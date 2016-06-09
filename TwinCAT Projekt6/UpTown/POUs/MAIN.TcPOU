@@ -131,7 +131,8 @@ Lesen: //Input von Klemmen Lesen und in native Werte umrechen
 		END_IF	
 	
 	//======Leerlauf Modus======	
-		IF bKuehlen = FALSE AND bAbtauen_elektrisch = FALSE AND bAbtauen_Heissgas_oben = FALSE AND bAbtauen_Heissgas_unten = FALSE // kein Modus ist ausgewählt
+		IF bKuehlen = FALSE AND bAbtauen_elektrisch = FALSE AND bAbtauen_Heissgas_oben = FALSE 
+		AND bAbtauen_Heissgas_unten = FALSE AND NOT bPumpDown AND NOT bPumpDown_rev // kein Modus ist ausgewählt
 	//	OR bAbtauenAbgeschlossen = TRUE																							// ABtauen abgeschlossen
  		THEN 
 			bLeerlauf := TRUE;
@@ -170,7 +171,7 @@ Kuehlen:	// Der Verdampfer vereist. Der Timer "TimerVereisung" bestimmt die Zeit
 				bManuellerModus := FALSE;
 				bLeerlauf := TRUE;
 				bKuehlenAbbrechen := FALSE;
-				
+				bPumpDown_revAbgeschlossen := FALSE;
 				SM.Status := Leerlauf;
 			END_IF
 			
@@ -246,7 +247,7 @@ Abtauen: (*Der Verdampfer wird abgetaut. Über GVL wird der Abtaumodus ausgewäh
 AnlagenPumpDown: //Anlage wird abgepumpt. Kältemittel wird in den Sammler gedrückt
 
 	PumpDownProgramm();
-	
+	Regelung();
 	IF 	bPumpDown= FALSE AND bPumpDown_rev= FALSE THEN
 		bNeuInitialisieren:= TRUE;  (*Soll-Regelwerte aus der Datenbank lesen *)
 	END_IF

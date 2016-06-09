@@ -13,8 +13,6 @@ E:\Twincat\GUI UpTown\GUI UpTown\bin\Release\TwinCAT.Scope2.Charting.ChartContro
 E:\Twincat\GUI UpTown\GUI UpTown\bin\Release\EBC_ADS_Bib.pdb
 E:\Twincat\GUI UpTown\GUI UpTown\bin\Release\TwinCAT.Ads.xml
 E:\Twincat\GUI UpTown\GUI UpTown\obj\Release\GUI_UpTown.Form1.resources
-E:\Twincat\GUI UpTown\GUI UpTown\obj\Release\GUI_UpTown.Form2.resources
-E:\Twincat\GUI UpTown\GUI UpTown\obj\Release\GUI_UpTown.log_p_h.resources
 E:\Twincat\GUI UpTown\GUI UpTown\obj\Release\GUI_UpTown.Resources.resources
 E:\Twincat\GUI UpTown\GUI UpTown\obj\Release\GUI UpTown.vbproj.GenerateResource.Cache
 E:\Twincat\GUI UpTown\GUI UpTown\obj\Release\GUI UpTown.exe
