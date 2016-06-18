@@ -45,7 +45,7 @@ PumpDown: (*Pump-Down wird durchgeführt bis der Druck vor dem KP kleiner als 1,
 		Schuetz_1K5 := TRUE;
 		
 	(*Falls Komponente ON ist wird sie auf TRUE gesetzt*)	
-		VD_Ventilator_ON			:= FALSE;  //TRUE;
+		VD_Ventilator_ON			:= TRUE;
 		VD_defrost_Ventilator_ON	:= FALSE;
 		ElektrischeHeizung_ON		:= FALSE;
 		KP_ON						:= TRUE;  
@@ -73,7 +73,7 @@ PumpDown_rev:	(*Schütze, EV_rev werden für PumpDown_rev Modus geschaltet*)
 		
 	(*Falls Komponente ON ist wird sie auf TRUE gesetzt*)	
 		VD_Ventilator_ON			:= FALSE;  
-		VD_defrost_Ventilator_ON	:= FALSE; //TRUE;
+		VD_defrost_Ventilator_ON	:= TRUE;
 		ElektrischeHeizung_ON		:= FALSE; 
 		KP_ON						:= TRUE; 
 		

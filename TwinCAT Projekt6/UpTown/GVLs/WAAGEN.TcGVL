@@ -48,7 +48,7 @@ END_VAR
 
 VAR_GLOBAL PERSISTENT
 (*Hier werden die Kalibrierungs-Daten gespeichert. Persistente Variablen bleiben auch nach erneuter Kompilierung bzw. Reset der SPS erhalten*)
-		k_alleDaten :	ARRAY[1..2] OF k_Daten;	
+		Umrechnungsfaktoren :	ARRAY[1..2] OF k_Daten;	//Umrechnungsfaktoren für die Waagen
 END_VAR
 ]]></Declaration>
   </GVL>

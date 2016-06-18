@@ -98,20 +98,15 @@ Partial Class Form1
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.DezimalAnzeige14 = New EBC_ADS_Bib.DezimalAnzeige()
         Me.SollWertEingabe5 = New EBC_ADS_Bib.SollWertEingabe()
-        Me.DezimalAnzeige17 = New EBC_ADS_Bib.DezimalAnzeige()
         Me.DezimalAnzeige16 = New EBC_ADS_Bib.DezimalAnzeige()
         Me.DezimalAnzeige13 = New EBC_ADS_Bib.DezimalAnzeige()
         Me.SollWertEingabe2 = New EBC_ADS_Bib.SollWertEingabe()
-        Me.DezimalAnzeige15 = New EBC_ADS_Bib.DezimalAnzeige()
         Me.Led4 = New EBC_ADS_Bib.LED()
         Me.Led2 = New EBC_ADS_Bib.LED()
-        Me.Led6 = New EBC_ADS_Bib.LED()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
@@ -152,31 +147,7 @@ Partial Class Form1
         Me.Label1 = New System.Windows.Forms.Label()
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
-        Me.DezimalAnzeige19 = New EBC_ADS_Bib.DezimalAnzeige()
-        Me.DezimalAnzeige20 = New EBC_ADS_Bib.DezimalAnzeige()
-        Me.DezimalAnzeige21 = New EBC_ADS_Bib.DezimalAnzeige()
         Me.Label_EV_in = New System.Windows.Forms.Label()
-        Me.Anzeige_EV_in_Temperatur = New EBC_ADS_Bib.DezimalAnzeige()
-        Me.Anzeige_EV_in_Druck = New EBC_ADS_Bib.DezimalAnzeige()
-        Me.Anzeige_EV_in_Enthalpie = New EBC_ADS_Bib.DezimalAnzeige()
-        Me.Anzeige_VD_out_Temperatur = New EBC_ADS_Bib.DezimalAnzeige()
-        Me.Anzeige_VD_in_Temperatur = New EBC_ADS_Bib.DezimalAnzeige()
-        Me.Anzeige_VF_out_Temperatur = New EBC_ADS_Bib.DezimalAnzeige()
-        Me.Anzeige_VF_in_Temperatur = New EBC_ADS_Bib.DezimalAnzeige()
-        Me.Anzeige_KP_in_Temperatur = New EBC_ADS_Bib.DezimalAnzeige()
-        Me.Anzeige_KP_out_Temperatur = New EBC_ADS_Bib.DezimalAnzeige()
-        Me.Anzeige_VD_out_Druck = New EBC_ADS_Bib.DezimalAnzeige()
-        Me.Anzeige_VD_out_Enthalpie = New EBC_ADS_Bib.DezimalAnzeige()
-        Me.Anzeige_VD_in_Druck = New EBC_ADS_Bib.DezimalAnzeige()
-        Me.Anzeige_VD_in_Enthalpie = New EBC_ADS_Bib.DezimalAnzeige()
-        Me.Anzeige_VF_out_Druck = New EBC_ADS_Bib.DezimalAnzeige()
-        Me.Anzeige_VF_out_Enthalpie = New EBC_ADS_Bib.DezimalAnzeige()
-        Me.Anzeige_VF_in_Druck = New EBC_ADS_Bib.DezimalAnzeige()
-        Me.Anzeige_VF_in_Enthalpie = New EBC_ADS_Bib.DezimalAnzeige()
-        Me.Anzeige_KP_in_Druck = New EBC_ADS_Bib.DezimalAnzeige()
-        Me.Anzeige_KP_in_Enthalpie = New EBC_ADS_Bib.DezimalAnzeige()
-        Me.Anzeige_KP_out_Druck = New EBC_ADS_Bib.DezimalAnzeige()
-        Me.Anzeige_KP_out_Enthalpie = New EBC_ADS_Bib.DezimalAnzeige()
         Me.Label_VD_in = New System.Windows.Forms.Label()
         Me.Label_VD_out = New System.Windows.Forms.Label()
         Me.Label_KP_in = New System.Windows.Forms.Label()
@@ -188,6 +159,42 @@ Partial Class Form1
         Me.p_1bar = New System.Windows.Forms.Label()
         Me.h_high = New System.Windows.Forms.Label()
         Me.nullpunkt = New System.Windows.Forms.Label()
+        Me.GroupBox7 = New System.Windows.Forms.GroupBox()
+        Me.DezimalAnzeige19 = New EBC_ADS_Bib.DezimalAnzeige()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.DezimalAnzeige20 = New EBC_ADS_Bib.DezimalAnzeige()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.DezimalAnzeige21 = New EBC_ADS_Bib.DezimalAnzeige()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.Anzeige_EV_in_Temperatur = New EBC_ADS_Bib.DezimalAnzeige()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.Anzeige_EV_in_Druck = New EBC_ADS_Bib.DezimalAnzeige()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.Anzeige_EV_in_Enthalpie = New EBC_ADS_Bib.DezimalAnzeige()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.Anzeige_VD_out_Temperatur = New EBC_ADS_Bib.DezimalAnzeige()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.Anzeige_VD_in_Temperatur = New EBC_ADS_Bib.DezimalAnzeige()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.Anzeige_VF_out_Temperatur = New EBC_ADS_Bib.DezimalAnzeige()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.Anzeige_VF_in_Temperatur = New EBC_ADS_Bib.DezimalAnzeige()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.Anzeige_KP_in_Temperatur = New EBC_ADS_Bib.DezimalAnzeige()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.Anzeige_KP_out_Temperatur = New EBC_ADS_Bib.DezimalAnzeige()
+        Me.Anzeige_KP_out_Enthalpie = New EBC_ADS_Bib.DezimalAnzeige()
+        Me.Anzeige_VD_out_Druck = New EBC_ADS_Bib.DezimalAnzeige()
+        Me.Anzeige_KP_out_Druck = New EBC_ADS_Bib.DezimalAnzeige()
+        Me.Anzeige_VD_out_Enthalpie = New EBC_ADS_Bib.DezimalAnzeige()
+        Me.Anzeige_KP_in_Enthalpie = New EBC_ADS_Bib.DezimalAnzeige()
+        Me.Anzeige_VD_in_Druck = New EBC_ADS_Bib.DezimalAnzeige()
+        Me.Anzeige_KP_in_Druck = New EBC_ADS_Bib.DezimalAnzeige()
+        Me.Anzeige_VD_in_Enthalpie = New EBC_ADS_Bib.DezimalAnzeige()
+        Me.Anzeige_VF_in_Enthalpie = New EBC_ADS_Bib.DezimalAnzeige()
+        Me.Anzeige_VF_out_Druck = New EBC_ADS_Bib.DezimalAnzeige()
+        Me.Anzeige_VF_in_Druck = New EBC_ADS_Bib.DezimalAnzeige()
+        Me.Anzeige_VF_out_Enthalpie = New EBC_ADS_Bib.DezimalAnzeige()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
         Me.TextBox23 = New System.Windows.Forms.TextBox()
@@ -219,6 +226,8 @@ Partial Class Form1
         Me.TextBox19 = New System.Windows.Forms.TextBox()
         Me.TabControl2 = New System.Windows.Forms.TabControl()
         Me.TabPage6 = New System.Windows.Forms.TabPage()
+        Me.Led9 = New EBC_ADS_Bib.LED()
+        Me.Led3 = New EBC_ADS_Bib.LED()
         Me.CheckboxEingabe13 = New EBC_ADS_Bib.CheckboxEingabe()
         Me.Led23 = New EBC_ADS_Bib.LED()
         Me.TextBox20 = New System.Windows.Forms.TextBox()
@@ -231,12 +240,17 @@ Partial Class Form1
         Me.Led19 = New EBC_ADS_Bib.LED()
         Me.CheckboxEingabe15 = New EBC_ADS_Bib.CheckboxEingabe()
         Me.TabPage7 = New System.Windows.Forms.TabPage()
+        Me.Led21 = New EBC_ADS_Bib.LED()
+        Me.Led22 = New EBC_ADS_Bib.LED()
+        Me.Led8 = New EBC_ADS_Bib.LED()
         Me.Led20 = New EBC_ADS_Bib.LED()
         Me.CheckboxEingabe16 = New EBC_ADS_Bib.CheckboxEingabe()
         Me.TextBox25 = New System.Windows.Forms.TextBox()
         Me.TextBox26 = New System.Windows.Forms.TextBox()
         Me.CheckboxEingabe18 = New EBC_ADS_Bib.CheckboxEingabe()
         Me.TabPage8 = New System.Windows.Forms.TabPage()
+        Me.Led7 = New EBC_ADS_Bib.LED()
+        Me.Led37 = New EBC_ADS_Bib.LED()
         Me.CheckboxEingabe19 = New EBC_ADS_Bib.CheckboxEingabe()
         Me.TextBox27 = New System.Windows.Forms.TextBox()
         Me.CheckboxEingabe20 = New EBC_ADS_Bib.CheckboxEingabe()
@@ -247,25 +261,18 @@ Partial Class Form1
         Me.Messwert = New EBC_ADS_Bib.ScopeView()
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.Timer3 = New System.Windows.Forms.Timer(Me.components)
-        Me.Led3 = New EBC_ADS_Bib.LED()
-        Me.Led9 = New EBC_ADS_Bib.LED()
-        Me.Led8 = New EBC_ADS_Bib.LED()
-        Me.Led21 = New EBC_ADS_Bib.LED()
-        Me.Led22 = New EBC_ADS_Bib.LED()
-        Me.Led7 = New EBC_ADS_Bib.LED()
-        Me.Led37 = New EBC_ADS_Bib.LED()
-        Me.GroupBox7 = New System.Windows.Forms.GroupBox()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.Label14 = New System.Windows.Forms.Label()
-        Me.Label15 = New System.Windows.Forms.Label()
-        Me.Label16 = New System.Windows.Forms.Label()
-        Me.Label17 = New System.Windows.Forms.Label()
-        Me.Label18 = New System.Windows.Forms.Label()
-        Me.Label19 = New System.Windows.Forms.Label()
-        Me.Label20 = New System.Windows.Forms.Label()
-        Me.Label21 = New System.Windows.Forms.Label()
+        Me.GroupBox8 = New System.Windows.Forms.GroupBox()
+        Me.Label22 = New System.Windows.Forms.Label()
+        Me.Label23 = New System.Windows.Forms.Label()
+        Me.DezimalAnzeige35 = New EBC_ADS_Bib.DezimalAnzeige()
+        Me.DezimalAnzeige39 = New EBC_ADS_Bib.DezimalAnzeige()
+        Me.Led38 = New EBC_ADS_Bib.LED()
+        Me.GroupBox9 = New System.Windows.Forms.GroupBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.DezimalAnzeige17 = New EBC_ADS_Bib.DezimalAnzeige()
+        Me.DezimalAnzeige15 = New EBC_ADS_Bib.DezimalAnzeige()
+        Me.Led6 = New EBC_ADS_Bib.LED()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
@@ -278,6 +285,7 @@ Partial Class Form1
         Me.GroupBox4.SuspendLayout()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage3.SuspendLayout()
+        Me.GroupBox7.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage5.SuspendLayout()
         Me.TabControl4.SuspendLayout()
@@ -289,7 +297,8 @@ Partial Class Form1
         Me.TabPage9.SuspendLayout()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage10.SuspendLayout()
-        Me.GroupBox7.SuspendLayout()
+        Me.GroupBox8.SuspendLayout()
+        Me.GroupBox9.SuspendLayout()
         Me.SuspendLayout()
         '
         'Timer1
@@ -888,10 +897,10 @@ Partial Class Form1
         Me.Led5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Led5.FarbeFalse = System.Drawing.Color.LightGray
         Me.Led5.FarbeTrue = System.Drawing.Color.Lime
-        Me.Led5.Location = New System.Drawing.Point(1306, 912)
+        Me.Led5.Location = New System.Drawing.Point(1251, 606)
         Me.Led5.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Led5.Name = "Led5"
-        Me.Led5.Size = New System.Drawing.Size(251, 29)
+        Me.Led5.Size = New System.Drawing.Size(164, 29)
         Me.Led5.Symbolname = "SM.bAbtauen"
         Me.Led5.TabIndex = 104
         Me.Led5.TextFalse = "Nicht Abtauen"
@@ -1107,10 +1116,10 @@ Partial Class Form1
         Me.Led1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Led1.FarbeFalse = System.Drawing.Color.LightGray
         Me.Led1.FarbeTrue = System.Drawing.Color.Lime
-        Me.Led1.Location = New System.Drawing.Point(1306, 949)
+        Me.Led1.Location = New System.Drawing.Point(1423, 606)
         Me.Led1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Led1.Name = "Led1"
-        Me.Led1.Size = New System.Drawing.Size(251, 29)
+        Me.Led1.Size = New System.Drawing.Size(171, 29)
         Me.Led1.Symbolname = "SM.bKuehlen"
         Me.Led1.TabIndex = 87
         Me.Led1.TextFalse = "Nicht Kühlen"
@@ -1286,24 +1295,21 @@ Partial Class Form1
         Me.GroupBox6.Controls.Add(Me.Label10)
         Me.GroupBox6.Controls.Add(Me.Label9)
         Me.GroupBox6.Controls.Add(Me.Label8)
-        Me.GroupBox6.Controls.Add(Me.Label7)
-        Me.GroupBox6.Controls.Add(Me.Label6)
         Me.GroupBox6.Controls.Add(Me.Label5)
         Me.GroupBox6.Controls.Add(Me.Label4)
         Me.GroupBox6.Controls.Add(Me.DezimalAnzeige14)
         Me.GroupBox6.Controls.Add(Me.SollWertEingabe5)
-        Me.GroupBox6.Controls.Add(Me.DezimalAnzeige17)
         Me.GroupBox6.Controls.Add(Me.DezimalAnzeige16)
         Me.GroupBox6.Controls.Add(Me.DezimalAnzeige13)
         Me.GroupBox6.Controls.Add(Me.SollWertEingabe2)
-        Me.GroupBox6.Controls.Add(Me.DezimalAnzeige15)
         Me.GroupBox6.Controls.Add(Me.Led4)
         Me.GroupBox6.Controls.Add(Me.Led2)
-        Me.GroupBox6.Controls.Add(Me.Led6)
+        Me.GroupBox6.Controls.Add(Me.GroupBox8)
+        Me.GroupBox6.Controls.Add(Me.GroupBox9)
         Me.GroupBox6.Font = New System.Drawing.Font("Calibri", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox6.Location = New System.Drawing.Point(1251, 652)
         Me.GroupBox6.Name = "GroupBox6"
-        Me.GroupBox6.Size = New System.Drawing.Size(343, 253)
+        Me.GroupBox6.Size = New System.Drawing.Size(343, 356)
         Me.GroupBox6.TabIndex = 132
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "Regelung"
@@ -1338,31 +1344,11 @@ Partial Class Form1
         Me.Label8.TabIndex = 137
         Me.Label8.Text = "Ist_Saugdruck"
         '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.BackColor = System.Drawing.SystemColors.AppWorkspace
-        Me.Label7.Location = New System.Drawing.Point(6, 154)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(129, 21)
-        Me.Label7.TabIndex = 136
-        Me.Label7.Text = "Soll_Überhitzung"
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.BackColor = System.Drawing.SystemColors.AppWorkspace
-        Me.Label6.Location = New System.Drawing.Point(4, 180)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(121, 21)
-        Me.Label6.TabIndex = 135
-        Me.Label6.Text = "Ist_Überhitzung"
-        '
         'Label5
         '
         Me.Label5.AutoSize = True
         Me.Label5.BackColor = System.Drawing.SystemColors.AppWorkspace
-        Me.Label5.Location = New System.Drawing.Point(6, 215)
+        Me.Label5.Location = New System.Drawing.Point(6, 326)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(106, 21)
         Me.Label5.TabIndex = 134
@@ -1385,7 +1371,7 @@ Partial Class Form1
         Me.DezimalAnzeige14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.DezimalAnzeige14.Einheit = "Bar"
         Me.DezimalAnzeige14.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DezimalAnzeige14.Location = New System.Drawing.Point(144, 119)
+        Me.DezimalAnzeige14.Location = New System.Drawing.Point(144, 117)
         Me.DezimalAnzeige14.Margin = New System.Windows.Forms.Padding(6, 5, 6, 5)
         Me.DezimalAnzeige14.Name = "DezimalAnzeige14"
         Me.DezimalAnzeige14.Size = New System.Drawing.Size(100, 19)
@@ -1412,21 +1398,6 @@ Partial Class Form1
         Me.SollWertEingabe5.TabIndex = 108
         Me.SollWertEingabe5.Wert = New Decimal(New Integer() {5, 0, 0, 0})
         '
-        'DezimalAnzeige17
-        '
-        Me.DezimalAnzeige17.Aktuallisierungsrate = 1000
-        Me.DezimalAnzeige17.BackColor = System.Drawing.Color.White
-        Me.DezimalAnzeige17.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.DezimalAnzeige17.Einheit = "K"
-        Me.DezimalAnzeige17.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DezimalAnzeige17.Location = New System.Drawing.Point(144, 153)
-        Me.DezimalAnzeige17.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.DezimalAnzeige17.Name = "DezimalAnzeige17"
-        Me.DezimalAnzeige17.Size = New System.Drawing.Size(100, 20)
-        Me.DezimalAnzeige17.Symbolname = "GVL.EV.RegelSollwert"
-        Me.DezimalAnzeige17.TabIndex = 122
-        Me.DezimalAnzeige17.Wert = New Decimal(New Integer() {0, 0, 0, 0})
-        '
         'DezimalAnzeige16
         '
         Me.DezimalAnzeige16.Aktuallisierungsrate = 1000
@@ -1434,7 +1405,7 @@ Partial Class Form1
         Me.DezimalAnzeige16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.DezimalAnzeige16.Einheit = "g/s"
         Me.DezimalAnzeige16.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DezimalAnzeige16.Location = New System.Drawing.Point(144, 213)
+        Me.DezimalAnzeige16.Location = New System.Drawing.Point(144, 324)
         Me.DezimalAnzeige16.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.DezimalAnzeige16.Name = "DezimalAnzeige16"
         Me.DezimalAnzeige16.Size = New System.Drawing.Size(100, 25)
@@ -1478,26 +1449,11 @@ Partial Class Form1
         Me.SollWertEingabe2.TabIndex = 103
         Me.SollWertEingabe2.Wert = New Decimal(New Integer() {15, 0, 0, 65536})
         '
-        'DezimalAnzeige15
-        '
-        Me.DezimalAnzeige15.Aktuallisierungsrate = 1000
-        Me.DezimalAnzeige15.BackColor = System.Drawing.Color.White
-        Me.DezimalAnzeige15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.DezimalAnzeige15.Einheit = "K"
-        Me.DezimalAnzeige15.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DezimalAnzeige15.Location = New System.Drawing.Point(144, 180)
-        Me.DezimalAnzeige15.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.DezimalAnzeige15.Name = "DezimalAnzeige15"
-        Me.DezimalAnzeige15.Size = New System.Drawing.Size(100, 23)
-        Me.DezimalAnzeige15.Symbolname = "GVL.EV.UberhitzungTemp"
-        Me.DezimalAnzeige15.TabIndex = 119
-        Me.DezimalAnzeige15.Wert = New Decimal(New Integer() {0, 0, 0, 0})
-        '
         'Led4
         '
         Me.Led4.Aktuallisierungsrate = 1000
         Me.Led4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.Led4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Led4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Led4.FarbeFalse = System.Drawing.Color.Yellow
         Me.Led4.FarbeTrue = System.Drawing.Color.Lime
         Me.Led4.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -1515,7 +1471,7 @@ Partial Class Form1
         '
         Me.Led2.Aktuallisierungsrate = 1000
         Me.Led2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.Led2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Led2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Led2.FarbeFalse = System.Drawing.Color.Yellow
         Me.Led2.FarbeTrue = System.Drawing.Color.Lime
         Me.Led2.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -1529,24 +1485,6 @@ Partial Class Form1
         Me.Led2.TextFalse = "Fehler > 5 %"
         Me.Led2.TextTrue = "Fehler < 5 %"
         Me.Led2.Wert = True
-        '
-        'Led6
-        '
-        Me.Led6.Aktuallisierungsrate = 1000
-        Me.Led6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.Led6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.Led6.FarbeFalse = System.Drawing.Color.Yellow
-        Me.Led6.FarbeTrue = System.Drawing.Color.Lime
-        Me.Led6.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Led6.Location = New System.Drawing.Point(246, 151)
-        Me.Led6.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.Led6.Name = "Led6"
-        Me.Led6.Size = New System.Drawing.Size(90, 52)
-        Me.Led6.Symbolname = "REGLER.bEV_TolleranzErreicht"
-        Me.Led6.TabIndex = 113
-        Me.Led6.TextFalse = "Fehler > 5 %"
-        Me.Led6.TextTrue = "Fehler < 5 %"
-        Me.Led6.Wert = True
         '
         'PictureBox1
         '
@@ -2171,51 +2109,6 @@ Partial Class Form1
         Me.TabPage3.Text = "log p, h Diagramm"
         Me.TabPage3.UseVisualStyleBackColor = True
         '
-        'DezimalAnzeige19
-        '
-        Me.DezimalAnzeige19.Aktuallisierungsrate = 1000
-        Me.DezimalAnzeige19.BackColor = System.Drawing.Color.White
-        Me.DezimalAnzeige19.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.DezimalAnzeige19.Einheit = Nothing
-        Me.DezimalAnzeige19.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DezimalAnzeige19.Location = New System.Drawing.Point(341, 171)
-        Me.DezimalAnzeige19.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.DezimalAnzeige19.Name = "DezimalAnzeige19"
-        Me.DezimalAnzeige19.Size = New System.Drawing.Size(70, 46)
-        Me.DezimalAnzeige19.Symbolname = "GVL.VD.H"
-        Me.DezimalAnzeige19.TabIndex = 168
-        Me.DezimalAnzeige19.Wert = New Decimal(New Integer() {0, 0, 0, 0})
-        '
-        'DezimalAnzeige20
-        '
-        Me.DezimalAnzeige20.Aktuallisierungsrate = 1000
-        Me.DezimalAnzeige20.BackColor = System.Drawing.Color.White
-        Me.DezimalAnzeige20.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.DezimalAnzeige20.Einheit = Nothing
-        Me.DezimalAnzeige20.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DezimalAnzeige20.Location = New System.Drawing.Point(340, 85)
-        Me.DezimalAnzeige20.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.DezimalAnzeige20.Name = "DezimalAnzeige20"
-        Me.DezimalAnzeige20.Size = New System.Drawing.Size(70, 48)
-        Me.DezimalAnzeige20.Symbolname = "GVL.VF.H"
-        Me.DezimalAnzeige20.TabIndex = 167
-        Me.DezimalAnzeige20.Wert = New Decimal(New Integer() {0, 0, 0, 0})
-        '
-        'DezimalAnzeige21
-        '
-        Me.DezimalAnzeige21.Aktuallisierungsrate = 1000
-        Me.DezimalAnzeige21.BackColor = System.Drawing.Color.White
-        Me.DezimalAnzeige21.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.DezimalAnzeige21.Einheit = Nothing
-        Me.DezimalAnzeige21.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DezimalAnzeige21.Location = New System.Drawing.Point(340, 26)
-        Me.DezimalAnzeige21.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.DezimalAnzeige21.Name = "DezimalAnzeige21"
-        Me.DezimalAnzeige21.Size = New System.Drawing.Size(70, 46)
-        Me.DezimalAnzeige21.Symbolname = "GVL.KP.H"
-        Me.DezimalAnzeige21.TabIndex = 166
-        Me.DezimalAnzeige21.Wert = New Decimal(New Integer() {0, 0, 0, 0})
-        '
         'Label_EV_in
         '
         Me.Label_EV_in.AutoSize = True
@@ -2226,321 +2119,6 @@ Partial Class Form1
         Me.Label_EV_in.TabIndex = 164
         Me.Label_EV_in.Text = "EV_in"
         Me.Label_EV_in.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'Anzeige_EV_in_Temperatur
-        '
-        Me.Anzeige_EV_in_Temperatur.Aktuallisierungsrate = 1000
-        Me.Anzeige_EV_in_Temperatur.BackColor = System.Drawing.Color.White
-        Me.Anzeige_EV_in_Temperatur.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Anzeige_EV_in_Temperatur.Einheit = "°C"
-        Me.Anzeige_EV_in_Temperatur.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Anzeige_EV_in_Temperatur.Location = New System.Drawing.Point(261, 143)
-        Me.Anzeige_EV_in_Temperatur.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.Anzeige_EV_in_Temperatur.Name = "Anzeige_EV_in_Temperatur"
-        Me.Anzeige_EV_in_Temperatur.Size = New System.Drawing.Size(70, 20)
-        Me.Anzeige_EV_in_Temperatur.Symbolname = "GVL.EV_in.T_in"
-        Me.Anzeige_EV_in_Temperatur.TabIndex = 163
-        Me.Anzeige_EV_in_Temperatur.Wert = New Decimal(New Integer() {0, 0, 0, 0})
-        '
-        'Anzeige_EV_in_Druck
-        '
-        Me.Anzeige_EV_in_Druck.Aktuallisierungsrate = 1000
-        Me.Anzeige_EV_in_Druck.BackColor = System.Drawing.Color.White
-        Me.Anzeige_EV_in_Druck.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Anzeige_EV_in_Druck.Einheit = "bar"
-        Me.Anzeige_EV_in_Druck.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Anzeige_EV_in_Druck.Location = New System.Drawing.Point(188, 143)
-        Me.Anzeige_EV_in_Druck.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.Anzeige_EV_in_Druck.Name = "Anzeige_EV_in_Druck"
-        Me.Anzeige_EV_in_Druck.Size = New System.Drawing.Size(66, 20)
-        Me.Anzeige_EV_in_Druck.Symbolname = "GVL.EV_in.p_in"
-        Me.Anzeige_EV_in_Druck.TabIndex = 161
-        Me.Anzeige_EV_in_Druck.Wert = New Decimal(New Integer() {0, 0, 0, 0})
-        '
-        'Anzeige_EV_in_Enthalpie
-        '
-        Me.Anzeige_EV_in_Enthalpie.Aktuallisierungsrate = 1000
-        Me.Anzeige_EV_in_Enthalpie.BackColor = System.Drawing.Color.White
-        Me.Anzeige_EV_in_Enthalpie.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Anzeige_EV_in_Enthalpie.Einheit = Nothing
-        Me.Anzeige_EV_in_Enthalpie.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Anzeige_EV_in_Enthalpie.Location = New System.Drawing.Point(110, 143)
-        Me.Anzeige_EV_in_Enthalpie.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.Anzeige_EV_in_Enthalpie.Name = "Anzeige_EV_in_Enthalpie"
-        Me.Anzeige_EV_in_Enthalpie.Size = New System.Drawing.Size(70, 20)
-        Me.Anzeige_EV_in_Enthalpie.Symbolname = "GVL.EV_in.h_in"
-        Me.Anzeige_EV_in_Enthalpie.TabIndex = 160
-        Me.Anzeige_EV_in_Enthalpie.Wert = New Decimal(New Integer() {0, 0, 0, 0})
-        '
-        'Anzeige_VD_out_Temperatur
-        '
-        Me.Anzeige_VD_out_Temperatur.Aktuallisierungsrate = 1000
-        Me.Anzeige_VD_out_Temperatur.BackColor = System.Drawing.Color.White
-        Me.Anzeige_VD_out_Temperatur.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Anzeige_VD_out_Temperatur.Einheit = "°C"
-        Me.Anzeige_VD_out_Temperatur.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Anzeige_VD_out_Temperatur.Location = New System.Drawing.Point(261, 199)
-        Me.Anzeige_VD_out_Temperatur.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.Anzeige_VD_out_Temperatur.Name = "Anzeige_VD_out_Temperatur"
-        Me.Anzeige_VD_out_Temperatur.Size = New System.Drawing.Size(70, 20)
-        Me.Anzeige_VD_out_Temperatur.Symbolname = "GVL.VD.T_out"
-        Me.Anzeige_VD_out_Temperatur.TabIndex = 159
-        Me.Anzeige_VD_out_Temperatur.Wert = New Decimal(New Integer() {0, 0, 0, 0})
-        '
-        'Anzeige_VD_in_Temperatur
-        '
-        Me.Anzeige_VD_in_Temperatur.Aktuallisierungsrate = 1000
-        Me.Anzeige_VD_in_Temperatur.BackColor = System.Drawing.Color.White
-        Me.Anzeige_VD_in_Temperatur.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Anzeige_VD_in_Temperatur.Einheit = "°C"
-        Me.Anzeige_VD_in_Temperatur.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Anzeige_VD_in_Temperatur.Location = New System.Drawing.Point(263, 171)
-        Me.Anzeige_VD_in_Temperatur.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.Anzeige_VD_in_Temperatur.Name = "Anzeige_VD_in_Temperatur"
-        Me.Anzeige_VD_in_Temperatur.Size = New System.Drawing.Size(70, 20)
-        Me.Anzeige_VD_in_Temperatur.Symbolname = "GVL.VD.T_in"
-        Me.Anzeige_VD_in_Temperatur.TabIndex = 158
-        Me.Anzeige_VD_in_Temperatur.Wert = New Decimal(New Integer() {0, 0, 0, 0})
-        '
-        'Anzeige_VF_out_Temperatur
-        '
-        Me.Anzeige_VF_out_Temperatur.Aktuallisierungsrate = 1000
-        Me.Anzeige_VF_out_Temperatur.BackColor = System.Drawing.Color.White
-        Me.Anzeige_VF_out_Temperatur.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Anzeige_VF_out_Temperatur.Einheit = "°C"
-        Me.Anzeige_VF_out_Temperatur.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Anzeige_VF_out_Temperatur.Location = New System.Drawing.Point(262, 113)
-        Me.Anzeige_VF_out_Temperatur.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.Anzeige_VF_out_Temperatur.Name = "Anzeige_VF_out_Temperatur"
-        Me.Anzeige_VF_out_Temperatur.Size = New System.Drawing.Size(70, 20)
-        Me.Anzeige_VF_out_Temperatur.Symbolname = "GVL.VF.T_out"
-        Me.Anzeige_VF_out_Temperatur.TabIndex = 157
-        Me.Anzeige_VF_out_Temperatur.Wert = New Decimal(New Integer() {0, 0, 0, 0})
-        '
-        'Anzeige_VF_in_Temperatur
-        '
-        Me.Anzeige_VF_in_Temperatur.Aktuallisierungsrate = 1000
-        Me.Anzeige_VF_in_Temperatur.BackColor = System.Drawing.Color.White
-        Me.Anzeige_VF_in_Temperatur.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Anzeige_VF_in_Temperatur.Einheit = "°C"
-        Me.Anzeige_VF_in_Temperatur.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Anzeige_VF_in_Temperatur.Location = New System.Drawing.Point(261, 85)
-        Me.Anzeige_VF_in_Temperatur.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.Anzeige_VF_in_Temperatur.Name = "Anzeige_VF_in_Temperatur"
-        Me.Anzeige_VF_in_Temperatur.Size = New System.Drawing.Size(70, 20)
-        Me.Anzeige_VF_in_Temperatur.Symbolname = "GVL.VF.T_in"
-        Me.Anzeige_VF_in_Temperatur.TabIndex = 156
-        Me.Anzeige_VF_in_Temperatur.Wert = New Decimal(New Integer() {0, 0, 0, 0})
-        '
-        'Anzeige_KP_in_Temperatur
-        '
-        Me.Anzeige_KP_in_Temperatur.Aktuallisierungsrate = 1000
-        Me.Anzeige_KP_in_Temperatur.BackColor = System.Drawing.Color.White
-        Me.Anzeige_KP_in_Temperatur.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Anzeige_KP_in_Temperatur.Einheit = "°C"
-        Me.Anzeige_KP_in_Temperatur.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Anzeige_KP_in_Temperatur.Location = New System.Drawing.Point(262, 26)
-        Me.Anzeige_KP_in_Temperatur.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.Anzeige_KP_in_Temperatur.Name = "Anzeige_KP_in_Temperatur"
-        Me.Anzeige_KP_in_Temperatur.Size = New System.Drawing.Size(70, 20)
-        Me.Anzeige_KP_in_Temperatur.Symbolname = "GVL.KP.T_in"
-        Me.Anzeige_KP_in_Temperatur.TabIndex = 155
-        Me.Anzeige_KP_in_Temperatur.Wert = New Decimal(New Integer() {0, 0, 0, 0})
-        '
-        'Anzeige_KP_out_Temperatur
-        '
-        Me.Anzeige_KP_out_Temperatur.Aktuallisierungsrate = 1000
-        Me.Anzeige_KP_out_Temperatur.BackColor = System.Drawing.Color.White
-        Me.Anzeige_KP_out_Temperatur.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Anzeige_KP_out_Temperatur.Einheit = "°C"
-        Me.Anzeige_KP_out_Temperatur.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Anzeige_KP_out_Temperatur.Location = New System.Drawing.Point(262, 52)
-        Me.Anzeige_KP_out_Temperatur.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.Anzeige_KP_out_Temperatur.Name = "Anzeige_KP_out_Temperatur"
-        Me.Anzeige_KP_out_Temperatur.Size = New System.Drawing.Size(70, 20)
-        Me.Anzeige_KP_out_Temperatur.Symbolname = "GVL.KP.T_out"
-        Me.Anzeige_KP_out_Temperatur.TabIndex = 153
-        Me.Anzeige_KP_out_Temperatur.Wert = New Decimal(New Integer() {0, 0, 0, 0})
-        '
-        'Anzeige_VD_out_Druck
-        '
-        Me.Anzeige_VD_out_Druck.Aktuallisierungsrate = 1000
-        Me.Anzeige_VD_out_Druck.BackColor = System.Drawing.Color.White
-        Me.Anzeige_VD_out_Druck.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Anzeige_VD_out_Druck.Einheit = "bar"
-        Me.Anzeige_VD_out_Druck.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Anzeige_VD_out_Druck.Location = New System.Drawing.Point(188, 199)
-        Me.Anzeige_VD_out_Druck.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.Anzeige_VD_out_Druck.Name = "Anzeige_VD_out_Druck"
-        Me.Anzeige_VD_out_Druck.Size = New System.Drawing.Size(66, 20)
-        Me.Anzeige_VD_out_Druck.Symbolname = "GVL.VD.p_out"
-        Me.Anzeige_VD_out_Druck.TabIndex = 151
-        Me.Anzeige_VD_out_Druck.Wert = New Decimal(New Integer() {0, 0, 0, 0})
-        '
-        'Anzeige_VD_out_Enthalpie
-        '
-        Me.Anzeige_VD_out_Enthalpie.Aktuallisierungsrate = 1000
-        Me.Anzeige_VD_out_Enthalpie.BackColor = System.Drawing.Color.White
-        Me.Anzeige_VD_out_Enthalpie.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Anzeige_VD_out_Enthalpie.Einheit = Nothing
-        Me.Anzeige_VD_out_Enthalpie.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Anzeige_VD_out_Enthalpie.Location = New System.Drawing.Point(110, 199)
-        Me.Anzeige_VD_out_Enthalpie.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.Anzeige_VD_out_Enthalpie.Name = "Anzeige_VD_out_Enthalpie"
-        Me.Anzeige_VD_out_Enthalpie.Size = New System.Drawing.Size(70, 20)
-        Me.Anzeige_VD_out_Enthalpie.Symbolname = "GVL.VD.h_out"
-        Me.Anzeige_VD_out_Enthalpie.TabIndex = 150
-        Me.Anzeige_VD_out_Enthalpie.Wert = New Decimal(New Integer() {0, 0, 0, 0})
-        '
-        'Anzeige_VD_in_Druck
-        '
-        Me.Anzeige_VD_in_Druck.Aktuallisierungsrate = 1000
-        Me.Anzeige_VD_in_Druck.BackColor = System.Drawing.Color.White
-        Me.Anzeige_VD_in_Druck.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Anzeige_VD_in_Druck.Einheit = "bar"
-        Me.Anzeige_VD_in_Druck.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Anzeige_VD_in_Druck.Location = New System.Drawing.Point(188, 171)
-        Me.Anzeige_VD_in_Druck.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.Anzeige_VD_in_Druck.Name = "Anzeige_VD_in_Druck"
-        Me.Anzeige_VD_in_Druck.Size = New System.Drawing.Size(66, 20)
-        Me.Anzeige_VD_in_Druck.Symbolname = "GVL.VD.p_in"
-        Me.Anzeige_VD_in_Druck.TabIndex = 148
-        Me.Anzeige_VD_in_Druck.Wert = New Decimal(New Integer() {0, 0, 0, 0})
-        '
-        'Anzeige_VD_in_Enthalpie
-        '
-        Me.Anzeige_VD_in_Enthalpie.Aktuallisierungsrate = 1000
-        Me.Anzeige_VD_in_Enthalpie.BackColor = System.Drawing.Color.White
-        Me.Anzeige_VD_in_Enthalpie.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Anzeige_VD_in_Enthalpie.Einheit = Nothing
-        Me.Anzeige_VD_in_Enthalpie.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Anzeige_VD_in_Enthalpie.Location = New System.Drawing.Point(110, 170)
-        Me.Anzeige_VD_in_Enthalpie.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.Anzeige_VD_in_Enthalpie.Name = "Anzeige_VD_in_Enthalpie"
-        Me.Anzeige_VD_in_Enthalpie.Size = New System.Drawing.Size(70, 20)
-        Me.Anzeige_VD_in_Enthalpie.Symbolname = "GVL.VD.h_in"
-        Me.Anzeige_VD_in_Enthalpie.TabIndex = 147
-        Me.Anzeige_VD_in_Enthalpie.Wert = New Decimal(New Integer() {0, 0, 0, 0})
-        '
-        'Anzeige_VF_out_Druck
-        '
-        Me.Anzeige_VF_out_Druck.Aktuallisierungsrate = 1000
-        Me.Anzeige_VF_out_Druck.BackColor = System.Drawing.Color.White
-        Me.Anzeige_VF_out_Druck.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Anzeige_VF_out_Druck.Einheit = "bar"
-        Me.Anzeige_VF_out_Druck.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Anzeige_VF_out_Druck.Location = New System.Drawing.Point(188, 113)
-        Me.Anzeige_VF_out_Druck.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.Anzeige_VF_out_Druck.Name = "Anzeige_VF_out_Druck"
-        Me.Anzeige_VF_out_Druck.Size = New System.Drawing.Size(66, 20)
-        Me.Anzeige_VF_out_Druck.Symbolname = "GVL.VF.p_out"
-        Me.Anzeige_VF_out_Druck.TabIndex = 145
-        Me.Anzeige_VF_out_Druck.Wert = New Decimal(New Integer() {0, 0, 0, 0})
-        '
-        'Anzeige_VF_out_Enthalpie
-        '
-        Me.Anzeige_VF_out_Enthalpie.Aktuallisierungsrate = 1000
-        Me.Anzeige_VF_out_Enthalpie.BackColor = System.Drawing.Color.White
-        Me.Anzeige_VF_out_Enthalpie.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Anzeige_VF_out_Enthalpie.Einheit = Nothing
-        Me.Anzeige_VF_out_Enthalpie.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Anzeige_VF_out_Enthalpie.Location = New System.Drawing.Point(110, 113)
-        Me.Anzeige_VF_out_Enthalpie.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.Anzeige_VF_out_Enthalpie.Name = "Anzeige_VF_out_Enthalpie"
-        Me.Anzeige_VF_out_Enthalpie.Size = New System.Drawing.Size(70, 20)
-        Me.Anzeige_VF_out_Enthalpie.Symbolname = "GVL.VF.h_out"
-        Me.Anzeige_VF_out_Enthalpie.TabIndex = 144
-        Me.Anzeige_VF_out_Enthalpie.Wert = New Decimal(New Integer() {0, 0, 0, 0})
-        '
-        'Anzeige_VF_in_Druck
-        '
-        Me.Anzeige_VF_in_Druck.Aktuallisierungsrate = 1000
-        Me.Anzeige_VF_in_Druck.BackColor = System.Drawing.Color.White
-        Me.Anzeige_VF_in_Druck.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Anzeige_VF_in_Druck.Einheit = "bar"
-        Me.Anzeige_VF_in_Druck.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Anzeige_VF_in_Druck.Location = New System.Drawing.Point(188, 85)
-        Me.Anzeige_VF_in_Druck.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.Anzeige_VF_in_Druck.Name = "Anzeige_VF_in_Druck"
-        Me.Anzeige_VF_in_Druck.Size = New System.Drawing.Size(66, 20)
-        Me.Anzeige_VF_in_Druck.Symbolname = "GVL.VF.p_in"
-        Me.Anzeige_VF_in_Druck.TabIndex = 142
-        Me.Anzeige_VF_in_Druck.Wert = New Decimal(New Integer() {0, 0, 0, 0})
-        '
-        'Anzeige_VF_in_Enthalpie
-        '
-        Me.Anzeige_VF_in_Enthalpie.Aktuallisierungsrate = 1000
-        Me.Anzeige_VF_in_Enthalpie.BackColor = System.Drawing.Color.White
-        Me.Anzeige_VF_in_Enthalpie.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Anzeige_VF_in_Enthalpie.Einheit = Nothing
-        Me.Anzeige_VF_in_Enthalpie.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Anzeige_VF_in_Enthalpie.Location = New System.Drawing.Point(110, 85)
-        Me.Anzeige_VF_in_Enthalpie.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.Anzeige_VF_in_Enthalpie.Name = "Anzeige_VF_in_Enthalpie"
-        Me.Anzeige_VF_in_Enthalpie.Size = New System.Drawing.Size(70, 20)
-        Me.Anzeige_VF_in_Enthalpie.Symbolname = "GVL.VF.h_in"
-        Me.Anzeige_VF_in_Enthalpie.TabIndex = 141
-        Me.Anzeige_VF_in_Enthalpie.Wert = New Decimal(New Integer() {0, 0, 0, 0})
-        '
-        'Anzeige_KP_in_Druck
-        '
-        Me.Anzeige_KP_in_Druck.Aktuallisierungsrate = 1000
-        Me.Anzeige_KP_in_Druck.BackColor = System.Drawing.Color.White
-        Me.Anzeige_KP_in_Druck.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Anzeige_KP_in_Druck.Einheit = "bar"
-        Me.Anzeige_KP_in_Druck.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Anzeige_KP_in_Druck.Location = New System.Drawing.Point(188, 25)
-        Me.Anzeige_KP_in_Druck.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.Anzeige_KP_in_Druck.Name = "Anzeige_KP_in_Druck"
-        Me.Anzeige_KP_in_Druck.Size = New System.Drawing.Size(66, 20)
-        Me.Anzeige_KP_in_Druck.Symbolname = "GVL.KP.p_in"
-        Me.Anzeige_KP_in_Druck.TabIndex = 139
-        Me.Anzeige_KP_in_Druck.Wert = New Decimal(New Integer() {0, 0, 0, 0})
-        '
-        'Anzeige_KP_in_Enthalpie
-        '
-        Me.Anzeige_KP_in_Enthalpie.Aktuallisierungsrate = 1000
-        Me.Anzeige_KP_in_Enthalpie.BackColor = System.Drawing.Color.White
-        Me.Anzeige_KP_in_Enthalpie.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Anzeige_KP_in_Enthalpie.Einheit = Nothing
-        Me.Anzeige_KP_in_Enthalpie.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Anzeige_KP_in_Enthalpie.Location = New System.Drawing.Point(110, 25)
-        Me.Anzeige_KP_in_Enthalpie.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.Anzeige_KP_in_Enthalpie.Name = "Anzeige_KP_in_Enthalpie"
-        Me.Anzeige_KP_in_Enthalpie.Size = New System.Drawing.Size(70, 20)
-        Me.Anzeige_KP_in_Enthalpie.Symbolname = "GVL.KP.h_in"
-        Me.Anzeige_KP_in_Enthalpie.TabIndex = 138
-        Me.Anzeige_KP_in_Enthalpie.Wert = New Decimal(New Integer() {0, 0, 0, 0})
-        '
-        'Anzeige_KP_out_Druck
-        '
-        Me.Anzeige_KP_out_Druck.Aktuallisierungsrate = 1000
-        Me.Anzeige_KP_out_Druck.BackColor = System.Drawing.Color.White
-        Me.Anzeige_KP_out_Druck.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Anzeige_KP_out_Druck.Einheit = "bar"
-        Me.Anzeige_KP_out_Druck.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Anzeige_KP_out_Druck.Location = New System.Drawing.Point(188, 53)
-        Me.Anzeige_KP_out_Druck.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.Anzeige_KP_out_Druck.Name = "Anzeige_KP_out_Druck"
-        Me.Anzeige_KP_out_Druck.Size = New System.Drawing.Size(66, 20)
-        Me.Anzeige_KP_out_Druck.Symbolname = "GVL.KP.p_out"
-        Me.Anzeige_KP_out_Druck.TabIndex = 131
-        Me.Anzeige_KP_out_Druck.Wert = New Decimal(New Integer() {0, 0, 0, 0})
-        '
-        'Anzeige_KP_out_Enthalpie
-        '
-        Me.Anzeige_KP_out_Enthalpie.Aktuallisierungsrate = 1000
-        Me.Anzeige_KP_out_Enthalpie.BackColor = System.Drawing.Color.White
-        Me.Anzeige_KP_out_Enthalpie.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Anzeige_KP_out_Enthalpie.Einheit = Nothing
-        Me.Anzeige_KP_out_Enthalpie.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Anzeige_KP_out_Enthalpie.Location = New System.Drawing.Point(110, 54)
-        Me.Anzeige_KP_out_Enthalpie.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.Anzeige_KP_out_Enthalpie.Name = "Anzeige_KP_out_Enthalpie"
-        Me.Anzeige_KP_out_Enthalpie.Size = New System.Drawing.Size(70, 20)
-        Me.Anzeige_KP_out_Enthalpie.Symbolname = "GVL.KP.h_out"
-        Me.Anzeige_KP_out_Enthalpie.TabIndex = 130
-        Me.Anzeige_KP_out_Enthalpie.Wert = New Decimal(New Integer() {0, 0, 0, 0})
         '
         'Label_VD_in
         '
@@ -2662,6 +2240,527 @@ Partial Class Form1
         Me.nullpunkt.TabIndex = 13
         Me.nullpunkt.Text = "h_low_p_0.5bar"
         Me.nullpunkt.Visible = False
+        '
+        'GroupBox7
+        '
+        Me.GroupBox7.BackColor = System.Drawing.Color.DarkGray
+        Me.GroupBox7.Controls.Add(Me.DezimalAnzeige19)
+        Me.GroupBox7.Controls.Add(Me.Label21)
+        Me.GroupBox7.Controls.Add(Me.DezimalAnzeige20)
+        Me.GroupBox7.Controls.Add(Me.Label20)
+        Me.GroupBox7.Controls.Add(Me.DezimalAnzeige21)
+        Me.GroupBox7.Controls.Add(Me.Label19)
+        Me.GroupBox7.Controls.Add(Me.Anzeige_EV_in_Temperatur)
+        Me.GroupBox7.Controls.Add(Me.Label18)
+        Me.GroupBox7.Controls.Add(Me.Anzeige_EV_in_Druck)
+        Me.GroupBox7.Controls.Add(Me.Label17)
+        Me.GroupBox7.Controls.Add(Me.Anzeige_EV_in_Enthalpie)
+        Me.GroupBox7.Controls.Add(Me.Label15)
+        Me.GroupBox7.Controls.Add(Me.Anzeige_VD_out_Temperatur)
+        Me.GroupBox7.Controls.Add(Me.Label16)
+        Me.GroupBox7.Controls.Add(Me.Anzeige_VD_in_Temperatur)
+        Me.GroupBox7.Controls.Add(Me.Label14)
+        Me.GroupBox7.Controls.Add(Me.Anzeige_VF_out_Temperatur)
+        Me.GroupBox7.Controls.Add(Me.Label13)
+        Me.GroupBox7.Controls.Add(Me.Anzeige_VF_in_Temperatur)
+        Me.GroupBox7.Controls.Add(Me.Label11)
+        Me.GroupBox7.Controls.Add(Me.Anzeige_KP_in_Temperatur)
+        Me.GroupBox7.Controls.Add(Me.Label12)
+        Me.GroupBox7.Controls.Add(Me.Anzeige_KP_out_Temperatur)
+        Me.GroupBox7.Controls.Add(Me.Anzeige_KP_out_Enthalpie)
+        Me.GroupBox7.Controls.Add(Me.Anzeige_VD_out_Druck)
+        Me.GroupBox7.Controls.Add(Me.Anzeige_KP_out_Druck)
+        Me.GroupBox7.Controls.Add(Me.Anzeige_VD_out_Enthalpie)
+        Me.GroupBox7.Controls.Add(Me.Anzeige_KP_in_Enthalpie)
+        Me.GroupBox7.Controls.Add(Me.Anzeige_VD_in_Druck)
+        Me.GroupBox7.Controls.Add(Me.Anzeige_KP_in_Druck)
+        Me.GroupBox7.Controls.Add(Me.Anzeige_VD_in_Enthalpie)
+        Me.GroupBox7.Controls.Add(Me.Anzeige_VF_in_Enthalpie)
+        Me.GroupBox7.Controls.Add(Me.Anzeige_VF_out_Druck)
+        Me.GroupBox7.Controls.Add(Me.Anzeige_VF_in_Druck)
+        Me.GroupBox7.Controls.Add(Me.Anzeige_VF_out_Enthalpie)
+        Me.GroupBox7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.GroupBox7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.GroupBox7.Location = New System.Drawing.Point(171, 106)
+        Me.GroupBox7.Name = "GroupBox7"
+        Me.GroupBox7.Size = New System.Drawing.Size(418, 221)
+        Me.GroupBox7.TabIndex = 169
+        Me.GroupBox7.TabStop = False
+        '
+        'DezimalAnzeige19
+        '
+        Me.DezimalAnzeige19.Aktuallisierungsrate = 1000
+        Me.DezimalAnzeige19.BackColor = System.Drawing.Color.White
+        Me.DezimalAnzeige19.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.DezimalAnzeige19.Einheit = Nothing
+        Me.DezimalAnzeige19.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DezimalAnzeige19.Location = New System.Drawing.Point(341, 171)
+        Me.DezimalAnzeige19.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.DezimalAnzeige19.Name = "DezimalAnzeige19"
+        Me.DezimalAnzeige19.Size = New System.Drawing.Size(70, 46)
+        Me.DezimalAnzeige19.Symbolname = "GVL.VD.H"
+        Me.DezimalAnzeige19.TabIndex = 168
+        Me.DezimalAnzeige19.Wert = New Decimal(New Integer() {0, 0, 0, 0})
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label21.Location = New System.Drawing.Point(6, 199)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(116, 18)
+        Me.Label21.TabIndex = 176
+        Me.Label21.Text = "Verdampfer_aus"
+        '
+        'DezimalAnzeige20
+        '
+        Me.DezimalAnzeige20.Aktuallisierungsrate = 1000
+        Me.DezimalAnzeige20.BackColor = System.Drawing.Color.White
+        Me.DezimalAnzeige20.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.DezimalAnzeige20.Einheit = Nothing
+        Me.DezimalAnzeige20.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DezimalAnzeige20.Location = New System.Drawing.Point(340, 85)
+        Me.DezimalAnzeige20.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.DezimalAnzeige20.Name = "DezimalAnzeige20"
+        Me.DezimalAnzeige20.Size = New System.Drawing.Size(70, 48)
+        Me.DezimalAnzeige20.Symbolname = "GVL.VF.H"
+        Me.DezimalAnzeige20.TabIndex = 167
+        Me.DezimalAnzeige20.Wert = New Decimal(New Integer() {0, 0, 0, 0})
+        '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label20.Location = New System.Drawing.Point(6, 170)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(111, 18)
+        Me.Label20.TabIndex = 175
+        Me.Label20.Text = "Verdampfer_ein"
+        '
+        'DezimalAnzeige21
+        '
+        Me.DezimalAnzeige21.Aktuallisierungsrate = 1000
+        Me.DezimalAnzeige21.BackColor = System.Drawing.Color.White
+        Me.DezimalAnzeige21.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.DezimalAnzeige21.Einheit = Nothing
+        Me.DezimalAnzeige21.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DezimalAnzeige21.Location = New System.Drawing.Point(340, 26)
+        Me.DezimalAnzeige21.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.DezimalAnzeige21.Name = "DezimalAnzeige21"
+        Me.DezimalAnzeige21.Size = New System.Drawing.Size(70, 46)
+        Me.DezimalAnzeige21.Symbolname = "GVL.KP.H"
+        Me.DezimalAnzeige21.TabIndex = 166
+        Me.DezimalAnzeige21.Wert = New Decimal(New Integer() {0, 0, 0, 0})
+        '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label19.Location = New System.Drawing.Point(6, 140)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(54, 18)
+        Me.Label19.TabIndex = 174
+        Me.Label19.Text = "EV_ein"
+        '
+        'Anzeige_EV_in_Temperatur
+        '
+        Me.Anzeige_EV_in_Temperatur.Aktuallisierungsrate = 1000
+        Me.Anzeige_EV_in_Temperatur.BackColor = System.Drawing.Color.White
+        Me.Anzeige_EV_in_Temperatur.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Anzeige_EV_in_Temperatur.Einheit = "°C"
+        Me.Anzeige_EV_in_Temperatur.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Anzeige_EV_in_Temperatur.Location = New System.Drawing.Point(261, 143)
+        Me.Anzeige_EV_in_Temperatur.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Anzeige_EV_in_Temperatur.Name = "Anzeige_EV_in_Temperatur"
+        Me.Anzeige_EV_in_Temperatur.Size = New System.Drawing.Size(70, 20)
+        Me.Anzeige_EV_in_Temperatur.Symbolname = "GVL.EV_in.T_in"
+        Me.Anzeige_EV_in_Temperatur.TabIndex = 163
+        Me.Anzeige_EV_in_Temperatur.Wert = New Decimal(New Integer() {0, 0, 0, 0})
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label18.Location = New System.Drawing.Point(6, 113)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(117, 18)
+        Me.Label18.TabIndex = 173
+        Me.Label18.Text = "Verflüssiger_aus"
+        '
+        'Anzeige_EV_in_Druck
+        '
+        Me.Anzeige_EV_in_Druck.Aktuallisierungsrate = 1000
+        Me.Anzeige_EV_in_Druck.BackColor = System.Drawing.Color.White
+        Me.Anzeige_EV_in_Druck.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Anzeige_EV_in_Druck.Einheit = "bar"
+        Me.Anzeige_EV_in_Druck.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Anzeige_EV_in_Druck.Location = New System.Drawing.Point(188, 143)
+        Me.Anzeige_EV_in_Druck.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Anzeige_EV_in_Druck.Name = "Anzeige_EV_in_Druck"
+        Me.Anzeige_EV_in_Druck.Size = New System.Drawing.Size(66, 20)
+        Me.Anzeige_EV_in_Druck.Symbolname = "GVL.EV_in.p_in"
+        Me.Anzeige_EV_in_Druck.TabIndex = 161
+        Me.Anzeige_EV_in_Druck.Wert = New Decimal(New Integer() {0, 0, 0, 0})
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label17.Location = New System.Drawing.Point(5, 85)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(112, 18)
+        Me.Label17.TabIndex = 172
+        Me.Label17.Text = "Verflüssiger_ein"
+        '
+        'Anzeige_EV_in_Enthalpie
+        '
+        Me.Anzeige_EV_in_Enthalpie.Aktuallisierungsrate = 1000
+        Me.Anzeige_EV_in_Enthalpie.BackColor = System.Drawing.Color.White
+        Me.Anzeige_EV_in_Enthalpie.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Anzeige_EV_in_Enthalpie.Einheit = Nothing
+        Me.Anzeige_EV_in_Enthalpie.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Anzeige_EV_in_Enthalpie.Location = New System.Drawing.Point(110, 143)
+        Me.Anzeige_EV_in_Enthalpie.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Anzeige_EV_in_Enthalpie.Name = "Anzeige_EV_in_Enthalpie"
+        Me.Anzeige_EV_in_Enthalpie.Size = New System.Drawing.Size(70, 20)
+        Me.Anzeige_EV_in_Enthalpie.Symbolname = "GVL.EV_in.h_in"
+        Me.Anzeige_EV_in_Enthalpie.TabIndex = 160
+        Me.Anzeige_EV_in_Enthalpie.Wert = New Decimal(New Integer() {0, 0, 0, 0})
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label15.Location = New System.Drawing.Point(5, 25)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(118, 18)
+        Me.Label15.TabIndex = 170
+        Me.Label15.Text = "Kompressor_ein"
+        '
+        'Anzeige_VD_out_Temperatur
+        '
+        Me.Anzeige_VD_out_Temperatur.Aktuallisierungsrate = 1000
+        Me.Anzeige_VD_out_Temperatur.BackColor = System.Drawing.Color.White
+        Me.Anzeige_VD_out_Temperatur.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Anzeige_VD_out_Temperatur.Einheit = "°C"
+        Me.Anzeige_VD_out_Temperatur.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Anzeige_VD_out_Temperatur.Location = New System.Drawing.Point(261, 199)
+        Me.Anzeige_VD_out_Temperatur.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Anzeige_VD_out_Temperatur.Name = "Anzeige_VD_out_Temperatur"
+        Me.Anzeige_VD_out_Temperatur.Size = New System.Drawing.Size(70, 20)
+        Me.Anzeige_VD_out_Temperatur.Symbolname = "GVL.VD.T_out"
+        Me.Anzeige_VD_out_Temperatur.TabIndex = 159
+        Me.Anzeige_VD_out_Temperatur.Wert = New Decimal(New Integer() {0, 0, 0, 0})
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label16.Location = New System.Drawing.Point(5, 54)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(123, 18)
+        Me.Label16.TabIndex = 171
+        Me.Label16.Text = "Kompressor_aus"
+        '
+        'Anzeige_VD_in_Temperatur
+        '
+        Me.Anzeige_VD_in_Temperatur.Aktuallisierungsrate = 1000
+        Me.Anzeige_VD_in_Temperatur.BackColor = System.Drawing.Color.White
+        Me.Anzeige_VD_in_Temperatur.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Anzeige_VD_in_Temperatur.Einheit = "°C"
+        Me.Anzeige_VD_in_Temperatur.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Anzeige_VD_in_Temperatur.Location = New System.Drawing.Point(263, 171)
+        Me.Anzeige_VD_in_Temperatur.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Anzeige_VD_in_Temperatur.Name = "Anzeige_VD_in_Temperatur"
+        Me.Anzeige_VD_in_Temperatur.Size = New System.Drawing.Size(70, 20)
+        Me.Anzeige_VD_in_Temperatur.Symbolname = "GVL.VD.T_in"
+        Me.Anzeige_VD_in_Temperatur.TabIndex = 158
+        Me.Anzeige_VD_in_Temperatur.Wert = New Decimal(New Integer() {0, 0, 0, 0})
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label14.Location = New System.Drawing.Point(338, 4)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(62, 18)
+        Me.Label14.TabIndex = 173
+        Me.Label14.Text = "Q in kW"
+        '
+        'Anzeige_VF_out_Temperatur
+        '
+        Me.Anzeige_VF_out_Temperatur.Aktuallisierungsrate = 1000
+        Me.Anzeige_VF_out_Temperatur.BackColor = System.Drawing.Color.White
+        Me.Anzeige_VF_out_Temperatur.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Anzeige_VF_out_Temperatur.Einheit = "°C"
+        Me.Anzeige_VF_out_Temperatur.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Anzeige_VF_out_Temperatur.Location = New System.Drawing.Point(262, 113)
+        Me.Anzeige_VF_out_Temperatur.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Anzeige_VF_out_Temperatur.Name = "Anzeige_VF_out_Temperatur"
+        Me.Anzeige_VF_out_Temperatur.Size = New System.Drawing.Size(70, 20)
+        Me.Anzeige_VF_out_Temperatur.Symbolname = "GVL.VF.T_out"
+        Me.Anzeige_VF_out_Temperatur.TabIndex = 157
+        Me.Anzeige_VF_out_Temperatur.Wert = New Decimal(New Integer() {0, 0, 0, 0})
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label13.Location = New System.Drawing.Point(259, 4)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(53, 18)
+        Me.Label13.TabIndex = 172
+        Me.Label13.Text = "T in °C"
+        '
+        'Anzeige_VF_in_Temperatur
+        '
+        Me.Anzeige_VF_in_Temperatur.Aktuallisierungsrate = 1000
+        Me.Anzeige_VF_in_Temperatur.BackColor = System.Drawing.Color.White
+        Me.Anzeige_VF_in_Temperatur.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Anzeige_VF_in_Temperatur.Einheit = "°C"
+        Me.Anzeige_VF_in_Temperatur.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Anzeige_VF_in_Temperatur.Location = New System.Drawing.Point(261, 85)
+        Me.Anzeige_VF_in_Temperatur.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Anzeige_VF_in_Temperatur.Name = "Anzeige_VF_in_Temperatur"
+        Me.Anzeige_VF_in_Temperatur.Size = New System.Drawing.Size(70, 20)
+        Me.Anzeige_VF_in_Temperatur.Symbolname = "GVL.VF.T_in"
+        Me.Anzeige_VF_in_Temperatur.TabIndex = 156
+        Me.Anzeige_VF_in_Temperatur.Wert = New Decimal(New Integer() {0, 0, 0, 0})
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label11.Location = New System.Drawing.Point(109, 4)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(71, 18)
+        Me.Label11.TabIndex = 170
+        Me.Label11.Text = "h in kJ/kg"
+        '
+        'Anzeige_KP_in_Temperatur
+        '
+        Me.Anzeige_KP_in_Temperatur.Aktuallisierungsrate = 1000
+        Me.Anzeige_KP_in_Temperatur.BackColor = System.Drawing.Color.White
+        Me.Anzeige_KP_in_Temperatur.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Anzeige_KP_in_Temperatur.Einheit = "°C"
+        Me.Anzeige_KP_in_Temperatur.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Anzeige_KP_in_Temperatur.Location = New System.Drawing.Point(262, 26)
+        Me.Anzeige_KP_in_Temperatur.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Anzeige_KP_in_Temperatur.Name = "Anzeige_KP_in_Temperatur"
+        Me.Anzeige_KP_in_Temperatur.Size = New System.Drawing.Size(70, 20)
+        Me.Anzeige_KP_in_Temperatur.Symbolname = "GVL.KP.T_in"
+        Me.Anzeige_KP_in_Temperatur.TabIndex = 155
+        Me.Anzeige_KP_in_Temperatur.Wert = New Decimal(New Integer() {0, 0, 0, 0})
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label12.Location = New System.Drawing.Point(185, 4)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(56, 18)
+        Me.Label12.TabIndex = 171
+        Me.Label12.Text = "p in bar"
+        '
+        'Anzeige_KP_out_Temperatur
+        '
+        Me.Anzeige_KP_out_Temperatur.Aktuallisierungsrate = 1000
+        Me.Anzeige_KP_out_Temperatur.BackColor = System.Drawing.Color.White
+        Me.Anzeige_KP_out_Temperatur.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Anzeige_KP_out_Temperatur.Einheit = "°C"
+        Me.Anzeige_KP_out_Temperatur.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Anzeige_KP_out_Temperatur.Location = New System.Drawing.Point(262, 52)
+        Me.Anzeige_KP_out_Temperatur.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Anzeige_KP_out_Temperatur.Name = "Anzeige_KP_out_Temperatur"
+        Me.Anzeige_KP_out_Temperatur.Size = New System.Drawing.Size(70, 20)
+        Me.Anzeige_KP_out_Temperatur.Symbolname = "GVL.KP.T_out"
+        Me.Anzeige_KP_out_Temperatur.TabIndex = 153
+        Me.Anzeige_KP_out_Temperatur.Wert = New Decimal(New Integer() {0, 0, 0, 0})
+        '
+        'Anzeige_KP_out_Enthalpie
+        '
+        Me.Anzeige_KP_out_Enthalpie.Aktuallisierungsrate = 1000
+        Me.Anzeige_KP_out_Enthalpie.BackColor = System.Drawing.Color.White
+        Me.Anzeige_KP_out_Enthalpie.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Anzeige_KP_out_Enthalpie.Einheit = Nothing
+        Me.Anzeige_KP_out_Enthalpie.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Anzeige_KP_out_Enthalpie.Location = New System.Drawing.Point(110, 54)
+        Me.Anzeige_KP_out_Enthalpie.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Anzeige_KP_out_Enthalpie.Name = "Anzeige_KP_out_Enthalpie"
+        Me.Anzeige_KP_out_Enthalpie.Size = New System.Drawing.Size(70, 20)
+        Me.Anzeige_KP_out_Enthalpie.Symbolname = "GVL.KP.h_out"
+        Me.Anzeige_KP_out_Enthalpie.TabIndex = 130
+        Me.Anzeige_KP_out_Enthalpie.Wert = New Decimal(New Integer() {0, 0, 0, 0})
+        '
+        'Anzeige_VD_out_Druck
+        '
+        Me.Anzeige_VD_out_Druck.Aktuallisierungsrate = 1000
+        Me.Anzeige_VD_out_Druck.BackColor = System.Drawing.Color.White
+        Me.Anzeige_VD_out_Druck.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Anzeige_VD_out_Druck.Einheit = "bar"
+        Me.Anzeige_VD_out_Druck.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Anzeige_VD_out_Druck.Location = New System.Drawing.Point(188, 199)
+        Me.Anzeige_VD_out_Druck.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Anzeige_VD_out_Druck.Name = "Anzeige_VD_out_Druck"
+        Me.Anzeige_VD_out_Druck.Size = New System.Drawing.Size(66, 20)
+        Me.Anzeige_VD_out_Druck.Symbolname = "GVL.VD.p_out"
+        Me.Anzeige_VD_out_Druck.TabIndex = 151
+        Me.Anzeige_VD_out_Druck.Wert = New Decimal(New Integer() {0, 0, 0, 0})
+        '
+        'Anzeige_KP_out_Druck
+        '
+        Me.Anzeige_KP_out_Druck.Aktuallisierungsrate = 1000
+        Me.Anzeige_KP_out_Druck.BackColor = System.Drawing.Color.White
+        Me.Anzeige_KP_out_Druck.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Anzeige_KP_out_Druck.Einheit = "bar"
+        Me.Anzeige_KP_out_Druck.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Anzeige_KP_out_Druck.Location = New System.Drawing.Point(188, 53)
+        Me.Anzeige_KP_out_Druck.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Anzeige_KP_out_Druck.Name = "Anzeige_KP_out_Druck"
+        Me.Anzeige_KP_out_Druck.Size = New System.Drawing.Size(66, 20)
+        Me.Anzeige_KP_out_Druck.Symbolname = "GVL.KP.p_out"
+        Me.Anzeige_KP_out_Druck.TabIndex = 131
+        Me.Anzeige_KP_out_Druck.Wert = New Decimal(New Integer() {0, 0, 0, 0})
+        '
+        'Anzeige_VD_out_Enthalpie
+        '
+        Me.Anzeige_VD_out_Enthalpie.Aktuallisierungsrate = 1000
+        Me.Anzeige_VD_out_Enthalpie.BackColor = System.Drawing.Color.White
+        Me.Anzeige_VD_out_Enthalpie.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Anzeige_VD_out_Enthalpie.Einheit = Nothing
+        Me.Anzeige_VD_out_Enthalpie.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Anzeige_VD_out_Enthalpie.Location = New System.Drawing.Point(110, 199)
+        Me.Anzeige_VD_out_Enthalpie.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Anzeige_VD_out_Enthalpie.Name = "Anzeige_VD_out_Enthalpie"
+        Me.Anzeige_VD_out_Enthalpie.Size = New System.Drawing.Size(70, 20)
+        Me.Anzeige_VD_out_Enthalpie.Symbolname = "GVL.VD.h_out"
+        Me.Anzeige_VD_out_Enthalpie.TabIndex = 150
+        Me.Anzeige_VD_out_Enthalpie.Wert = New Decimal(New Integer() {0, 0, 0, 0})
+        '
+        'Anzeige_KP_in_Enthalpie
+        '
+        Me.Anzeige_KP_in_Enthalpie.Aktuallisierungsrate = 1000
+        Me.Anzeige_KP_in_Enthalpie.BackColor = System.Drawing.Color.White
+        Me.Anzeige_KP_in_Enthalpie.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Anzeige_KP_in_Enthalpie.Einheit = Nothing
+        Me.Anzeige_KP_in_Enthalpie.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Anzeige_KP_in_Enthalpie.Location = New System.Drawing.Point(110, 25)
+        Me.Anzeige_KP_in_Enthalpie.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Anzeige_KP_in_Enthalpie.Name = "Anzeige_KP_in_Enthalpie"
+        Me.Anzeige_KP_in_Enthalpie.Size = New System.Drawing.Size(70, 20)
+        Me.Anzeige_KP_in_Enthalpie.Symbolname = "GVL.KP.h_in"
+        Me.Anzeige_KP_in_Enthalpie.TabIndex = 138
+        Me.Anzeige_KP_in_Enthalpie.Wert = New Decimal(New Integer() {0, 0, 0, 0})
+        '
+        'Anzeige_VD_in_Druck
+        '
+        Me.Anzeige_VD_in_Druck.Aktuallisierungsrate = 1000
+        Me.Anzeige_VD_in_Druck.BackColor = System.Drawing.Color.White
+        Me.Anzeige_VD_in_Druck.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Anzeige_VD_in_Druck.Einheit = "bar"
+        Me.Anzeige_VD_in_Druck.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Anzeige_VD_in_Druck.Location = New System.Drawing.Point(188, 171)
+        Me.Anzeige_VD_in_Druck.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Anzeige_VD_in_Druck.Name = "Anzeige_VD_in_Druck"
+        Me.Anzeige_VD_in_Druck.Size = New System.Drawing.Size(66, 20)
+        Me.Anzeige_VD_in_Druck.Symbolname = "GVL.VD.p_in"
+        Me.Anzeige_VD_in_Druck.TabIndex = 148
+        Me.Anzeige_VD_in_Druck.Wert = New Decimal(New Integer() {0, 0, 0, 0})
+        '
+        'Anzeige_KP_in_Druck
+        '
+        Me.Anzeige_KP_in_Druck.Aktuallisierungsrate = 1000
+        Me.Anzeige_KP_in_Druck.BackColor = System.Drawing.Color.White
+        Me.Anzeige_KP_in_Druck.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Anzeige_KP_in_Druck.Einheit = "bar"
+        Me.Anzeige_KP_in_Druck.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Anzeige_KP_in_Druck.Location = New System.Drawing.Point(188, 25)
+        Me.Anzeige_KP_in_Druck.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Anzeige_KP_in_Druck.Name = "Anzeige_KP_in_Druck"
+        Me.Anzeige_KP_in_Druck.Size = New System.Drawing.Size(66, 20)
+        Me.Anzeige_KP_in_Druck.Symbolname = "GVL.KP.p_in"
+        Me.Anzeige_KP_in_Druck.TabIndex = 139
+        Me.Anzeige_KP_in_Druck.Wert = New Decimal(New Integer() {0, 0, 0, 0})
+        '
+        'Anzeige_VD_in_Enthalpie
+        '
+        Me.Anzeige_VD_in_Enthalpie.Aktuallisierungsrate = 1000
+        Me.Anzeige_VD_in_Enthalpie.BackColor = System.Drawing.Color.White
+        Me.Anzeige_VD_in_Enthalpie.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Anzeige_VD_in_Enthalpie.Einheit = Nothing
+        Me.Anzeige_VD_in_Enthalpie.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Anzeige_VD_in_Enthalpie.Location = New System.Drawing.Point(110, 170)
+        Me.Anzeige_VD_in_Enthalpie.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Anzeige_VD_in_Enthalpie.Name = "Anzeige_VD_in_Enthalpie"
+        Me.Anzeige_VD_in_Enthalpie.Size = New System.Drawing.Size(70, 20)
+        Me.Anzeige_VD_in_Enthalpie.Symbolname = "GVL.VD.h_in"
+        Me.Anzeige_VD_in_Enthalpie.TabIndex = 147
+        Me.Anzeige_VD_in_Enthalpie.Wert = New Decimal(New Integer() {0, 0, 0, 0})
+        '
+        'Anzeige_VF_in_Enthalpie
+        '
+        Me.Anzeige_VF_in_Enthalpie.Aktuallisierungsrate = 1000
+        Me.Anzeige_VF_in_Enthalpie.BackColor = System.Drawing.Color.White
+        Me.Anzeige_VF_in_Enthalpie.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Anzeige_VF_in_Enthalpie.Einheit = Nothing
+        Me.Anzeige_VF_in_Enthalpie.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Anzeige_VF_in_Enthalpie.Location = New System.Drawing.Point(110, 85)
+        Me.Anzeige_VF_in_Enthalpie.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Anzeige_VF_in_Enthalpie.Name = "Anzeige_VF_in_Enthalpie"
+        Me.Anzeige_VF_in_Enthalpie.Size = New System.Drawing.Size(70, 20)
+        Me.Anzeige_VF_in_Enthalpie.Symbolname = "GVL.VF.h_in"
+        Me.Anzeige_VF_in_Enthalpie.TabIndex = 141
+        Me.Anzeige_VF_in_Enthalpie.Wert = New Decimal(New Integer() {0, 0, 0, 0})
+        '
+        'Anzeige_VF_out_Druck
+        '
+        Me.Anzeige_VF_out_Druck.Aktuallisierungsrate = 1000
+        Me.Anzeige_VF_out_Druck.BackColor = System.Drawing.Color.White
+        Me.Anzeige_VF_out_Druck.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Anzeige_VF_out_Druck.Einheit = "bar"
+        Me.Anzeige_VF_out_Druck.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Anzeige_VF_out_Druck.Location = New System.Drawing.Point(188, 113)
+        Me.Anzeige_VF_out_Druck.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Anzeige_VF_out_Druck.Name = "Anzeige_VF_out_Druck"
+        Me.Anzeige_VF_out_Druck.Size = New System.Drawing.Size(66, 20)
+        Me.Anzeige_VF_out_Druck.Symbolname = "GVL.VF.p_out"
+        Me.Anzeige_VF_out_Druck.TabIndex = 145
+        Me.Anzeige_VF_out_Druck.Wert = New Decimal(New Integer() {0, 0, 0, 0})
+        '
+        'Anzeige_VF_in_Druck
+        '
+        Me.Anzeige_VF_in_Druck.Aktuallisierungsrate = 1000
+        Me.Anzeige_VF_in_Druck.BackColor = System.Drawing.Color.White
+        Me.Anzeige_VF_in_Druck.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Anzeige_VF_in_Druck.Einheit = "bar"
+        Me.Anzeige_VF_in_Druck.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Anzeige_VF_in_Druck.Location = New System.Drawing.Point(188, 85)
+        Me.Anzeige_VF_in_Druck.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Anzeige_VF_in_Druck.Name = "Anzeige_VF_in_Druck"
+        Me.Anzeige_VF_in_Druck.Size = New System.Drawing.Size(66, 20)
+        Me.Anzeige_VF_in_Druck.Symbolname = "GVL.VF.p_in"
+        Me.Anzeige_VF_in_Druck.TabIndex = 142
+        Me.Anzeige_VF_in_Druck.Wert = New Decimal(New Integer() {0, 0, 0, 0})
+        '
+        'Anzeige_VF_out_Enthalpie
+        '
+        Me.Anzeige_VF_out_Enthalpie.Aktuallisierungsrate = 1000
+        Me.Anzeige_VF_out_Enthalpie.BackColor = System.Drawing.Color.White
+        Me.Anzeige_VF_out_Enthalpie.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Anzeige_VF_out_Enthalpie.Einheit = Nothing
+        Me.Anzeige_VF_out_Enthalpie.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Anzeige_VF_out_Enthalpie.Location = New System.Drawing.Point(110, 113)
+        Me.Anzeige_VF_out_Enthalpie.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Anzeige_VF_out_Enthalpie.Name = "Anzeige_VF_out_Enthalpie"
+        Me.Anzeige_VF_out_Enthalpie.Size = New System.Drawing.Size(70, 20)
+        Me.Anzeige_VF_out_Enthalpie.Symbolname = "GVL.VF.h_out"
+        Me.Anzeige_VF_out_Enthalpie.TabIndex = 144
+        Me.Anzeige_VF_out_Enthalpie.Wert = New Decimal(New Integer() {0, 0, 0, 0})
         '
         'PictureBox2
         '
@@ -3085,6 +3184,40 @@ Partial Class Form1
         Me.TabPage6.Text = "(a) Gewichts-Kalibrierung"
         Me.TabPage6.UseVisualStyleBackColor = True
         '
+        'Led9
+        '
+        Me.Led9.Aktuallisierungsrate = 1000
+        Me.Led9.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.Led9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Led9.FarbeFalse = System.Drawing.Color.DarkGray
+        Me.Led9.FarbeTrue = System.Drawing.Color.Lime
+        Me.Led9.Location = New System.Drawing.Point(31, 76)
+        Me.Led9.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Led9.Name = "Led9"
+        Me.Led9.Size = New System.Drawing.Size(403, 29)
+        Me.Led9.Symbolname = "WAAGEN.bGetOffset_Abgeschlossen"
+        Me.Led9.TabIndex = 74
+        Me.Led9.TextFalse = Nothing
+        Me.Led9.TextTrue = "Reset erfolgreich abgeschlossen.  Gehe weiter zu 2. Schritt"
+        Me.Led9.Wert = True
+        '
+        'Led3
+        '
+        Me.Led3.Aktuallisierungsrate = 1000
+        Me.Led3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.Led3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Led3.FarbeFalse = System.Drawing.Color.DarkGray
+        Me.Led3.FarbeTrue = System.Drawing.Color.Lime
+        Me.Led3.Location = New System.Drawing.Point(265, 35)
+        Me.Led3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Led3.Name = "Led3"
+        Me.Led3.Size = New System.Drawing.Size(169, 29)
+        Me.Led3.Symbolname = "WAAGEN.bTare"
+        Me.Led3.TabIndex = 73
+        Me.Led3.TextFalse = Nothing
+        Me.Led3.TextTrue = "...Bitte Warten...(60sec)"
+        Me.Led3.Wert = True
+        '
         'CheckboxEingabe13
         '
         Me.CheckboxEingabe13.Aktuallisierungsrate = 1000
@@ -3268,6 +3401,57 @@ Partial Class Form1
         Me.TabPage7.Text = "(b) Ventilator-Kalibrierung"
         Me.TabPage7.UseVisualStyleBackColor = True
         '
+        'Led21
+        '
+        Me.Led21.Aktuallisierungsrate = 1000
+        Me.Led21.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.Led21.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Led21.FarbeFalse = System.Drawing.Color.DarkGray
+        Me.Led21.FarbeTrue = System.Drawing.Color.Lime
+        Me.Led21.Location = New System.Drawing.Point(31, 76)
+        Me.Led21.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Led21.Name = "Led21"
+        Me.Led21.Size = New System.Drawing.Size(403, 29)
+        Me.Led21.Symbolname = "WAAGEN.bGetOffset_Abgeschlossen"
+        Me.Led21.TabIndex = 76
+        Me.Led21.TextFalse = Nothing
+        Me.Led21.TextTrue = "Reset erfolgreich abgeschlossen.  Gehe weiter zu 2. Schritt"
+        Me.Led21.Wert = True
+        '
+        'Led22
+        '
+        Me.Led22.Aktuallisierungsrate = 1000
+        Me.Led22.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.Led22.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Led22.FarbeFalse = System.Drawing.Color.DarkGray
+        Me.Led22.FarbeTrue = System.Drawing.Color.Lime
+        Me.Led22.Location = New System.Drawing.Point(265, 35)
+        Me.Led22.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Led22.Name = "Led22"
+        Me.Led22.Size = New System.Drawing.Size(169, 29)
+        Me.Led22.Symbolname = "WAAGEN.bTare"
+        Me.Led22.TabIndex = 75
+        Me.Led22.TextFalse = Nothing
+        Me.Led22.TextTrue = "...Bitte Warten...(60sec)"
+        Me.Led22.Wert = True
+        '
+        'Led8
+        '
+        Me.Led8.Aktuallisierungsrate = 1000
+        Me.Led8.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.Led8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Led8.FarbeFalse = System.Drawing.Color.DarkGray
+        Me.Led8.FarbeTrue = System.Drawing.Color.Lime
+        Me.Led8.Location = New System.Drawing.Point(265, 146)
+        Me.Led8.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Led8.Name = "Led8"
+        Me.Led8.Size = New System.Drawing.Size(169, 29)
+        Me.Led8.Symbolname = "WAAGEN.bGetOffset_Ventilator"
+        Me.Led8.TabIndex = 74
+        Me.Led8.TextFalse = Nothing
+        Me.Led8.TextTrue = "...Bitte Warten...(60sec)"
+        Me.Led8.Wert = True
+        '
         'Led20
         '
         Me.Led20.Aktuallisierungsrate = 1000
@@ -3348,6 +3532,40 @@ Partial Class Form1
         Me.TabPage8.TabIndex = 2
         Me.TabPage8.Text = "(c) Reset-Waagen"
         Me.TabPage8.UseVisualStyleBackColor = True
+        '
+        'Led7
+        '
+        Me.Led7.Aktuallisierungsrate = 1000
+        Me.Led7.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.Led7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Led7.FarbeFalse = System.Drawing.Color.DarkGray
+        Me.Led7.FarbeTrue = System.Drawing.Color.Lime
+        Me.Led7.Location = New System.Drawing.Point(99, 74)
+        Me.Led7.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Led7.Name = "Led7"
+        Me.Led7.Size = New System.Drawing.Size(276, 61)
+        Me.Led7.Symbolname = "WAAGEN.bGetOffset_Abgeschlossen"
+        Me.Led7.TabIndex = 76
+        Me.Led7.TextFalse = Nothing
+        Me.Led7.TextTrue = " Kalibrierung erfolgreich abgeschlossen! Sie können die Messung jetzt starten."
+        Me.Led7.Wert = True
+        '
+        'Led37
+        '
+        Me.Led37.Aktuallisierungsrate = 1000
+        Me.Led37.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.Led37.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Led37.FarbeFalse = System.Drawing.Color.DarkGray
+        Me.Led37.FarbeTrue = System.Drawing.Color.Lime
+        Me.Led37.Location = New System.Drawing.Point(265, 37)
+        Me.Led37.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Led37.Name = "Led37"
+        Me.Led37.Size = New System.Drawing.Size(169, 29)
+        Me.Led37.Symbolname = "WAAGEN.bTare"
+        Me.Led37.TabIndex = 75
+        Me.Led37.TextFalse = Nothing
+        Me.Led37.TextTrue = "...Bitte Warten...(60sec)"
+        Me.Led37.Wert = True
         '
         'CheckboxEingabe19
         '
@@ -3444,285 +3662,169 @@ Partial Class Form1
         Me.Messwert.Size = New System.Drawing.Size(1620, 1010)
         Me.Messwert.TabIndex = 0
         '
-        'Led3
+        'GroupBox8
         '
-        Me.Led3.Aktuallisierungsrate = 1000
-        Me.Led3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.Led3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Led3.FarbeFalse = System.Drawing.Color.DarkGray
-        Me.Led3.FarbeTrue = System.Drawing.Color.Lime
-        Me.Led3.Location = New System.Drawing.Point(265, 35)
-        Me.Led3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.Led3.Name = "Led3"
-        Me.Led3.Size = New System.Drawing.Size(169, 29)
-        Me.Led3.Symbolname = "WAAGEN.bTare"
-        Me.Led3.TabIndex = 73
-        Me.Led3.TextFalse = Nothing
-        Me.Led3.TextTrue = "...Bitte Warten...(60sec)"
-        Me.Led3.Wert = True
+        Me.GroupBox8.BackColor = System.Drawing.Color.Yellow
+        Me.GroupBox8.Controls.Add(Me.Label22)
+        Me.GroupBox8.Controls.Add(Me.Label23)
+        Me.GroupBox8.Controls.Add(Me.DezimalAnzeige35)
+        Me.GroupBox8.Controls.Add(Me.DezimalAnzeige39)
+        Me.GroupBox8.Controls.Add(Me.Led38)
+        Me.GroupBox8.Location = New System.Drawing.Point(0, 245)
+        Me.GroupBox8.Name = "GroupBox8"
+        Me.GroupBox8.Size = New System.Drawing.Size(343, 72)
+        Me.GroupBox8.TabIndex = 136
+        Me.GroupBox8.TabStop = False
         '
-        'Led9
+        'Label22
         '
-        Me.Led9.Aktuallisierungsrate = 1000
-        Me.Led9.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.Led9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Led9.FarbeFalse = System.Drawing.Color.DarkGray
-        Me.Led9.FarbeTrue = System.Drawing.Color.Lime
-        Me.Led9.Location = New System.Drawing.Point(31, 76)
-        Me.Led9.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.Led9.Name = "Led9"
-        Me.Led9.Size = New System.Drawing.Size(403, 29)
-        Me.Led9.Symbolname = "WAAGEN.bGetOffset_Abgeschlossen"
-        Me.Led9.TabIndex = 74
-        Me.Led9.TextFalse = Nothing
-        Me.Led9.TextTrue = "Reset erfolgreich abgeschlossen.  Gehe weiter zu 2. Schritt"
-        Me.Led9.Wert = True
+        Me.Label22.AutoSize = True
+        Me.Label22.BackColor = System.Drawing.Color.Yellow
+        Me.Label22.Location = New System.Drawing.Point(5, 11)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(129, 21)
+        Me.Label22.TabIndex = 149
+        Me.Label22.Text = "Soll_Überhitzung"
         '
-        'Led8
+        'Label23
         '
-        Me.Led8.Aktuallisierungsrate = 1000
-        Me.Led8.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.Led8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Led8.FarbeFalse = System.Drawing.Color.DarkGray
-        Me.Led8.FarbeTrue = System.Drawing.Color.Lime
-        Me.Led8.Location = New System.Drawing.Point(265, 146)
-        Me.Led8.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.Led8.Name = "Led8"
-        Me.Led8.Size = New System.Drawing.Size(169, 29)
-        Me.Led8.Symbolname = "WAAGEN.bGetOffset_Ventilator"
-        Me.Led8.TabIndex = 74
-        Me.Led8.TextFalse = Nothing
-        Me.Led8.TextTrue = "...Bitte Warten...(60sec)"
-        Me.Led8.Wert = True
+        Me.Label23.AutoSize = True
+        Me.Label23.BackColor = System.Drawing.Color.Yellow
+        Me.Label23.Location = New System.Drawing.Point(5, 38)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(121, 21)
+        Me.Label23.TabIndex = 148
+        Me.Label23.Text = "Ist_Überhitzung"
         '
-        'Led21
+        'DezimalAnzeige35
         '
-        Me.Led21.Aktuallisierungsrate = 1000
-        Me.Led21.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.Led21.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Led21.FarbeFalse = System.Drawing.Color.DarkGray
-        Me.Led21.FarbeTrue = System.Drawing.Color.Lime
-        Me.Led21.Location = New System.Drawing.Point(31, 76)
-        Me.Led21.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.Led21.Name = "Led21"
-        Me.Led21.Size = New System.Drawing.Size(403, 29)
-        Me.Led21.Symbolname = "WAAGEN.bGetOffset_Abgeschlossen"
-        Me.Led21.TabIndex = 76
-        Me.Led21.TextFalse = Nothing
-        Me.Led21.TextTrue = "Reset erfolgreich abgeschlossen.  Gehe weiter zu 2. Schritt"
-        Me.Led21.Wert = True
+        Me.DezimalAnzeige35.Aktuallisierungsrate = 1000
+        Me.DezimalAnzeige35.BackColor = System.Drawing.Color.White
+        Me.DezimalAnzeige35.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.DezimalAnzeige35.Einheit = "K"
+        Me.DezimalAnzeige35.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DezimalAnzeige35.Location = New System.Drawing.Point(145, 11)
+        Me.DezimalAnzeige35.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.DezimalAnzeige35.Name = "DezimalAnzeige35"
+        Me.DezimalAnzeige35.Size = New System.Drawing.Size(100, 20)
+        Me.DezimalAnzeige35.Symbolname = "GVL.EV_rev.RegelSollwert"
+        Me.DezimalAnzeige35.TabIndex = 147
+        Me.DezimalAnzeige35.Wert = New Decimal(New Integer() {0, 0, 0, 0})
         '
-        'Led22
+        'DezimalAnzeige39
         '
-        Me.Led22.Aktuallisierungsrate = 1000
-        Me.Led22.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.Led22.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Led22.FarbeFalse = System.Drawing.Color.DarkGray
-        Me.Led22.FarbeTrue = System.Drawing.Color.Lime
-        Me.Led22.Location = New System.Drawing.Point(265, 35)
-        Me.Led22.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.Led22.Name = "Led22"
-        Me.Led22.Size = New System.Drawing.Size(169, 29)
-        Me.Led22.Symbolname = "WAAGEN.bTare"
-        Me.Led22.TabIndex = 75
-        Me.Led22.TextFalse = Nothing
-        Me.Led22.TextTrue = "...Bitte Warten...(60sec)"
-        Me.Led22.Wert = True
+        Me.DezimalAnzeige39.Aktuallisierungsrate = 1000
+        Me.DezimalAnzeige39.BackColor = System.Drawing.Color.White
+        Me.DezimalAnzeige39.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.DezimalAnzeige39.Einheit = "K"
+        Me.DezimalAnzeige39.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DezimalAnzeige39.Location = New System.Drawing.Point(145, 38)
+        Me.DezimalAnzeige39.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.DezimalAnzeige39.Name = "DezimalAnzeige39"
+        Me.DezimalAnzeige39.Size = New System.Drawing.Size(100, 23)
+        Me.DezimalAnzeige39.Symbolname = "GVL.EV_rev.UberhitzungTemp"
+        Me.DezimalAnzeige39.TabIndex = 146
+        Me.DezimalAnzeige39.Wert = New Decimal(New Integer() {0, 0, 0, 0})
         '
-        'Led7
+        'Led38
         '
-        Me.Led7.Aktuallisierungsrate = 1000
-        Me.Led7.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.Led7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Led7.FarbeFalse = System.Drawing.Color.DarkGray
-        Me.Led7.FarbeTrue = System.Drawing.Color.Lime
-        Me.Led7.Location = New System.Drawing.Point(99, 74)
-        Me.Led7.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.Led7.Name = "Led7"
-        Me.Led7.Size = New System.Drawing.Size(276, 61)
-        Me.Led7.Symbolname = "WAAGEN.bGetOffset_Abgeschlossen"
-        Me.Led7.TabIndex = 76
-        Me.Led7.TextFalse = Nothing
-        Me.Led7.TextTrue = " Kalibrierung erfolgreich abgeschlossen! Sie können die Messung jetzt starten."
-        Me.Led7.Wert = True
+        Me.Led38.Aktuallisierungsrate = 1000
+        Me.Led38.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.Led38.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Led38.FarbeFalse = System.Drawing.Color.Yellow
+        Me.Led38.FarbeTrue = System.Drawing.Color.Lime
+        Me.Led38.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Led38.Location = New System.Drawing.Point(247, 9)
+        Me.Led38.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Led38.Name = "Led38"
+        Me.Led38.Size = New System.Drawing.Size(90, 52)
+        Me.Led38.Symbolname = "REGLER.bEV_TolleranzErreicht"
+        Me.Led38.TabIndex = 145
+        Me.Led38.TextFalse = "Fehler > 5 %"
+        Me.Led38.TextTrue = "Fehler < 5 %"
+        Me.Led38.Wert = True
         '
-        'Led37
+        'GroupBox9
         '
-        Me.Led37.Aktuallisierungsrate = 1000
-        Me.Led37.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.Led37.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Led37.FarbeFalse = System.Drawing.Color.DarkGray
-        Me.Led37.FarbeTrue = System.Drawing.Color.Lime
-        Me.Led37.Location = New System.Drawing.Point(265, 37)
-        Me.Led37.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.Led37.Name = "Led37"
-        Me.Led37.Size = New System.Drawing.Size(169, 29)
-        Me.Led37.Symbolname = "WAAGEN.bTare"
-        Me.Led37.TabIndex = 75
-        Me.Led37.TextFalse = Nothing
-        Me.Led37.TextTrue = "...Bitte Warten...(60sec)"
-        Me.Led37.Wert = True
+        Me.GroupBox9.BackColor = System.Drawing.Color.Yellow
+        Me.GroupBox9.Controls.Add(Me.Label7)
+        Me.GroupBox9.Controls.Add(Me.Label6)
+        Me.GroupBox9.Controls.Add(Me.DezimalAnzeige17)
+        Me.GroupBox9.Controls.Add(Me.DezimalAnzeige15)
+        Me.GroupBox9.Controls.Add(Me.Led6)
+        Me.GroupBox9.Location = New System.Drawing.Point(0, 154)
+        Me.GroupBox9.Name = "GroupBox9"
+        Me.GroupBox9.Size = New System.Drawing.Size(343, 71)
+        Me.GroupBox9.TabIndex = 136
+        Me.GroupBox9.TabStop = False
         '
-        'GroupBox7
+        'Label7
         '
-        Me.GroupBox7.BackColor = System.Drawing.Color.DarkGray
-        Me.GroupBox7.Controls.Add(Me.DezimalAnzeige19)
-        Me.GroupBox7.Controls.Add(Me.Label21)
-        Me.GroupBox7.Controls.Add(Me.DezimalAnzeige20)
-        Me.GroupBox7.Controls.Add(Me.Label20)
-        Me.GroupBox7.Controls.Add(Me.DezimalAnzeige21)
-        Me.GroupBox7.Controls.Add(Me.Label19)
-        Me.GroupBox7.Controls.Add(Me.Anzeige_EV_in_Temperatur)
-        Me.GroupBox7.Controls.Add(Me.Label18)
-        Me.GroupBox7.Controls.Add(Me.Anzeige_EV_in_Druck)
-        Me.GroupBox7.Controls.Add(Me.Label17)
-        Me.GroupBox7.Controls.Add(Me.Anzeige_EV_in_Enthalpie)
-        Me.GroupBox7.Controls.Add(Me.Label15)
-        Me.GroupBox7.Controls.Add(Me.Anzeige_VD_out_Temperatur)
-        Me.GroupBox7.Controls.Add(Me.Label16)
-        Me.GroupBox7.Controls.Add(Me.Anzeige_VD_in_Temperatur)
-        Me.GroupBox7.Controls.Add(Me.Label14)
-        Me.GroupBox7.Controls.Add(Me.Anzeige_VF_out_Temperatur)
-        Me.GroupBox7.Controls.Add(Me.Label13)
-        Me.GroupBox7.Controls.Add(Me.Anzeige_VF_in_Temperatur)
-        Me.GroupBox7.Controls.Add(Me.Label11)
-        Me.GroupBox7.Controls.Add(Me.Anzeige_KP_in_Temperatur)
-        Me.GroupBox7.Controls.Add(Me.Label12)
-        Me.GroupBox7.Controls.Add(Me.Anzeige_KP_out_Temperatur)
-        Me.GroupBox7.Controls.Add(Me.Anzeige_KP_out_Enthalpie)
-        Me.GroupBox7.Controls.Add(Me.Anzeige_VD_out_Druck)
-        Me.GroupBox7.Controls.Add(Me.Anzeige_KP_out_Druck)
-        Me.GroupBox7.Controls.Add(Me.Anzeige_VD_out_Enthalpie)
-        Me.GroupBox7.Controls.Add(Me.Anzeige_KP_in_Enthalpie)
-        Me.GroupBox7.Controls.Add(Me.Anzeige_VD_in_Druck)
-        Me.GroupBox7.Controls.Add(Me.Anzeige_KP_in_Druck)
-        Me.GroupBox7.Controls.Add(Me.Anzeige_VD_in_Enthalpie)
-        Me.GroupBox7.Controls.Add(Me.Anzeige_VF_in_Enthalpie)
-        Me.GroupBox7.Controls.Add(Me.Anzeige_VF_out_Druck)
-        Me.GroupBox7.Controls.Add(Me.Anzeige_VF_in_Druck)
-        Me.GroupBox7.Controls.Add(Me.Anzeige_VF_out_Enthalpie)
-        Me.GroupBox7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.GroupBox7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.GroupBox7.Location = New System.Drawing.Point(171, 106)
-        Me.GroupBox7.Name = "GroupBox7"
-        Me.GroupBox7.Size = New System.Drawing.Size(418, 221)
-        Me.GroupBox7.TabIndex = 169
-        Me.GroupBox7.TabStop = False
+        Me.Label7.AutoSize = True
+        Me.Label7.BackColor = System.Drawing.Color.Yellow
+        Me.Label7.Location = New System.Drawing.Point(5, 13)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(129, 21)
+        Me.Label7.TabIndex = 141
+        Me.Label7.Text = "Soll_Überhitzung"
         '
-        'Label11
+        'Label6
         '
-        Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label11.Location = New System.Drawing.Point(109, 4)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(71, 18)
-        Me.Label11.TabIndex = 170
-        Me.Label11.Text = "h in kJ/kg"
+        Me.Label6.AutoSize = True
+        Me.Label6.BackColor = System.Drawing.Color.Yellow
+        Me.Label6.Location = New System.Drawing.Point(5, 40)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(121, 21)
+        Me.Label6.TabIndex = 140
+        Me.Label6.Text = "Ist_Überhitzung"
         '
-        'Label12
+        'DezimalAnzeige17
         '
-        Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label12.Location = New System.Drawing.Point(185, 4)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(56, 18)
-        Me.Label12.TabIndex = 171
-        Me.Label12.Text = "p in bar"
+        Me.DezimalAnzeige17.Aktuallisierungsrate = 1000
+        Me.DezimalAnzeige17.BackColor = System.Drawing.Color.White
+        Me.DezimalAnzeige17.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.DezimalAnzeige17.Einheit = "K"
+        Me.DezimalAnzeige17.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DezimalAnzeige17.Location = New System.Drawing.Point(145, 13)
+        Me.DezimalAnzeige17.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.DezimalAnzeige17.Name = "DezimalAnzeige17"
+        Me.DezimalAnzeige17.Size = New System.Drawing.Size(100, 20)
+        Me.DezimalAnzeige17.Symbolname = "GVL.EV.RegelSollwert"
+        Me.DezimalAnzeige17.TabIndex = 139
+        Me.DezimalAnzeige17.Wert = New Decimal(New Integer() {0, 0, 0, 0})
         '
-        'Label13
+        'DezimalAnzeige15
         '
-        Me.Label13.AutoSize = True
-        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label13.Location = New System.Drawing.Point(259, 4)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(53, 18)
-        Me.Label13.TabIndex = 172
-        Me.Label13.Text = "T in °C"
+        Me.DezimalAnzeige15.Aktuallisierungsrate = 1000
+        Me.DezimalAnzeige15.BackColor = System.Drawing.Color.White
+        Me.DezimalAnzeige15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.DezimalAnzeige15.Einheit = "K"
+        Me.DezimalAnzeige15.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DezimalAnzeige15.Location = New System.Drawing.Point(145, 40)
+        Me.DezimalAnzeige15.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.DezimalAnzeige15.Name = "DezimalAnzeige15"
+        Me.DezimalAnzeige15.Size = New System.Drawing.Size(100, 23)
+        Me.DezimalAnzeige15.Symbolname = "GVL.EV.UberhitzungTemp"
+        Me.DezimalAnzeige15.TabIndex = 138
+        Me.DezimalAnzeige15.Wert = New Decimal(New Integer() {0, 0, 0, 0})
         '
-        'Label14
+        'Led6
         '
-        Me.Label14.AutoSize = True
-        Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label14.Location = New System.Drawing.Point(338, 4)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(62, 18)
-        Me.Label14.TabIndex = 173
-        Me.Label14.Text = "Q in kW"
-        '
-        'Label15
-        '
-        Me.Label15.AutoSize = True
-        Me.Label15.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label15.Location = New System.Drawing.Point(5, 25)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(118, 18)
-        Me.Label15.TabIndex = 170
-        Me.Label15.Text = "Kompressor_ein"
-        '
-        'Label16
-        '
-        Me.Label16.AutoSize = True
-        Me.Label16.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label16.Location = New System.Drawing.Point(5, 54)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(123, 18)
-        Me.Label16.TabIndex = 171
-        Me.Label16.Text = "Kompressor_aus"
-        '
-        'Label17
-        '
-        Me.Label17.AutoSize = True
-        Me.Label17.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label17.Location = New System.Drawing.Point(5, 85)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(112, 18)
-        Me.Label17.TabIndex = 172
-        Me.Label17.Text = "Verflüssiger_ein"
-        '
-        'Label18
-        '
-        Me.Label18.AutoSize = True
-        Me.Label18.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label18.Location = New System.Drawing.Point(6, 113)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(117, 18)
-        Me.Label18.TabIndex = 173
-        Me.Label18.Text = "Verflüssiger_aus"
-        '
-        'Label19
-        '
-        Me.Label19.AutoSize = True
-        Me.Label19.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label19.Location = New System.Drawing.Point(6, 140)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(54, 18)
-        Me.Label19.TabIndex = 174
-        Me.Label19.Text = "EV_ein"
-        '
-        'Label20
-        '
-        Me.Label20.AutoSize = True
-        Me.Label20.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label20.Location = New System.Drawing.Point(6, 170)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(111, 18)
-        Me.Label20.TabIndex = 175
-        Me.Label20.Text = "Verdampfer_ein"
-        '
-        'Label21
-        '
-        Me.Label21.AutoSize = True
-        Me.Label21.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label21.Location = New System.Drawing.Point(6, 199)
-        Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(116, 18)
-        Me.Label21.TabIndex = 176
-        Me.Label21.Text = "Verdampfer_aus"
+        Me.Led6.Aktuallisierungsrate = 1000
+        Me.Led6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.Led6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Led6.FarbeFalse = System.Drawing.Color.Yellow
+        Me.Led6.FarbeTrue = System.Drawing.Color.Lime
+        Me.Led6.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Led6.Location = New System.Drawing.Point(247, 11)
+        Me.Led6.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Led6.Name = "Led6"
+        Me.Led6.Size = New System.Drawing.Size(90, 52)
+        Me.Led6.Symbolname = "REGLER.bEV_TolleranzErreicht"
+        Me.Led6.TabIndex = 137
+        Me.Led6.TextFalse = "Fehler > 5 %"
+        Me.Led6.TextTrue = "Fehler < 5 %"
+        Me.Led6.Wert = True
         '
         'Form1
         '
@@ -3749,6 +3851,8 @@ Partial Class Form1
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage3.ResumeLayout(False)
         Me.TabPage3.PerformLayout()
+        Me.GroupBox7.ResumeLayout(False)
+        Me.GroupBox7.PerformLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage5.ResumeLayout(False)
         Me.TabPage5.PerformLayout()
@@ -3765,8 +3869,10 @@ Partial Class Form1
         Me.TabPage9.ResumeLayout(False)
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage10.ResumeLayout(False)
-        Me.GroupBox7.ResumeLayout(False)
-        Me.GroupBox7.PerformLayout()
+        Me.GroupBox8.ResumeLayout(False)
+        Me.GroupBox8.PerformLayout()
+        Me.GroupBox9.ResumeLayout(False)
+        Me.GroupBox9.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -3810,12 +3916,9 @@ Partial Class Form1
     Friend WithEvents TabControl1 As System.Windows.Forms.TabControl
     Friend WithEvents TabPage1 As System.Windows.Forms.TabPage
     Friend WithEvents DezimalAnzeige18 As EBC_ADS_Bib.DezimalAnzeige
-    Friend WithEvents DezimalAnzeige17 As EBC_ADS_Bib.DezimalAnzeige
     Friend WithEvents DezimalAnzeige16 As EBC_ADS_Bib.DezimalAnzeige
-    Friend WithEvents DezimalAnzeige15 As EBC_ADS_Bib.DezimalAnzeige
     Friend WithEvents DezimalAnzeige14 As EBC_ADS_Bib.DezimalAnzeige
     Friend WithEvents DezimalAnzeige13 As EBC_ADS_Bib.DezimalAnzeige
-    Friend WithEvents Led6 As EBC_ADS_Bib.LED
     Friend WithEvents Led2 As EBC_ADS_Bib.LED
     Friend WithEvents Led4 As EBC_ADS_Bib.LED
     Friend WithEvents SollWertEingabe5 As EBC_ADS_Bib.SollWertEingabe
@@ -3987,8 +4090,6 @@ Partial Class Form1
     Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents Label7 As System.Windows.Forms.Label
-    Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents DezimalAnzeige22 As EBC_ADS_Bib.DezimalAnzeige
     Friend WithEvents DezimalAnzeige30 As EBC_ADS_Bib.DezimalAnzeige
@@ -4012,5 +4113,17 @@ Partial Class Form1
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents Label12 As System.Windows.Forms.Label
+    Friend WithEvents GroupBox8 As System.Windows.Forms.GroupBox
+    Friend WithEvents Label22 As System.Windows.Forms.Label
+    Friend WithEvents Label23 As System.Windows.Forms.Label
+    Friend WithEvents DezimalAnzeige35 As EBC_ADS_Bib.DezimalAnzeige
+    Friend WithEvents DezimalAnzeige39 As EBC_ADS_Bib.DezimalAnzeige
+    Friend WithEvents Led38 As EBC_ADS_Bib.LED
+    Friend WithEvents GroupBox9 As System.Windows.Forms.GroupBox
+    Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents DezimalAnzeige17 As EBC_ADS_Bib.DezimalAnzeige
+    Friend WithEvents DezimalAnzeige15 As EBC_ADS_Bib.DezimalAnzeige
+    Friend WithEvents Led6 As EBC_ADS_Bib.LED
 
 End Class

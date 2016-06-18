@@ -8,7 +8,7 @@ VAR
 	Timer_HeizungAbtauwanne: TON;
 	
 	StartAbtauwanneHeizung : TIME := T#5M; 
-	state: INT:= 1;
+	state: INT:= 0;
 
 END_VAR
 ]]></Declaration>

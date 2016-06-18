@@ -47,7 +47,7 @@
 
 
 (*Elektrische Heizung*)
-	Heizstufe: 			REAL := 8;				//[V], 0..10 V DC,  Aktuelle elektrische Leistung = Heizstufe
+	Heizstufe: 			REAL := 0;			//[V], 0..10 V DC,  Aktuelle elektrische Leistung = Heizstufe
 	P_el_Rack1: 		REAL;				//[W] Aktuelle elektrische Leistung		
 	P_el_Rack2: 		REAL;				//[W] Aktuelle elektrische Leistung				
 	P_el_Boden: 		REAL;				//[W] Aktuelle elektrische Leistung

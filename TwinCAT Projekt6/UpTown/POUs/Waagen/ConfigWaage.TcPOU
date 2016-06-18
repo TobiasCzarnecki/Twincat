@@ -10,13 +10,16 @@ VAR
 	
 	bEinschwingvorgang_vorbei: 	BOOL;
 	
-	WertMitteln: 	ARRAY[1..4] OF FT_AVG;
-	Trigger :		ARRAY[1..4] OF SH_1;
-	FilterIn : 		ARRAY[1..4] OF REAL;
-	k_werte: 		ARRAY[1..4] OF REAL;
+	WertMitteln: 	FT_AVG;
+	Trigger :		SH_1;
+	FilterIn : 		REAL;
+	k_werte: 		ARRAY[1..5] OF REAL; // Für jeden Kalibrierungschritt einen Umrechnungswert
 	
-	counter: 	INT;		//Laufvariable für For-Schleifen
-	state: 		INT := 0; 
+	WaagenNummer: 	INT := 1;		//WaagenNummer
+	state: 			INT := 0; 		// Laufvariable für Casestruktur
+	Kalibrierungsschritt: INT ;
+	GesKaliGewicht : REAL; 			//Gesamtes Kalibrierungsgewicht. Ist eine Kombination aus den Kalibrierungsgewichten
+	Kalibrierungsgewichte : ARRAY [1..3] OF REAL := [494.1, 1013.3, 1013.1];
 END_VAR]]></Declaration>
     <Implementation>
       <ST><![CDATA[
@@ -38,16 +41,24 @@ CASE state OF
 	
 	timer_Messen(IN:= TRUE, PT:= T#120S); //120 Sekunden wird gemessen
 	
+	CASE  Kalibrierungsschritt OF
+		1: 
+			GesKaliGewicht := Kalibrierungsgewichte[1];
+			//SM.Mitteilung  :='Bitte hängen';
+		2:
+			GesKaliGewicht := Kalibrierungsgewichte[2];
+		3:
+			GesKaliGewicht := Kalibrierungsgewichte[1] + Kalibrierungsgewichte [2];
+		4:
+			GesKaliGewicht := Kalibrierungsgewichte[2] + Kalibrierungsgewichte [3];
+		5:
+			GesKaliGewicht := Kalibrierungsgewichte[1] + Kalibrierungsgewichte [2]+ Kalibrierungsgewichte [3];
+	END_CASE
 
-	FOR counter:=1 TO 4 DO 
-	FilterIn[counter] :=Waage_Offset[counter]/ Kalibriergewicht[1];
-	Trigger[counter](in:= FilterIn[counter], PT:= T#1S, out=> , Trig=> );
-	END_FOR
+	FilterIn :=Waage_Offset[WaagenNummer]/ GesKaliGewicht;
+	Trigger(in:= FilterIn, PT:= T#1S, out=> , Trig=> );
 
-	WertMitteln[1](IN:= Trigger[1].out, E:= Trigger[1].Trig, N:= 30, RST:= BereitNachstePosition, AVG=>k_werte[1] );	
-	WertMitteln[2](IN:= Trigger[2].out, E:= Trigger[2].Trig, N:= 30, RST:= BereitNachstePosition, AVG=>k_werte[2] );	
-	WertMitteln[3](IN:= Trigger[3].out, E:= Trigger[3].Trig, N:= 30, RST:= BereitNachstePosition, AVG=>k_werte[3] );	
-	WertMitteln[4](IN:= Trigger[4].out, E:= Trigger[4].Trig, N:= 30, RST:= BereitNachstePosition, AVG=>k_werte[4] );	
+	WertMitteln(IN:= Trigger.out, E:= Trigger.Trig, N:= 30, RST:= BereitNachstePosition, AVG=>k_werte[Kalibrierungsschritt] );	
 	
 	IF timer_Messen.Q THEN 
 		state :=2;
@@ -57,25 +68,29 @@ CASE state OF
 
 2: (*Übertragung der k-Werte in das Kalibrierungs-Array*)
 
-	FOR counter:=1 TO 4 DO 
-		k_alleDaten[1].k_Kalibrierung[counter,PositionKalibrierGewicht]:= k_werte[counter];
-	END_FOR
-	
+	Umrechnungsfaktoren[WaagenNummer,Kalibrierungsschritt]:= k_werte[Kalibrierungsschritt];
+
 	state:= 3;
 
 3:	
-	WaageKalibriert[PositionKalibrierGewicht]:=TRUE;
-	BereitNachstePosition:= TRUE;
-	IF ManuellOK THEN //NachstePosition THEN 
-	state:= 0;
 
-	WaagenKalibrierungFertig:= FALSE;
-	PositionKalibrierGewicht:= PositionKalibrierGewicht + 1; 
-		IF PositionKalibrierGewicht > 4 THEN 
-			PositionKalibrierGewicht:= 1;
+	BereitNachstePosition:= TRUE;
+	Kalibrierungsschritt:= Kalibrierungsschritt + 1; //nächster Kalibrierungsschritt
+	
+	(*Falls eine Waage alle Kalibrierungsschritte durchlaufen hat wird die nächste Waage 
+		kalibriert.*)
+	IF Kalibrierungsschritt > 5 THEN 
+		WaageKalibriert[WaagenNummer]:=TRUE;
+		WaagenNummer := WaagenNummer +1 ;
+		Kalibrierungsschritt := 1;
+		state:= 0;
+	END_IF
+	
+	(*Alle Waagen sind alle 5 Kalibrierungsschritte durchlaufen. Gewichtskalibrierung ist abgeschlossen
+		state wird auf Null gesetzt.*)
+	IF Kalibrierungsschritt > 5  AND WaagenNummer > 4 THEN 
 			WaagenKalibrierungFertig:= TRUE; 
-		//	bWaagenKalibrierung := FALSE;
-		END_IF
+			state:= 0;
 	END_IF
 
 END_CASE]]></ST>

@@ -119,6 +119,7 @@ Public Class Form1
     End Sub
     Private Sub CheckboxEingabe_Abtauen_Wert_Changed(sender As Object, e As EventArgs) Handles CheckboxEingabe_Kuhlen.Wert_Changed, GroupBox3.EnabledChanged, CheckboxEingabe_Abtauen.Wert_Changed
         GroupBox3.Enabled = CheckboxEingabe_Abtauen.Wert
+        GroupBox8.Enabled = CheckboxEingabe_Abtauen.Wert
     End Sub
     'Private Sub CheckboxEingabe9_Wert_Changed(sender As Object, e As EventArgs) Handles CheckboxEingabe9.Wert_Changed, DropdownEingabe1.EnabledChanged, GroupBox4.EnabledChanged
     '    SollWertEingabe3.Enabled = CheckboxEingabe9.Wert
@@ -142,11 +143,4 @@ Public Class Form1
         End If
     End Sub
 
-    Private Sub Anzeige_KP_in_Enthalpie_Load(sender As Object, e As EventArgs) Handles Anzeige_KP_in_Enthalpie.Load
-
-    End Sub
-
-    Private Sub Anzeige_VF_out_Temperatur_Load(sender As Object, e As EventArgs) Handles Anzeige_VF_out_Temperatur.Load
-
-    End Sub
 End Class
