@@ -32,8 +32,19 @@ END_VAR
 	  
 	  //Vereisungsprozess wird abgebrochen
 	  bKuehlenAbbrechen := TRUE;
-	  
-  END_IF]]></ST>
+  END_IF
+  
+  
+(*Elektrische Heizung Schutz. Falls ElektrischeHeizung_ON nicht TRUE werden auch alle AO-Ausgangssignale 
+  der Heizungsregelung auf 0 V gestellt*)
+  
+  		IF ElektrischeHeizung_ON = FALSE THEN 
+			Soll_ElektHeizrack1.REAL_VAR		:= 0;
+			Soll_ElektHeizrack2.REAL_VAR		:= 0;
+			Soll_ElektHeizrack_Boden.REAL_VAR 	:= 0;
+		END_IF
+		
+]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>

@@ -57,7 +57,8 @@ END_VAR
 		
 IF 	bConfigPT THEN 
 	Status_Modbus := ConfigPT;
-
+ELSE 
+	Status_Modbus := Aktiv;
 END_IF
 
 

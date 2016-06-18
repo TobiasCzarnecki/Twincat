@@ -199,6 +199,9 @@
     <Compile Include="POUs\Funktionen\FB_GetEnthalpie.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="POUs\Funktionen\POU.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\Funktionen\PunktErsetztKomma.TcPOU">
       <SubType>Code</SubType>
     </Compile>
@@ -231,9 +234,6 @@
     <Compile Include="POUs\Modbus\ModbusRTU_EL.TcPOU">
       <SubType>Code</SubType>
       <ObjectProtection>00000000-0000-0000-0000-000000000000</ObjectProtection>
-    </Compile>
-    <Compile Include="POUs\PumpDownProgramm.TcPOU">
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\Regelung.TcPOU">
       <SubType>Code</SubType>

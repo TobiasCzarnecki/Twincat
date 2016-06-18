@@ -23,10 +23,10 @@ END_VAR
 //======================================================================================
 
 (*Verdampfer: h_in & h_out*)
-	VD.h_in:= EV_in.h; //isenthalpe Entspannung
+	VD.h_in:= EV_in.h_in; //isenthalpe Entspannung
 	
 	VD_in_Enthalpie(In_Druck:= PT_VD_in.rDruck, In_Temperatur:=Temp_VD_in.REAL_VAR);//, h=>VD.h_in, x=>VD.x_in, Zustand=> );
-	VD_out_Enthalpie(In_Druck:= PT_VD_out.rDruck, In_Temperatur:=Temp_VD_in_rev.REAL_VAR, h=>VD.h_out, x=>VD.x_out, Zustand=> );
+	VD_out_Enthalpie(In_Druck:= PT_VD_out.rDruck, In_Temperatur:=Temp_VD_out.REAL_VAR, h=>VD.h_out, x=>VD.x_out, Zustand=> );
 
 (*Verdampfer in der Klimakammer beim Abtauen: h_in & h_out*)
 	VD_rev_in_Enthalpie(In_Druck:= PT_VD_out.rDruck, In_Temperatur:=Temp_VD_in_rev.REAL_VAR, h=>VD_rev.h_in, x=>VD_rev.x_in, Zustand=> );
@@ -49,10 +49,10 @@ END_VAR
 	
 	
 (*Totaler Enthalpiestrom wird berechnet*)
-	VD.H := 		MSS.rMassenstrom *( VD.h_out-VD.h_in)* 1000;
-	VF.H := 		MSS.rMassenstrom *( VF.h_out-VF.h_in)* 1000;
-	KP.H := 		MSS.rMassenstrom *( KP.h_out-KP.h_in)* 1000;
-	VD_defrost.H := MSS.rMassenstrom *( VD_defrost.h_out-VD_defrost.h_in)* 1000;
+	VD.H := 		MSS.rMassenstrom *( VD.h_out-VD.h_in)/ 1000;
+	VF.H := 		MSS.rMassenstrom *( VF.h_out-VF.h_in)/ 1000;
+	KP.H := 		MSS.rMassenstrom *( KP.h_out-KP.h_in)/ 1000;
+	VD_defrost.H := MSS.rMassenstrom *( VD_defrost.h_out-VD_defrost.h_in)/ 1000;
 
 (*Die Energiemengen werden bestimmt*)	
 	VD_H_Integral(X:=VD.H, Y:= VD.H_sum);

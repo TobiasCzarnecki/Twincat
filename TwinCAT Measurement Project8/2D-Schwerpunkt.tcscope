@@ -4,7 +4,7 @@
   <Title>2D-Schwerpunkt</Title>
   <LayoutString>&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;Layout&gt;
-  &lt;Window Guid="b2818bd9-5bd5-4766-8786-2699cb903dda" LastFocused="131099349712914595" DockedSize="200" PopupSize="0" FloatingLocation="-1, -1" FloatingSize="550, 400" LastOpenDockSituation="Document" LastFixedDockSituation="Document" LastFixedDockLocation="Right" LastFloatingWindowGuid="00000000-0000-0000-0000-000000000000" LastDockContainerCount="0" LastDockContainerIndex="0" DockedWorkingSize="250, 400" DockedWindowGroupGuid="00000000-0000-0000-0000-000000000000" DockedIndexInWindowGroup="0" DockedSplitPath="0" DocumentWorkingSize="250, 400" DocumentWindowGroupGuid="8307846b-6ec6-4edb-82e9-6392b040a3b0" DocumentIndexInWindowGroup="0" DocumentSplitPath="0" FloatingWorkingSize="250, 400" FloatingWindowGroupGuid="00000000-0000-0000-0000-000000000000" FloatingIndexInWindowGroup="0" FloatingSplitPath="0" /&gt;
+  &lt;Window Guid="b2818bd9-5bd5-4766-8786-2699cb903dda" LastFocused="131105592076067891" DockedSize="200" PopupSize="0" FloatingLocation="-1, -1" FloatingSize="550, 400" LastOpenDockSituation="Document" LastFixedDockSituation="Document" LastFixedDockLocation="Right" LastFloatingWindowGuid="00000000-0000-0000-0000-000000000000" LastDockContainerCount="0" LastDockContainerIndex="0" DockedWorkingSize="250, 400" DockedWindowGroupGuid="00000000-0000-0000-0000-000000000000" DockedIndexInWindowGroup="0" DockedSplitPath="0" DocumentWorkingSize="250, 400" DocumentWindowGroupGuid="8307846b-6ec6-4edb-82e9-6392b040a3b0" DocumentIndexInWindowGroup="0" DocumentSplitPath="0" FloatingWorkingSize="250, 400" FloatingWindowGroupGuid="00000000-0000-0000-0000-000000000000" FloatingIndexInWindowGroup="0" FloatingSplitPath="0" /&gt;
   &lt;DocumentContainer Dock="5"&gt;
     &lt;SplitLayoutSystem WorkingSize="250, 400" SplitMode="0"&gt;
       &lt;ControlLayoutSystem WorkingSize="250, 400" Guid="8307846b-6ec6-4edb-82e9-6392b040a3b0" Collapsed="0" SelectedControl="b2818bd9-5bd5-4766-8786-2699cb903dda"&gt;
@@ -89,8 +89,8 @@
               <Ticks>10</Ticks>
               <LineWidth>1</LineWidth>
               <AutoScale>false</AutoScale>
-              <AxisMin>-400</AxisMin>
-              <AxisMax>400</AxisMax>
+              <AxisMin>-1000</AxisMin>
+              <AxisMax>1000</AxisMax>
               <ScaleFactor>0</ScaleFactor>
               <ShowCursorValue>true</ShowCursorValue>
               <GridColorValue>-13676721</GridColorValue>
@@ -110,47 +110,47 @@
             <ScopeXYChannelSerializable>
               <XAcquisition>
                 <DataType>REAL32</DataType>
-                <IndexGroup>0</IndexGroup>
-                <IndexOffset>0</IndexOffset>
-                <TargetPort>801</TargetPort>
+                <IndexGroup>16448</IndexGroup>
+                <IndexOffset>1381668</IndexOffset>
+                <TargetPort>851</TargetPort>
                 <VariableSize>4</VariableSize>
                 <SymbolName>WAAGEN.xPosition_SP_0</SymbolName>
-                <SymbolComment></SymbolComment>
+                <SymbolComment>Schwerpunkt vom Eis</SymbolComment>
                 <IsSymbolBased>true</IsSymbolBased>
                 <FileHandle>0</FileHandle>
                 <UseLocalServer>true</UseLocalServer>
-                <AmsNetIdString>192.168.178.116.1.1</AmsNetIdString>
-                <SampleTime>10000</SampleTime>
+                <AmsNetIdString>5.33.15.132.1.1</AmsNetIdString>
+                <SampleTime>100000</SampleTime>
                 <Disabled>false</Disabled>
                 <Oversample>0</Oversample>
                 <UseTaskSampletime>true</UseTaskSampletime>
                 <ForceOversampling>false</ForceOversampling>
                 <IsArray>false</IsArray>
                 <ArrayLength>0</ArrayLength>
-                <ContextMask>-1</ContextMask>
+                <ContextMask>0</ContextMask>
               </XAcquisition>
               <Name>SP_Eis</Name>
               <IdentHandle>1</IdentHandle>
               <Acquisition>
                 <DataType>REAL32</DataType>
-                <IndexGroup>0</IndexGroup>
-                <IndexOffset>0</IndexOffset>
-                <TargetPort>801</TargetPort>
+                <IndexGroup>16448</IndexGroup>
+                <IndexOffset>1381672</IndexOffset>
+                <TargetPort>851</TargetPort>
                 <VariableSize>4</VariableSize>
                 <SymbolName>WAAGEN.yPosition_SP_0</SymbolName>
                 <SymbolComment></SymbolComment>
                 <IsSymbolBased>true</IsSymbolBased>
                 <FileHandle>0</FileHandle>
                 <UseLocalServer>true</UseLocalServer>
-                <AmsNetIdString>192.168.178.116.1.1</AmsNetIdString>
-                <SampleTime>10000</SampleTime>
+                <AmsNetIdString>5.33.15.132.1.1</AmsNetIdString>
+                <SampleTime>100000</SampleTime>
                 <Disabled>false</Disabled>
                 <Oversample>0</Oversample>
                 <UseTaskSampletime>true</UseTaskSampletime>
                 <ForceOversampling>false</ForceOversampling>
                 <IsArray>false</IsArray>
                 <ArrayLength>0</ArrayLength>
-                <ContextMask>-1</ContextMask>
+                <ContextMask>0</ContextMask>
               </Acquisition>
               <Style>
                 <ColorValue>-16711936</ColorValue>
@@ -173,9 +173,9 @@
                 <XBitMask>18446744073709551615</XBitMask>
                 <FillMode>0</FillMode>
                 <FillColorValue>0</FillColorValue>
-                <EndCap>false</EndCap>
-                <StartCap>false</StartCap>
-                <CapSize>3</CapSize>
+                <EndCap>true</EndCap>
+                <StartCap>true</StartCap>
+                <CapSize>10</CapSize>
                 <CapColorValue>-65536</CapColorValue>
                 <SeriesType>Line</SeriesType>
               </Style>
@@ -192,8 +192,8 @@
             <Ticks>10</Ticks>
             <LineWidth>1</LineWidth>
             <AutoScale>false</AutoScale>
-            <AxisMin>-400</AxisMin>
-            <AxisMax>400</AxisMax>
+            <AxisMin>1000</AxisMin>
+            <AxisMax>1000</AxisMax>
             <ScaleFactor>0</ScaleFactor>
             <ShowCursorValue>true</ShowCursorValue>
             <GridColorValue>-13676721</GridColorValue>
@@ -212,24 +212,24 @@
               <IdentHandle>1</IdentHandle>
               <Acquisition>
                 <DataType>REAL32</DataType>
-                <IndexGroup>0</IndexGroup>
-                <IndexOffset>0</IndexOffset>
-                <TargetPort>801</TargetPort>
+                <IndexGroup>16448</IndexGroup>
+                <IndexOffset>1381672</IndexOffset>
+                <TargetPort>851</TargetPort>
                 <VariableSize>4</VariableSize>
                 <SymbolName>WAAGEN.yPosition_SP_0</SymbolName>
                 <SymbolComment></SymbolComment>
                 <IsSymbolBased>true</IsSymbolBased>
                 <FileHandle>0</FileHandle>
                 <UseLocalServer>true</UseLocalServer>
-                <AmsNetIdString>192.168.178.116.1.1</AmsNetIdString>
-                <SampleTime>10000</SampleTime>
+                <AmsNetIdString>5.33.15.132.1.1</AmsNetIdString>
+                <SampleTime>100000</SampleTime>
                 <Disabled>false</Disabled>
                 <Oversample>0</Oversample>
                 <UseTaskSampletime>true</UseTaskSampletime>
                 <ForceOversampling>false</ForceOversampling>
                 <IsArray>false</IsArray>
                 <ArrayLength>0</ArrayLength>
-                <ContextMask>-1</ContextMask>
+                <ContextMask>0</ContextMask>
               </Acquisition>
               <Style>
                 <ColorValue>-16711936</ColorValue>
@@ -252,9 +252,9 @@
                 <XBitMask>18446744073709551615</XBitMask>
                 <FillMode>0</FillMode>
                 <FillColorValue>0</FillColorValue>
-                <EndCap>false</EndCap>
-                <StartCap>false</StartCap>
-                <CapSize>3</CapSize>
+                <EndCap>true</EndCap>
+                <StartCap>true</StartCap>
+                <CapSize>10</CapSize>
                 <CapColorValue>-65536</CapColorValue>
                 <SeriesType>Line</SeriesType>
               </Style>
@@ -274,7 +274,7 @@
         <HexValues>false</HexValues>
       </CursorModule>
       <Operating>
-        <DisplayWidth>100000000</DisplayWidth>
+        <DisplayWidth>700000000</DisplayWidth>
       </Operating>
       <ChartType>XY</ChartType>
       <SortPriority>-1</SortPriority>

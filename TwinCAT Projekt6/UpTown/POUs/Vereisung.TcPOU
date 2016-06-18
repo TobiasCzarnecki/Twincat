@@ -12,14 +12,9 @@ END_VAR
 	IF NOT TimerVereisung.IN THEN
 	TimerVereisung(IN:= TRUE, PT:= Vereisungszeit);
 	END_IF
-	
-(*Die Schütze 1K3 und 1K5 werden durch bKühlen geschaltet:
-					-Magnetventile 1Y5,1Y6 werden geschlossen 
-					-4-Wegeventil auf Kühlen geschaltet
-					-VF_Ventilator bekommt Freigabe*)
  		
 	IF SM.bKuehlen THEN 
-		fb_Schuetzstellung(myStatus := KuehlenUnten);
+		fb_Schuetzstellung(myStatus := KuehlenOben);
 	END_IF
 	
 (*Abtauung wird begonnen wenn Zeit des Timers abgelaufen ist*)

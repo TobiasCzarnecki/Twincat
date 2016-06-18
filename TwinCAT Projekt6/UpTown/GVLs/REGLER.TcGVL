@@ -5,10 +5,10 @@
 (*Liste der zu regelnden Komponentem im Kältekreislauf *)
 	(*Timer für die Vereisungszeit wird deklariert*)
 	TimerVereisung: 			TON; 
-	Vereisungszeit: 	TIME := T#10M;
-	rVereisungszeit:  REAL; 				// wird von der GUI als Decimalzahl an die SPS gegeben
+	Vereisungszeit: 			TIME := T#10M;
+	rVereisungszeit: 			REAL; 				// wird von der GUI als Decimalzahl an die SPS gegeben
 	TimerAbtaudauer:			TON;
-	AutomatikZyklusEin :		 BOOL := FALSE;
+	AutomatikZyklusEin :		BOOL := FALSE;
 	AutomatikAbtauModus : Modus_Abtauen := NichtAusgewahlt;
 	
 (*PID-Regler Deklaration*)
@@ -24,21 +24,30 @@
 	Soll_PumpDownDruck: 			REAL := 1.5; // [Bar], vorgegeben von Hersteller
 	
 (*Digitale Ausgangsignale*)	
-	VD_Ventilator_ON 			AT %Q*:		BOOL:= FALSE;   // Im RI-Fließbild Bezeichnung: 1W1
-	VD_defrost_Ventilator_ON 	AT %Q*: 	BOOL:= FALSE;	// Im RI-Fließbild Bezeichnung: 1W3
-	ElektrischeHeizung_ON 		AT %Q*: 	BOOL:= FALSE;
-	KP_ON 						AT %Q*: 	BOOL:= FALSE; 	// Im RI-Fließbild Bezeichnung: 1V1 
+	VD_Ventilator_ON 			 :	BOOL:= FALSE;   // Im RI-Fließbild Bezeichnung: 1W1
+	VD_defrost_Ventilator_ON 	 :	BOOL:= FALSE;	// Im RI-Fließbild Bezeichnung: 1W3
+	ElektrischeHeizung_ON 		 :	BOOL:= FALSE;
+	KP_ON 						 :	BOOL:= FALSE; 	// Im RI-Fließbild Bezeichnung: 1V1 
 	
 (*Schütze werden geschaltet*)
-	Schuetz_1K3 AT %Q*:					BOOL:= FALSE;	
-	Schuetz_1K4 AT %Q*:					BOOL:= FALSE;
-	Schuetz_1K5	AT %Q*:					BOOL:= FALSE;
-	Schuetz_1K7	AT %Q*:					BOOL:= FALSE;
-	fb_Schuetzstellung: 				FB_Schuetzstellung;
+	Schuetz_1K3 				:	BOOL:= FALSE;	
+	Schuetz_1K4 				:	BOOL:= FALSE;
+	Schuetz_1K5					:	BOOL:= FALSE;
+	Schuetz_1K7	AT %Q*:				BOOL:= FALSE;
+	fb_Schuetzstellung: 			FB_Schuetzstellung;
 	
+(*Digitale Klemmenausgänge*)
+	DO_VD_Ventilator_ON 			AT %Q*:		BOOL:= FALSE;  
+	DO_VD_defrost_Ventilator_ON 	AT %Q*: 	BOOL:= FALSE;	
+	DO_ElektrischeHeizung_ON 		AT %Q*: 	BOOL:= FALSE;
+	DO_KP_ON 						AT %Q*: 	BOOL:= FALSE; 	
+	DO_Schuetz_1K3 					AT %Q*:		BOOL:= FALSE;	
+	DO_Schuetz_1K4 					AT %Q*:		BOOL:= FALSE;
+	DO_Schuetz_1K5					AT %Q*:		BOOL:= FALSE;
+
 
 (*Elektrische Heizung*)
-	Heizstufe: 			REAL;				//[V], 0..10 V DC,  Aktuelle elektrische Leistung = Heizstufe
+	Heizstufe: 			REAL := 8;				//[V], 0..10 V DC,  Aktuelle elektrische Leistung = Heizstufe
 	P_el_Rack1: 		REAL;				//[W] Aktuelle elektrische Leistung		
 	P_el_Rack2: 		REAL;				//[W] Aktuelle elektrische Leistung				
 	P_el_Boden: 		REAL;				//[W] Aktuelle elektrische Leistung

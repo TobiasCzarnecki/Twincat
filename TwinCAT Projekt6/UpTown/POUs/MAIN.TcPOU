@@ -7,6 +7,7 @@ VAR
 
 	REALtime: REAL := 12.5;
 	Zeit  : TIME;
+
 END_VAR
 
 ]]></Declaration>
@@ -62,12 +63,7 @@ Lesen: //Input von Klemmen Lesen und in native Werte umrechen
 	ModbusRTU_COM();
 	ModbusRTU_EL();
 	
-	//======Leerlauf-Modus====
-	IF bLeerlauf= TRUE THEN 			// Maschine geht automatisch zunächst in den Leerlauf-Modus
-	SM.Status := Leerlauf;
-	END_IF
-	
-	
+
 	//======Kühl-Modus====
 		IF bKuehlen THEN 
 			bLeerlauf := FALSE;
@@ -130,14 +126,17 @@ Lesen: //Input von Klemmen Lesen und in native Werte umrechen
 		SM.Status := AnlagenPumpdown; 
 		END_IF	
 	
+		
 	//======Leerlauf Modus======	
 		IF bKuehlen = FALSE AND bAbtauen_elektrisch = FALSE AND bAbtauen_Heissgas_oben = FALSE 
-		AND bAbtauen_Heissgas_unten = FALSE AND NOT bPumpDown AND NOT bPumpDown_rev // kein Modus ist ausgewählt
+		AND bAbtauen_Heissgas_unten = FALSE AND bPumpDown= FALSE AND  bPumpDown_rev = FALSE// kein Modus ist ausgewählt
 	//	OR bAbtauenAbgeschlossen = TRUE																							// ABtauen abgeschlossen
  		THEN 
 			bLeerlauf := TRUE;
 			
 			SM.Status := Leerlauf;
+		ELSE
+			bLeerlauf :=FALSE; 
 		END_IF
 	 
 	 
@@ -245,11 +244,27 @@ Abtauen: (*Der Verdampfer wird abgetaut. Über GVL wird der Abtaumodus ausgewäh
 
 	
 AnlagenPumpDown: //Anlage wird abgepumpt. Kältemittel wird in den Sammler gedrückt
+	
+	(*Kompressor wird angeschaltet*)		
+		PID_KP.Aktiv:= TRUE;
+		Regelung();
+	(*Schütze, EV werden für PumpDown Modus geschaltet*)
+ 	
+	IF bPumpDown THEN 	
+		bPumpDown_rev := FALSE;
+		fb_Schuetzstellung(myStatus:= PumpDown);
+	END_IF
 
-	PumpDownProgramm();
-	Regelung();
+	IF bPumpDown_rev THEN 
+		bPumpDown := FALSE;	
+		fb_Schuetzstellung(myStatus:= PumpDown_rev);	
+	END_IF
+
 	IF 	bPumpDown= FALSE AND bPumpDown_rev= FALSE THEN
 		bNeuInitialisieren:= TRUE;  (*Soll-Regelwerte aus der Datenbank lesen *)
+	(*Kompressor wird ausgeschaltet*)	
+			KP_ON		:= FALSE;	
+			PID_KP.Aktiv:= FALSE;
 	END_IF
 	
 	//======nächster Modus====	
@@ -267,8 +282,8 @@ Leerlauf: (* Anlage ist im Leerlauf.  1) Kühlen oder Abtauen wurde ABGEBROCHEN,
 	Regelung();
 	
 	//PumpDOWN wird abgebrochen falls nötig
-		bPumpDown	:= FALSE;
-		bPumpDown_rev:= FALSE;
+		//bPumpDown	:= FALSE;
+		//bPumpDown_rev:= FALSE;
 										
 	//Regler deaktivieren und Freigabe ausschalten
 		KP_ON:= 					FALSE;
@@ -277,9 +292,13 @@ Leerlauf: (* Anlage ist im Leerlauf.  1) Kühlen oder Abtauen wurde ABGEBROCHEN,
 		PID_KP.Aktiv := 			FALSE;
 		PID_VF_Ventilator.Aktiv:=	FALSE;
 
+	//======Waagen-Kalibrierung im Leerlauf======
+		Lesen_Waagen();		//Wandelt die empfangenen Daten von den Waagen um 
+		Schwerpunkt_Eismasse();
 	//======nächster Modus====	
 		bAnlagenschutzModus:=TRUE;		
 		SM.Status:=Anlagenschutz;
+		
 
 			
 Anlagenschutz: //Anlagenschutzsysteme überschreiben ggf. Anweisungen

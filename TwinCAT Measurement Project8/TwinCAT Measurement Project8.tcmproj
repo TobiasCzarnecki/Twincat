@@ -10,10 +10,16 @@
     <Content Include="2D-Schwerpunkt.tcscope">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Enthalpien.tcscope">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Regelung.tcscope">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Oberflächentemperatur.tcscope">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Scope YT Project2.tcscope">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Wägesystem.tcscope">

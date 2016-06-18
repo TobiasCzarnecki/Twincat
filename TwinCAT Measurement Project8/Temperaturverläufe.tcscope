@@ -4,11 +4,11 @@
   <Title>Temperaturverläufe</Title>
   <LayoutString>&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;Layout&gt;
-  &lt;Window Guid="142e6c67-7e71-44da-b0a3-0a5142575a99" LastFocused="131099339354322301" DockedSize="200" PopupSize="0" FloatingLocation="-1, -1" FloatingSize="550, 400" LastOpenDockSituation="Document" LastFixedDockSituation="Document" LastFixedDockLocation="Right" LastFloatingWindowGuid="00000000-0000-0000-0000-000000000000" LastDockContainerCount="0" LastDockContainerIndex="0" DockedWorkingSize="250, 400" DockedWindowGroupGuid="00000000-0000-0000-0000-000000000000" DockedIndexInWindowGroup="0" DockedSplitPath="0" DocumentWorkingSize="250, 727.058838" DocumentWindowGroupGuid="6f881218-8415-4d3f-9616-977684c1633a" DocumentIndexInWindowGroup="0" DocumentSplitPath="0|1|1" FloatingWorkingSize="250, 400" FloatingWindowGroupGuid="00000000-0000-0000-0000-000000000000" FloatingIndexInWindowGroup="0" FloatingSplitPath="0" /&gt;
-  &lt;Window Guid="f2868fa9-90d4-4a97-a389-bb9495e86099" LastFocused="131099339218679714" DockedSize="200" PopupSize="0" FloatingLocation="-1, -1" FloatingSize="550, 400" LastOpenDockSituation="Document" LastFixedDockSituation="Document" LastFixedDockLocation="Right" LastFloatingWindowGuid="00000000-0000-0000-0000-000000000000" LastDockContainerCount="0" LastDockContainerIndex="0" DockedWorkingSize="250, 400" DockedWindowGroupGuid="00000000-0000-0000-0000-000000000000" DockedIndexInWindowGroup="0" DockedSplitPath="0" DocumentWorkingSize="250, 727.058838" DocumentWindowGroupGuid="76363d95-2a23-487f-8629-79d179c590b0" DocumentIndexInWindowGroup="0" DocumentSplitPath="0|1|0" FloatingWorkingSize="250, 400" FloatingWindowGroupGuid="00000000-0000-0000-0000-000000000000" FloatingIndexInWindowGroup="0" FloatingSplitPath="0" /&gt;
-  &lt;Window Guid="97332cdc-477f-498a-a8da-59f3e238ae5a" LastFocused="131099339316688272" DockedSize="200" PopupSize="0" FloatingLocation="-1, -1" FloatingSize="550, 400" LastOpenDockSituation="Document" LastFixedDockSituation="Document" LastFixedDockLocation="Right" LastFloatingWindowGuid="00000000-0000-0000-0000-000000000000" LastDockContainerCount="0" LastDockContainerIndex="0" DockedWorkingSize="250, 400" DockedWindowGroupGuid="00000000-0000-0000-0000-000000000000" DockedIndexInWindowGroup="0" DockedSplitPath="0" DocumentWorkingSize="250, 727.058838" DocumentWindowGroupGuid="d64d89ac-935a-4c49-85b2-77ed026110d7" DocumentIndexInWindowGroup="0" DocumentSplitPath="0|0|0" FloatingWorkingSize="250, 400" FloatingWindowGroupGuid="00000000-0000-0000-0000-000000000000" FloatingIndexInWindowGroup="0" FloatingSplitPath="0" /&gt;
-  &lt;Window Guid="234464fd-0a15-4250-87d6-a68364419129" LastFocused="131099339167403375" DockedSize="200" PopupSize="0" FloatingLocation="-1, -1" FloatingSize="550, 400" LastOpenDockSituation="Document" LastFixedDockSituation="Document" LastFixedDockLocation="Right" LastFloatingWindowGuid="00000000-0000-0000-0000-000000000000" LastDockContainerCount="0" LastDockContainerIndex="0" DockedWorkingSize="250, 400" DockedWindowGroupGuid="00000000-0000-0000-0000-000000000000" DockedIndexInWindowGroup="0" DockedSplitPath="0" DocumentWorkingSize="250, 727.058838" DocumentWindowGroupGuid="d64d89ac-935a-4c49-85b2-77ed026110d7" DocumentIndexInWindowGroup="1" DocumentSplitPath="0|0|0" FloatingWorkingSize="250, 400" FloatingWindowGroupGuid="00000000-0000-0000-0000-000000000000" FloatingIndexInWindowGroup="0" FloatingSplitPath="0" /&gt;
-  &lt;Window Guid="b1b7adc8-9fd3-4640-bc8c-3687d95f607e" LastFocused="131099339266242688" DockedSize="200" PopupSize="0" FloatingLocation="-1, -1" FloatingSize="550, 400" LastOpenDockSituation="Document" LastFixedDockSituation="Document" LastFixedDockLocation="Right" LastFloatingWindowGuid="00000000-0000-0000-0000-000000000000" LastDockContainerCount="0" LastDockContainerIndex="0" DockedWorkingSize="250, 400" DockedWindowGroupGuid="00000000-0000-0000-0000-000000000000" DockedIndexInWindowGroup="0" DockedSplitPath="0" DocumentWorkingSize="250, 727.058838" DocumentWindowGroupGuid="33becf4d-930f-45ab-933a-3c8dee08ba08" DocumentIndexInWindowGroup="0" DocumentSplitPath="0|0|1" FloatingWorkingSize="250, 400" FloatingWindowGroupGuid="00000000-0000-0000-0000-000000000000" FloatingIndexInWindowGroup="0" FloatingSplitPath="0" /&gt;
+  &lt;Window Guid="142e6c67-7e71-44da-b0a3-0a5142575a99" LastFocused="131106267874223557" DockedSize="200" PopupSize="0" FloatingLocation="-1, -1" FloatingSize="550, 400" LastOpenDockSituation="Document" LastFixedDockSituation="Document" LastFixedDockLocation="Right" LastFloatingWindowGuid="00000000-0000-0000-0000-000000000000" LastDockContainerCount="0" LastDockContainerIndex="0" DockedWorkingSize="250, 400" DockedWindowGroupGuid="00000000-0000-0000-0000-000000000000" DockedIndexInWindowGroup="0" DockedSplitPath="0" DocumentWorkingSize="250, 727.058838" DocumentWindowGroupGuid="6f881218-8415-4d3f-9616-977684c1633a" DocumentIndexInWindowGroup="0" DocumentSplitPath="0|1|1" FloatingWorkingSize="250, 400" FloatingWindowGroupGuid="00000000-0000-0000-0000-000000000000" FloatingIndexInWindowGroup="0" FloatingSplitPath="0" /&gt;
+  &lt;Window Guid="f2868fa9-90d4-4a97-a389-bb9495e86099" LastFocused="131106277580903922" DockedSize="200" PopupSize="0" FloatingLocation="-1, -1" FloatingSize="550, 400" LastOpenDockSituation="Document" LastFixedDockSituation="Document" LastFixedDockLocation="Right" LastFloatingWindowGuid="00000000-0000-0000-0000-000000000000" LastDockContainerCount="0" LastDockContainerIndex="0" DockedWorkingSize="250, 400" DockedWindowGroupGuid="00000000-0000-0000-0000-000000000000" DockedIndexInWindowGroup="0" DockedSplitPath="0" DocumentWorkingSize="250, 727.058838" DocumentWindowGroupGuid="76363d95-2a23-487f-8629-79d179c590b0" DocumentIndexInWindowGroup="0" DocumentSplitPath="0|1|0" FloatingWorkingSize="250, 400" FloatingWindowGroupGuid="00000000-0000-0000-0000-000000000000" FloatingIndexInWindowGroup="0" FloatingSplitPath="0" /&gt;
+  &lt;Window Guid="97332cdc-477f-498a-a8da-59f3e238ae5a" LastFocused="131106389460566532" DockedSize="200" PopupSize="0" FloatingLocation="-1, -1" FloatingSize="550, 400" LastOpenDockSituation="Document" LastFixedDockSituation="Document" LastFixedDockLocation="Right" LastFloatingWindowGuid="00000000-0000-0000-0000-000000000000" LastDockContainerCount="0" LastDockContainerIndex="0" DockedWorkingSize="250, 400" DockedWindowGroupGuid="00000000-0000-0000-0000-000000000000" DockedIndexInWindowGroup="0" DockedSplitPath="0" DocumentWorkingSize="250, 727.058838" DocumentWindowGroupGuid="d64d89ac-935a-4c49-85b2-77ed026110d7" DocumentIndexInWindowGroup="0" DocumentSplitPath="0|0|0" FloatingWorkingSize="250, 400" FloatingWindowGroupGuid="00000000-0000-0000-0000-000000000000" FloatingIndexInWindowGroup="0" FloatingSplitPath="0" /&gt;
+  &lt;Window Guid="234464fd-0a15-4250-87d6-a68364419129" LastFocused="131106267721017767" DockedSize="200" PopupSize="0" FloatingLocation="-1, -1" FloatingSize="550, 400" LastOpenDockSituation="Document" LastFixedDockSituation="Document" LastFixedDockLocation="Right" LastFloatingWindowGuid="00000000-0000-0000-0000-000000000000" LastDockContainerCount="0" LastDockContainerIndex="0" DockedWorkingSize="250, 400" DockedWindowGroupGuid="00000000-0000-0000-0000-000000000000" DockedIndexInWindowGroup="0" DockedSplitPath="0" DocumentWorkingSize="250, 727.058838" DocumentWindowGroupGuid="d64d89ac-935a-4c49-85b2-77ed026110d7" DocumentIndexInWindowGroup="1" DocumentSplitPath="0|0|0" FloatingWorkingSize="250, 400" FloatingWindowGroupGuid="00000000-0000-0000-0000-000000000000" FloatingIndexInWindowGroup="0" FloatingSplitPath="0" /&gt;
+  &lt;Window Guid="b1b7adc8-9fd3-4640-bc8c-3687d95f607e" LastFocused="131106265155687181" DockedSize="200" PopupSize="0" FloatingLocation="-1, -1" FloatingSize="550, 400" LastOpenDockSituation="Document" LastFixedDockSituation="Document" LastFixedDockLocation="Right" LastFloatingWindowGuid="00000000-0000-0000-0000-000000000000" LastDockContainerCount="0" LastDockContainerIndex="0" DockedWorkingSize="250, 400" DockedWindowGroupGuid="00000000-0000-0000-0000-000000000000" DockedIndexInWindowGroup="0" DockedSplitPath="0" DocumentWorkingSize="250, 727.058838" DocumentWindowGroupGuid="33becf4d-930f-45ab-933a-3c8dee08ba08" DocumentIndexInWindowGroup="0" DocumentSplitPath="0|0|1" FloatingWorkingSize="250, 400" FloatingWindowGroupGuid="00000000-0000-0000-0000-000000000000" FloatingIndexInWindowGroup="0" FloatingSplitPath="0" /&gt;
   &lt;DocumentContainer Dock="5"&gt;
     &lt;SplitLayoutSystem WorkingSize="250, 400" SplitMode="0"&gt;
       &lt;SplitLayoutSystem WorkingSize="250, 727.058838" SplitMode="1"&gt;
@@ -43,7 +43,7 @@
 &lt;/Layout&gt;</LayoutString>
   <Operating>
     <RecordTime>36000000000</RecordTime>
-    <DataFileName>C:\temp</DataFileName>
+    <DataFileName>E:\Twincat\Scope-Data</DataFileName>
     <RunMode>ClientStart</RunMode>
     <StopMode>AutoStop</StopMode>
     <ServerUseFileStore>true</ServerUseFileStore>
@@ -103,8 +103,8 @@
       </XAxis>
       <YAxes>
         <ScopeYAxisSerializable>
-          <Caption>Temperatur [°C]</Caption>
-          <Name>Temperatur [°C]</Name>
+          <Caption>Temperatur  in °C</Caption>
+          <Name>Temperatur  in °C(2)</Name>
           <Style>
             <Visible>true</Visible>
             <Enabled>true</Enabled>
@@ -143,8 +143,8 @@
                 <FileHandle>0</FileHandle>
                 <UseLocalServer>true</UseLocalServer>
                 <AmsNetIdString>5.33.15.132.1.1</AmsNetIdString>
-                <SampleTime>10000</SampleTime>
-                <Disabled>true</Disabled>
+                <SampleTime>100000</SampleTime>
+                <Disabled>false</Disabled>
                 <Oversample>0</Oversample>
                 <UseTaskSampletime>true</UseTaskSampletime>
                 <ForceOversampling>false</ForceOversampling>
@@ -156,7 +156,7 @@
                 <ColorValue>-65536</ColorValue>
                 <SolidLine>true</SolidLine>
                 <Marks>false</Marks>
-                <LineWidth>1</LineWidth>
+                <LineWidth>2</LineWidth>
                 <Antialias>true</Antialias>
                 <Offset>0</Offset>
                 <BitMask>18446744073709551615</BitMask>
@@ -193,7 +193,7 @@
                 <SymbolName>GVL.Temp_VD_in.REAL_VAR</SymbolName>
                 <SymbolComment>Input von Klemme (z.B. 2100)</SymbolComment>
                 <IsSymbolBased>true</IsSymbolBased>
-                <FileHandle>0</FileHandle>
+                <FileHandle>2</FileHandle>
                 <UseLocalServer>true</UseLocalServer>
                 <AmsNetIdString>5.33.15.132.1.1</AmsNetIdString>
                 <SampleTime>100000</SampleTime>
@@ -209,7 +209,7 @@
                 <ColorValue>-16776961</ColorValue>
                 <SolidLine>true</SolidLine>
                 <Marks>false</Marks>
-                <LineWidth>1</LineWidth>
+                <LineWidth>2</LineWidth>
                 <Antialias>true</Antialias>
                 <Offset>0</Offset>
                 <BitMask>18446744073709551615</BitMask>
@@ -246,7 +246,7 @@
                 <SymbolName>GVL.Temp_VD_surface6.REAL_VAR</SymbolName>
                 <SymbolComment></SymbolComment>
                 <IsSymbolBased>true</IsSymbolBased>
-                <FileHandle>0</FileHandle>
+                <FileHandle>3</FileHandle>
                 <UseLocalServer>true</UseLocalServer>
                 <AmsNetIdString>5.33.15.132.1.1</AmsNetIdString>
                 <SampleTime>100000</SampleTime>
@@ -262,7 +262,7 @@
                 <ColorValue>-14774017</ColorValue>
                 <SolidLine>true</SolidLine>
                 <Marks>false</Marks>
-                <LineWidth>1</LineWidth>
+                <LineWidth>2</LineWidth>
                 <Antialias>true</Antialias>
                 <Offset>0</Offset>
                 <BitMask>18446744073709551615</BitMask>
@@ -299,7 +299,7 @@
                 <SymbolName>GVL.Temp_VD_surface5.REAL_VAR</SymbolName>
                 <SymbolComment></SymbolComment>
                 <IsSymbolBased>true</IsSymbolBased>
-                <FileHandle>0</FileHandle>
+                <FileHandle>4</FileHandle>
                 <UseLocalServer>true</UseLocalServer>
                 <AmsNetIdString>5.33.15.132.1.1</AmsNetIdString>
                 <SampleTime>100000</SampleTime>
@@ -315,7 +315,7 @@
                 <ColorValue>-65281</ColorValue>
                 <SolidLine>true</SolidLine>
                 <Marks>false</Marks>
-                <LineWidth>1</LineWidth>
+                <LineWidth>2</LineWidth>
                 <Antialias>true</Antialias>
                 <Offset>0</Offset>
                 <BitMask>18446744073709551615</BitMask>
@@ -352,7 +352,7 @@
                 <SymbolName>GVL.Temp_VD_surface4.REAL_VAR</SymbolName>
                 <SymbolComment></SymbolComment>
                 <IsSymbolBased>true</IsSymbolBased>
-                <FileHandle>0</FileHandle>
+                <FileHandle>5</FileHandle>
                 <UseLocalServer>true</UseLocalServer>
                 <AmsNetIdString>5.33.15.132.1.1</AmsNetIdString>
                 <SampleTime>100000</SampleTime>
@@ -368,7 +368,7 @@
                 <ColorValue>-8355840</ColorValue>
                 <SolidLine>true</SolidLine>
                 <Marks>false</Marks>
-                <LineWidth>1</LineWidth>
+                <LineWidth>2</LineWidth>
                 <Antialias>true</Antialias>
                 <Offset>0</Offset>
                 <BitMask>18446744073709551615</BitMask>
@@ -405,7 +405,7 @@
                 <SymbolName>GVL.Temp_VD_surface2.REAL_VAR</SymbolName>
                 <SymbolComment></SymbolComment>
                 <IsSymbolBased>true</IsSymbolBased>
-                <FileHandle>0</FileHandle>
+                <FileHandle>6</FileHandle>
                 <UseLocalServer>true</UseLocalServer>
                 <AmsNetIdString>5.33.15.132.1.1</AmsNetIdString>
                 <SampleTime>100000</SampleTime>
@@ -421,7 +421,7 @@
                 <ColorValue>-16711681</ColorValue>
                 <SolidLine>true</SolidLine>
                 <Marks>false</Marks>
-                <LineWidth>1</LineWidth>
+                <LineWidth>2</LineWidth>
                 <Antialias>true</Antialias>
                 <Offset>0</Offset>
                 <BitMask>18446744073709551615</BitMask>
@@ -461,7 +461,7 @@
         <HexValues>false</HexValues>
       </CursorModule>
       <Operating>
-        <DisplayWidth>884690000</DisplayWidth>
+        <DisplayWidth>600000000</DisplayWidth>
       </Operating>
       <ChartType>XT</ChartType>
       <SortPriority>-1</SortPriority>
@@ -513,8 +513,8 @@
       </XAxis>
       <YAxes>
         <ScopeYAxisSerializable>
-          <Caption>Temperatur [°C]</Caption>
-          <Name>Temperatur [°C]</Name>
+          <Caption>Temperatur in °C</Caption>
+          <Name>Temperatur (°C)</Name>
           <Style>
             <Visible>true</Visible>
             <Enabled>true</Enabled>
@@ -550,7 +550,7 @@
                 <SymbolName>GVL.Temp_VF_in.REAL_VAR</SymbolName>
                 <SymbolComment> Pos 2': T-Sensor vor Verflüssiger    </SymbolComment>
                 <IsSymbolBased>true</IsSymbolBased>
-                <FileHandle>0</FileHandle>
+                <FileHandle>7</FileHandle>
                 <UseLocalServer>true</UseLocalServer>
                 <AmsNetIdString>5.33.15.132.1.1</AmsNetIdString>
                 <SampleTime>100000</SampleTime>
@@ -566,7 +566,7 @@
                 <ColorValue>-16776961</ColorValue>
                 <SolidLine>true</SolidLine>
                 <Marks>false</Marks>
-                <LineWidth>1</LineWidth>
+                <LineWidth>2</LineWidth>
                 <Antialias>true</Antialias>
                 <Offset>0</Offset>
                 <BitMask>18446744073709551615</BitMask>
@@ -603,7 +603,7 @@
                 <SymbolName>GVL.Temp_VF_out.REAL_VAR</SymbolName>
                 <SymbolComment> Pos 3': T-Sensor nach Verflüssiger</SymbolComment>
                 <IsSymbolBased>true</IsSymbolBased>
-                <FileHandle>0</FileHandle>
+                <FileHandle>8</FileHandle>
                 <UseLocalServer>true</UseLocalServer>
                 <AmsNetIdString>5.33.15.132.1.1</AmsNetIdString>
                 <SampleTime>100000</SampleTime>
@@ -619,7 +619,7 @@
                 <ColorValue>-65536</ColorValue>
                 <SolidLine>true</SolidLine>
                 <Marks>false</Marks>
-                <LineWidth>1</LineWidth>
+                <LineWidth>2</LineWidth>
                 <Antialias>true</Antialias>
                 <Offset>0</Offset>
                 <BitMask>18446744073709551615</BitMask>
@@ -659,7 +659,7 @@
         <HexValues>false</HexValues>
       </CursorModule>
       <Operating>
-        <DisplayWidth>100000000</DisplayWidth>
+        <DisplayWidth>600000000</DisplayWidth>
       </Operating>
       <ChartType>XT</ChartType>
       <SortPriority>-1</SortPriority>
@@ -711,8 +711,8 @@
       </XAxis>
       <YAxes>
         <ScopeYAxisSerializable>
-          <Caption>Temperatur [°C]</Caption>
-          <Name>Temperatur [°C]</Name>
+          <Caption>Temperatur  in °C</Caption>
+          <Name>Temperatur  in °C(1)</Name>
           <Style>
             <Visible>true</Visible>
             <Enabled>true</Enabled>
@@ -748,7 +748,7 @@
                 <SymbolName>GVL.Temp_KP_in.REAL_VAR</SymbolName>
                 <SymbolComment> Pos 1: T-Sensor vor Kompressor, im RI-Schema Position 1</SymbolComment>
                 <IsSymbolBased>true</IsSymbolBased>
-                <FileHandle>0</FileHandle>
+                <FileHandle>9</FileHandle>
                 <UseLocalServer>true</UseLocalServer>
                 <AmsNetIdString>5.33.15.132.1.1</AmsNetIdString>
                 <SampleTime>100000</SampleTime>
@@ -764,7 +764,7 @@
                 <ColorValue>-16776961</ColorValue>
                 <SolidLine>true</SolidLine>
                 <Marks>false</Marks>
-                <LineWidth>1</LineWidth>
+                <LineWidth>2</LineWidth>
                 <Antialias>true</Antialias>
                 <Offset>0</Offset>
                 <BitMask>18446744073709551615</BitMask>
@@ -801,7 +801,7 @@
                 <SymbolName>GVL.Temp_KP_out.REAL_VAR</SymbolName>
                 <SymbolComment> Pos 2: T-Sensor nach Kompressor,im RI-Schema Position 2</SymbolComment>
                 <IsSymbolBased>true</IsSymbolBased>
-                <FileHandle>0</FileHandle>
+                <FileHandle>10</FileHandle>
                 <UseLocalServer>true</UseLocalServer>
                 <AmsNetIdString>5.33.15.132.1.1</AmsNetIdString>
                 <SampleTime>100000</SampleTime>
@@ -817,7 +817,7 @@
                 <ColorValue>-65536</ColorValue>
                 <SolidLine>true</SolidLine>
                 <Marks>false</Marks>
-                <LineWidth>1</LineWidth>
+                <LineWidth>2</LineWidth>
                 <Antialias>true</Antialias>
                 <Offset>0</Offset>
                 <BitMask>18446744073709551615</BitMask>
@@ -857,7 +857,7 @@
         <HexValues>false</HexValues>
       </CursorModule>
       <Operating>
-        <DisplayWidth>100000000</DisplayWidth>
+        <DisplayWidth>600000000</DisplayWidth>
       </Operating>
       <ChartType>XT</ChartType>
       <SortPriority>-1</SortPriority>
@@ -909,8 +909,8 @@
       </XAxis>
       <YAxes>
         <ScopeYAxisSerializable>
-          <Caption>Temperatur [°C]</Caption>
-          <Name>Temperatur [°C]</Name>
+          <Caption>Temperatur in °C</Caption>
+          <Name>Temperatur  in °C</Name>
           <Style>
             <Visible>true</Visible>
             <Enabled>true</Enabled>
@@ -946,7 +946,7 @@
                 <SymbolName>GVL.Temp_vor_EV.REAL_VAR</SymbolName>
                 <SymbolComment> Pos 3: T-Sensor vor dem Expansionsventil IV3</SymbolComment>
                 <IsSymbolBased>true</IsSymbolBased>
-                <FileHandle>0</FileHandle>
+                <FileHandle>11</FileHandle>
                 <UseLocalServer>true</UseLocalServer>
                 <AmsNetIdString>5.33.15.132.1.1</AmsNetIdString>
                 <SampleTime>100000</SampleTime>
@@ -962,7 +962,7 @@
                 <ColorValue>-16776961</ColorValue>
                 <SolidLine>true</SolidLine>
                 <Marks>false</Marks>
-                <LineWidth>1</LineWidth>
+                <LineWidth>2</LineWidth>
                 <Antialias>true</Antialias>
                 <Offset>0</Offset>
                 <BitMask>18446744073709551615</BitMask>
@@ -990,6 +990,34 @@
           </Channels>
           <SortPriority>0</SortPriority>
         </ScopeYAxisSerializable>
+        <ScopeYAxisSerializable>
+          <Caption>Öffnung in %</Caption>
+          <Name>Axis</Name>
+          <Style>
+            <Visible>true</Visible>
+            <Enabled>true</Enabled>
+            <ColorValue>-13676721</ColorValue>
+            <UseGrid>true</UseGrid>
+            <Ticks>10</Ticks>
+            <LineWidth>1</LineWidth>
+            <AutoScale>true</AutoScale>
+            <AxisMin>-1</AxisMin>
+            <AxisMax>1</AxisMax>
+            <ScaleFactor>0</ScaleFactor>
+            <ShowCursorValue>true</ShowCursorValue>
+            <GridColorValue>-13676721</GridColorValue>
+            <GridLineWidth>1</GridLineWidth>
+            <UseSubGrid>false</UseSubGrid>
+            <SubDivisions>5</SubDivisions>
+            <Logarithmic>false</Logarithmic>
+            <Comment></Comment>
+            <ShowName>true</ShowName>
+            <Precision>6</Precision>
+            <ScaleMode>AutoGrowOnly</ScaleMode>
+          </Style>
+          <Channels />
+          <SortPriority>-1</SortPriority>
+        </ScopeYAxisSerializable>
       </YAxes>
       <XYAxes />
       <CursorModule>
@@ -1002,7 +1030,7 @@
         <HexValues>false</HexValues>
       </CursorModule>
       <Operating>
-        <DisplayWidth>1701330000</DisplayWidth>
+        <DisplayWidth>600000000</DisplayWidth>
       </Operating>
       <ChartType>XT</ChartType>
       <SortPriority>-1</SortPriority>
@@ -1054,8 +1082,8 @@
       </XAxis>
       <YAxes>
         <ScopeYAxisSerializable>
-          <Caption>Temperatur [°C]</Caption>
-          <Name>Temperatur [°C]</Name>
+          <Caption>Temperatur in °C</Caption>
+          <Name>Temperatur in °C</Name>
           <Style>
             <Visible>true</Visible>
             <Enabled>true</Enabled>
@@ -1091,7 +1119,7 @@
                 <SymbolName>GVL.Temp_VD_in_rev.REAL_VAR</SymbolName>
                 <SymbolComment>Pos 1A': T-Sensor vor Verdampfer bei Strömungsumkehrung(reverse) 	</SymbolComment>
                 <IsSymbolBased>true</IsSymbolBased>
-                <FileHandle>0</FileHandle>
+                <FileHandle>12</FileHandle>
                 <UseLocalServer>true</UseLocalServer>
                 <AmsNetIdString>5.33.15.132.1.1</AmsNetIdString>
                 <SampleTime>100000</SampleTime>
@@ -1107,7 +1135,7 @@
                 <ColorValue>-16776961</ColorValue>
                 <SolidLine>true</SolidLine>
                 <Marks>false</Marks>
-                <LineWidth>1</LineWidth>
+                <LineWidth>2</LineWidth>
                 <Antialias>true</Antialias>
                 <Offset>0</Offset>
                 <BitMask>18446744073709551615</BitMask>
@@ -1144,7 +1172,7 @@
                 <SymbolName>GVL.Temp_VD_out_rev.REAL_VAR</SymbolName>
                 <SymbolComment>Pos 4A: T-Sensor nach Verdampfer bei Strömungsumkehrung(reverse)</SymbolComment>
                 <IsSymbolBased>true</IsSymbolBased>
-                <FileHandle>0</FileHandle>
+                <FileHandle>13</FileHandle>
                 <UseLocalServer>true</UseLocalServer>
                 <AmsNetIdString>5.33.15.132.1.1</AmsNetIdString>
                 <SampleTime>100000</SampleTime>
@@ -1160,7 +1188,7 @@
                 <ColorValue>-65536</ColorValue>
                 <SolidLine>true</SolidLine>
                 <Marks>false</Marks>
-                <LineWidth>1</LineWidth>
+                <LineWidth>2</LineWidth>
                 <Antialias>true</Antialias>
                 <Offset>0</Offset>
                 <BitMask>18446744073709551615</BitMask>
@@ -1200,7 +1228,7 @@
         <HexValues>false</HexValues>
       </CursorModule>
       <Operating>
-        <DisplayWidth>100000000</DisplayWidth>
+        <DisplayWidth>600000000</DisplayWidth>
       </Operating>
       <ChartType>XT</ChartType>
       <SortPriority>-1</SortPriority>

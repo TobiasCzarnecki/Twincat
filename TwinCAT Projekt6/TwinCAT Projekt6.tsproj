@@ -174,6 +174,9 @@
 			</Settings>
 			<Licenses>
 				<Target>
+					<CustomComment>
+						<![CDATA[TE130X]]>
+					</CustomComment>
 					<ManualSelect>{4989A799-AEEA-4FEE-88EF-666B99EEFB45}</ManualSelect>
 					<ManualSelect>{3DDCAB25-BF0E-412C-A721-DC77C1B8099C}</ManualSelect>
 				</Target>
@@ -718,6 +721,37 @@
 							<Type GUID="{2952907C-3283-4F8E-99B3-C7A6D58D1211}" Namespace="TC2_MODBUSRTU">MB_PcComOutData</Type>
 						</Var>
 						<Var>
+							<Name>REGLER.DO_VD_Ventilator_ON</Name>
+							<Comment>
+								<![CDATA[Digitale Klemmenausgänge]]>
+							</Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>REGLER.DO_VD_defrost_Ventilator_ON</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>REGLER.DO_ElektrischeHeizung_ON</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>REGLER.DO_KP_ON</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>REGLER.DO_Schuetz_1K3</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>REGLER.DO_Schuetz_1K4</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>REGLER.DO_Schuetz_1K5</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
 							<Name>WAAGEN.Waage[1].EL6002_out</Name>
 							<Comment>
 								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
@@ -758,46 +792,6 @@
 								<![CDATA[ wird mit COM RxPDO Ctrl verknüpft und mit COM RxPDO Data Outxx multiverknüpft]]>
 							</Comment>
 							<Type GUID="{80F174B3-65D6-4F54-A59E-41537B2903AF}" Namespace="TC2_SERIALCOM">EL6outData22B</Type>
-						</Var>
-						<Var>
-							<Name>REGLER.VD_Ventilator_ON</Name>
-							<Comment>
-								<![CDATA[ Im RI-Fließbild Bezeichnung: 1W1]]>
-							</Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>REGLER.VD_defrost_Ventilator_ON</Name>
-							<Comment>
-								<![CDATA[ Im RI-Fließbild Bezeichnung: 1W3]]>
-							</Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>REGLER.ElektrischeHeizung_ON</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>REGLER.KP_ON</Name>
-							<Comment>
-								<![CDATA[ Im RI-Fließbild Bezeichnung: 1V1 ]]>
-							</Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>REGLER.Schuetz_1K3</Name>
-							<Comment>
-								<![CDATA[Schütze werden geschaltet]]>
-							</Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>REGLER.Schuetz_1K4</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>REGLER.Schuetz_1K5</Name>
-							<Type>BOOL</Type>
 						</Var>
 					</Vars>
 					<Vars VarGrpType="2">
@@ -1834,37 +1828,37 @@ Bit1: Value bigger/equal Limit2]]>
 							<SyncMan>010f01004400010003000000000000000100010f44090000</SyncMan>
 							<Fmmu>0000000000000000000f00020100000001000000000000000000000000000000</Fmmu>
 							<Pdo Name="Channel 1" Index="#x1600" InOut="1" Flags="#x0011" SyncMan="0">
-								<Entry Name="KM.Schuetz_1K3" Index="#x7000" Sub="#x01">
+								<Entry Name="REGLER.DO_Schuetz_1K3" Index="#x7000" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 2" Index="#x1601" InOut="1" Flags="#x0011" SyncMan="0">
-								<Entry Name="KM.Schuetz_1K4" Index="#x7010" Sub="#x01">
+								<Entry Name="REGLER.DO_Schuetz_1K4" Index="#x7010" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 3" Index="#x1602" InOut="1" Flags="#x0011" SyncMan="0">
-								<Entry Name="KM.Schuetz_1K5" Index="#x7020" Sub="#x01">
+								<Entry Name="REGLER.DO_Schuetz_1K5" Index="#x7020" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 4" Index="#x1603" InOut="1" Flags="#x0011" SyncMan="0">
-								<Entry Name="REGLER.VD_Ventilator_ON" Index="#x7030" Sub="#x01">
+								<Entry Name="REGLER.DO_VD_Ventilator_ON" Index="#x7030" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 5" Index="#x1604" InOut="1" Flags="#x0011" SyncMan="0">
-								<Entry Name="REGLER.ElektrischeHeizung_ON" Index="#x7040" Sub="#x01">
+								<Entry Name="REGLER.DO_ElektrischeHeizung_ON" Index="#x7040" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 6" Index="#x1605" InOut="1" Flags="#x0011" SyncMan="0">
-								<Entry Name="REGLER.VD_defrost_Ventilator_ON" Index="#x7050" Sub="#x01">
+								<Entry Name="REGLER.DO_VD_defrost_Ventilator_ON" Index="#x7050" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 7" Index="#x1606" InOut="1" Flags="#x0011" SyncMan="0">
-								<Entry Name="REGLER.KP_ON" Index="#x7060" Sub="#x01">
+								<Entry Name="REGLER.DO_KP_ON" Index="#x7060" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
@@ -4782,13 +4776,13 @@ Bit1: Value bigger/equal Limit2]]>
 				<Link VarA="PlcTask Outputs^GVL.Soll_VF_Ventilator.INT_VAR_Output" VarB="AO Outputs Channel 2^GVL.Soll_VF_Ventilator.INT_VAR_Output"/>
 			</OwnerB>
 			<OwnerB Name="TIID^CX 9020 (EtherCAT)^E-Bus Klemme (EK1200)^Digitale Ausgänge 24 V DC (EL2809)">
-				<Link VarA="PlcTask Outputs^REGLER.ElektrischeHeizung_ON" VarB="Channel 5^REGLER.ElektrischeHeizung_ON"/>
-				<Link VarA="PlcTask Outputs^REGLER.KP_ON" VarB="Channel 7^REGLER.KP_ON"/>
-				<Link VarA="PlcTask Outputs^REGLER.Schuetz_1K3" VarB="Channel 1^KM.Schuetz_1K3"/>
-				<Link VarA="PlcTask Outputs^REGLER.Schuetz_1K4" VarB="Channel 2^KM.Schuetz_1K4"/>
-				<Link VarA="PlcTask Outputs^REGLER.Schuetz_1K5" VarB="Channel 3^KM.Schuetz_1K5"/>
-				<Link VarA="PlcTask Outputs^REGLER.VD_Ventilator_ON" VarB="Channel 4^REGLER.VD_Ventilator_ON"/>
-				<Link VarA="PlcTask Outputs^REGLER.VD_defrost_Ventilator_ON" VarB="Channel 6^REGLER.VD_defrost_Ventilator_ON"/>
+				<Link VarA="PlcTask Outputs^REGLER.DO_ElektrischeHeizung_ON" VarB="Channel 5^REGLER.DO_ElektrischeHeizung_ON"/>
+				<Link VarA="PlcTask Outputs^REGLER.DO_KP_ON" VarB="Channel 7^REGLER.DO_KP_ON"/>
+				<Link VarA="PlcTask Outputs^REGLER.DO_Schuetz_1K3" VarB="Channel 1^REGLER.DO_Schuetz_1K3"/>
+				<Link VarA="PlcTask Outputs^REGLER.DO_Schuetz_1K4" VarB="Channel 2^REGLER.DO_Schuetz_1K4"/>
+				<Link VarA="PlcTask Outputs^REGLER.DO_Schuetz_1K5" VarB="Channel 3^REGLER.DO_Schuetz_1K5"/>
+				<Link VarA="PlcTask Outputs^REGLER.DO_VD_Ventilator_ON" VarB="Channel 4^REGLER.DO_VD_Ventilator_ON"/>
+				<Link VarA="PlcTask Outputs^REGLER.DO_VD_defrost_Ventilator_ON" VarB="Channel 6^REGLER.DO_VD_defrost_Ventilator_ON"/>
 			</OwnerB>
 			<OwnerB Name="TIID^CX 9020 (EtherCAT)^E-Bus Klemme (EK1200)^RS 232-Klemme 1  (EL6002)">
 				<Link VarA="PlcTask Inputs^WAAGEN.Waage[1].EL6002_in" VarB="COM TxPDO-Map Inputs Channel 1^Data In 0" Size="8" OffsA="16"/>

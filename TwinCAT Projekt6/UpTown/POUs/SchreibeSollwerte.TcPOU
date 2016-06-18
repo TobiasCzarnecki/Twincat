@@ -20,10 +20,19 @@ END_VAR
 		Soll_KP.INT_VAR_Output:= 			FB_Nativ_zu_SPS_lin(output:=Soll_KP);
 	
 	//Stellsignal elektrische Heizung
+
 		Soll_ElektHeizrack1.INT_VAR_Output		:= FB_Nativ_zu_SPS_lin(output:= Soll_ElektHeizrack1);
 		Soll_ElektHeizrack2.INT_VAR_Output		:= FB_Nativ_zu_SPS_lin(output:= Soll_ElektHeizrack2);
 		Soll_ElektHeizrack_Boden.INT_VAR_Output := FB_Nativ_zu_SPS_lin(output:= Soll_ElektHeizrack_Boden);
 		
+	// DIgitale Ausgänge werden zugeordnet
+		DO_VD_Ventilator_ON 		:= VD_Ventilator_ON;
+		DO_VD_defrost_Ventilator_ON := VD_defrost_Ventilator_ON;
+		DO_ElektrischeHeizung_ON 	:= ElektrischeHeizung_ON ;
+		DO_KP_ON 					:= KP_ON;	
+		DO_Schuetz_1K3 				:= Schuetz_1K3 	;
+		DO_Schuetz_1K4				:= Schuetz_1K4	;
+		DO_Schuetz_1K5				:= Schuetz_1K5;
 END_CASE]]></ST>
     </Implementation>
   </POU>

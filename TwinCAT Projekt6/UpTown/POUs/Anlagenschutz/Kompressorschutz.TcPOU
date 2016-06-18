@@ -3,32 +3,43 @@
   <POU Name="Kompressorschutz" Id="{be64ea78-35a0-44e0-95ee-e8e33ab46875}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM Kompressorschutz
 VAR
+	BerechneT_Taulinie: FB_GetEnthalpie;
+	Temp_Taulinie :REAL;
 END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[(*Kompressor läuft langsam an, um möglichen Tropfenschlag zu verhindern. Überhitzungstemperatur im 
   Expansionsventil wird überprüft*)
 
-//im KühlenModus   
-IF bKuehlen = TRUE THEN 
-  IF EV.UberhitzungTemp < 4  THEN
-	  Soll_KP.REAL_VAR := 0;
-	  WarnungAnlagenschutz:= TRUE;
-	  ELSE
-	  WarnungAnlagenschutz:= FALSE;
-  END_IF
+
+(*Unterdurckschutz. Kompressor wird ausgeschaltet*) 
+IF PT_KP_in.rDruck < 1.0 THEN
+	 Soll_KP.REAL_VAR := 0;
+	 KP_ON := FALSE;			
+	 SM.Mitteilung := 'Unterdruckschutz wurde aktiviert';
 END_IF
-  
-//im AbtauModus  
-IF bAbtauen_Heissgas_oben OR bAbtauen_Heissgas_unten THEN
-  IF EV_rev.UberhitzungTemp < 4 
-	 THEN
-	  Soll_KP.REAL_VAR := 0;	  
-	  WarnungAnlagenschutz:= TRUE;
-	  ELSE
-	  WarnungAnlagenschutz:= FALSE;
-  END_IF
-END_IF]]></ST>
+
+(*Überdruckschutz. Kompressor wird ausgeschaltet*) 
+IF PT_KP_out.rDruck > 15 THEN
+	 Soll_KP.REAL_VAR := 0;
+	 KP_ON := FALSE;
+	 SM.Mitteilung := 'Überdruckschutz wurde aktiviert';
+END_IF
+
+
+(*Beim PUMPDOWN wird das Kältemittel vor dem Kompressor sehr kalt. Kompressor wird ausgeschaltet, wenn
+ die Temperatur vor dem Kompressor nur noch 2 K wärmer als die Taulinie ist*)
+ BerechneT_Taulinie(In_Druck:= KP.p_in, In_Temperatur := KP.T_in, T_v=> Temp_Taulinie) ;
+ 
+(*
+ IF KP.T_in < Temp_Taulinie-2 AND (bPumpDown OR bPumpDown_rev)  THEN 
+	 KP_ON 		  := FALSE;
+	 Soll_KP.REAL_VAR := 0;
+	  SM.Mitteilung := 'Die Temperatur vor Kompressor ist zu kalt. Kompressor enthält keine Freigabe.';
+ END_IF
+ 
+*)
+ ]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>

@@ -18,16 +18,20 @@ END_VAR
 	TimerAbtaudauer(IN:=TRUE, PT:= T#1H);
 	
 	IF bAbtauenAbbrechen = TRUE THEN 
+		Mitteilung 				:= 'Abtauvorgang wurde abgebrochen!';
 		bLeerlauf				:=TRUE;
 		bKuehlen 				:=FALSE;
-		bAbtauen				:= FALSE;
+		bAbtauen				:=FALSE;
 		bAbtauen_elektrisch		:=FALSE;
+			ElektrischeHeizung_ON := FALSE;
 		bAbtauen_Heissgas_oben	:=FALSE;
 		bAbtauen_Heissgas_unten	:=FALSE;
 		bPumpDownAbgeschlossen := FALSE;
-		TimerAbtaudauer(IN:= FALSE);
+		TimerAbtaudauer			(IN:= FALSE);
+		state					:= 0;
 	(*nächster Status*)
 		SM.Status := Leerlauf;
+	
 		ELSE 
 		bLeerlauf :=FALSE; 
 	END_IF
@@ -147,7 +151,7 @@ CASE state OF
 	
 10: 	
 	(*Schalte Schütze auf Kühlen*)
-		fb_Schuetzstellung(myStatus:= KuehlenUnten);
+		fb_Schuetzstellung(myStatus:= KuehlenOben);
 	
 	(*Kompressor wird eingeschaltet*)
 		KP_ON		:= TRUE;

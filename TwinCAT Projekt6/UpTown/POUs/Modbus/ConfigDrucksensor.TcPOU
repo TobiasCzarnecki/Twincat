@@ -11,7 +11,7 @@ VAR
 	UARTsettings_neu: 		ARRAY[0..1]OF BYTE  ;//:= [48,0];
 	wUARTsettings_neu:		WORD := 0;//:= 112;
 	sUARTsettings_neu: 		STRING;
-	ModbusRegister:   		BYTE := 17;
+	ModbusRegister:   		Word := 17;
 	RegisterLange: 			BYTE := 1;
 	ModbusAddress_alt: 		WORD {1..250}:= 1;			//alte Modbusadresse des Slaves. Anfangs gleich der Auslieferungsadresse
 	ModbusAddress_neu: 		WORD {3..12} := 11;				//neue Modbusadresse des Slaves. 
@@ -78,7 +78,7 @@ CASE state OF
 			IF myModbus.Error THEN
 				state := 2;
 			ELSE
-				state := 2;	
+				state := 1;	
 			END_IF
 		END_IF
 		

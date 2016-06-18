@@ -37,7 +37,15 @@ Waage_k:= AnzeigeGewicht / k.
 	siehe Dokumentation*)
 	
 	state: INT := 0;
+	
+(*Zur Kältemittelmengen-Berechnung im Verdampfer*)
 
+	m_134a 		: REAL; // in kg
+	Rohrinhalt	: REAL:= 12.8;// Rohrvolumen in Liter vom Verdampfer;
+	Dichte		: REAL;
+	Dichte_PT1  : REAL;
+	Pt1 		: FT_PT1;
+	BerechneDichte: FB_GetEnthalpie;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -105,20 +113,24 @@ CASE state OF
 5: 
 	//Tatsächliches Gewicht wird für jede Waage ausgerechnet
 
-	 Waage_k[1]:=Waage_Offset[1] / Waage[1].k_ist;
-	 Waage_k[2]:=Waage_Offset[2] / Waage[2].k_ist;
-	 Waage_k[3]:=Waage_Offset[3] / Waage[3].k_ist;
-	 Waage_k[4]:=Waage_Offset[4] / Waage[4].k_ist;
+	 Waage_k[1]:=	Waage_Offset[1]/ k_alleDaten[1].k_Kalibrierung[1,1];	//Waage_Offset[1] / Waage[1].k_ist;
+	 Waage_k[2]:=	Waage_Offset[2]/ k_alleDaten[1].k_Kalibrierung[2,2];	//Waage_Offset[2] / Waage[2].k_ist;
+	 Waage_k[3]:=	Waage_Offset[3]/ k_alleDaten[1].k_Kalibrierung[3,3];	//Waage_Offset[3] / Waage[3].k_ist;
+	 Waage_k[4]:=	Waage_Offset[4]/ k_alleDaten[1].k_Kalibrierung[4,4];	//Waage_Offset[4] / Waage[4].k_ist;
 	 
 	 state:=6;
 
 
 6: 
+	(*Funktionsbausteine zur Dichteermittlung und Glättung*)
+	BerechneDichte(In_Druck:= PT_VD_out.rDruck,In_Temperatur:=Temp_VD_Surface_gemittelt, Dichte_v=>Dichte); //Druck nach VD wegen Venturiverteiler, Temp Surface wegen Einspritzung
+	Pt1(in:= Dichte,T:= T#12S, K:= 1, out=>Dichte_PT1);
+	m_134a:= Rohrinhalt *Dichte_PT1  ; // Kältemittelmenge im Verdampfer. Dichte: f(T:= Surface_gemittelt, p:= VD_out)
+	
 	//Gesamtsumme aus den vier Waagen ausrechnen
-	Summe_Eis:= Waage_k[1]+Waage_k[2]+Waage_k[3]+Waage_k[4];
-
-	state:= 0;
-
+	Summe_Eis:= -m_134a	+ Waage_Offset[1]/ k_alleDaten[1].k_Kalibrierung[1,1]+Waage_Offset[2]/ k_alleDaten[1].k_Kalibrierung[2,2]+Waage_Offset[3]/ k_alleDaten[1].k_Kalibrierung[3,3]+Waage_Offset[4]/ k_alleDaten[1].k_Kalibrierung[4,4]	;							//Waage_k[1]+Waage_k[2]+Waage_k[3]+Waage_k[4];
+	
+	state:=0;
 
 
 10:	ConfigWaage();

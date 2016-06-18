@@ -11,7 +11,7 @@ STRUCT
 	T_v: 	REAL;		// [°C]; Verdampfungstemperatur 	
 	p_in :	REAL;		// [bar]; Eintrittsdruck
 	P_out: 	REAL;		// [bar]; Austrittsdurck
-	H	: 	REAL; 		// [W]   ; billanzierte Enthalpie über die Komponente. H= m*(h_out- h_in). 
+	H	: 	REAL; 		// [kW]   ; billanzierte Enthalpie über die Komponente. H= m*(h_out- h_in). 
 	H_sum: 	REAL;		// [Ws]	 ; summierte Energie 
 	x_in: 		REAL; 	// [-] 	  ; {0..1} Sättigungsgrad im Nassfampfgebiet
 	x_out: 		REAL; 	// [-] 	  ; {0..1} Sättigungsgrad im Nassfampfgebiet

@@ -3,7 +3,7 @@
   <DUT Name="Status_Schuetzstellung" Id="{dfd13b30-6fe1-4769-8b5d-0022cc9cf87c}">
     <Declaration><![CDATA[TYPE Status_Schuetzstellung :
 (
-		KuehlenUnten,
+		KuehlenOben,
 		PumpDown,
 		PumpDown_rev,
 		AbtauenOben,

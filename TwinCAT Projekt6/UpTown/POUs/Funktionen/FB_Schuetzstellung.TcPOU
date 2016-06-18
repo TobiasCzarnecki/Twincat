@@ -13,7 +13,7 @@ END_VAR
     <Implementation>
       <ST><![CDATA[CASE  myStatus OF
 
-KuehlenUnten:
+KuehlenOben:
 	(*Schütze werden geschaltet*)
 		Schuetz_1K3 := TRUE;
 		Schuetz_1K4 := FALSE;
@@ -37,7 +37,8 @@ KuehlenUnten:
 		EV_rev.SollKuhlleistung:= 100;
 	END_IF
 	
-PumpDown:
+PumpDown: (*Pump-Down wird durchgeführt bis der Druck vor dem KP kleiner als 1,4 Bar ist*)	
+	
 	(*Schütze werden geschaltet*)
 		Schuetz_1K3 := TRUE;
 		Schuetz_1K4 := FALSE;
@@ -55,13 +56,16 @@ PumpDown:
 		
 	(*Kompressor PID-Regler wird eingestellt*)
 		PID_KP.w := Soll_PumpDownDruck;				//Kompressor wird bei 1.5 Bar ausgeschaltet
-		IF PID_KP.x <= PT_VD_out.rDruck THEN 		//??? PT_KP_in.rDruck THEN 
-			bPumpDown	:= 	TRUE;		
+		IF  PT_KP_in.rDruck<= Soll_PumpDownDruck THEN 		 
 			PID_KP.Aktiv:= FALSE;			 		//Kompressor wird ausgeschaltet
-			KP_ON		:= FALSE;  
+			KP_ON		:= FALSE; 
+			
+			bPumpDown	:= 	FALSE;					//TRUE-> wird ausgeführt. FALSE-> Beendet/Abgebrochen
+			bPumpDownAbgeschlossen:= TRUE; 
 		END_IF
 		
-PumpDown_rev:	
+PumpDown_rev:	(*Schütze, EV_rev werden für PumpDown_rev Modus geschaltet*)
+
 	(*Schütze werden geschaltet*)
 		Schuetz_1K3 := FALSE;
 		Schuetz_1K4 := TRUE;
@@ -79,9 +83,12 @@ PumpDown_rev:
 		
 	(*Kompressor PID-Regler wird eingestellt*)
 		PID_KP.w := Soll_PumpDownDruck;						//Kompressor wird bei 1.5 Bar ausgeschaltet
-		IF PID_KP.x <= PT_VD_out.rDruck THEN				//PT_KP_in.rDruck THEN 
-			bPumpDown_rev := TRUE;		
+		IF PT_KP_in.rDruck<= Soll_PumpDownDruck THEN 
 			PID_KP.Aktiv:= FALSE;							//Kompressor wird ausgeschaltet
+			KP_ON := FALSE;
+			
+			bPumpDown_rev := FALSE;							//TRUE-> wird ausgeführt. FALSE-> Beendet/Abgebrochen
+			bPumpDown_revAbgeschlossen:= TRUE;
 		END_IF
 		
 AbtauenOben:

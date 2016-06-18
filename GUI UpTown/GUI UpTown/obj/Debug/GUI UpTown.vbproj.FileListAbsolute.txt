@@ -18,6 +18,4 @@ E:\Twincat\GUI UpTown\GUI UpTown\bin\Debug\TwinCAT.Scope2.Charting.ChartControlL
 E:\Twincat\GUI UpTown\GUI UpTown\bin\Debug\TwinCAT.Scope2.Charting.ChartControlLib_GDI.dll
 E:\Twincat\GUI UpTown\GUI UpTown\bin\Debug\EBC_ADS_Bib.pdb
 E:\Twincat\GUI UpTown\GUI UpTown\bin\Debug\TwinCAT.Ads.xml
-E:\Twincat\GUI UpTown\GUI UpTown\obj\Debug\GUI_UpTown.Form2.resources
 E:\Twincat\GUI UpTown\GUI UpTown\obj\Debug\GUI UpTown.vbprojResolveAssemblyReference.cache
-E:\Twincat\GUI UpTown\GUI UpTown\obj\Debug\GUI_UpTown.log_p_h.resources

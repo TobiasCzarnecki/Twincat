@@ -18,12 +18,13 @@ EV				|	3				|	2
 EV_rev			|	3				|	3	
 *)
 	//modbusData_EV: 	ARRAY[1..10] OF INT;		//hier werden die Daten vom EV gespeichert
-	ModbusAdresse : BYTE := 2;					//EV_
+	EV_Adresse : BYTE := 2;				//ModbusAdresse vom Expansionsventil	
+	EV_rev_Adresse : BYTE := 3;			//ModbusAdresse vom Abtau-Expansionsventil
 	state: 			INT := 0;
 	counter: 		INT := 1;
 	
-	AbfrageRegs: ARRAY [1..10] OF INT := [0,1,4,5,6,9,16,20,131,134]; 	//Modbus-Register-Adressen. Das sind alle Werte die vom EV abgefragt werden
-	AbfrageCoils: ARRAY [1..4] OF INT := [49,50,51,52];					//Modbus-Coil-Adressen.
+	AbfrageRegs: ARRAY [1..10] OF WORD := [0,1,4,5,6,9,16,20,131,134]; 	//Modbus-Register-Adressen. Das sind alle Werte die vom EV abgefragt werden
+	AbfrageCoils: ARRAY [1..4] OF WORD := [49,50,51,52];					//Modbus-Coil-Adressen.
 	
 (*Variablen für Error- und Successzähler der Modbus-Komunikation *)
 	FtrigBusy:			F_TRIG;
@@ -51,7 +52,7 @@ CASE state OF
 1: (*Liest Register von EV aus*)
  	
 		ModbusEL6021.ReadInputRegs(
-		UnitID:= ModbusAdresse,
+		UnitID:= EV_Adresse,
  		Quantity:= 1,								
  		MBAddr:= AbfrageRegs[counter],								
  		cbLength:= SIZEOF(EV.modbusData[counter]),//EV.modbusData[counter]),		
@@ -81,7 +82,7 @@ CASE state OF
 	
 2: (*Liest Coils von EV aus*)
 		ModbusEL6021.ReadCoils(
-		UnitID:= 2,
+		UnitID:= EV_Adresse,
  		Quantity:= 1,								
  		MBAddr:= AbfrageCoils[counter],								
  		cbLength:= SIZEOF(EV.modbusDataCoils[counter]),		
@@ -104,12 +105,12 @@ CASE state OF
 					state:= 3;
 				END_IF
 			END_IF
-
 		END_IF
+		
 3: (*Schreibt Akt_Kühlleistung Coil auf die Expansionsventile*)
 IF EV.SetKuhlleistung THEN 	
 	ModbusEL6021.WriteSingleRegister(
-		UnitID:= 2,
+		UnitID:= EV_Adresse,
  		Quantity:= 1,								
  		MBAddr:= 134,								
  		cbLength:= SIZEOF(EV.SollKuhlleistung),		
@@ -137,7 +138,7 @@ END_IF
 4: (*Liest Register von EV_rev aus*)
  	
 		ModbusEL6021.ReadInputRegs(
-		UnitID:= 3,
+		UnitID:= EV_rev_Adresse,
  		Quantity:= 1,								
  		MBAddr:= AbfrageRegs[counter],								
  		cbLength:= SIZEOF(EV_rev.modbusData[counter]),//EV.modbusData[counter]),		
@@ -169,7 +170,7 @@ END_IF
 		
 
 		ModbusEL6021.ReadCoils(
-		UnitID:= 3,
+		UnitID:= EV_rev_Adresse,
  		Quantity:= 1,								
  		MBAddr:= AbfrageCoils[counter],								
  		cbLength:= SIZEOF(EV_rev.modbusDataCoils[counter]),		
@@ -199,7 +200,7 @@ END_IF
 
 IF EV_rev.SetKuhlleistung THEN 	
 	ModbusEL6021.WriteSingleRegister(
-		UnitID:= 2,
+		UnitID:= EV_rev_Adresse,
  		Quantity:= 1,								
  		MBAddr:= 134,								
  		cbLength:= SIZEOF(EV_rev.SollKuhlleistung),		

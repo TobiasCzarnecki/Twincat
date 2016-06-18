@@ -9,10 +9,11 @@ VAR_INPUT
 	In_Druck: REAL;
 END_VAR
 VAR_OUTPUT
-	h: REAL;		// kJ/kg; Ergebnis der interpolierten Enthalpie h an der jeweiligen Stelle.
+	h: REAL;			// kJ/kg; Ergebnis der interpolierten Enthalpie h an der jeweiligen Stelle.
 	x: REAL;			// Sättigungsgehalt des Kältemittels. x=1-> Überhitzer Dampf, x=0 -> 
-	Zustand : STRING;
-	T_v: REAL;
+	Zustand : STRING;	// Wird der Kältemittelzustand reingeschrieben
+	T_v: REAL;			// Verdampfungstemperatur
+	Dichte_v : REAL;	// Dichte vom Kältemittel im verdampften Zustand. 
 END_VAR
 VAR
 
@@ -32,13 +33,11 @@ VAR
 	HighLimit_T: INT := 100;
 	Delta_T : REAL;	
 	Schrittweite_T :INT := 1; 	// In der Datenbank sind Daten hinterlegt mit der Schrittweite 1 °C	
-	
-	Verdampfungstemperatur: REAL; 
+
 	Enthalpie: ARRAY[-20..100] OF REAL;
 	Enthalpie_T: ARRAY[10..150] OF REAL; // Hier werden alle Enthalpien von 1..15bar bei der gerade vorhandenden Temperatur interpoliert
 	counter: INT;	
 
-	T_Saturation: REAL;
 	h_l: REAL;
 	h_v: REAL;
 	delta_h: REAL;
@@ -72,10 +71,11 @@ END_VAR
 	h:= Enthalpie_T[iLowLimit_p]+ Delta_p/Schrittweite_p * (Enthalpie_T[REAL_TO_INT(iHighLimit_p)]- Enthalpie_T[REAL_TO_INT(iLowLimit_p)]);
 
 (*Verdampfungsenthalpie(h''-h'=f(p)) und Verdampfungstemperatur(T= f(p)) wird ermittelt*)
-	delta_h := r134a[iLowLimit_p].Verdampfungsenthalpie + Delta_p / Schrittweite_p * (r134a[iHighLimit_p].Verdampfungsenthalpie-r134a[iLowLimit_p].Verdampfungsenthalpie) ; // h''-h'=delta_h
+	delta_h   := r134a[iLowLimit_p].Verdampfungsenthalpie + Delta_p / Schrittweite_p * (r134a[iHighLimit_p].Verdampfungsenthalpie-r134a[iLowLimit_p].Verdampfungsenthalpie) ; // h''-h'=delta_h
 	T_v	      := r134a[iLowLimit_p].Temperatur + Delta_p / Schrittweite_p * (r134a[iHighLimit_p].Temperatur-r134a[iLowLimit_p].Temperatur) ;	// Verdampfungstemperatur; T= f(p)
-	h_l			 		  := r134a[iLowLimit_p].Enthalpie_l + Delta_p / Schrittweite_p * (r134a[iHighLimit_p].Enthalpie_l-r134a[iLowLimit_p].Enthalpie_l) ;//h', die Enthalpie auf der Siedelinie der "Glocke"
-	h_v				      := r134a[iLowLimit_p].Enthalpie_v + Delta_p / Schrittweite_p * (r134a[iHighLimit_p].Enthalpie_v-r134a[iLowLimit_p].Enthalpie_v) ; // h'', die Enthalpie auf der Taulinie der "Glocke"
+	h_l		  := r134a[iLowLimit_p].Enthalpie_l + Delta_p / Schrittweite_p * (r134a[iHighLimit_p].Enthalpie_l-r134a[iLowLimit_p].Enthalpie_l) ;//h', die Enthalpie auf der Siedelinie der "Glocke"
+	h_v		  := r134a[iLowLimit_p].Enthalpie_v + Delta_p / Schrittweite_p * (r134a[iHighLimit_p].Enthalpie_v-r134a[iLowLimit_p].Enthalpie_v) ; // h'', die Enthalpie auf der Taulinie der "Glocke"
+	Dichte_v  := r134a[iLowLimit_p].Dichte_v+ 	  Delta_p / Schrittweite_p * (r134a[iHighLimit_p].Dichte_v-r134a[iLowLimit_p].Dichte_v) ;
 
 (*Bestimmen ob der Zustandspunkt "gasförmig", "flüssig" oder sich im "Nassdampfgebiet" befindet. Entscheidend ist der größte Enthalpiewert vom gasförmigen r134a innerhalb 1..15 bar & -20..100°C*)	
 
@@ -91,7 +91,7 @@ END_IF
 //Nassdampf
 IF h<h_v AND h>h_l THEN 
 	Nassdampf := TRUE;
-	Zustand:= 'Nassdampf';
+	Zustand:= 'Nassdampfgebiet';
 	x:= (h-h_l)/ delta_h;
 	ELSE
 	Nassdampf := FALSE;
@@ -100,7 +100,7 @@ END_IF
 //Flüssig
 IF h< h_l THEN
 	Liquid := TRUE;
-	Zustand:= 'flüssig';
+	Zustand:= 'flüssiges Kältemittel';
 	x:=0;
 	ELSE
 	Liquid := FALSE;

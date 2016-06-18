@@ -14,11 +14,11 @@ END_VAR
     <Implementation>
       <ST><![CDATA[(*Soll_zeit für den Automatik-Zyklus Modus wird von Decimal in eine TIME-Variable umgerechnet*)
 	IF AutomatikZyklusEin THEN 
-	Vereisungszeit := REAL_TO_TIME(1000*60*rVereisungszeit);
+	Vereisungszeit := REAL_TO_TIME(DINT_TO_REAL(1000*60)*rVereisungszeit);
 	END_IF
 
 (*Stellgrößen werden zugewiesen*)
-PID_KP.x:= PT_VD_out.rDruck;				 //PT_KP_in.rDruck; !KP_in Druck funktioniert erst ab < 3 Bar!
+PID_KP.x:= PT_KP_in.rDruck;				 //PT_KP_in.rDruck; !KP_in Druck funktioniert erst ab < 3 Bar!
 PID_VF_Ventilator.x:= PT_VF_out.rDruck;
 
 
